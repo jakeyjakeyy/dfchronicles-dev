@@ -1,0 +1,57 @@
+Project Name: Dwarf Fortress Chronicle Generator
+
+Description:
+The Dwarf Fortress Chronicle Generator is a web application that takes Dwarf Fortress world history files uploaded by users and uses AI techniques to create narrative stories based on the historical events within those worlds. Users can explore the unique and complex histories of their Dwarf Fortress worlds through generated stories.
+
+Key Features:
+
+    User Authentication and Uploads:
+        Implement user authentication and user profiles using Django.
+        Users can upload their Dwarf Fortress world history files for analysis and story generation.
+
+    AI Analysis of World History:
+        AI component that can parse and analyze the uploaded Dwarf Fortress world history files.
+        The AI should identify significant historical events, characters, civilizations, wars, and other notable occurrences.
+
+    Narrative Generation:
+        Use the AI analysis to generate narratives that tell stories about the world's history.
+        The narratives should be engaging, coherent, and detailed, showcasing the rich content of Dwarf Fortress worlds.
+		Each found story makes a 'book' about the event. A hero slaying a monster, a civilization that stood the test of time, etc.
+
+    Interactive Story Presentation:
+        Display generated stories in an interactive and visually appealing format on the web platform.
+        Allow users to navigate through different parts of the story and explore specific events or characters.
+
+    Story Customization:
+        Give users the ability to customize the generated stories by selecting specific events or characters to focus on.
+        Provide options to tweak the narrative style or length.
+
+    Database Storage:
+        Store user profiles, uploaded world history files, and generated stories in a database for easy retrieval and access.
+
+    Search and Browse:
+        Implement a search and filter functionality, allowing users to search for specific stories or historical events from their uploaded world history files.
+
+    User Feedback and Ratings:
+        Enable users to provide feedback on generated stories and rate them.
+        Use this feedback to improve the AI's narrative generation over time.
+
+Monetization Options:
+
+    Freemium Model: Offer basic narrative generation for free and provide premium features such as advanced story customization or ad-free experience for a subscription fee.
+
+    Ads and Sponsorships: Display relevant ads on the platform, potentially collaborating with Dwarf Fortress-related communities or modders.
+
+    Donations: Allow users to make voluntary donations to support the platform and access special features.
+
+Tech Stack:
+
+    Django for backend and user authentication.
+    AI/ML libraries for text analysis and narrative generation.
+    React, HTML, CSS, and JavaScript for the web interface.
+    Database (Postgres) for storing user data and generated stories.
+
+
+legends.xml/ use dfhack exportlegends all
+https://www.dwarffortresswiki.org/index.php/DF2014:Legends
+start with XML dump, world_history, and world_sites_and_pops, dont worry about maps
