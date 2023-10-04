@@ -52,6 +52,8 @@ Tech Stack:
     Database (Postgres) for storing user data and generated stories.
 
 
-legends.xml/ use dfhack exportlegends all
+First Thoughts:
+
+legends.xml+ legends_plus.xml
 https://www.dwarffortresswiki.org/index.php/DF2014:Legends
-start with XML dump, world_history, and world_sites_and_pops, dont worry about maps
+Huge amount of data (aprox. $30,000 worth of tokens in raw data). This absolutely needs to be cleaned, or the project will simply be impossible. Available AI/ML models have nowhere near this much context length anyways, so something needs to be done.
