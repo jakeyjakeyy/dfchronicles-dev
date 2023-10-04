@@ -64,3 +64,5 @@ Current approach is to convert to JSON while eliminitating some unused keys. A m
 We can try to limit the data sent by sorting the data in relation to our best guesses at good stories. Big civilizations, old monsters, etc. and sending the data only relating to that topic
 
 No use it seems for the categories: poetic_forms, musical_forms, dance_forms
+
+

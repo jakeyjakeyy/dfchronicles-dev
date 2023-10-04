@@ -180,9 +180,15 @@ class UndergroundRegions(models.Model):
     type = models.CharField(max_length=100)
     depth = models.IntegerField(null=True)
 
-class WrittenContents(models.Models):
+class WrittenContents(models.Model):
     author_hfid = models.ForeignKey('HistoricalFigure', related_name='written_contents', null=True)
     form = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     style = models.CharField(max_length=100, null=True)
     reference = models.ForeignKey('WrittenContent', related_name='written_contents', null=True)
+
+class CreatureRaw(models.Model):
+    # name = creature_id from XML
+    name = models.CharField(max_length=100)
+    name_singular = models.CharField(max_length=100, null=True)
+    name_plural = models.CharField(max_length=100, null=True)
