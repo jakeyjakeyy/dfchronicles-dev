@@ -1,1 +1,4657 @@
-{'df_world': {'regions': [{'region': [{'id': '0', 'name': 'the gulf of ransacking', 'type': 'Ocean'}, {'id': '1', 'name': 'the competitive ice', 'type': 'Glacier'}, {'id': '2', 'name': 'the ice of humility', 'type': 'Glacier'}, {'id': '3', 'name': 'the helpful hills', 'type': 'Hills'}, {'id': '4', 'name': 'the brass forests', 'type': 'Forest'}, {'id': '5', 'name': 'the worshipful blizzards', 'type': 'Glacier'}, {'id': '6', 'name': 'the respectful forests', 'type': 'Forest'}, {'id': '7', 'name': 'the north hill', 'type': 'Hills'}, {'id': '8', 'name': 'the flayed jungles', 'type': 'Forest'}, {'id': '9', 'name': 'the adventurous forests', 'type': 'Forest'}, {'id': '10', 'name': 'the jungles of certainty', 'type': 'Forest'}]}], 'underground_regions': [{'underground_region': [{'id': '0', 'type': 'cavern', 'depth': '1'}, {'id': '1', 'type': 'cavern', 'depth': '1'}, {'id': '2', 'type': 'cavern', 'depth': '1'}, {'id': '3', 'type': 'cavern', 'depth': '1'}, {'id': '4', 'type': 'cavern', 'depth': '1'}, {'id': '5', 'type': 'cavern', 'depth': '1'}, {'id': '6', 'type': 'cavern', 'depth': '1'}, {'id': '7', 'type': 'cavern', 'depth': '1'}, {'id': '8', 'type': 'cavern', 'depth': '1'}, {'id': '9', 'type': 'cavern', 'depth': '2'}, {'id': '10', 'type': 'cavern', 'depth': '2'}]}], 'sites': [{'site': [{'id': '1', 'type': 'cave', 'name': 'endcrack', 'coords': '7,9', 'rectangle': '114,151:116,153'}, {'id': '2', 'type': 'cave', 'name': 'muddledechoes the spawn of entangling', 'coords': '22,17', 'rectangle': '359,279:361,281'}, {'id': '3', 'type': 'cave', 'name': 'the hollows of deference', 'coords': '14,31', 'rectangle': '229,507:231,509'}, {'id': '4', 'type': 'cave', 'name': 'silverydeep', 'coords': '27,3', 'rectangle': '434,55:436,57'}, {'id': '5', 'type': 'fortress', 'name': 'praisedwhip', 'coords': '16,17', 'rectangle': '269,285:271,287', 'structures': [{'structure': [{'local_id': '0', 'type': 'guildhall', 'name': 'the treaty of palisades'}, {'local_id': '1', 'type': 'inn tavern', 'name': 'the gloved honeys'}, {'local_id': '2', 'type': 'guildhall', 'name': 'the fenced board'}, {'local_id': '3', 'type': 'guildhall', 'name': 'the constructive tower'}, {'local_id': '4', 'type': 'library', 'name': 'the watchful treasury'}, {'local_id': '5', 'type': 'guildhall', 'name': 'the gloved fells'}, {'local_id': '6', 'type': 'guildhall', 'name': 'the attic of trade'}]}]}, {'id': '6', 'type': 'dark fortress', 'name': 'burnedwitch', 'coords': '30,24', 'rectangle': '483,378:499,394', 'structures': [{'structure': [{'local_id': '0', 'type': 'underworld spire', 'name': 'the tower of caves'}, {'local_id': '1', 'type': 'inn tavern', 'name': 'the mushroom of palaces'}]}]}, {'id': '7', 'type': 'hamlet', 'name': 'whispermaze', 'coords': '19,9', 'rectangle': '299,142:315,158', 'structures': [{'structure': [{'local_id': '0', 'type': 'mead hall', 'name': 'the irons of kin'}]}]}, {'id': '8', 'type': 'forest retreat', 'name': 'yelledvines', 'coords': '27,14', 'rectangle': '436,221:452,237'}, {'id': '9', 'type': 'fortress', 'name': 'paddlesaved', 'coords': '13,12', 'rectangle': '220,193:222,195', 'structures': [{'structure': [{'local_id': '0', 'type': 'inn tavern', 'name': 'the snack of portals'}, {'local_id': '1', 'type': 'guildhall', 'name': 'the laborious fame'}, {'local_id': '2', 'type': 'guildhall', 'name': 'the inky sweetnesses'}, {'local_id': '3', 'type': 'counting house', 'name': 'the wayward merchants'}, {'local_id': '4', 'type': 'counting house', 'name': 'the south cosmos'}, {'local_id': '5', 'type': 'counting house', 'name': 'the burn of merchants'}, {'local_id': '6', 'type': 'counting house', 'name': 'the west evenness'}, {'local_id': '7', 'type': 'counting house', 'name': 'the bride of wanderers'}, {'local_id': '8', 'type': 'counting house', 'name': 'the language of wanderers'}, {'local_id': '9', 'type': 'guildhall', 'name': 'the barricaded rasp'}, {'local_id': '10', 'type': 'counting house', 'name': 'the wayward will'}, {'local_id': '11', 'type': 'counting house', 'name': 'the ear of trades'}, {'local_id': '12', 'type': 'temple', 'name': 'the cathedral of mirth', 'entity_id': '129'}, {'local_id': '13', 'type': 'dungeon', 'subtype': 'catacombs', 'name': 'cystcracks'}]}], 'site_properties': [{'site_property': [{'id': '0', 'structure_id': '3'}, {'id': '1', 'structure_id': '4'}, {'id': '2', 'structure_id': '5'}, {'id': '3', 'structure_id': '6'}, {'id': '4', 'structure_id': '7'}, {'id': '5', 'structure_id': '8'}, {'id': '6', 'structure_id': '10'}, {'id': '7', 'structure_id': '11'}]}]}, {'id': '10', 'type': 'dark fortress', 'name': 'goresins', 'coords': '12,25', 'rectangle': '186,400:202,416', 'structures': [{'structure': [{'local_id': '0', 'type': 'underworld spire', 'name': 'the palace of bewildering'}, {'local_id': '1', 'type': 'inn tavern', 'name': 'the date of midnight'}, {'local_id': '2', 'type': 'inn tavern', 'name': 'the tongue of terrors'}, {'local_id': '3', 'type': 'inn tavern', 'name': 'the peaches of wickedness'}, {'local_id': '4', 'type': 'counting house', 'name': 'the abatement of wanderers'}, {'local_id': '5', 'type': 'counting house', 'name': 'the north renown'}, {'local_id': '6', 'type': 'counting house', 'name': 'the south pantomime'}, {'local_id': '7', 'type': 'inn tavern', 'name': 'the ruthless tongues'}]}], 'site_properties': [{'site_property': [{'id': '0', 'structure_id': '4'}, {'id': '1', 'structure_id': '5'}, {'id': '2', 'structure_id': '6'}]}]}]}], 'world_constructions': '\n', 'artifacts': [{'artifact': [{'id': '0', 'name': 'the grand castle', 'item': [{'name_string': 'darmadithru'}], 'site_id': '23'}, {'id': '1', 'name': 'the key of contesting', 'item': [{'name_string': 'edem agesh'}], 'site_id': '24'}, {'id': '2', 'name': 'savecontrols', 'item': [{'name_string': 'ekastegul'}], 'site_id': '25'}, {'id': '3', 'name': 'mobbeddagger', 'item': [{'name_string': 'efivaacita'}], 'site_id': '26'}, {'id': '4', 'name': 'unionsfailed', 'item': [{'name_string': 'semorungeg'}], 'holder_hfid': '909'}, {'id': '5', 'name': 'the waning play', 'item': [{'name_string': 'lelumtitthal'}], 'holder_hfid': '216'}, {'id': '6', 'name': 'the composition when it counts', 'item': [{'name_string': 'the composition when it counts', 'page_number': '30', 'page_written_content_id': '21'}], 'site_id': '6'}, {'id': '7', 'name': 'the dominant steamy savior', 'item': [{'name_string': 'akestkengtamol'}], 'site_id': '3'}, {'id': '8', 'name': 'the book of wonderwilts', 'item': [{'name_string': 'the book of wonderwilts', 'page_number': '181', 'page_written_content_id': '34'}], 'holder_hfid': '748'}, {'id': '9', 'name': 'the porcupine women: a new approach', 'item': [{'name_string': 'the porcupine women: a new approach', 'writing_written_content_id': '35'}], 'site_id': '34'}, {'id': '10', 'name': 'the sienna russet satin and the universe', 'item': [{'name_string': 'the sienna russet satin and the universe', 'page_number': '78', 'page_written_content_id': '46'}], 'site_id': '136'}]}], 'historical_figures': [{'historical_figure': [{'id': '0', 'name': 'uthra flighthailed the coastal knight', 'race': 'BIRD_ROC', 'caste': 'FEMALE', 'appeared': '1', 'birth_year': '-234', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '79'}, {'link_type': 'enemy', 'entity_id': '47'}, {'link_type': 'enemy', 'entity_id': '94'}, {'link_type': 'enemy', 'entity_id': '105'}, {'link_type': 'enemy', 'entity_id': '70'}, {'link_type': 'enemy', 'entity_id': '83'}, {'link_type': 'enemy', 'entity_id': '133'}, {'link_type': 'enemy', 'entity_id': '27'}, {'link_type': 'enemy', 'entity_id': '26'}, {'link_type': 'enemy', 'entity_id': '35'}, {'link_type': 'enemy', 'entity_id': '34'}, {'link_type': 'enemy', 'entity_id': '25'}, {'link_type': 'enemy', 'entity_id': '141'}, {'link_type': 'enemy', 'entity_id': '33'}, {'link_type': 'enemy', 'entity_id': '37'}, {'link_type': 'enemy', 'entity_id': '39'}, {'link_type': 'enemy', 'entity_id': '269'}, {'link_type': 'enemy', 'entity_id': '43'}, {'link_type': 'enemy', 'entity_id': '45'}, {'link_type': 'enemy', 'entity_id': '353'}, {'link_type': 'enemy', 'entity_id': '49'}, {'link_type': 'enemy', 'entity_id': '51'}, {'link_type': 'enemy', 'entity_id': '53'}, {'link_type': 'enemy', 'entity_id': '276'}, {'link_type': 'enemy', 'entity_id': '57'}, {'link_type': 'enemy', 'entity_id': '59'}, {'link_type': 'enemy', 'entity_id': '61'}, {'link_type': 'enemy', 'entity_id': '60'}, {'link_type': 'enemy', 'entity_id': '63'}, {'link_type': 'enemy', 'entity_id': '64'}, {'link_type': 'enemy', 'entity_id': '65'}, {'link_type': 'enemy', 'entity_id': '66'}, {'link_type': 'enemy', 'entity_id': '67'}, {'link_type': 'enemy', 'entity_id': '68'}, {'link_type': 'enemy', 'entity_id': '69'}, {'link_type': 'enemy', 'entity_id': '347'}, {'link_type': 'enemy', 'entity_id': '262'}, {'link_type': 'enemy', 'entity_id': '295'}, {'link_type': 'enemy', 'entity_id': '136'}, {'link_type': 'enemy', 'entity_id': '75'}, {'link_type': 'enemy', 'entity_id': '76'}, {'link_type': 'enemy', 'entity_id': '77'}, {'link_type': 'enemy', 'entity_id': '78'}, {'link_type': 'enemy', 'entity_id': '333'}, {'link_type': 'enemy', 'entity_id': '24'}, {'link_type': 'enemy', 'entity_id': '140'}, {'link_type': 'enemy', 'entity_id': '81'}, {'link_type': 'enemy', 'entity_id': '82'}, {'link_type': 'enemy', 'entity_id': '331'}, {'link_type': 'enemy', 'entity_id': '264'}, {'link_type': 'enemy', 'entity_id': '87'}, {'link_type': 'enemy', 'entity_id': '88'}, {'link_type': 'enemy', 'entity_id': '334'}, {'link_type': 'enemy', 'entity_id': '36'}, {'link_type': 'enemy', 'entity_id': '90'}, {'link_type': 'enemy', 'entity_id': '352'}, {'link_type': 'enemy', 'entity_id': '93'}, {'link_type': 'enemy', 'entity_id': '329'}, {'link_type': 'enemy', 'entity_id': '95'}, {'link_type': 'enemy', 'entity_id': '96'}, {'link_type': 'enemy', 'entity_id': '97'}, {'link_type': 'enemy', 'entity_id': '106'}, {'link_type': 'enemy', 'entity_id': '92'}, {'link_type': 'enemy', 'entity_id': '107'}, {'link_type': 'enemy', 'entity_id': '111'}, {'link_type': 'enemy', 'entity_id': '330'}, {'link_type': 'enemy', 'entity_id': '115'}, {'link_type': 'enemy', 'entity_id': '116'}, {'link_type': 'enemy', 'entity_id': '117'}, {'link_type': 'enemy', 'entity_id': '118'}, {'link_type': 'enemy', 'entity_id': '119'}, {'link_type': 'enemy', 'entity_id': '130'}, {'link_type': 'enemy', 'entity_id': '332'}, {'link_type': 'enemy', 'entity_id': '134'}, {'link_type': 'enemy', 'entity_id': '164'}, {'link_type': 'enemy', 'entity_id': '137'}, {'link_type': 'enemy', 'entity_id': '143'}, {'link_type': 'enemy', 'entity_id': '145'}, {'link_type': 'enemy', 'entity_id': '146'}, {'link_type': 'enemy', 'entity_id': '148'}, {'link_type': 'enemy', 'entity_id': '149'}, {'link_type': 'enemy', 'entity_id': '123'}, {'link_type': 'enemy', 'entity_id': '153'}, {'link_type': 'enemy', 'entity_id': '154'}, {'link_type': 'enemy', 'entity_id': '155'}, {'link_type': 'enemy', 'entity_id': '157'}, {'link_type': 'enemy', 'entity_id': '161'}, {'link_type': 'enemy', 'entity_id': '165'}, {'link_type': 'enemy', 'entity_id': '168'}, {'link_type': 'enemy', 'entity_id': '169'}, {'link_type': 'enemy', 'entity_id': '337'}, {'link_type': 'enemy', 'entity_id': '171'}, {'link_type': 'enemy', 'entity_id': '54'}, {'link_type': 'enemy', 'entity_id': '172'}, {'link_type': 'enemy', 'entity_id': '173'}, {'link_type': 'enemy', 'entity_id': '174'}, {'link_type': 'enemy', 'entity_id': '175'}, {'link_type': 'enemy', 'entity_id': '177'}, {'link_type': 'enemy', 'entity_id': '178'}, {'link_type': 'enemy', 'entity_id': '179'}, {'link_type': 'enemy', 'entity_id': '182'}, {'link_type': 'enemy', 'entity_id': '184'}, {'link_type': 'enemy', 'entity_id': '185'}, {'link_type': 'enemy', 'entity_id': '186'}, {'link_type': 'enemy', 'entity_id': '187'}, {'link_type': 'enemy', 'entity_id': '189'}, {'link_type': 'enemy', 'entity_id': '190'}, {'link_type': 'enemy', 'entity_id': '38'}, {'link_type': 'enemy', 'entity_id': '191'}, {'link_type': 'enemy', 'entity_id': '192'}, {'link_type': 'enemy', 'entity_id': '193'}, {'link_type': 'enemy', 'entity_id': '194'}, {'link_type': 'enemy', 'entity_id': '195'}, {'link_type': 'enemy', 'entity_id': '196'}, {'link_type': 'enemy', 'entity_id': '197'}, {'link_type': 'enemy', 'entity_id': '198'}, {'link_type': 'enemy', 'entity_id': '200'}, {'link_type': 'enemy', 'entity_id': '201'}, {'link_type': 'enemy', 'entity_id': '202'}, {'link_type': 'enemy', 'entity_id': '203'}, {'link_type': 'enemy', 'entity_id': '205'}, {'link_type': 'enemy', 'entity_id': '48'}, {'link_type': 'enemy', 'entity_id': '206'}, {'link_type': 'enemy', 'entity_id': '210'}, {'link_type': 'enemy', 'entity_id': '211'}, {'link_type': 'enemy', 'entity_id': '212'}, {'link_type': 'enemy', 'entity_id': '215'}, {'link_type': 'enemy', 'entity_id': '219'}, {'link_type': 'enemy', 'entity_id': '220'}, {'link_type': 'enemy', 'entity_id': '113'}, {'link_type': 'enemy', 'entity_id': '222'}, {'link_type': 'enemy', 'entity_id': '58'}, {'link_type': 'enemy', 'entity_id': '223'}, {'link_type': 'enemy', 'entity_id': '56'}, {'link_type': 'enemy', 'entity_id': '224'}, {'link_type': 'enemy', 'entity_id': '225'}, {'link_type': 'enemy', 'entity_id': '227'}, {'link_type': 'enemy', 'entity_id': '230'}, {'link_type': 'enemy', 'entity_id': '253'}, {'link_type': 'enemy', 'entity_id': '32'}, {'link_type': 'enemy', 'entity_id': '232'}, {'link_type': 'enemy', 'entity_id': '235'}, {'link_type': 'enemy', 'entity_id': '30'}, {'link_type': 'enemy', 'entity_id': '199'}, {'link_type': 'enemy', 'entity_id': '238'}, {'link_type': 'enemy', 'entity_id': '40'}, {'link_type': 'enemy', 'entity_id': '248'}, {'link_type': 'enemy', 'entity_id': '267'}, {'link_type': 'enemy', 'entity_id': '42'}, {'link_type': 'enemy', 'entity_id': '103'}, {'link_type': 'enemy', 'entity_id': '246'}, {'link_type': 'enemy', 'entity_id': '44'}, {'link_type': 'enemy', 'entity_id': '336'}, {'link_type': 'enemy', 'entity_id': '50'}, {'link_type': 'enemy', 'entity_id': '314'}, {'link_type': 'enemy', 'entity_id': '52'}, {'link_type': 'enemy', 'entity_id': '345'}, {'link_type': 'enemy', 'entity_id': '310'}, {'link_type': 'enemy', 'entity_id': '299'}, {'link_type': 'enemy', 'entity_id': '62'}, {'link_type': 'enemy', 'entity_id': '287'}, {'link_type': 'enemy', 'entity_id': '283'}, {'link_type': 'enemy', 'entity_id': '275'}, {'link_type': 'enemy', 'entity_id': '254'}, {'link_type': 'enemy', 'entity_id': '46'}, {'link_type': 'enemy', 'entity_id': '250'}, {'link_type': 'enemy', 'entity_id': '242'}, {'link_type': 'enemy', 'entity_id': '241'}, {'link_type': 'enemy', 'entity_id': '240'}, {'link_type': 'enemy', 'entity_id': '85'}, {'link_type': 'enemy', 'entity_id': '216'}, {'link_type': 'enemy', 'entity_id': '144'}, {'link_type': 'enemy', 'entity_id': '28'}, {'link_type': 'enemy', 'entity_id': '127'}, {'link_type': 'enemy', 'entity_id': '126'}, {'link_type': 'enemy', 'entity_id': '124'}, {'link_type': 'enemy', 'entity_id': '104'}, {'link_type': 'enemy', 'entity_id': '101'}, {'link_type': 'enemy', 'entity_id': '100'}, {'link_type': 'enemy', 'entity_id': '98'}, {'link_type': 'enemy', 'entity_id': '84'}], 'site_link': [{'link_type': 'lair', 'site_id': '221'}], 'sphere': 'hunting'}, {'id': '1', 'name': 'ning crazeraked the canyon of persuasion', 'race': 'COLOSSUS_BRONZE', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-220', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '70'}, {'link_type': 'enemy', 'entity_id': '74'}, {'link_type': 'enemy', 'entity_id': '55'}, {'link_type': 'enemy', 'entity_id': '47'}, {'link_type': 'enemy', 'entity_id': '110'}, {'link_type': 'enemy', 'entity_id': '94'}, {'link_type': 'enemy', 'entity_id': '133'}, {'link_type': 'enemy', 'entity_id': '131'}, {'link_type': 'enemy', 'entity_id': '27'}, {'link_type': 'enemy', 'entity_id': '26'}, {'link_type': 'enemy', 'entity_id': '35'}, {'link_type': 'enemy', 'entity_id': '34'}, {'link_type': 'enemy', 'entity_id': '25'}, {'link_type': 'enemy', 'entity_id': '141'}, {'link_type': 'enemy', 'entity_id': '33'}, {'link_type': 'enemy', 'entity_id': '37'}, {'link_type': 'enemy', 'entity_id': '39'}, {'link_type': 'enemy', 'entity_id': '269'}, {'link_type': 'enemy', 'entity_id': '43'}, {'link_type': 'enemy', 'entity_id': '45'}, {'link_type': 'enemy', 'entity_id': '353'}, {'link_type': 'enemy', 'entity_id': '49'}, {'link_type': 'enemy', 'entity_id': '51'}, {'link_type': 'enemy', 'entity_id': '53'}, {'link_type': 'enemy', 'entity_id': '276'}, {'link_type': 'enemy', 'entity_id': '57'}, {'link_type': 'enemy', 'entity_id': '59'}, {'link_type': 'enemy', 'entity_id': '61'}, {'link_type': 'enemy', 'entity_id': '60'}, {'link_type': 'enemy', 'entity_id': '63'}, {'link_type': 'enemy', 'entity_id': '64'}, {'link_type': 'enemy', 'entity_id': '65'}, {'link_type': 'enemy', 'entity_id': '66'}, {'link_type': 'enemy', 'entity_id': '67'}, {'link_type': 'enemy', 'entity_id': '68'}, {'link_type': 'enemy', 'entity_id': '69'}, {'link_type': 'enemy', 'entity_id': '347'}, {'link_type': 'enemy', 'entity_id': '262'}, {'link_type': 'enemy', 'entity_id': '295'}, {'link_type': 'enemy', 'entity_id': '136'}, {'link_type': 'enemy', 'entity_id': '75'}, {'link_type': 'enemy', 'entity_id': '76'}, {'link_type': 'enemy', 'entity_id': '77'}, {'link_type': 'enemy', 'entity_id': '78'}, {'link_type': 'enemy', 'entity_id': '333'}, {'link_type': 'enemy', 'entity_id': '24'}, {'link_type': 'enemy', 'entity_id': '140'}, {'link_type': 'enemy', 'entity_id': '81'}, {'link_type': 'enemy', 'entity_id': '82'}, {'link_type': 'enemy', 'entity_id': '331'}, {'link_type': 'enemy', 'entity_id': '264'}, {'link_type': 'enemy', 'entity_id': '87'}, {'link_type': 'enemy', 'entity_id': '88'}, {'link_type': 'enemy', 'entity_id': '334'}, {'link_type': 'enemy', 'entity_id': '36'}, {'link_type': 'enemy', 'entity_id': '90'}, {'link_type': 'enemy', 'entity_id': '352'}, {'link_type': 'enemy', 'entity_id': '93'}, {'link_type': 'enemy', 'entity_id': '329'}, {'link_type': 'enemy', 'entity_id': '95'}, {'link_type': 'enemy', 'entity_id': '96'}, {'link_type': 'enemy', 'entity_id': '97'}, {'link_type': 'enemy', 'entity_id': '106'}, {'link_type': 'enemy', 'entity_id': '92'}, {'link_type': 'enemy', 'entity_id': '107'}, {'link_type': 'enemy', 'entity_id': '111'}, {'link_type': 'enemy', 'entity_id': '330'}, {'link_type': 'enemy', 'entity_id': '115'}, {'link_type': 'enemy', 'entity_id': '116'}, {'link_type': 'enemy', 'entity_id': '117'}, {'link_type': 'enemy', 'entity_id': '118'}, {'link_type': 'enemy', 'entity_id': '119'}, {'link_type': 'enemy', 'entity_id': '130'}, {'link_type': 'enemy', 'entity_id': '332'}, {'link_type': 'enemy', 'entity_id': '134'}, {'link_type': 'enemy', 'entity_id': '164'}, {'link_type': 'enemy', 'entity_id': '137'}, {'link_type': 'enemy', 'entity_id': '143'}, {'link_type': 'enemy', 'entity_id': '145'}, {'link_type': 'enemy', 'entity_id': '146'}, {'link_type': 'enemy', 'entity_id': '148'}, {'link_type': 'enemy', 'entity_id': '149'}, {'link_type': 'enemy', 'entity_id': '123'}, {'link_type': 'enemy', 'entity_id': '153'}, {'link_type': 'enemy', 'entity_id': '154'}, {'link_type': 'enemy', 'entity_id': '155'}, {'link_type': 'enemy', 'entity_id': '157'}, {'link_type': 'enemy', 'entity_id': '161'}, {'link_type': 'enemy', 'entity_id': '165'}, {'link_type': 'enemy', 'entity_id': '168'}, {'link_type': 'enemy', 'entity_id': '169'}, {'link_type': 'enemy', 'entity_id': '337'}, {'link_type': 'enemy', 'entity_id': '171'}, {'link_type': 'enemy', 'entity_id': '54'}, {'link_type': 'enemy', 'entity_id': '172'}, {'link_type': 'enemy', 'entity_id': '173'}, {'link_type': 'enemy', 'entity_id': '174'}, {'link_type': 'enemy', 'entity_id': '175'}, {'link_type': 'enemy', 'entity_id': '177'}, {'link_type': 'enemy', 'entity_id': '178'}, {'link_type': 'enemy', 'entity_id': '179'}, {'link_type': 'enemy', 'entity_id': '182'}, {'link_type': 'enemy', 'entity_id': '184'}, {'link_type': 'enemy', 'entity_id': '185'}, {'link_type': 'enemy', 'entity_id': '186'}, {'link_type': 'enemy', 'entity_id': '187'}, {'link_type': 'enemy', 'entity_id': '189'}, {'link_type': 'enemy', 'entity_id': '190'}, {'link_type': 'enemy', 'entity_id': '38'}, {'link_type': 'enemy', 'entity_id': '191'}, {'link_type': 'enemy', 'entity_id': '192'}, {'link_type': 'enemy', 'entity_id': '193'}, {'link_type': 'enemy', 'entity_id': '194'}, {'link_type': 'enemy', 'entity_id': '195'}, {'link_type': 'enemy', 'entity_id': '196'}, {'link_type': 'enemy', 'entity_id': '197'}, {'link_type': 'enemy', 'entity_id': '198'}, {'link_type': 'enemy', 'entity_id': '200'}, {'link_type': 'enemy', 'entity_id': '201'}, {'link_type': 'enemy', 'entity_id': '202'}, {'link_type': 'enemy', 'entity_id': '203'}, {'link_type': 'enemy', 'entity_id': '205'}, {'link_type': 'enemy', 'entity_id': '48'}, {'link_type': 'enemy', 'entity_id': '206'}, {'link_type': 'enemy', 'entity_id': '210'}, {'link_type': 'enemy', 'entity_id': '211'}, {'link_type': 'enemy', 'entity_id': '212'}, {'link_type': 'enemy', 'entity_id': '215'}, {'link_type': 'enemy', 'entity_id': '219'}, {'link_type': 'enemy', 'entity_id': '220'}, {'link_type': 'enemy', 'entity_id': '113'}, {'link_type': 'enemy', 'entity_id': '222'}, {'link_type': 'enemy', 'entity_id': '58'}, {'link_type': 'enemy', 'entity_id': '223'}, {'link_type': 'enemy', 'entity_id': '56'}, {'link_type': 'enemy', 'entity_id': '224'}, {'link_type': 'enemy', 'entity_id': '225'}, {'link_type': 'enemy', 'entity_id': '227'}, {'link_type': 'enemy', 'entity_id': '230'}, {'link_type': 'enemy', 'entity_id': '253'}, {'link_type': 'enemy', 'entity_id': '32'}, {'link_type': 'enemy', 'entity_id': '232'}, {'link_type': 'enemy', 'entity_id': '235'}, {'link_type': 'enemy', 'entity_id': '30'}, {'link_type': 'enemy', 'entity_id': '199'}, {'link_type': 'enemy', 'entity_id': '238'}, {'link_type': 'enemy', 'entity_id': '40'}, {'link_type': 'enemy', 'entity_id': '248'}, {'link_type': 'enemy', 'entity_id': '267'}, {'link_type': 'enemy', 'entity_id': '42'}, {'link_type': 'enemy', 'entity_id': '103'}, {'link_type': 'enemy', 'entity_id': '246'}, {'link_type': 'enemy', 'entity_id': '44'}, {'link_type': 'enemy', 'entity_id': '336'}, {'link_type': 'enemy', 'entity_id': '50'}, {'link_type': 'enemy', 'entity_id': '314'}, {'link_type': 'enemy', 'entity_id': '52'}, {'link_type': 'enemy', 'entity_id': '345'}, {'link_type': 'enemy', 'entity_id': '310'}, {'link_type': 'enemy', 'entity_id': '299'}, {'link_type': 'enemy', 'entity_id': '62'}, {'link_type': 'enemy', 'entity_id': '287'}, {'link_type': 'enemy', 'entity_id': '283'}, {'link_type': 'enemy', 'entity_id': '275'}, {'link_type': 'enemy', 'entity_id': '254'}, {'link_type': 'enemy', 'entity_id': '46'}, {'link_type': 'enemy', 'entity_id': '250'}, {'link_type': 'enemy', 'entity_id': '242'}, {'link_type': 'enemy', 'entity_id': '241'}, {'link_type': 'enemy', 'entity_id': '240'}, {'link_type': 'enemy', 'entity_id': '85'}, {'link_type': 'enemy', 'entity_id': '216'}, {'link_type': 'enemy', 'entity_id': '144'}, {'link_type': 'enemy', 'entity_id': '28'}, {'link_type': 'enemy', 'entity_id': '127'}, {'link_type': 'enemy', 'entity_id': '126'}, {'link_type': 'enemy', 'entity_id': '124'}, {'link_type': 'enemy', 'entity_id': '104'}, {'link_type': 'enemy', 'entity_id': '101'}, {'link_type': 'enemy', 'entity_id': '100'}, {'link_type': 'enemy', 'entity_id': '98'}, {'link_type': 'enemy', 'entity_id': '84'}], 'site_link': [{'link_type': 'lair', 'site_id': '220'}], 'sphere': 'war'}, {'id': '2', 'name': 'ena', 'race': 'FORGOTTEN_BEAST_1', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-265', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '3', 'name': 'asngek boneechoed the dead heart', 'race': 'FORGOTTEN_BEAST_2', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-246', 'birth_seconds72': '-1', 'death_year': '69', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '202'}, {'link_type': 'enemy', 'entity_id': '58'}], 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '4', 'name': 'cethutha soakhole', 'race': 'FORGOTTEN_BEAST_3', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-182', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '5', 'name': 'nuglush depthroasts the deep', 'race': 'FORGOTTEN_BEAST_4', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-221', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '37'}, {'link_type': 'enemy', 'entity_id': '36'}, {'link_type': 'enemy', 'entity_id': '179'}, {'link_type': 'enemy', 'entity_id': '44'}], 'sphere': 'nightmares', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '6', 'name': 'auraweb the abyssal evil', 'race': 'FORGOTTEN_BEAST_5', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-193', 'birth_seconds72': '-1', 'death_year': '2', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '7', 'name': 'shoduk ghostseduced the evil crypt', 'race': 'FORGOTTEN_BEAST_6', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-247', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '59'}, {'link_type': 'enemy', 'entity_id': '58'}, {'link_type': 'enemy', 'entity_id': '25'}, {'link_type': 'enemy', 'entity_id': '24'}], 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '8', 'name': 'sospin weevildrank', 'race': 'FORGOTTEN_BEAST_7', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-269', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '45'}, {'link_type': 'enemy', 'entity_id': '44'}, {'link_type': 'enemy', 'entity_id': '206'}, {'link_type': 'enemy', 'entity_id': '58'}], 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '9', 'name': 'zimun droolthieves', 'race': 'FORGOTTEN_BEAST_8', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-283', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '120'}, {'link_type': 'enemy', 'entity_id': '58'}, {'link_type': 'enemy', 'entity_id': '206'}, {'link_type': 'enemy', 'entity_id': '45'}, {'link_type': 'enemy', 'entity_id': '44'}], 'sphere': 'depravity', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '10', 'name': 'arak echogripped the crazed sling', 'race': 'FORGOTTEN_BEAST_9', 'caste': 'DEFAULT', 'appeared': '1', 'birth_year': '-239', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'entity_link': [{'link_type': 'enemy', 'entity_id': '59'}, {'link_type': 'enemy', 'entity_id': '58'}, {'link_type': 'enemy', 'entity_id': '45'}, {'link_type': 'enemy', 'entity_id': '44'}], 'sphere': 'water', 'hf_skill': [{'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '4500'}, {'skill': 'DODGING', 'total_ip': '4500'}, {'skill': 'MELEE_COMBAT', 'total_ip': '4500'}, {'skill': 'STANCE_STRIKE', 'total_ip': '4500'}, {'skill': 'GRASP_STRIKE', 'total_ip': '4500'}, {'skill': 'BITE', 'total_ip': '4500'}, {'skill': 'WRESTLING', 'total_ip': '4500'}]}, {'id': '11', 'name': 'ber fungusseduce', 'race': 'GOBLIN', 'caste': 'MALE', 'appeared': '1', 'birth_year': '-271', 'birth_seconds72': '-1', 'death_year': '24', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'hf_link': [{'link_type': 'child', 'hfid': '413'}, {'link_type': 'child', 'hfid': '452'}, {'link_type': 'child', 'hfid': '557'}, {'link_type': 'child', 'hfid': '767'}, {'link_type': 'child', 'hfid': '844'}, {'link_type': 'child', 'hfid': '901'}], 'entity_link': [{'link_type': 'member', 'entity_id': '28'}, {'link_type': 'former member', 'entity_id': '29', 'link_strength': '89'}, {'link_type': 'former member', 'entity_id': '80'}], 'entity_former_position_link': [{'position_profile_id': '3', 'entity_id': '28', 'start_year': '6', 'end_year': '24'}], 'hf_skill': [{'skill': 'GELD', 'total_ip': '9000'}, {'skill': 'NEGOTIATION', 'total_ip': '600'}, {'skill': 'COMEDY', 'total_ip': '600'}, {'skill': 'PACIFY', 'total_ip': '600'}, {'skill': 'LYING', 'total_ip': '600'}, {'skill': 'JUDGING_INTENT', 'total_ip': '600'}, {'skill': 'PIKE', 'total_ip': '2070'}, {'skill': 'DODGING', 'total_ip': '890'}, {'skill': 'SHIELD', 'total_ip': '695'}, {'skill': 'ARMOR', 'total_ip': '777'}, {'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '778'}, {'skill': 'DISCIPLINE', 'total_ip': '751'}, {'skill': 'CLIMBING', 'total_ip': '500'}, {'skill': 'BREWING', 'total_ip': '500'}, {'skill': 'SPINNING', 'total_ip': '500'}, {'skill': 'COOK', 'total_ip': '500'}], 'goal': 'rule the world', 'intrigue_plot': [{'local_id': '0', 'type': 'attain rank'}, {'local_id': '1', 'type': 'grow funding network'}, {'local_id': '2', 'type': 'grow asset network'}, {'local_id': '3', 'type': 'grow corruption network', 'on_hold': None}], 'ent_pop_id': '26'}, {'id': '12', 'name': 'tobul moblancer', 'race': 'DWARF', 'caste': 'MALE', 'appeared': '1', 'birth_year': '-62', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'associated_type': 'SPINNER', 'hf_link': [{'link_type': 'deity', 'hfid': '126', 'link_strength': '97'}, {'link_type': 'deity', 'hfid': '127', 'link_strength': '23'}, {'link_type': 'deity', 'hfid': '123', 'link_strength': '21'}, {'link_type': 'former spouse', 'hfid': '136'}, {'link_type': 'spouse', 'hfid': '136'}], 'entity_link': [{'link_type': 'member', 'entity_id': '36'}, {'link_type': 'member', 'entity_id': '37'}], 'entity_position_link': [{'position_profile_id': '0', 'entity_id': '36', 'start_year': '1'}], 'hf_skill': [{'skill': 'SPINNING', 'total_ip': '9000'}, {'skill': 'CONVERSATION', 'total_ip': '7000'}, {'skill': 'PACIFY', 'total_ip': '5000'}, {'skill': 'NEGOTIATION', 'total_ip': '7800'}, {'skill': 'JUDGING_INTENT', 'total_ip': '7400'}, {'skill': 'COMEDY', 'total_ip': '6300'}, {'skill': 'INTIMIDATION', 'total_ip': '7400'}, {'skill': 'PERSUASION', 'total_ip': '5000'}, {'skill': 'FLATTERY', 'total_ip': '6600'}, {'skill': 'WRESTLING', 'total_ip': '18000'}, {'skill': 'THROW', 'total_ip': '18000'}], 'goal': 'start a family', 'vague_relationship': [{'athlete_buddy': None, 'hfid': '131'}, {'athlete_buddy': None, 'hfid': '141'}, {'athlete_buddy': None, 'hfid': '133'}, {'athlete_buddy': None, 'hfid': '139'}, {'athlete_buddy': None, 'hfid': '149'}, {'athlete_buddy': None, 'hfid': '1701'}], 'ent_pop_id': '30'}, {'id': '131', 'name': 'eshtan copperheathers', 'race': 'DWARF', 'caste': 'MALE', 'appeared': '1', 'birth_year': '-85', 'birth_seconds72': '-1', 'death_year': '81', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'hf_link': [{'link_type': 'deity', 'hfid': '125', 'link_strength': '58'}, {'link_type': 'deity', 'hfid': '127', 'link_strength': '43'}, {'link_type': 'deity', 'hfid': '123', 'link_strength': '15'}, {'link_type': 'deity', 'hfid': '126'}, {'link_type': 'child', 'hfid': '637'}, {'link_type': 'child', 'hfid': '769'}, {'link_type': 'child', 'hfid': '984'}, {'link_type': 'child', 'hfid': '1089'}, {'link_type': 'former spouse', 'hfid': '137'}, {'link_type': 'spouse', 'hfid': '137'}, {'link_type': 'child', 'hfid': '1778'}, {'link_type': 'deceased spouse', 'hfid': '137'}], 'entity_link': [{'link_type': 'member', 'entity_id': '36'}, {'link_type': 'member', 'entity_id': '37'}], 'entity_former_position_link': [{'position_profile_id': '3', 'entity_id': '36', 'start_year': '1', 'end_year': '81'}], 'hf_skill': [{'skill': 'SOAP_MAKING', 'total_ip': '9000'}, {'skill': 'NEGOTIATION', 'total_ip': '4700'}, {'skill': 'CONVERSATION', 'total_ip': '6500'}, {'skill': 'PERSUASION', 'total_ip': '7000'}, {'skill': 'JUDGING_INTENT', 'total_ip': '6100'}, {'skill': 'PACIFY', 'total_ip': '4300'}, {'skill': 'INTIMIDATION', 'total_ip': '4300'}, {'skill': 'CONSOLE', 'total_ip': '5400'}, {'skill': 'WRESTLING', 'total_ip': '18000'}, {'skill': 'COMEDY', 'total_ip': '4700'}, {'skill': 'SPEAR', 'total_ip': '1800'}, {'skill': 'DODGING', 'total_ip': '500'}, {'skill': 'SHIELD', 'total_ip': '500'}, {'skill': 'ARMOR', 'total_ip': '500'}, {'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '500'}, {'skill': 'DISCIPLINE', 'total_ip': '500'}, {'skill': 'CLIMBING', 'total_ip': '500'}, {'skill': 'MILITARY_TACTICS', 'total_ip': '500'}, {'skill': 'LEADERSHIP', 'total_ip': '500'}, {'skill': 'ORGANIZATION', 'total_ip': '500'}, {'skill': 'THROW', 'total_ip': '201'}], 'goal': 'create a great work of art', 'ent_pop_id': '30'}, {'id': '13', 'name': 'zaneg attictongs', 'race': 'DWARF', 'caste': 'MALE', 'appeared': '1', 'birth_year': '-50', 'birth_seconds72': '-1', 'death_year': '62', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'hf_link': [{'link_type': 'deity', 'hfid': '125', 'link_strength': '50'}], 'entity_link': [{'link_type': 'former member', 'entity_id': '36'}, {'link_type': 'former member', 'entity_id': '37'}, {'link_type': 'member', 'entity_id': '248', 'link_strength': '1'}], 'entity_former_position_link': [{'position_profile_id': '0', 'entity_id': '37', 'start_year': '1', 'end_year': '4'}], 'hf_skill': [{'skill': 'FORGE_ARMOR', 'total_ip': '9000'}, {'skill': 'PACIFY', 'total_ip': '1200'}, {'skill': 'INTIMIDATION', 'total_ip': '1200'}, {'skill': 'CONVERSATION', 'total_ip': '600'}, {'skill': 'CROSSBOW', 'total_ip': '2322'}, {'skill': 'DODGING', 'total_ip': '974'}, {'skill': 'SHIELD', 'total_ip': '1123'}, {'skill': 'ARMOR', 'total_ip': '931'}, {'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '1154'}, {'skill': 'DISCIPLINE', 'total_ip': '958'}, {'skill': 'CLIMBING', 'total_ip': '500'}], 'goal': 'start a family', 'active_interaction': 'SECRET_UNDEAD_RES_19', 'used_identity_id': '141', 'relationship_profile_hf_visual': [{'hf_id': '129', 'meet_count': '0', 'last_meet_year': '-1', 'last_meet_seconds72': '0', 'love': '0', 'respect': '0', 'trust': '0', 'loyalty': '0', 'fear': '0'}], 'intrigue_actor': [{'local_id': '0', 'hfid': '129', 'role': 'master', 'strategy': 'obey'}], 'ent_pop_id': '30'}, {'id': '14', 'name': 'mafol clasprim', 'race': 'DWARF', 'caste': 'MALE', 'appeared': '1', 'birth_year': '-65', 'birth_seconds72': '-1', 'death_year': '62', 'death_seconds72': '-1', 'associated_type': 'STANDARD', 'hf_link': [{'link_type': 'deity', 'hfid': '126', 'link_strength': '56'}], 'entity_link': [{'link_type': 'former member', 'entity_id': '36'}, {'link_type': 'former member', 'entity_id': '37'}, {'link_type': 'member', 'entity_id': '248', 'link_strength': '1'}, {'link_type': 'former member', 'entity_id': '261', 'link_strength': '1'}, {'link_type': 'former member', 'entity_id': '263', 'link_strength': '1'}, {'link_type': 'former member', 'entity_id': '265', 'link_strength': '1'}, {'link_type': 'former member', 'entity_id': '266', 'link_strength': '1'}, {'link_type': 'former member', 'entity_id': '268', 'link_strength': '1'}], 'entity_former_position_link': [{'position_profile_id': '6', 'entity_id': '37', 'start_year': '1', 'end_year': '4'}], 'hf_skill': [{'skill': 'SET_BONE', 'total_ip': '9000'}, {'skill': 'DRESS_WOUNDS', 'total_ip': '9000'}, {'skill': 'PACIFY', 'total_ip': '600'}, {'skill': 'COMEDY', 'total_ip': '600'}, {'skill': 'NEGOTIATION', 'total_ip': '600'}, {'skill': 'JUDGING_INTENT', 'total_ip': '600'}, {'skill': 'CONVERSATION', 'total_ip': '600'}, {'skill': 'THROW', 'total_ip': '357'}, {'skill': 'MACE', 'total_ip': '2115'}, {'skill': 'DODGING', 'total_ip': '709'}, {'skill': 'SHIELD', 'total_ip': '661'}, {'skill': 'ARMOR', 'total_ip': '682'}, {'skill': 'SITUATIONAL_AWARENESS', 'total_ip': '763'}, {'skill': 'DISCIPLINE', 'total_ip': '856'}, {'skill': 'CLIMBING', 'total_ip': '500'}, {'skill': 'MILITARY_TACTICS', 'total_ip': '500'}, {'skill': 'LEADERSHIP', 'total_ip': '500'}, {'skill': 'ORGANIZATION', 'total_ip': '500'}], 'goal': 'start a family', 'active_interaction': 'SECRET_UNDEAD_RES_19', 'relationship_profile_hf_visual': [{'hf_id': '129', 'meet_count': '0', 'last_meet_year': '-1', 'last_meet_seconds72': '0', 'love': '0', 'respect': '0', 'trust': '0', 'loyalty': '0', 'fear': '0'}], 'intrigue_actor': [{'local_id': '0', 'hfid': '129', 'role': 'master', 'strategy': 'obey'}], 'ent_pop_id': '30'}, {'id': '241', 'name': 'uthra rapidspears', 'race': 'HUMAN', 'caste': 'FEMALE', 'appeared': '-1', 'birth_year': '-1', 'birth_seconds72': '-1', 'death_year': '-1', 'death_seconds72': '-1', 'deity': None, 'sphere': 'war', 'interaction_knowledge': 'SECRET_20'}]}], 'entity_populations': [{'entity_population': [{'id': '0'}, {'id': '1'}, {'id': '2'}, {'id': '3'}, {'id': '4'}, {'id': '5'}, {'id': '6'}, {'id': '7'}, {'id': '8'}, {'id': '9'}, {'id': '10'}, {'id': '11'}, {'id': '12'}, {'id': '13'}, {'id': '14'}, {'id': '15'}, {'id': '16'}, {'id': '17'}, {'id': '18'}, {'id': '19'}, {'id': '20'}, {'id': '21'}, {'id': '22'}, {'id': '23'}, {'id': '24'}, {'id': '25'}, {'id': '26'}, {'id': '27'}, {'id': '28'}, {'id': '29'}, {'id': '30'}, {'id': '31'}, {'id': '32'}, {'id': '33'}, {'id': '34'}, {'id': '35'}, {'id': '36'}, {'id': '37'}, {'id': '38'}, {'id': '39'}, {'id': '40'}, {'id': '41'}, {'id': '42'}, {'id': '43'}, {'id': '44'}]}], 'entities': [{'entity': [{'id': '0'}, {'id': '1'}, {'id': '2'}, {'id': '3'}, {'id': '4'}, {'id': '5'}, {'id': '6'}, {'id': '7'}, {'id': '8'}, {'id': '9'}, {'id': '10'}, {'id': '11'}, {'id': '12'}, {'id': '13'}, {'id': '14'}, {'id': '15'}, {'id': '16'}, {'id': '17'}, {'id': '18'}, {'id': '19'}, {'id': '20'}, {'id': '21'}, {'id': '22'}, {'id': '23'}, {'id': '24', 'name': 'the fair plank'}, {'id': '25', 'name': 'the barricade of sitting'}, {'id': '26', 'name': 'tudufukibis'}, {'id': '27', 'name': 'sheersnis'}, {'id': '28', 'name': 'the trite dungeons'}, {'id': '29', 'name': 'the stormy nightmare'}, {'id': '30', 'name': 'the divine confederacy'}, {'id': '31', 'name': 'the cerulean coalition'}, {'id': '32', 'name': 'the veiled tempests'}, {'id': '33', 'name': 'the valley of rocks'}, {'id': '34', 'name': 'tlosheerus'}, {'id': '35', 'name': 'chluthagin'}, {'id': '36', 'name': 'the rock of winds'}, {'id': '37', 'name': 'the vessel of palisades'}, {'id': '38', 'name': 'the coastal disloyalty'}, {'id': '39', 'name': 'the singed spider'}, {'id': '40', 'name': 'the kingdom of heroes'}, {'id': '41', 'name': 'the fellowship of loving'}, {'id': '42', 'name': 'the thin glen'}, {'id': '43', 'name': 'the buck of respecting'}, {'id': '44', 'name': 'the staff of dashing'}, {'id': '45', 'name': 'the quake of heaviness'}, {'id': '46', 'name': 'the cruelty of punches'}, {'id': '47', 'name': 'the lonesome devil'}, {'id': '48', 'name': 'the umber growths'}, {'id': '49', 'name': 'the jaw of reverence'}, {'id': '50', 'name': 'the uncommon confederacies'}, {'id': '51', 'name': 'the councils of poetry'}, {'id': '52', 'name': 'the confederacy of directions'}, {'id': '53', 'name': 'the league of cats'}, {'id': '54', 'name': 'the bearded drink'}, {'id': '55', 'name': 'the fragrance of scarring'}, {'id': '56', 'name': 'the clean seductions'}, {'id': '57', 'name': 'the mischievous malice'}, {'id': '58', 'name': 'the syrup of packing'}, {'id': '59', 'name': 'the wheel of smoothness'}, {'id': '60', 'name': 'the confederations of trading'}, {'id': '61', 'name': 'the fellowship of noses'}, {'id': '62', 'name': 'the couple of delighting'}, {'id': '63', 'name': 'the skies of trailing'}, {'id': '64', 'name': 'the domination of deterioration'}, {'id': '65', 'name': 'the rags of fortune'}, {'id': '66', 'name': 'the bowels of rampaging'}, {'id': '67', 'name': 'the foolish flags'}, {'id': '68', 'name': 'the rain of stockades'}, {'id': '69', 'name': 'the group of secrets'}, {'id': '70', 'name': 'the furious hate'}, {'id': '71', 'name': 'the league of entrancing'}, {'id': '72', 'name': 'the wasps of sounding'}, {'id': '73', 'name': 'the society of fate'}, {'id': '74', 'name': 'the cyclone of staves'}, {'id': '75', 'name': 'the sun-rose of liberties'}, {'id': '76', 'name': 'the granite paint'}, {'id': '77', 'name': 'the dungeon of amusing'}, {'id': '78', 'name': 'the artificial nuts'}, {'id': '79', 'name': 'the virginal councils'}, {'id': '80', 'name': 'the cobalt sins'}, {'id': '81', 'name': 'the somber monsters'}, {'id': '82', 'name': 'the bell of societies'}, {'id': '83', 'name': 'the stake of mesh'}, {'id': '84', 'name': 'fluluglirsnis'}, {'id': '85', 'name': 'the unnameable arrows'}, {'id': '86', 'name': 'the citadel of wringing'}, {'id': '87', 'name': 'the society of chips'}, {'id': '88', 'name': 'the defensive rope'}, {'id': '89', 'name': 'the circumstantial treasury'}, {'id': '90', 'name': 'the curses of enjoying'}, {'id': '91', 'name': 'the bright cruelties'}, {'id': '92', 'name': 'the maligned medicine'}, {'id': '93', 'name': 'the colorless tempests'}, {'id': '94', 'name': 'the stockade of dawns'}, {'id': '95', 'name': 'the russet skunk'}, {'id': '96', 'name': 'the devil of yelling'}, {'id': '97', 'name': 'the work of moistening'}, {'id': '98', 'name': 'the barbarity of pools'}, {'id': '99', 'name': 'the red hips'}, {'id': '100', 'name': 'the epidemics of tormenting'}]}], 'historical_events': [{'historical_event': [{'id': '0', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '0', 'state': 'settled', 'site_id': '-1', 'subregion_id': '21', 'feature_layer_id': '-1', 'coords': '9,9'}, {'id': '1', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '1', 'state': 'settled', 'site_id': '-1', 'subregion_id': '26', 'feature_layer_id': '-1', 'coords': '27,23'}, {'id': '2', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '2', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '0', 'coords': '-1,-1'}, {'id': '3', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '3', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '1', 'coords': '-1,-1'}, {'id': '4', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '4', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '2', 'coords': '-1,-1'}, {'id': '5', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '5', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '3', 'coords': '-1,-1'}, {'id': '6', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '6', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '4', 'coords': '-1,-1'}, {'id': '7', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '7', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '5', 'coords': '-1,-1'}, {'id': '8', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '8', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '6', 'coords': '-1,-1'}, {'id': '9', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '9', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '7', 'coords': '-1,-1'}, {'id': '10', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '10', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '8', 'coords': '-1,-1'}, {'id': '11', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '11', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '9', 'coords': '-1,-1'}, {'id': '12', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '12', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '10', 'coords': '-1,-1'}, {'id': '13', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '13', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '11', 'coords': '-1,-1'}, {'id': '14', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '14', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '12', 'coords': '-1,-1'}, {'id': '15', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '15', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '13', 'coords': '-1,-1'}, {'id': '16', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '16', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '14', 'coords': '-1,-1'}, {'id': '17', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '17', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '15', 'coords': '-1,-1'}, {'id': '18', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '18', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '16', 'coords': '-1,-1'}, {'id': '19', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '19', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '17', 'coords': '-1,-1'}, {'id': '20', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '20', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '18', 'coords': '-1,-1'}, {'id': '21', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '21', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '19', 'coords': '-1,-1'}, {'id': '22', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '22', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '20', 'coords': '-1,-1'}, {'id': '23', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '23', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '21', 'coords': '-1,-1'}, {'id': '24', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '24', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '22', 'coords': '-1,-1'}, {'id': '25', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '25', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '23', 'coords': '-1,-1'}, {'id': '26', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '26', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '24', 'coords': '-1,-1'}, {'id': '27', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '27', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '25', 'coords': '-1,-1'}, {'id': '28', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '28', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '-1', 'feature_layer_id': '26', 'coords': '-1,-1'}, {'id': '29', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '29', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '29', 'feature_layer_id': '-1', 'coords': '-1,-1'}, {'id': '30', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '30', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '21', 'feature_layer_id': '-1', 'coords': '-1,-1'}, {'id': '31', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '31', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '51', 'feature_layer_id': '-1', 'coords': '11,21'}, {'id': '32', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '32', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '28', 'feature_layer_id': '-1', 'coords': '26,10'}, {'id': '33', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '33', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '19', 'feature_layer_id': '-1', 'coords': '18,8'}, {'id': '34', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '34', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '15', 'feature_layer_id': '-1', 'coords': '26,7'}, {'id': '35', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '35', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '9', 'feature_layer_id': '-1', 'coords': '5,5'}, {'id': '36', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '36', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '34', 'feature_layer_id': '-1', 'coords': '6,14'}, {'id': '37', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '37', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '19', 'feature_layer_id': '-1', 'coords': '19,8'}, {'id': '38', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '38', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '58', 'feature_layer_id': '-1', 'coords': '17,26'}, {'id': '39', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '39', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '6', 'feature_layer_id': '-1', 'coords': '3,3'}, {'id': '40', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '40', 'state': 'wandering', 'site_id': '-1', 'subregion_id': '19', 'feature_layer_id': '-1', 'coords': '17,8'}, {'id': '41', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '24', 'link': 'position', 'hfid': '50', 'position_id': '1'}, {'id': '42', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '24', 'link': 'position', 'hfid': '51', 'position_id': '14'}, {'id': '43', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '24', 'link': 'position', 'hfid': '52', 'position_id': '15'}, {'id': '44', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '24', 'link': 'position', 'hfid': '53', 'position_id': '0'}, {'id': '45', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '54', 'position_id': '21'}, {'id': '46', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '55', 'position_id': '4'}, {'id': '47', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '56', 'position_id': '10'}, {'id': '48', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '57', 'position_id': '11'}, {'id': '49', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '58', 'position_id': '12'}, {'id': '50', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '59', 'position_id': '13'}, {'id': '51', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '60', 'position_id': '20'}, {'id': '52', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '61', 'position_id': '7'}, {'id': '53', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '25', 'link': 'position', 'hfid': '62', 'position_id': '9'}, {'id': '54', 'year': '1', 'seconds72': '-1', 'type': 'created site', 'civ_id': '24', 'site_civ_id': '25', 'site_id': '5'}, {'id': '55', 'year': '1', 'seconds72': '-1', 'type': 'created structure', 'civ_id': '-1', 'site_civ_id': '-1', 'builder_hfid': '73', 'site_id': '6', 'structure_id': '0'}, {'id': '56', 'year': '1', 'seconds72': '-1', 'type': 'add hf entity link', 'civ_id': '28', 'link': 'position', 'hfid': '73', 'position_id': '0'}, {'id': '57', 'year': '1', 'seconds72': '-1', 'type': 'change hf state', 'hfid': '73', 'state': 'settled', 'site_id': '6', 'subregion_id': '-1', 'feature_layer_id': '-1', 'coords': '-1,-1'}, {'id': '58', 'year': '1', 'seconds72': '-1', 'type': 'add hf site link', 'site_id': '6'}, {'id': '59', 'year': '1', 'seconds72': '-1', 'type': 'created site', 'civ_id': '28', 'site_civ_id': '29', 'site_id': '6'}, {'id': '60', 'year': '1', 'seconds72': '-1', 'type': 'created site', 'civ_id': '30', 'site_civ_id': '31', 'site_id': '7'}]}], 'historical_event_collections': [{'historical_event_collection': [{'id': '0', 'start_year': '1', 'end_year': '1', 'eventcol': '2', 'type': 'occasion', 'civ_id': '46', 'occasion_id': '0', 'ordinal': '1'}, {'id': '1', 'start_year': '1', 'end_year': '1', 'event': '425', 'type': 'ceremony', 'ordinal': '1'}, {'id': '2', 'start_year': '1', 'end_year': '1', 'event': '426', 'type': 'procession', 'ordinal': '1'}, {'id': '3', 'start_year': '1', 'end_year': '1', 'eventcol': '8', 'type': 'occasion', 'civ_id': '28', 'occasion_id': '0', 'ordinal': '1'}, {'id': '4', 'start_year': '1', 'end_year': '2', 'eventcol': '9', 'event': '729', 'type': 'war', 'name': 'the conflict of throwing', 'aggressor_ent_id': '28', 'defender_ent_id': '62'}, {'id': '5', 'start_year': '1', 'end_year': '1', 'eventcol': '6', 'event': '428', 'type': 'battle', 'name': 'the scalded battles', 'war_eventcol': '4', 'subregion_id': '26', 'feature_layer_id': '-1', 'site_id': '-1', 'coords': '28,22', 'attacking_hfid': '82', 'defending_hfid': '325', 'attacking_squad_race': 'GOBLIN', 'attacking_squad_entity_pop': '26', 'attacking_squad_number': '4', 'attacking_squad_deaths': '0', 'attacking_squad_site': '39', 'defending_squad_race': 'ELF', 'defending_squad_entity_pop': '43', 'defending_squad_number': '5', 'defending_squad_deaths': '5', 'defending_squad_site': '37', 'outcome': 'attacker won'}, {'id': '6', 'start_year': '1', 'end_year': '1', 'event': '430', 'type': 'duel', 'parent_eventcol': '5', 'subregion_id': '26', 'feature_layer_id': '-1', 'site_id': '-1', 'coords': '28,22', 'attacking_hfid': '73', 'defending_hfid': '320', 'ordinal': '1'}, {'id': '7', 'start_year': '1', 'end_year': '1', 'event': '433', 'type': 'procession', 'ordinal': '1'}, {'id': '8', 'start_year': '1', 'end_year': '1', 'event': '434', 'type': 'ceremony', 'ordinal': '1'}, {'id': '9', 'start_year': '1', 'end_year': '1', 'eventcol': '10', 'event': '440', 'type': 'battle', 'name': 'the clashes of shocking', 'war_eventcol': '4', 'subregion_id': '26', 'feature_layer_id': '-1', 'site_id': '-1', 'coords': '26,24', 'attacking_hfid': '347', 'defending_hfid': '325', 'attacking_squad_race': 'GOBLIN', 'attacking_squad_entity_pop': '26', 'attacking_squad_number': '4', 'attacking_squad_deaths': '0', 'attacking_squad_site': '39', 'defending_squad_race': 'ELF', 'defending_squad_entity_pop': '43', 'defending_squad_number': '4', 'defending_squad_deaths': '4', 'defending_squad_site': '37', 'outcome': 'attacker won'}, {'id': '10', 'start_year': '1', 'end_year': '1', 'event': '441', 'type': 'duel', 'parent_eventcol': '9', 'subregion_id': '26', 'feature_layer_id': '-1', 'site_id': '-1', 'coords': '26,24', 'attacking_hfid': '320', 'defending_hfid': '347', 'ordinal': '1'}]}], 'historical_eras': [{'historical_era': [{'name': 'Age of Myth', 'start_year': '-1'}]}], 'written_contents': [{'written_content': [{'id': '0', 'title': 'Brute Ever Onward', 'author_hfid': '308', 'author_roll': '6', 'form': 'musical composition', 'form_id': '73'}, {'id': '1', 'title': "And She Sang 'Emptiness!'", 'author_hfid': '353', 'author_roll': '20', 'form': 'poem', 'form_id': '48', 'style': 'vicious:1'}, {'id': '2', 'title': 'Hollows: Nothing Can Say In The End', 'author_hfid': '308', 'author_roll': '15', 'form': 'musical composition', 'form_id': '74'}, {'id': '3', 'title': 'The Sun Sets on Dungeon', 'author_hfid': '217', 'author_roll': '24', 'form': 'musical composition', 'form_id': '50'}, {'id': '4', 'title': 'Slowly Nothing Weeps In The Beginning', 'author_hfid': '217', 'author_roll': '12', 'form': 'poem', 'form_id': '32', 'style': 'compassionate:1'}, {'id': '5', 'title': 'Aunts and the Scorn', 'author_hfid': '146', 'author_roll': '10', 'form': 'musical composition', 'form_id': '22'}, {'id': '6', 'title': 'The Silkiness and Pick', 'author_hfid': '92', 'author_roll': '8', 'form': 'poem', 'form_id': '9'}, {'id': '7', 'title': 'The Gleeful Gate and Serpents', 'author_hfid': '109', 'author_roll': '16', 'form': 'musical composition', 'form_id': '14'}, {'id': '8', 'title': 'The Birth of Caverns', 'author_hfid': '109', 'author_roll': '19', 'form': 'poem', 'form_id': '13', 'style': 'self indulgent:4'}, {'id': '9', 'title': 'The Birth of the Competitor', 'author_hfid': '109', 'author_roll': '12', 'form': 'poem', 'form_id': '12', 'style': 'melancholy:1'}, {'id': '10', 'title': 'Trumpet: Surely The Wise Laugh', 'author_hfid': '109', 'author_roll': '12', 'form': 'poem', 'form_id': '11', 'style': 'self indulgent:1'}]}]}}
+{
+  "df_world": {
+    "artifacts": [
+      {
+        "artifact": [
+          {
+            "id": "0",
+            "item": [
+              {
+                "name_string": "darmadithru"
+              }
+            ],
+            "name": "the grand castle",
+            "site_id": "23"
+          },
+          {
+            "id": "1",
+            "item": [
+              {
+                "name_string": "edem agesh"
+              }
+            ],
+            "name": "the key of contesting",
+            "site_id": "24"
+          },
+          {
+            "id": "2",
+            "item": [
+              {
+                "name_string": "ekastegul"
+              }
+            ],
+            "name": "savecontrols",
+            "site_id": "25"
+          },
+          {
+            "id": "3",
+            "item": [
+              {
+                "name_string": "efivaacita"
+              }
+            ],
+            "name": "mobbeddagger",
+            "site_id": "26"
+          },
+          {
+            "holder_hfid": "909",
+            "id": "4",
+            "item": [
+              {
+                "name_string": "semorungeg"
+              }
+            ],
+            "name": "unionsfailed"
+          },
+          {
+            "holder_hfid": "216",
+            "id": "5",
+            "item": [
+              {
+                "name_string": "lelumtitthal"
+              }
+            ],
+            "name": "the waning play"
+          },
+          {
+            "id": "6",
+            "item": [
+              {
+                "name_string": "the composition when it counts",
+                "page_number": "30",
+                "page_written_content_id": "21"
+              }
+            ],
+            "name": "the composition when it counts",
+            "site_id": "6"
+          },
+          {
+            "id": "7",
+            "item": [
+              {
+                "name_string": "akestkengtamol"
+              }
+            ],
+            "name": "the dominant steamy savior",
+            "site_id": "3"
+          },
+          {
+            "holder_hfid": "748",
+            "id": "8",
+            "item": [
+              {
+                "name_string": "the book of wonderwilts",
+                "page_number": "181",
+                "page_written_content_id": "34"
+              }
+            ],
+            "name": "the book of wonderwilts"
+          },
+          {
+            "id": "9",
+            "item": [
+              {
+                "name_string": "the porcupine women: a new approach",
+                "writing_written_content_id": "35"
+              }
+            ],
+            "name": "the porcupine women: a new approach",
+            "site_id": "34"
+          },
+          {
+            "id": "10",
+            "item": [
+              {
+                "name_string": "the sienna russet satin and the universe",
+                "page_number": "78",
+                "page_written_content_id": "46"
+              }
+            ],
+            "name": "the sienna russet satin and the universe",
+            "site_id": "136"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": [
+          {
+            "id": "0"
+          },
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          },
+          {
+            "id": "5"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "7"
+          },
+          {
+            "id": "8"
+          },
+          {
+            "id": "9"
+          },
+          {
+            "id": "10"
+          },
+          {
+            "id": "11"
+          },
+          {
+            "id": "12"
+          },
+          {
+            "id": "13"
+          },
+          {
+            "id": "14"
+          },
+          {
+            "id": "15"
+          },
+          {
+            "id": "16"
+          },
+          {
+            "id": "17"
+          },
+          {
+            "id": "18"
+          },
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          },
+          {
+            "id": "22"
+          },
+          {
+            "id": "23"
+          },
+          {
+            "id": "24",
+            "name": "the fair plank"
+          },
+          {
+            "id": "25",
+            "name": "the barricade of sitting"
+          },
+          {
+            "id": "26",
+            "name": "tudufukibis"
+          },
+          {
+            "id": "27",
+            "name": "sheersnis"
+          },
+          {
+            "id": "28",
+            "name": "the trite dungeons"
+          },
+          {
+            "id": "29",
+            "name": "the stormy nightmare"
+          },
+          {
+            "id": "30",
+            "name": "the divine confederacy"
+          },
+          {
+            "id": "31",
+            "name": "the cerulean coalition"
+          },
+          {
+            "id": "32",
+            "name": "the veiled tempests"
+          },
+          {
+            "id": "33",
+            "name": "the valley of rocks"
+          },
+          {
+            "id": "34",
+            "name": "tlosheerus"
+          },
+          {
+            "id": "35",
+            "name": "chluthagin"
+          },
+          {
+            "id": "36",
+            "name": "the rock of winds"
+          },
+          {
+            "id": "37",
+            "name": "the vessel of palisades"
+          },
+          {
+            "id": "38",
+            "name": "the coastal disloyalty"
+          },
+          {
+            "id": "39",
+            "name": "the singed spider"
+          },
+          {
+            "id": "40",
+            "name": "the kingdom of heroes"
+          },
+          {
+            "id": "41",
+            "name": "the fellowship of loving"
+          },
+          {
+            "id": "42",
+            "name": "the thin glen"
+          },
+          {
+            "id": "43",
+            "name": "the buck of respecting"
+          },
+          {
+            "id": "44",
+            "name": "the staff of dashing"
+          },
+          {
+            "id": "45",
+            "name": "the quake of heaviness"
+          },
+          {
+            "id": "46",
+            "name": "the cruelty of punches"
+          },
+          {
+            "id": "47",
+            "name": "the lonesome devil"
+          },
+          {
+            "id": "48",
+            "name": "the umber growths"
+          },
+          {
+            "id": "49",
+            "name": "the jaw of reverence"
+          },
+          {
+            "id": "50",
+            "name": "the uncommon confederacies"
+          },
+          {
+            "id": "51",
+            "name": "the councils of poetry"
+          },
+          {
+            "id": "52",
+            "name": "the confederacy of directions"
+          },
+          {
+            "id": "53",
+            "name": "the league of cats"
+          },
+          {
+            "id": "54",
+            "name": "the bearded drink"
+          },
+          {
+            "id": "55",
+            "name": "the fragrance of scarring"
+          },
+          {
+            "id": "56",
+            "name": "the clean seductions"
+          },
+          {
+            "id": "57",
+            "name": "the mischievous malice"
+          },
+          {
+            "id": "58",
+            "name": "the syrup of packing"
+          },
+          {
+            "id": "59",
+            "name": "the wheel of smoothness"
+          },
+          {
+            "id": "60",
+            "name": "the confederations of trading"
+          },
+          {
+            "id": "61",
+            "name": "the fellowship of noses"
+          },
+          {
+            "id": "62",
+            "name": "the couple of delighting"
+          },
+          {
+            "id": "63",
+            "name": "the skies of trailing"
+          },
+          {
+            "id": "64",
+            "name": "the domination of deterioration"
+          },
+          {
+            "id": "65",
+            "name": "the rags of fortune"
+          },
+          {
+            "id": "66",
+            "name": "the bowels of rampaging"
+          },
+          {
+            "id": "67",
+            "name": "the foolish flags"
+          },
+          {
+            "id": "68",
+            "name": "the rain of stockades"
+          },
+          {
+            "id": "69",
+            "name": "the group of secrets"
+          },
+          {
+            "id": "70",
+            "name": "the furious hate"
+          },
+          {
+            "id": "71",
+            "name": "the league of entrancing"
+          },
+          {
+            "id": "72",
+            "name": "the wasps of sounding"
+          },
+          {
+            "id": "73",
+            "name": "the society of fate"
+          },
+          {
+            "id": "74",
+            "name": "the cyclone of staves"
+          },
+          {
+            "id": "75",
+            "name": "the sun-rose of liberties"
+          },
+          {
+            "id": "76",
+            "name": "the granite paint"
+          },
+          {
+            "id": "77",
+            "name": "the dungeon of amusing"
+          },
+          {
+            "id": "78",
+            "name": "the artificial nuts"
+          },
+          {
+            "id": "79",
+            "name": "the virginal councils"
+          },
+          {
+            "id": "80",
+            "name": "the cobalt sins"
+          },
+          {
+            "id": "81",
+            "name": "the somber monsters"
+          },
+          {
+            "id": "82",
+            "name": "the bell of societies"
+          },
+          {
+            "id": "83",
+            "name": "the stake of mesh"
+          },
+          {
+            "id": "84",
+            "name": "fluluglirsnis"
+          },
+          {
+            "id": "85",
+            "name": "the unnameable arrows"
+          },
+          {
+            "id": "86",
+            "name": "the citadel of wringing"
+          },
+          {
+            "id": "87",
+            "name": "the society of chips"
+          },
+          {
+            "id": "88",
+            "name": "the defensive rope"
+          },
+          {
+            "id": "89",
+            "name": "the circumstantial treasury"
+          },
+          {
+            "id": "90",
+            "name": "the curses of enjoying"
+          },
+          {
+            "id": "91",
+            "name": "the bright cruelties"
+          },
+          {
+            "id": "92",
+            "name": "the maligned medicine"
+          },
+          {
+            "id": "93",
+            "name": "the colorless tempests"
+          },
+          {
+            "id": "94",
+            "name": "the stockade of dawns"
+          },
+          {
+            "id": "95",
+            "name": "the russet skunk"
+          },
+          {
+            "id": "96",
+            "name": "the devil of yelling"
+          },
+          {
+            "id": "97",
+            "name": "the work of moistening"
+          },
+          {
+            "id": "98",
+            "name": "the barbarity of pools"
+          },
+          {
+            "id": "99",
+            "name": "the red hips"
+          },
+          {
+            "id": "100",
+            "name": "the epidemics of tormenting"
+          }
+        ]
+      }
+    ],
+    "entity_populations": [
+      {
+        "entity_population": [
+          {
+            "id": "0"
+          },
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          },
+          {
+            "id": "5"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "7"
+          },
+          {
+            "id": "8"
+          },
+          {
+            "id": "9"
+          },
+          {
+            "id": "10"
+          },
+          {
+            "id": "11"
+          },
+          {
+            "id": "12"
+          },
+          {
+            "id": "13"
+          },
+          {
+            "id": "14"
+          },
+          {
+            "id": "15"
+          },
+          {
+            "id": "16"
+          },
+          {
+            "id": "17"
+          },
+          {
+            "id": "18"
+          },
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          },
+          {
+            "id": "22"
+          },
+          {
+            "id": "23"
+          },
+          {
+            "id": "24"
+          },
+          {
+            "id": "25"
+          },
+          {
+            "id": "26"
+          },
+          {
+            "id": "27"
+          },
+          {
+            "id": "28"
+          },
+          {
+            "id": "29"
+          },
+          {
+            "id": "30"
+          },
+          {
+            "id": "31"
+          },
+          {
+            "id": "32"
+          },
+          {
+            "id": "33"
+          },
+          {
+            "id": "34"
+          },
+          {
+            "id": "35"
+          },
+          {
+            "id": "36"
+          },
+          {
+            "id": "37"
+          },
+          {
+            "id": "38"
+          },
+          {
+            "id": "39"
+          },
+          {
+            "id": "40"
+          },
+          {
+            "id": "41"
+          },
+          {
+            "id": "42"
+          },
+          {
+            "id": "43"
+          },
+          {
+            "id": "44"
+          }
+        ]
+      }
+    ],
+    "historical_eras": [
+      {
+        "historical_era": [
+          {
+            "name": "Age of Myth",
+            "start_year": "-1"
+          }
+        ]
+      }
+    ],
+    "historical_event_collections": [
+      {
+        "historical_event_collection": [
+          {
+            "civ_id": "46",
+            "end_year": "1",
+            "eventcol": "2",
+            "id": "0",
+            "occasion_id": "0",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "occasion"
+          },
+          {
+            "end_year": "1",
+            "event": "425",
+            "id": "1",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "ceremony"
+          },
+          {
+            "end_year": "1",
+            "event": "426",
+            "id": "2",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "procession"
+          },
+          {
+            "civ_id": "28",
+            "end_year": "1",
+            "eventcol": "8",
+            "id": "3",
+            "occasion_id": "0",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "occasion"
+          },
+          {
+            "aggressor_ent_id": "28",
+            "defender_ent_id": "62",
+            "end_year": "2",
+            "event": "729",
+            "eventcol": "9",
+            "id": "4",
+            "name": "the conflict of throwing",
+            "start_year": "1",
+            "type": "war"
+          },
+          {
+            "attacking_hfid": "82",
+            "attacking_squad_deaths": "0",
+            "attacking_squad_entity_pop": "26",
+            "attacking_squad_number": "4",
+            "attacking_squad_race": "GOBLIN",
+            "attacking_squad_site": "39",
+            "defending_hfid": "325",
+            "defending_squad_deaths": "5",
+            "defending_squad_entity_pop": "43",
+            "defending_squad_number": "5",
+            "defending_squad_race": "ELF",
+            "defending_squad_site": "37",
+            "end_year": "1",
+            "event": "428",
+            "eventcol": "6",
+            "feature_layer_id": "-1",
+            "id": "5",
+            "name": "the scalded battles",
+            "outcome": "attacker won",
+            "site_id": "-1",
+            "start_year": "1",
+            "subregion_id": "26",
+            "type": "battle",
+            "war_eventcol": "4"
+          },
+          {
+            "attacking_hfid": "73",
+            "defending_hfid": "320",
+            "end_year": "1",
+            "event": "430",
+            "feature_layer_id": "-1",
+            "id": "6",
+            "ordinal": "1",
+            "parent_eventcol": "5",
+            "site_id": "-1",
+            "start_year": "1",
+            "subregion_id": "26",
+            "type": "duel"
+          },
+          {
+            "end_year": "1",
+            "event": "433",
+            "id": "7",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "procession"
+          },
+          {
+            "end_year": "1",
+            "event": "434",
+            "id": "8",
+            "ordinal": "1",
+            "start_year": "1",
+            "type": "ceremony"
+          },
+          {
+            "attacking_hfid": "347",
+            "attacking_squad_deaths": "0",
+            "attacking_squad_entity_pop": "26",
+            "attacking_squad_number": "4",
+            "attacking_squad_race": "GOBLIN",
+            "attacking_squad_site": "39",
+            "defending_hfid": "325",
+            "defending_squad_deaths": "4",
+            "defending_squad_entity_pop": "43",
+            "defending_squad_number": "4",
+            "defending_squad_race": "ELF",
+            "defending_squad_site": "37",
+            "end_year": "1",
+            "event": "440",
+            "eventcol": "10",
+            "feature_layer_id": "-1",
+            "id": "9",
+            "name": "the clashes of shocking",
+            "outcome": "attacker won",
+            "site_id": "-1",
+            "start_year": "1",
+            "subregion_id": "26",
+            "type": "battle",
+            "war_eventcol": "4"
+          },
+          {
+            "attacking_hfid": "320",
+            "defending_hfid": "347",
+            "end_year": "1",
+            "event": "441",
+            "feature_layer_id": "-1",
+            "id": "10",
+            "ordinal": "1",
+            "parent_eventcol": "9",
+            "site_id": "-1",
+            "start_year": "1",
+            "subregion_id": "26",
+            "type": "duel"
+          }
+        ]
+      }
+    ],
+    "historical_events": [
+      {
+        "historical_event": [
+          {
+            "feature_layer_id": "-1",
+            "hfid": "0",
+            "id": "0",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "settled",
+            "subregion_id": "21",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "1",
+            "id": "1",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "settled",
+            "subregion_id": "26",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "0",
+            "hfid": "2",
+            "id": "2",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "1",
+            "hfid": "3",
+            "id": "3",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "2",
+            "hfid": "4",
+            "id": "4",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "3",
+            "hfid": "5",
+            "id": "5",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "4",
+            "hfid": "6",
+            "id": "6",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "5",
+            "hfid": "7",
+            "id": "7",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "6",
+            "hfid": "8",
+            "id": "8",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "7",
+            "hfid": "9",
+            "id": "9",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "8",
+            "hfid": "10",
+            "id": "10",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "9",
+            "hfid": "11",
+            "id": "11",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "10",
+            "hfid": "12",
+            "id": "12",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "11",
+            "hfid": "13",
+            "id": "13",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "12",
+            "hfid": "14",
+            "id": "14",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "13",
+            "hfid": "15",
+            "id": "15",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "14",
+            "hfid": "16",
+            "id": "16",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "15",
+            "hfid": "17",
+            "id": "17",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "16",
+            "hfid": "18",
+            "id": "18",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "17",
+            "hfid": "19",
+            "id": "19",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "18",
+            "hfid": "20",
+            "id": "20",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "19",
+            "hfid": "21",
+            "id": "21",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "20",
+            "hfid": "22",
+            "id": "22",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "21",
+            "hfid": "23",
+            "id": "23",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "22",
+            "hfid": "24",
+            "id": "24",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "23",
+            "hfid": "25",
+            "id": "25",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "24",
+            "hfid": "26",
+            "id": "26",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "25",
+            "hfid": "27",
+            "id": "27",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "26",
+            "hfid": "28",
+            "id": "28",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "29",
+            "id": "29",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "29",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "30",
+            "id": "30",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "21",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "31",
+            "id": "31",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "51",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "32",
+            "id": "32",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "28",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "33",
+            "id": "33",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "19",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "34",
+            "id": "34",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "15",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "35",
+            "id": "35",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "9",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "36",
+            "id": "36",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "34",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "37",
+            "id": "37",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "19",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "38",
+            "id": "38",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "58",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "39",
+            "id": "39",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "6",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "40",
+            "id": "40",
+            "seconds72": "-1",
+            "site_id": "-1",
+            "state": "wandering",
+            "subregion_id": "19",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "civ_id": "24",
+            "hfid": "50",
+            "id": "41",
+            "link": "position",
+            "position_id": "1",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "24",
+            "hfid": "51",
+            "id": "42",
+            "link": "position",
+            "position_id": "14",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "24",
+            "hfid": "52",
+            "id": "43",
+            "link": "position",
+            "position_id": "15",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "24",
+            "hfid": "53",
+            "id": "44",
+            "link": "position",
+            "position_id": "0",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "54",
+            "id": "45",
+            "link": "position",
+            "position_id": "21",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "55",
+            "id": "46",
+            "link": "position",
+            "position_id": "4",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "56",
+            "id": "47",
+            "link": "position",
+            "position_id": "10",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "57",
+            "id": "48",
+            "link": "position",
+            "position_id": "11",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "58",
+            "id": "49",
+            "link": "position",
+            "position_id": "12",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "59",
+            "id": "50",
+            "link": "position",
+            "position_id": "13",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "60",
+            "id": "51",
+            "link": "position",
+            "position_id": "20",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "61",
+            "id": "52",
+            "link": "position",
+            "position_id": "7",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "25",
+            "hfid": "62",
+            "id": "53",
+            "link": "position",
+            "position_id": "9",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "civ_id": "24",
+            "id": "54",
+            "seconds72": "-1",
+            "site_civ_id": "25",
+            "site_id": "5",
+            "type": "created site",
+            "year": "1"
+          },
+          {
+            "builder_hfid": "73",
+            "civ_id": "-1",
+            "id": "55",
+            "seconds72": "-1",
+            "site_civ_id": "-1",
+            "site_id": "6",
+            "structure_id": "0",
+            "type": "created structure",
+            "year": "1"
+          },
+          {
+            "civ_id": "28",
+            "hfid": "73",
+            "id": "56",
+            "link": "position",
+            "position_id": "0",
+            "seconds72": "-1",
+            "type": "add hf entity link",
+            "year": "1"
+          },
+          {
+            "feature_layer_id": "-1",
+            "hfid": "73",
+            "id": "57",
+            "seconds72": "-1",
+            "site_id": "6",
+            "state": "settled",
+            "subregion_id": "-1",
+            "type": "change hf state",
+            "year": "1"
+          },
+          {
+            "id": "58",
+            "seconds72": "-1",
+            "site_id": "6",
+            "type": "add hf site link",
+            "year": "1"
+          },
+          {
+            "civ_id": "28",
+            "id": "59",
+            "seconds72": "-1",
+            "site_civ_id": "29",
+            "site_id": "6",
+            "type": "created site",
+            "year": "1"
+          },
+          {
+            "civ_id": "30",
+            "id": "60",
+            "seconds72": "-1",
+            "site_civ_id": "31",
+            "site_id": "7",
+            "type": "created site",
+            "year": "1"
+          }
+        ]
+      }
+    ],
+    "historical_figures": [
+      {
+        "historical_figure": [
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-234",
+            "caste": "FEMALE",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "79",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "47",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "94",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "105",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "70",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "83",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "133",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "27",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "26",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "35",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "34",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "25",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "141",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "33",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "39",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "269",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "43",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "45",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "353",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "49",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "51",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "53",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "276",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "57",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "59",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "61",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "60",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "63",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "64",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "65",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "66",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "67",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "68",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "69",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "347",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "262",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "295",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "136",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "75",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "76",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "77",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "78",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "333",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "24",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "140",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "81",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "82",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "331",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "264",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "87",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "88",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "334",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "36",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "90",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "352",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "93",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "329",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "95",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "96",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "97",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "106",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "92",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "107",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "111",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "330",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "115",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "116",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "117",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "118",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "119",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "130",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "332",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "134",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "164",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "137",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "143",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "145",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "146",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "148",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "149",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "123",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "153",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "154",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "155",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "157",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "161",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "165",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "168",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "169",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "337",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "171",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "54",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "172",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "173",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "174",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "175",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "177",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "178",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "179",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "182",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "184",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "185",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "186",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "187",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "189",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "190",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "38",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "191",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "192",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "193",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "194",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "195",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "196",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "197",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "198",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "200",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "201",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "202",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "203",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "205",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "48",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "206",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "210",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "211",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "212",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "215",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "219",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "220",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "113",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "222",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "223",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "56",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "224",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "225",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "227",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "230",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "253",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "32",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "232",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "235",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "30",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "199",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "238",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "40",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "248",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "267",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "42",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "103",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "246",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "336",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "50",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "314",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "52",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "345",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "310",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "299",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "62",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "287",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "283",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "275",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "254",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "46",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "250",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "242",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "241",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "240",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "85",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "216",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "144",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "28",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "127",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "126",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "124",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "104",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "101",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "100",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "98",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "84",
+                "link_type": "enemy"
+              }
+            ],
+            "id": "0",
+            "name": "uthra flighthailed the coastal knight",
+            "race": "BIRD_ROC",
+            "site_link": [
+              {
+                "link_type": "lair",
+                "site_id": "221"
+              }
+            ],
+            "sphere": "hunting"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-220",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "70",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "74",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "55",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "47",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "110",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "94",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "133",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "131",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "27",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "26",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "35",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "34",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "25",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "141",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "33",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "39",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "269",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "43",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "45",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "353",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "49",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "51",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "53",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "276",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "57",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "59",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "61",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "60",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "63",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "64",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "65",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "66",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "67",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "68",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "69",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "347",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "262",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "295",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "136",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "75",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "76",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "77",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "78",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "333",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "24",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "140",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "81",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "82",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "331",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "264",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "87",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "88",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "334",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "36",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "90",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "352",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "93",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "329",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "95",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "96",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "97",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "106",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "92",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "107",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "111",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "330",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "115",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "116",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "117",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "118",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "119",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "130",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "332",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "134",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "164",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "137",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "143",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "145",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "146",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "148",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "149",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "123",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "153",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "154",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "155",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "157",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "161",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "165",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "168",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "169",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "337",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "171",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "54",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "172",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "173",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "174",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "175",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "177",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "178",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "179",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "182",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "184",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "185",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "186",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "187",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "189",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "190",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "38",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "191",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "192",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "193",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "194",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "195",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "196",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "197",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "198",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "200",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "201",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "202",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "203",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "205",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "48",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "206",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "210",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "211",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "212",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "215",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "219",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "220",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "113",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "222",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "223",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "56",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "224",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "225",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "227",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "230",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "253",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "32",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "232",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "235",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "30",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "199",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "238",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "40",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "248",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "267",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "42",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "103",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "246",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "336",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "50",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "314",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "52",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "345",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "310",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "299",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "62",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "287",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "283",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "275",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "254",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "46",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "250",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "242",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "241",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "240",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "85",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "216",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "144",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "28",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "127",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "126",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "124",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "104",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "101",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "100",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "98",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "84",
+                "link_type": "enemy"
+              }
+            ],
+            "id": "1",
+            "name": "ning crazeraked the canyon of persuasion",
+            "race": "COLOSSUS_BRONZE",
+            "site_link": [
+              {
+                "link_type": "lair",
+                "site_id": "220"
+              }
+            ],
+            "sphere": "war"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-265",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "2",
+            "name": "ena",
+            "race": "FORGOTTEN_BEAST_1",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-246",
+            "caste": "DEFAULT",
+            "death_year": "69",
+            "entity_link": [
+              {
+                "entity_id": "202",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "3",
+            "name": "asngek boneechoed the dead heart",
+            "race": "FORGOTTEN_BEAST_2",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-182",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "4",
+            "name": "cethutha soakhole",
+            "race": "FORGOTTEN_BEAST_3",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-221",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "37",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "36",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "179",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "5",
+            "name": "nuglush depthroasts the deep",
+            "race": "FORGOTTEN_BEAST_4",
+            "sphere": "nightmares"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-193",
+            "caste": "DEFAULT",
+            "death_year": "2",
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "6",
+            "name": "auraweb the abyssal evil",
+            "race": "FORGOTTEN_BEAST_5",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-247",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "59",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "25",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "24",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "7",
+            "name": "shoduk ghostseduced the evil crypt",
+            "race": "FORGOTTEN_BEAST_6",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-269",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "45",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "206",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "8",
+            "name": "sospin weevildrank",
+            "race": "FORGOTTEN_BEAST_7",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-283",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "120",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "206",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "45",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "9",
+            "name": "zimun droolthieves",
+            "race": "FORGOTTEN_BEAST_8",
+            "sphere": "depravity"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-239",
+            "caste": "DEFAULT",
+            "death_year": "-1",
+            "entity_link": [
+              {
+                "entity_id": "59",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "58",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "45",
+                "link_type": "enemy"
+              },
+              {
+                "entity_id": "44",
+                "link_type": "enemy"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "MELEE_COMBAT",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "STANCE_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "GRASP_STRIKE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "BITE",
+                "total_ip": "4500"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "4500"
+              }
+            ],
+            "id": "10",
+            "name": "arak echogripped the crazed sling",
+            "race": "FORGOTTEN_BEAST_9",
+            "sphere": "water"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-271",
+            "caste": "MALE",
+            "death_year": "24",
+            "ent_pop_id": "26",
+            "entity_former_position_link": [
+              {
+                "end_year": "24",
+                "entity_id": "28",
+                "position_profile_id": "3",
+                "start_year": "6"
+              }
+            ],
+            "entity_link": [
+              {
+                "entity_id": "28",
+                "link_type": "member"
+              },
+              {
+                "entity_id": "29",
+                "link_strength": "89",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "80",
+                "link_type": "former member"
+              }
+            ],
+            "goal": "rule the world",
+            "hf_link": [
+              {
+                "hfid": "413",
+                "link_type": "child"
+              },
+              {
+                "hfid": "452",
+                "link_type": "child"
+              },
+              {
+                "hfid": "557",
+                "link_type": "child"
+              },
+              {
+                "hfid": "767",
+                "link_type": "child"
+              },
+              {
+                "hfid": "844",
+                "link_type": "child"
+              },
+              {
+                "hfid": "901",
+                "link_type": "child"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "GELD",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "NEGOTIATION",
+                "total_ip": "600"
+              },
+              {
+                "skill": "COMEDY",
+                "total_ip": "600"
+              },
+              {
+                "skill": "PACIFY",
+                "total_ip": "600"
+              },
+              {
+                "skill": "LYING",
+                "total_ip": "600"
+              },
+              {
+                "skill": "JUDGING_INTENT",
+                "total_ip": "600"
+              },
+              {
+                "skill": "PIKE",
+                "total_ip": "2070"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "890"
+              },
+              {
+                "skill": "SHIELD",
+                "total_ip": "695"
+              },
+              {
+                "skill": "ARMOR",
+                "total_ip": "777"
+              },
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "778"
+              },
+              {
+                "skill": "DISCIPLINE",
+                "total_ip": "751"
+              },
+              {
+                "skill": "CLIMBING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "BREWING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "SPINNING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "COOK",
+                "total_ip": "500"
+              }
+            ],
+            "id": "11",
+            "intrigue_plot": [
+              {
+                "local_id": "0",
+                "type": "attain rank"
+              },
+              {
+                "local_id": "1",
+                "type": "grow funding network"
+              },
+              {
+                "local_id": "2",
+                "type": "grow asset network"
+              },
+              {
+                "local_id": "3",
+                "type": "grow corruption network"
+              }
+            ],
+            "name": "ber fungusseduce",
+            "race": "GOBLIN"
+          },
+          {
+            "appeared": "1",
+            "associated_type": "SPINNER",
+            "birth_year": "-62",
+            "caste": "MALE",
+            "death_year": "-1",
+            "ent_pop_id": "30",
+            "entity_link": [
+              {
+                "entity_id": "36",
+                "link_type": "member"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "member"
+              }
+            ],
+            "entity_position_link": [
+              {
+                "entity_id": "36",
+                "position_profile_id": "0",
+                "start_year": "1"
+              }
+            ],
+            "goal": "start a family",
+            "hf_link": [
+              {
+                "hfid": "126",
+                "link_strength": "97",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "127",
+                "link_strength": "23",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "123",
+                "link_strength": "21",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "136",
+                "link_type": "former spouse"
+              },
+              {
+                "hfid": "136",
+                "link_type": "spouse"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SPINNING",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "CONVERSATION",
+                "total_ip": "7000"
+              },
+              {
+                "skill": "PACIFY",
+                "total_ip": "5000"
+              },
+              {
+                "skill": "NEGOTIATION",
+                "total_ip": "7800"
+              },
+              {
+                "skill": "JUDGING_INTENT",
+                "total_ip": "7400"
+              },
+              {
+                "skill": "COMEDY",
+                "total_ip": "6300"
+              },
+              {
+                "skill": "INTIMIDATION",
+                "total_ip": "7400"
+              },
+              {
+                "skill": "PERSUASION",
+                "total_ip": "5000"
+              },
+              {
+                "skill": "FLATTERY",
+                "total_ip": "6600"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "18000"
+              },
+              {
+                "skill": "THROW",
+                "total_ip": "18000"
+              }
+            ],
+            "id": "12",
+            "name": "tobul moblancer",
+            "race": "DWARF",
+            "vague_relationship": [
+              {
+                "hfid": "131"
+              },
+              {
+                "hfid": "141"
+              },
+              {
+                "hfid": "133"
+              },
+              {
+                "hfid": "139"
+              },
+              {
+                "hfid": "149"
+              },
+              {
+                "hfid": "1701"
+              }
+            ]
+          },
+          {
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-85",
+            "caste": "MALE",
+            "death_year": "81",
+            "ent_pop_id": "30",
+            "entity_former_position_link": [
+              {
+                "end_year": "81",
+                "entity_id": "36",
+                "position_profile_id": "3",
+                "start_year": "1"
+              }
+            ],
+            "entity_link": [
+              {
+                "entity_id": "36",
+                "link_type": "member"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "member"
+              }
+            ],
+            "goal": "create a great work of art",
+            "hf_link": [
+              {
+                "hfid": "125",
+                "link_strength": "58",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "127",
+                "link_strength": "43",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "123",
+                "link_strength": "15",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "126",
+                "link_type": "deity"
+              },
+              {
+                "hfid": "637",
+                "link_type": "child"
+              },
+              {
+                "hfid": "769",
+                "link_type": "child"
+              },
+              {
+                "hfid": "984",
+                "link_type": "child"
+              },
+              {
+                "hfid": "1089",
+                "link_type": "child"
+              },
+              {
+                "hfid": "137",
+                "link_type": "former spouse"
+              },
+              {
+                "hfid": "137",
+                "link_type": "spouse"
+              },
+              {
+                "hfid": "1778",
+                "link_type": "child"
+              },
+              {
+                "hfid": "137",
+                "link_type": "deceased spouse"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SOAP_MAKING",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "NEGOTIATION",
+                "total_ip": "4700"
+              },
+              {
+                "skill": "CONVERSATION",
+                "total_ip": "6500"
+              },
+              {
+                "skill": "PERSUASION",
+                "total_ip": "7000"
+              },
+              {
+                "skill": "JUDGING_INTENT",
+                "total_ip": "6100"
+              },
+              {
+                "skill": "PACIFY",
+                "total_ip": "4300"
+              },
+              {
+                "skill": "INTIMIDATION",
+                "total_ip": "4300"
+              },
+              {
+                "skill": "CONSOLE",
+                "total_ip": "5400"
+              },
+              {
+                "skill": "WRESTLING",
+                "total_ip": "18000"
+              },
+              {
+                "skill": "COMEDY",
+                "total_ip": "4700"
+              },
+              {
+                "skill": "SPEAR",
+                "total_ip": "1800"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "SHIELD",
+                "total_ip": "500"
+              },
+              {
+                "skill": "ARMOR",
+                "total_ip": "500"
+              },
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "500"
+              },
+              {
+                "skill": "DISCIPLINE",
+                "total_ip": "500"
+              },
+              {
+                "skill": "CLIMBING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "MILITARY_TACTICS",
+                "total_ip": "500"
+              },
+              {
+                "skill": "LEADERSHIP",
+                "total_ip": "500"
+              },
+              {
+                "skill": "ORGANIZATION",
+                "total_ip": "500"
+              },
+              {
+                "skill": "THROW",
+                "total_ip": "201"
+              }
+            ],
+            "id": "131",
+            "name": "eshtan copperheathers",
+            "race": "DWARF"
+          },
+          {
+            "active_interaction": "SECRET_UNDEAD_RES_19",
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-50",
+            "caste": "MALE",
+            "death_year": "62",
+            "ent_pop_id": "30",
+            "entity_former_position_link": [
+              {
+                "end_year": "4",
+                "entity_id": "37",
+                "position_profile_id": "0",
+                "start_year": "1"
+              }
+            ],
+            "entity_link": [
+              {
+                "entity_id": "36",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "248",
+                "link_strength": "1",
+                "link_type": "member"
+              }
+            ],
+            "goal": "start a family",
+            "hf_link": [
+              {
+                "hfid": "125",
+                "link_strength": "50",
+                "link_type": "deity"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "FORGE_ARMOR",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "PACIFY",
+                "total_ip": "1200"
+              },
+              {
+                "skill": "INTIMIDATION",
+                "total_ip": "1200"
+              },
+              {
+                "skill": "CONVERSATION",
+                "total_ip": "600"
+              },
+              {
+                "skill": "CROSSBOW",
+                "total_ip": "2322"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "974"
+              },
+              {
+                "skill": "SHIELD",
+                "total_ip": "1123"
+              },
+              {
+                "skill": "ARMOR",
+                "total_ip": "931"
+              },
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "1154"
+              },
+              {
+                "skill": "DISCIPLINE",
+                "total_ip": "958"
+              },
+              {
+                "skill": "CLIMBING",
+                "total_ip": "500"
+              }
+            ],
+            "id": "13",
+            "intrigue_actor": [
+              {
+                "hfid": "129",
+                "local_id": "0",
+                "role": "master",
+                "strategy": "obey"
+              }
+            ],
+            "name": "zaneg attictongs",
+            "race": "DWARF",
+            "relationship_profile_hf_visual": [
+              {
+                "fear": "0",
+                "hf_id": "129",
+                "last_meet_seconds72": "0",
+                "last_meet_year": "-1",
+                "love": "0",
+                "loyalty": "0",
+                "meet_count": "0",
+                "respect": "0",
+                "trust": "0"
+              }
+            ],
+            "used_identity_id": "141"
+          },
+          {
+            "active_interaction": "SECRET_UNDEAD_RES_19",
+            "appeared": "1",
+            "associated_type": "STANDARD",
+            "birth_year": "-65",
+            "caste": "MALE",
+            "death_year": "62",
+            "ent_pop_id": "30",
+            "entity_former_position_link": [
+              {
+                "end_year": "4",
+                "entity_id": "37",
+                "position_profile_id": "6",
+                "start_year": "1"
+              }
+            ],
+            "entity_link": [
+              {
+                "entity_id": "36",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "37",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "248",
+                "link_strength": "1",
+                "link_type": "member"
+              },
+              {
+                "entity_id": "261",
+                "link_strength": "1",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "263",
+                "link_strength": "1",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "265",
+                "link_strength": "1",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "266",
+                "link_strength": "1",
+                "link_type": "former member"
+              },
+              {
+                "entity_id": "268",
+                "link_strength": "1",
+                "link_type": "former member"
+              }
+            ],
+            "goal": "start a family",
+            "hf_link": [
+              {
+                "hfid": "126",
+                "link_strength": "56",
+                "link_type": "deity"
+              }
+            ],
+            "hf_skill": [
+              {
+                "skill": "SET_BONE",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "DRESS_WOUNDS",
+                "total_ip": "9000"
+              },
+              {
+                "skill": "PACIFY",
+                "total_ip": "600"
+              },
+              {
+                "skill": "COMEDY",
+                "total_ip": "600"
+              },
+              {
+                "skill": "NEGOTIATION",
+                "total_ip": "600"
+              },
+              {
+                "skill": "JUDGING_INTENT",
+                "total_ip": "600"
+              },
+              {
+                "skill": "CONVERSATION",
+                "total_ip": "600"
+              },
+              {
+                "skill": "THROW",
+                "total_ip": "357"
+              },
+              {
+                "skill": "MACE",
+                "total_ip": "2115"
+              },
+              {
+                "skill": "DODGING",
+                "total_ip": "709"
+              },
+              {
+                "skill": "SHIELD",
+                "total_ip": "661"
+              },
+              {
+                "skill": "ARMOR",
+                "total_ip": "682"
+              },
+              {
+                "skill": "SITUATIONAL_AWARENESS",
+                "total_ip": "763"
+              },
+              {
+                "skill": "DISCIPLINE",
+                "total_ip": "856"
+              },
+              {
+                "skill": "CLIMBING",
+                "total_ip": "500"
+              },
+              {
+                "skill": "MILITARY_TACTICS",
+                "total_ip": "500"
+              },
+              {
+                "skill": "LEADERSHIP",
+                "total_ip": "500"
+              },
+              {
+                "skill": "ORGANIZATION",
+                "total_ip": "500"
+              }
+            ],
+            "id": "14",
+            "intrigue_actor": [
+              {
+                "hfid": "129",
+                "local_id": "0",
+                "role": "master",
+                "strategy": "obey"
+              }
+            ],
+            "name": "mafol clasprim",
+            "race": "DWARF",
+            "relationship_profile_hf_visual": [
+              {
+                "fear": "0",
+                "hf_id": "129",
+                "last_meet_seconds72": "0",
+                "last_meet_year": "-1",
+                "love": "0",
+                "loyalty": "0",
+                "meet_count": "0",
+                "respect": "0",
+                "trust": "0"
+              }
+            ]
+          },
+          {
+            "appeared": "-1",
+            "birth_year": "-1",
+            "caste": "FEMALE",
+            "death_year": "-1",
+            "id": "241",
+            "interaction_knowledge": "SECRET_20",
+            "name": "uthra rapidspears",
+            "race": "HUMAN",
+            "sphere": "war"
+          }
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "region": [
+          {
+            "id": "0",
+            "name": "the gulf of ransacking",
+            "type": "Ocean"
+          },
+          {
+            "id": "1",
+            "name": "the competitive ice",
+            "type": "Glacier"
+          },
+          {
+            "id": "2",
+            "name": "the ice of humility",
+            "type": "Glacier"
+          },
+          {
+            "id": "3",
+            "name": "the helpful hills",
+            "type": "Hills"
+          },
+          {
+            "id": "4",
+            "name": "the brass forests",
+            "type": "Forest"
+          },
+          {
+            "id": "5",
+            "name": "the worshipful blizzards",
+            "type": "Glacier"
+          },
+          {
+            "id": "6",
+            "name": "the respectful forests",
+            "type": "Forest"
+          },
+          {
+            "id": "7",
+            "name": "the north hill",
+            "type": "Hills"
+          },
+          {
+            "id": "8",
+            "name": "the flayed jungles",
+            "type": "Forest"
+          },
+          {
+            "id": "9",
+            "name": "the adventurous forests",
+            "type": "Forest"
+          },
+          {
+            "id": "10",
+            "name": "the jungles of certainty",
+            "type": "Forest"
+          }
+        ]
+      }
+    ],
+    "sites": [
+      {
+        "site": [
+          {
+            "id": "1",
+            "name": "endcrack",
+            "type": "cave"
+          },
+          {
+            "id": "2",
+            "name": "muddledechoes the spawn of entangling",
+            "type": "cave"
+          },
+          {
+            "id": "3",
+            "name": "the hollows of deference",
+            "type": "cave"
+          },
+          {
+            "id": "4",
+            "name": "silverydeep",
+            "type": "cave"
+          },
+          {
+            "id": "5",
+            "name": "praisedwhip",
+            "structures": [
+              {
+                "structure": [
+                  {
+                    "local_id": "0",
+                    "name": "the treaty of palisades",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "1",
+                    "name": "the gloved honeys",
+                    "type": "inn tavern"
+                  },
+                  {
+                    "local_id": "2",
+                    "name": "the fenced board",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "3",
+                    "name": "the constructive tower",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "4",
+                    "name": "the watchful treasury",
+                    "type": "library"
+                  },
+                  {
+                    "local_id": "5",
+                    "name": "the gloved fells",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "6",
+                    "name": "the attic of trade",
+                    "type": "guildhall"
+                  }
+                ]
+              }
+            ],
+            "type": "fortress"
+          },
+          {
+            "id": "6",
+            "name": "burnedwitch",
+            "structures": [
+              {
+                "structure": [
+                  {
+                    "local_id": "0",
+                    "name": "the tower of caves",
+                    "type": "underworld spire"
+                  },
+                  {
+                    "local_id": "1",
+                    "name": "the mushroom of palaces",
+                    "type": "inn tavern"
+                  }
+                ]
+              }
+            ],
+            "type": "dark fortress"
+          },
+          {
+            "id": "7",
+            "name": "whispermaze",
+            "structures": [
+              {
+                "structure": [
+                  {
+                    "local_id": "0",
+                    "name": "the irons of kin",
+                    "type": "mead hall"
+                  }
+                ]
+              }
+            ],
+            "type": "hamlet"
+          },
+          {
+            "id": "8",
+            "name": "yelledvines",
+            "type": "forest retreat"
+          },
+          {
+            "id": "9",
+            "name": "paddlesaved",
+            "site_properties": [
+              {
+                "site_property": [
+                  {
+                    "id": "0",
+                    "structure_id": "3"
+                  },
+                  {
+                    "id": "1",
+                    "structure_id": "4"
+                  },
+                  {
+                    "id": "2",
+                    "structure_id": "5"
+                  },
+                  {
+                    "id": "3",
+                    "structure_id": "6"
+                  },
+                  {
+                    "id": "4",
+                    "structure_id": "7"
+                  },
+                  {
+                    "id": "5",
+                    "structure_id": "8"
+                  },
+                  {
+                    "id": "6",
+                    "structure_id": "10"
+                  },
+                  {
+                    "id": "7",
+                    "structure_id": "11"
+                  }
+                ]
+              }
+            ],
+            "structures": [
+              {
+                "structure": [
+                  {
+                    "local_id": "0",
+                    "name": "the snack of portals",
+                    "type": "inn tavern"
+                  },
+                  {
+                    "local_id": "1",
+                    "name": "the laborious fame",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "2",
+                    "name": "the inky sweetnesses",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "3",
+                    "name": "the wayward merchants",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "4",
+                    "name": "the south cosmos",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "5",
+                    "name": "the burn of merchants",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "6",
+                    "name": "the west evenness",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "7",
+                    "name": "the bride of wanderers",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "8",
+                    "name": "the language of wanderers",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "9",
+                    "name": "the barricaded rasp",
+                    "type": "guildhall"
+                  },
+                  {
+                    "local_id": "10",
+                    "name": "the wayward will",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "11",
+                    "name": "the ear of trades",
+                    "type": "counting house"
+                  },
+                  {
+                    "entity_id": "129",
+                    "local_id": "12",
+                    "name": "the cathedral of mirth",
+                    "type": "temple"
+                  },
+                  {
+                    "local_id": "13",
+                    "name": "cystcracks",
+                    "subtype": "catacombs",
+                    "type": "dungeon"
+                  }
+                ]
+              }
+            ],
+            "type": "fortress"
+          },
+          {
+            "id": "10",
+            "name": "goresins",
+            "site_properties": [
+              {
+                "site_property": [
+                  {
+                    "id": "0",
+                    "structure_id": "4"
+                  },
+                  {
+                    "id": "1",
+                    "structure_id": "5"
+                  },
+                  {
+                    "id": "2",
+                    "structure_id": "6"
+                  }
+                ]
+              }
+            ],
+            "structures": [
+              {
+                "structure": [
+                  {
+                    "local_id": "0",
+                    "name": "the palace of bewildering",
+                    "type": "underworld spire"
+                  },
+                  {
+                    "local_id": "1",
+                    "name": "the date of midnight",
+                    "type": "inn tavern"
+                  },
+                  {
+                    "local_id": "2",
+                    "name": "the tongue of terrors",
+                    "type": "inn tavern"
+                  },
+                  {
+                    "local_id": "3",
+                    "name": "the peaches of wickedness",
+                    "type": "inn tavern"
+                  },
+                  {
+                    "local_id": "4",
+                    "name": "the abatement of wanderers",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "5",
+                    "name": "the north renown",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "6",
+                    "name": "the south pantomime",
+                    "type": "counting house"
+                  },
+                  {
+                    "local_id": "7",
+                    "name": "the ruthless tongues",
+                    "type": "inn tavern"
+                  }
+                ]
+              }
+            ],
+            "type": "dark fortress"
+          }
+        ]
+      }
+    ],
+    "underground_regions": [
+      {
+        "underground_region": [
+          {
+            "depth": "1",
+            "id": "0",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "1",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "2",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "3",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "4",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "5",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "6",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "7",
+            "type": "cavern"
+          },
+          {
+            "depth": "1",
+            "id": "8",
+            "type": "cavern"
+          },
+          {
+            "depth": "2",
+            "id": "9",
+            "type": "cavern"
+          },
+          {
+            "depth": "2",
+            "id": "10",
+            "type": "cavern"
+          }
+        ]
+      }
+    ],
+    "written_contents": [
+      {
+        "written_content": [
+          {
+            "author_hfid": "308",
+            "form": "musical composition",
+            "id": "0",
+            "title": "Brute Ever Onward"
+          },
+          {
+            "author_hfid": "353",
+            "form": "poem",
+            "id": "1",
+            "style": "vicious:1",
+            "title": "And She Sang 'Emptiness!'"
+          },
+          {
+            "author_hfid": "308",
+            "form": "musical composition",
+            "id": "2",
+            "title": "Hollows: Nothing Can Say In The End"
+          },
+          {
+            "author_hfid": "217",
+            "form": "musical composition",
+            "id": "3",
+            "title": "The Sun Sets on Dungeon"
+          },
+          {
+            "author_hfid": "217",
+            "form": "poem",
+            "id": "4",
+            "style": "compassionate:1",
+            "title": "Slowly Nothing Weeps In The Beginning"
+          },
+          {
+            "author_hfid": "146",
+            "form": "musical composition",
+            "id": "5",
+            "title": "Aunts and the Scorn"
+          },
+          {
+            "author_hfid": "92",
+            "form": "poem",
+            "id": "6",
+            "title": "The Silkiness and Pick"
+          },
+          {
+            "author_hfid": "109",
+            "form": "musical composition",
+            "id": "7",
+            "title": "The Gleeful Gate and Serpents"
+          },
+          {
+            "author_hfid": "109",
+            "form": "poem",
+            "id": "8",
+            "style": "self indulgent:4",
+            "title": "The Birth of Caverns"
+          },
+          {
+            "author_hfid": "109",
+            "form": "poem",
+            "id": "9",
+            "style": "melancholy:1",
+            "title": "The Birth of the Competitor"
+          },
+          {
+            "author_hfid": "109",
+            "form": "poem",
+            "id": "10",
+            "style": "self indulgent:1",
+            "title": "Trumpet: Surely The Wise Laugh"
+          }
+        ]
+      }
+    ]
+  }
+}
