@@ -1,7 +1,7 @@
-XML/region3-00100-01-01-legends_plus.xml
-XML/region3-00100-01-01-legends.xml
 output.txt
-XML/legends_sample.xml
-XML/XML categories
 outputinit.txt
 output.csv
+tests/XML/legends_sample.xml
+tests/XML/region3-00100-01-01-legends_plus.xml
+tests/XML/region3-00100-01-01-legends.xml
+tests/XML/XML categories
