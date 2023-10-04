@@ -49,3 +49,38 @@ class HistoricalEras(models.Model):
     name = models.CharField(max_length=100)
     start_year = models.IntegerField()
     end_year = models.IntegerField(null=True)
+
+class HistoricalEventCollections(models.Model):
+    aggressor_entity_id = models.ForeignKey('Entities', related_name='historical_event_collections', null=True)
+    attacking_hfid = models.ForeignKey('HistoricalFigure', related_name='historical_event_collections', null=True)
+    attacking_squad_deaths = models.IntegerField(null=True)
+    attacking_squad_entity_pop = models.IntegerField(null=True)
+    attacking_squad_number = models.IntegerField(null=True)
+    attacking_squad_race = models.CharField(max_length=100, null=True)
+    attacking_squad_site = models.ForeignKey('Sites', related_name='historical_event_collections', null=True)
+    defender_entity_id = models.ForeignKey('Entities', related_name='historical_event_collections', null=True)
+    defending_hfid = models.ForeignKey('HistoricalFigure', related_name='historical_event_collections', null=True)
+    defending_squad_deaths = models.IntegerField(null=True)
+    defending_squad_entity_pop = models.IntegerField(null=True)
+    defending_squad_number = models.IntegerField(null=True)
+    defending_squad_race = models.CharField(max_length=100, null=True)
+    defending_squad_site = models.ForeignKey('Sites', related_name='historical_event_collections', null=True)
+    civ_id = models.ForeignKey('Entities', related_name='historical_event_collections')
+    end_year = models.IntegerField(null=True)
+    # Not sure what event is
+    event = models.CharField(max_length=100)
+    # Not sure what eventcol is
+    eventcol = models.IntegerField(null=True)
+    feature_layer_id = models.IntegerField(null=True)
+    name = models.CharField(max_length=100, null=True)
+    occasion_id = models.IntegerField(null=True)
+    outcome = models.CharField(max_length=100, null=True)
+    site_id = models.ForeignKey('Sites', related_name='historical_event_collections', null=True)
+    start_year = models.IntegerField(null=True)
+    subregion_id = models.IntegerField(null=True)
+    type = models.CharField(max_length=100, null=True)
+    # Not sure what war_eventcol is
+    war_eventcol = models.IntegerField(null=True)
+
+class HistoricalEvents(models.Model):
+    
