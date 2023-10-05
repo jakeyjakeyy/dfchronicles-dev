@@ -145,7 +145,7 @@ class HistoricalEvents(models.Model):
 class Circumstance(models.Model):
     world = models.ForeignKey('World', related_name='world_circumstance', null=True, on_delete=models.CASCADE)
     type = models.CharField(max_length=100)
-    hist_event_id = models.ManyToManyField('HistoricalEvents', related_name='hist_event_circumstance', null=True)
+    hist_event_id = models.ManyToManyField('HistoricalEvents', related_name='hist_event_circumstance')
     hist_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='hist_event_collection_circumstance', null=True, on_delete=models.SET_NULL)
 
 class HistoricalEventRelationships(models.Model):
