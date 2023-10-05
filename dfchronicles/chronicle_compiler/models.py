@@ -12,7 +12,7 @@ class Artifact(models.Model):
     chronicle_id = models.IntegerField()
     name = models.CharField(max_length=100)
     name2 = models.CharField(max_length=100, null=True)
-    site_id = models.IntegerField()
+    site_id = models.ForeignKey('Sites', related_name='site_artifacts', null=True, on_delete=models.SET_NULL)
     holder_id = models.ForeignKey('HistoricalFigures', null=True, related_name='hf_artifacts', on_delete=models.SET_NULL)
     name_string = models.CharField(max_length=100)
     page_number = models.IntegerField(null=True)

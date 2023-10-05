@@ -66,3 +66,5 @@ We can try to limit the data sent by sorting the data in relation to our best gu
 No use it seems for the categories: poetic_forms, musical_forms, dance_forms
 
 
+WRITEUP THOUGHTS:
+show some sample XML data, explain the smallest dataset was over 1.3million lines. Sorted and transferred to database for use later.

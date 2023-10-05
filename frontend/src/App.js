@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [message, setMessage] = useState('Fetching Data...');
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch('http://localhost:8000/api')
       .then(res => res.json())
       .then(data => setMessage(data.message))
   })

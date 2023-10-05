@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from .views import ProcessXML
 
 urlpatterns = [
-    path('', views.test_data, name='test_data')
+    path('process-xml', ProcessXML.as_view(), name='process-xml'),
 ]
