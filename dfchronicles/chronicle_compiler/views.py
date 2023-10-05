@@ -8,19 +8,15 @@ import json
 
 # Create your views here.
 
-class test_data(APIView):
-    def get(self, request):
-        data = {
-            'message': 'Hello World!'
-        }
-        return Response(data)
-
-
 class ProcessXML(APIView):
     def post(self, request):
         legends = request.FILES['legends']
         legends_tree = ET.parse(legends)
-        # helper file
+        legends_root = legends_tree.getroot()
+        # Parse to JSON
+        legends_parsed = helpers.ParseXML(legends_root)
+        legends_json = json.dumps(legends_parsed, indent=2, sort_keys=True)
+        print(legends_json, file=open('legends_parsed.json', 'a'))
 
         legendsplus = request.FILES['legendsplus']
         legendsplus_tree = ET.parse(legendsplus)
