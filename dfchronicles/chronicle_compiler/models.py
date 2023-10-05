@@ -118,20 +118,35 @@ class HistoricalEventCollections(models.Model):
 
 class HistoricalEvents(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_events', null=True, on_delete=models.CASCADE)
-    # Not sure what feature_layer_id is
     appointer_hfid = models.ForeignKey('HistoricalFigures', related_name='appointer_hf_historical_events', null=True, on_delete=models.SET_NULL)
+    body_part = models.IntegerField(null=True)
+    caste = models.CharField(max_length=100, null=True)
     civ_id = models.ForeignKey('Entities', related_name='civ_historical_events', null=True, on_delete=models.SET_NULL)
+    death_cause = models.CharField(max_length=100, null=True)
+    # Not sure what feature_layer_id is
     feature_layer_id = models.IntegerField(null=True)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_historical_events', null=True, on_delete=models.SET_NULL)
     id = models.IntegerField(primary_key=True, unique=True)
+    injury_type = models.CharField(max_length=100, null=True)
     link_type = models.CharField(max_length=100, null=True)
+    new_job = models.CharField(max_length=100, null=True)
+    old_job = models.CharField(max_length=100, null=True)
+    part_lost = models.BooleanField(null=True)
+    position = models.CharField(max_length=100, null=True)
     promise_to_hfid = models.ForeignKey('HistoricalFigures', related_name='promise_hf_historical_events', null=True, on_delete=models.SET_NULL)
+    race = models.CharField(max_length=100, null=True)
     reason = models.CharField(max_length=100, null=True)
     site_id = models.ForeignKey('Sites', related_name='site_historical_events', null=True, on_delete=models.SET_NULL)
     state = models.CharField(max_length=100, null=True)
     subregion_id = models.IntegerField(null=True)
     type = models.CharField(max_length=100, null=True)
     year = models.IntegerField(null=True)
+
+class Circumstance(models.Model):
+    world = models.ForeignKey('World', related_name='world_circumstance', null=True, on_delete=models.CASCADE)
+    type = models.CharField(max_length=100)
+    hist_event_id = models.ManyToManyField('HistoricalEvents', related_name='hist_event_circumstance', null=True)
+    hist_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='hist_event_collection_circumstance', null=True, on_delete=models.SET_NULL)
 
 class HistoricalEventRelationships(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_event_relationships', null=True, on_delete=models.CASCADE)
