@@ -3,7 +3,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [message, setMessage] = useState('Loading...');
+  const [message, setMessage] = useState('Fetching Data...');
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
