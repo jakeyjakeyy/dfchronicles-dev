@@ -164,6 +164,7 @@ class Circumstance(models.Model):
 
 class HistoricalFigures(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_figures', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     appeared = models.IntegerField(null=True)
     associated_type = models.CharField(max_length=100, null=True)
     birth_year = models.IntegerField(null=True)
@@ -175,11 +176,6 @@ class HistoricalFigures(models.Model):
     sphere = models.CharField(max_length=100, null=True)
     used_identity = models.ForeignKey('Identities', related_name='used_identity_historical_figures', null=True, on_delete=models.SET_NULL)
 
-class EntityLink(models.Model):
-    world = models.ForeignKey('World', related_name='world_entity_link', null=True, on_delete=models.CASCADE)
-    civ_id = models.ForeignKey('Entities', related_name='civ_entity_link', null=True, on_delete=models.SET_NULL)
-    hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_link', null=True, on_delete=models.SET_NULL)
-    link_type = models.CharField(max_length=100, null=True)
 
 class SiteLink(models.Model):
     world = models.ForeignKey('World', related_name='world_site_link', null=True, on_delete=models.CASCADE)
