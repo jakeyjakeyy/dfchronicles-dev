@@ -9,7 +9,7 @@ class World(models.Model):
 
 class Artifact(models.Model):
     world = models.ForeignKey('World', related_name='world_artifacts', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     name = models.CharField(max_length=100)
     name2 = models.CharField(max_length=100, null=True)
     site_id = models.IntegerField()
@@ -25,7 +25,7 @@ class Artifact(models.Model):
 
 class Entities(models.Model):
     world = models.ForeignKey('World', related_name='world_entities', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     name = models.CharField(max_length=100, null=True)
     race = models.CharField(max_length=100, null=True)
     type = models.CharField(max_length=100)
@@ -35,9 +35,8 @@ class Entities(models.Model):
 class EntityPosition(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_position', null=True, on_delete=models.CASCADE)
     civ_position_id = models.IntegerField()
-    civ_id = models.ForeignKey('Entities', related_name='entity_position', null=True, on_delete=models.SET_NULL)
+    civ_id = models.ForeignKey('Entities', related_name='civ_entity_position', null=True, on_delete=models.SET_NULL)
     position_id = models.IntegerField()
-    entity_id = models.ForeignKey('Entities', related_name='entity_position', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100)
     name_male = models.CharField(max_length=100, null=True)
     name_female = models.CharField(max_length=100, null=True)
@@ -54,7 +53,7 @@ class EntityPositionAssignment(models.Model):
 
 class EntityPopulations(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_populations', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     civ_id = models.ForeignKey('Entities', related_name='entity_populations', null=True, on_delete=models.SET_NULL)
     # race and pop aren't separated in the XML
     # I imagine this will be easier to split on entity creation
@@ -95,7 +94,7 @@ class HistoricalEras(models.Model):
 
 class HistoricalEventCollections(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_event_collections', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     aggressor_entity_id = models.ForeignKey('Entities', related_name='attack_historical_event_collections', null=True, on_delete=models.SET_NULL)
     attacking_hfid = models.ForeignKey('HistoricalFigures', related_name='attack_hf_historical_event_collections', null=True, on_delete=models.SET_NULL)
     attacking_squad_deaths = models.IntegerField(null=True)
@@ -129,7 +128,7 @@ class HistoricalEventCollections(models.Model):
 
 class HistoricalEvents(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_events', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     appointer_hfid = models.ForeignKey('HistoricalFigures', related_name='appointer_hf_historical_events', null=True, on_delete=models.SET_NULL)
     body_part = models.IntegerField(null=True)
     caste = models.CharField(max_length=100, null=True)
@@ -164,7 +163,7 @@ class Circumstance(models.Model):
 
 class HistoricalFigures(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_figures', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     appeared = models.IntegerField(null=True)
     associated_type = models.CharField(max_length=100, null=True)
     birth_year = models.IntegerField(null=True)
@@ -206,14 +205,14 @@ class HfLink(models.Model):
 
 class Regions(models.Model):
     world = models.ForeignKey('World', related_name='world_regions', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     evilness = models.CharField(max_length=100, null=True)
 
 class Sites(models.Model):
     world = models.ForeignKey('World', related_name='world_sites', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     civ_id = models.ForeignKey('Entities', related_name='civ_sites', null=True, on_delete=models.SET_NULL)
     cur_owner_id = models.ForeignKey('Entities', related_name='owned_sites', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100)
@@ -230,13 +229,13 @@ class Structures(models.Model):
 
 class UndergroundRegions(models.Model):
     world = models.ForeignKey('World', related_name='world_underground_regions', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     type = models.CharField(max_length=100)
     depth = models.IntegerField(null=True)
 
 class WrittenContents(models.Model):
     world = models.ForeignKey('World', related_name='world_written_contents', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     author_hfid = models.ForeignKey('HistoricalFigures', related_name='written_contents', null=True, on_delete=models.SET_NULL)
     form = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
@@ -279,7 +278,7 @@ class EntityFormerPositionLink(models.Model):
 
 class Identities(models.Model):
     world = models.ForeignKey('World', related_name='world_identities', null=True, on_delete=models.CASCADE)
-    world_id = models.IntegerField()
+    chronicle_id = models.IntegerField()
     name = models.CharField(max_length=100)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='identities', null=True, on_delete=models.SET_NULL)
     birth_year = models.IntegerField(null=True)
