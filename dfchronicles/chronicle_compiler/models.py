@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
 class World(models.Model):
     name = models.CharField(max_length=100)
     name2 = models.CharField(max_length=100, null=True)

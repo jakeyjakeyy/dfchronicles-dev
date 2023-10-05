@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-
+from chronicle_compiler import models
 
 
 def ParseXML(root):
@@ -20,6 +20,7 @@ def ParseXML(root):
 
     return {root.tag: parse_element(root)}
 
-def JSONtoDB(json):
-    pass
-
+def XMLToDB(root, owner):
+    exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
+    if root[1].tag == 'altname':
+        world = models.World.objects.create(name=root[1].text, altname=root[0].text, owner=owner)

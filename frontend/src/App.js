@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
@@ -5,7 +6,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [message, setMessage] = useState('Fetching Data...');
   useEffect(() => {
-    fetch('http://localhost:8000/api')
+    fetch('http://localhost:8000/api/whoami')
       .then(res => res.json())
       .then(data => setMessage(data.message))
   })
