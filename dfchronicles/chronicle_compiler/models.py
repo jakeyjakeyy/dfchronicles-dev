@@ -176,7 +176,14 @@ class HistoricalFigures(models.Model):
     sphere = models.CharField(max_length=100, null=True)
     used_identity = models.ForeignKey('Identities', related_name='used_identity_historical_figures', null=True, on_delete=models.SET_NULL)
 
+# links historical figures to civs
+class EntityLink(models.Model):
+    world = models.ForeignKey('World', related_name='world_entity_link', null=True, on_delete=models.CASCADE)
+    civ_id = models.ForeignKey('Entities', related_name='civ_entity_link', null=True, on_delete=models.SET_NULL)
+    hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_link', null=True, on_delete=models.SET_NULL)
+    link_type = models.CharField(max_length=100, null=True)
 
+# seems to link lairs to historical figures
 class SiteLink(models.Model):
     world = models.ForeignKey('World', related_name='world_site_link', null=True, on_delete=models.CASCADE)
     civ_id = models.ForeignKey('Entities', related_name='civ_site_link', null=True, on_delete=models.SET_NULL)
@@ -199,12 +206,14 @@ class HfLink(models.Model):
 
 class Regions(models.Model):
     world = models.ForeignKey('World', related_name='world_regions', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
     evilness = models.CharField(max_length=100, null=True)
 
 class Sites(models.Model):
     world = models.ForeignKey('World', related_name='world_sites', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     civ_id = models.ForeignKey('Entities', related_name='civ_sites', null=True, on_delete=models.SET_NULL)
     cur_owner_id = models.ForeignKey('Entities', related_name='owned_sites', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=100)
@@ -213,6 +222,7 @@ class Sites(models.Model):
 class Structures(models.Model):
     world = models.ForeignKey('World', related_name='world_structures', null=True, on_delete=models.CASCADE)
     site_id = models.ForeignKey('Sites', related_name='site_structures', null=True, on_delete=models.SET_NULL)
+    structure_id = models.IntegerField()
     type = models.CharField(max_length=100)
     name = models.CharField(max_length=100, null=True)
     name2 = models.CharField(max_length=100, null=True)
@@ -220,19 +230,28 @@ class Structures(models.Model):
 
 class UndergroundRegions(models.Model):
     world = models.ForeignKey('World', related_name='world_underground_regions', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     type = models.CharField(max_length=100)
     depth = models.IntegerField(null=True)
 
 class WrittenContents(models.Model):
     world = models.ForeignKey('World', related_name='world_written_contents', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     author_hfid = models.ForeignKey('HistoricalFigures', related_name='written_contents', null=True, on_delete=models.SET_NULL)
     form = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     style = models.CharField(max_length=100, null=True)
     reference = models.ForeignKey('WrittenContents', related_name='reference_written_contents', null=True, on_delete=models.SET_NULL)
 
+class IntriguePlot(models.Model):
+    world = models.ForeignKey('World', related_name='world_intrigue_plot', null=True, on_delete=models.CASCADE)
+    local_id = models.IntegerField()
+    source_hfid = models.ForeignKey('HistoricalFigures', related_name='source_intrigue_plot', null=True, on_delete=models.SET_NULL)
+    type = models.CharField(max_length=100, null=True)
+
 class IntrigueActor(models.Model):
     world = models.ForeignKey('World', related_name='world_intrigue_actor', null=True, on_delete=models.CASCADE)
+    local_id = models.IntegerField()
     source_hfid = models.ForeignKey('HistoricalFigures', related_name='source_intrigue_actor', null=True, on_delete=models.SET_NULL)
     target_hfid = models.ForeignKey('HistoricalFigures', related_name='target_intrigue_actor', null=True, on_delete=models.SET_NULL)
     role = models.CharField(max_length=100, null=True)
@@ -260,6 +279,7 @@ class EntityFormerPositionLink(models.Model):
 
 class Identities(models.Model):
     world = models.ForeignKey('World', related_name='world_identities', null=True, on_delete=models.CASCADE)
+    world_id = models.IntegerField()
     name = models.CharField(max_length=100)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='identities', null=True, on_delete=models.SET_NULL)
     birth_year = models.IntegerField(null=True)
