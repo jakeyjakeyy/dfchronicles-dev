@@ -15,15 +15,19 @@ class WhoAmI(APIView):
 
 class ProcessXML(APIView):
     def post(self, request):
+        # pull root files
         legends = request.FILES['legends']
         legends_tree = ET.parse(legends)
         legends_root = legends_tree.getroot()
-        # Upload to DB
-        helpers.XMLToDB(legends_root, request.user)
 
         legendsplus = request.FILES['legendsplus']
         legendsplus_tree = ET.parse(legendsplus)
-        # helper file
+        legendsplus_root = legendsplus_tree.getroot()
+        
+        # Get world from legends_plus and save to DB. This is our reference point.
+        world = helpers.SaveWorld(legendsplus_root, request.user)
+        # Get all data from legends and save to DB.
+        helpers.SaveLegends(legends_root, world)
 
         return Response({'message': 'Archive created'})
     
