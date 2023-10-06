@@ -32,18 +32,23 @@ def SaveLegends(root, world):
     exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
     missing_fkeys = []
 
+    test_tags = ['artifacts', 'entities']
+
     # Find all elements and run associated save function
     def save_element(element, world):
         for child in element:
-            if child.tag not in exclude_tags and child.tag in class_tags:
-                if child.tag == 'artifacts':
-                    save_element(child, world)
-                else:
-                    open('log.txt', 'a').write('!UNUSED CLASS! Save Legends: ' + child.tag + '\n')
+            if child.tag not in exclude_tags and child.tag in test_tags:
+                save_element(child, world)
             else:
                 if child.tag == 'artifact':
                     lists = save_artifact(child, world)
-                    missing_fkeys.append(lists)
+                    if lists:
+                        missing_fkeys.append(lists)
+                elif child.tag == 'entity':
+                    lists = save_entity(child, world)
+                    if lists:
+                        for dict in lists:
+                            missing_fkeys.append(dict)
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     
@@ -56,7 +61,7 @@ def SaveLegends(root, world):
 def save_artifact(element, world):
     artifact_arguments = []
 
-    chronicle_id, name, name2, missing_site_id, missing_holder_id, page_number, missing_written_content_id, item_type, writing, material, item_subtype, item_description = None, None, None, None, None, None, None, None, None, None, None, None
+    chronicle_id, name, name2, missing_site_id, missing_holder_id, page_number, missing_written_content_id, item_type, material, item_subtype, item_description, missing_structure_local_id = None, None, None, None, None, None, None, None, None, None, None, None
     for child in element:
         if child.tag == 'id':
             chronicle_id = int(child.text)
@@ -82,14 +87,16 @@ def save_artifact(element, world):
             missing_holder_id = int(child.text)
         elif child.tag == 'item_type':
             item_type = child.text
-        elif child.tag == 'writing':
-            writing = int(child.text)
         elif child.tag == 'mat':
             material = child.text
         elif child.tag == 'item_subtype':
             item_subtype = child.text
         elif child.tag == 'item_description':
             item_description = child.text
+        elif child.tag == 'structure_local_id':
+            missing_structure_local_id = int(child.text)
+        elif child.tag == 'page_count' or child.tag == 'writing':
+            pass
         else:
             open('log.txt', 'a').write('!UNUSED TAG! Save Artifact: ' + child.tag + '\n')
         
@@ -104,13 +111,18 @@ def save_artifact(element, world):
         # Artifact has been seen before, update it
         if item_type:
             artifact.item_type = item_type
-        if writing:
-            artifact.writing = writing
+        if material:
+            artifact.material = material
+        if item_subtype:
+            artifact.item_subtype = item_subtype
+        if item_description:
+            artifact.item_description = item_description
+        artifact.save()
         # artifact = models.Artifact.objects.filter(world=world, chronicle_id=chronicle_id)
         pass
     else:
         # Artifact has not been seen before, create it
-        artifact_arguments.append({'world' : world, 'chronicle_id': chronicle_id, 'name': name, 'name2': name2, 'page_number': page_number, 'item_type': item_type, 'writing': writing, 'material': material, 'item_subtype': item_subtype, 'item_description': item_description})
+        artifact_arguments.append({'world' : world, 'chronicle_id': chronicle_id, 'name': name, 'name2': name2, 'page_number': page_number, 'item_type': item_type, 'material': material, 'item_subtype': item_subtype, 'item_description': item_description})
 
         artifact = models.Artifact.objects.create(**artifact_arguments[0])
         artifact.save()
@@ -123,8 +135,124 @@ def save_artifact(element, world):
             missing['holder_id'] = missing_holder_id
         if missing_written_content_id:
             missing['written_content_id'] = missing_written_content_id
+        if missing_structure_local_id:
+            missing['structure_local_id'] = missing_structure_local_id
 
         return missing
 
+entity_position_assignments = []
 def save_entity(element, world):
-    pass
+    chronicle_id, name, race, type, profession, weapon = None, None, None, None, None, None
+    entity_positions = []
+    entity_position_assignments = []
+    occasions = []
+    missing_fkeys = []
+    worship_ids = []
+    for child in element:
+        if child.tag == 'id':
+            chronicle_id = int(child.text)
+        elif child.tag == 'name':
+            name = child.text
+        elif child.tag == 'race':
+            race = child.text
+        elif child.tag == 'type':
+            type = child.text
+        elif child.tag == 'entity_position':
+            entity_positions.append(child)
+        elif child.tag == 'entity_position_assignment':
+            entity_position_assignments.append(child)
+        elif child.tag == 'occasion':
+            occasions.append(child)
+        elif child.tag == 'profession':
+            profession = child.text
+        elif child.tag == 'weapon':
+            weapon = child.text
+        elif child.tag == 'worship_id':
+            worship_ids.append(int(child.text))
+        elif child.tag == 'child' or child.tag == 'entity_link' or child.tag == 'histfig_id':
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED TAG! Save Entity: ' + child.tag + '\n')
+    
+    try:
+        entity = models.Entities.objects.get(world=world, chronicle_id=chronicle_id)
+        exists = True
+    except models.Entities.DoesNotExist:
+        exists = False
+    
+    if exists:
+        if race:
+            entity.race = race
+        if type:
+            entity.type = type
+        if profession:
+            entity.profession = profession
+        if weapon:
+            entity.weapon = weapon
+        for position in entity_positions:
+            save_entity_position(position, entity)
+        for assignment in entity_position_assignments:
+            lists = save_entity_position_assignment(assignment, entity)
+            if lists:
+                missing_fkeys.append(lists)
+        # [save_occasion(occasion, entity) for occasion in occasions]
+        entity.save()
+
+        
+    else:
+        entity = models.Entities.objects.create(world=world, chronicle_id=chronicle_id, name=name)
+        entity.save()
+    
+    for worship_id in worship_ids:
+        missing_fkeys.append({'entity': entity, 'worship_id': worship_id})
+
+    if missing_fkeys:
+        return missing_fkeys
+
+        
+def save_entity_position(position, entity):
+    world = entity.world
+    civ_id = entity
+    civ_position_id, name, name_male, name_female, spouse, spouse_male, spouse_female = None, None, None, None, None, None, None
+    for child in position:
+        if child.tag == 'id':
+            civ_position_id = child.text
+        if child.tag == 'name':
+            name = child.text
+        if child.tag == 'name_male':
+            name_male = child.text
+        if child.tag == 'name_female':
+            name_female = child.text
+        if child.tag == 'spouse':
+            spouse = child.text
+        if child.tag == 'spouse_male':
+            spouse_male = child.text
+        if child.tag == 'spouse_female':
+            spouse_female = child.text
+
+    entity_position = models.EntityPosition.objects.create(world=world, civ_position_id=civ_position_id, civ_id=civ_id, name=name, name_male=name_male, name_female=name_female, spouse=spouse, spouse_male=spouse_male, spouse_female=spouse_female)
+    entity_position.save()
+
+def save_entity_position_assignment(assignment, entity):
+    world = entity.world
+    civ_id = entity
+    hf_id, civ_position_assignment_id, position = None, None, None
+    for child in assignment:
+        if child.tag == 'id':
+            civ_position_assignment_id = child.text
+        if child.tag == 'position_id':
+            position = models.EntityPosition.objects.get(world=world, civ_id=civ_id, civ_position_id=child.text)
+        if child.tag == 'histfig':
+            hf_id = child.text
+
+    entity_position_assignment = models.EntityPositionAssignment.objects.create(world=world, civ_position_assignment_id=civ_position_assignment_id, civ_id=civ_id, position_id=position, hf_id=None)
+    entity_position_assignment.save()
+    
+    if hf_id:
+        missing = {'entity_position_assignment': entity_position_assignment, 'hf_id': hf_id}
+        return missing
+
+# def save_occasion(occasion, entity):
+#     world = entity.world
+#     civ_id = entity
+#     for child in occasion:
