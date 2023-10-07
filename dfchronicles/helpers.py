@@ -90,6 +90,14 @@ def save_historical_figure(element, world):
     entity_links = []
     site_links = []
     hf_skills = []
+    hf_links = []
+    former_positions = []
+    relationship_visuals = []
+    intrigue_plots = []
+    intrigue_actors = []
+    entity_positions_link = []
+    vague_relationships = []
+    squad_links = []
     missing_fkeys = []
     for child in element:
         tag = child.tag.strip()
@@ -141,29 +149,21 @@ def save_historical_figure(element, world):
         elif tag == 'hf_skill':
             hf_skills.append(child)
         elif tag == 'hf_link':
-            # class HFLink
-            pass
+            hf_links.append(child)
         elif tag == 'entity_former_position_link':
-            # class EntityFormerPositionLink
-            pass
+            former_positions.append(child)
         elif tag == 'relationship_profile_hf_visual':
-            # class RelationshipProfileVisual
-            pass
+            relationship_visuals.append(child)
         elif tag == 'intrigue_plot':
-            # class IntriguePlot
-            pass
+            intrigue_plots.append(child)
         elif tag == 'intrigue_actor':
-            # class IntrigueActor
-            pass
+            intrigue_actors.append(child)
         elif tag == 'entity_position_link':
-            # class EntityPositionLink
-            pass
+            entity_positions_link.append(child)
         elif tag == 'vague_relationship':
-            # class VagueRelationship
-            pass
-        elif tag == 'site_property':
-            # class SiteProperty
-            pass
+            vague_relationships.append(child)
+        elif tag == 'entity_squad_link':
+            squad_links.append(child)
         elif tag == 'entity_squad_link':
             # class EntitySquadLink
             pass
@@ -210,6 +210,55 @@ def save_historical_figure(element, world):
             if lists:
                 for dict in lists:
                     missing_fkeys.append(dict)
+    if len(hf_links) > 0:
+        for link in hf_links:
+            links = save_hf_link(link, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(former_positions) > 0:
+        for position in former_positions:
+            links = save_entity_former_position_link(position, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(relationship_visuals) > 0:
+        for visual in relationship_visuals:
+            links = save_relationship_profile_visual(visual, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(intrigue_plots) > 0:
+        for plot in intrigue_plots:
+            links = save_intrigue_plot(plot, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(intrigue_actors) > 0:
+        for actor in intrigue_actors:
+            links = save_intrigue_actor(actor, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(entity_positions_link) > 0:
+        for position in entity_positions_link:
+            links = save_entity_position_link(position, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(vague_relationships) > 0:
+        for relationship in vague_relationships:
+            links = save_vague_relationship(relationship, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+    if len(squad_links) > 0:
+        for squad in squad_links:
+            links = save_entity_squad_link(squad, hf)
+            if links:
+                for dict in links:
+                    missing_fkeys.append(dict)
+
     if current_identity:
         missing_fkeys.append({'historicfigure': hf, 'current_identity': current_identity})
     if len(used_identities) > 0:
@@ -284,6 +333,225 @@ def save_hf_skill(element, hf):
     
     hf_skill = models.HfSkill.objects.create(world=hf.world, hf_id=hf, skill=skill, total_ip=total_ip)
     hf_skill.save()
+
+def save_hf_link(element, hf):
+    hf_id, link_type, link_strength = None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'hfid':
+            hf_id = child.text
+        elif tag == 'link_type':
+            link_type = child.text
+        elif tag == 'link_strength':
+            link_strength = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save HF Link: ' + tag + '\n')
+
+    hf_link = models.HfLink.objects.create(world=hf.world, hf_origin_id=hf, link_type=link_type, link_strength=link_strength)
+    hf_link.save()
+
+    return {'hf_link': hf_link, 'hf_id': hf_id}
+
+def save_entity_former_position_link(element, hf):
+    civ_id, end_year, position_id, start_year = None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'entity_id':
+            civ_id = child.text
+        elif tag == 'end_year':
+            end_year = child.text
+        elif tag == 'position_profile_id':
+            position_id = child.text
+        elif tag == 'start_year':
+            start_year = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Position Link: ' + tag + '\n')
+
+    entity_position_link = models.EntityFormerPositionLink.objects.create(world=hf.world, hf_id=hf, start_year=start_year, end_year=end_year)
+    entity_position_link.save()
+
+    return {'entity_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
+    
+def save_relationship_profile_visual(element, hf):
+    target_hfid, fear, last_meet_year, love, loyalty, meet_count, respect, trust, known_identity, rep_friendly, rep_information_source = None, None, None, None, None, None, None, None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'hf_id':
+            target_hfid = child.text
+        elif tag == 'fear':
+            fear = child.text
+        elif tag == 'last_meet_year':
+            last_meet_year = child.text
+        elif tag == 'love':
+            love = child.text
+        elif tag == 'loyalty':
+            loyalty = child.text
+        elif tag == 'meet_count':
+            meet_count = child.text
+        elif tag == 'respect':
+            respect = child.text
+        elif tag == 'trust':
+            trust = child.text
+        elif tag == 'rep_information_source':
+            rep_information_source = child.text
+        elif tag == 'last_meet_seconds72':
+            pass
+        elif tag == 'known_identity_id':
+            known_identity = child.text
+        elif tag == 'rep_friendly':
+            rep_friendly = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Relationship Profile Visual: ' + tag + '\n')
+    
+    relationship_profile_visual = models.RelationshipProfileVisual.objects.create(world=hf.world, source_hfid=hf, fear=fear, last_meet_year=last_meet_year, love=love, loyalty=loyalty, meet_count=meet_count, respect=respect, trust=trust,  rep_friendly=rep_friendly, rep_information_source=rep_information_source)
+    relationship_profile_visual.save()
+
+    return {'relationship_profile_visual': relationship_profile_visual, 'target_hfid': target_hfid, 'known_identity': known_identity}
+
+def save_intrigue_plot(element, hf):
+    local_id, type, on_hold, civ_iv, artifact, actor_id, delegated_plot_hfid = None, None, None, None, None, None, None
+    plot_actors = []
+    missing_fkeys = []
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'local_id':
+            local_id = child.text
+        elif tag == 'type':
+            type = child.text
+        elif tag == 'on_hold':
+            on_hold = True
+        elif tag == 'entity_id':
+            civ_iv = child.text
+        elif tag == 'artifact_id':
+            artifact = child.text
+        elif tag == 'actor_id':
+            actor_id = child.text
+        elif tag == 'delegated_plot_hfid':
+            delegated_plot_hfid = child.text
+        elif tag == 'plot_actor':
+            plot_actors.append(child)
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Intrigue Plot: ' + tag + '\n')
+    
+    intrigue_plot = models.IntriguePlot.objects.create(world=hf.world, local_id=local_id, source_hfid=hf, type=type, on_hold=on_hold,)
+    intrigue_plot.save()
+
+    missing_fkeys.append({'intrigue_plot': intrigue_plot, 'civ_iv': civ_iv, 'artifact': artifact, 'actor_id': actor_id, 'delegated_plot_hfid': delegated_plot_hfid})
+
+    if len(plot_actors) > 0:
+        for actor in plot_actors:
+            lists = save_plot_actor(actor, intrigue_plot)
+            if lists:
+                for dict in lists:
+                    missing_fkeys.append(dict)
+    return missing_fkeys
+
+def save_plot_actor(element, plot):
+    actor_id, plot_role, delegated_hfid, type, has_messenger = None, None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'actor_id':
+            actor_id = child.text
+        elif tag == 'plot_role':
+            plot_role = child.text
+        elif tag == 'delegated_plot_hfid':
+            delegated_hfid = child.text
+        elif tag == 'type':
+            type = child.text
+        elif tag == 'agreement_has_messenger':
+            has_messenger = True
+        elif tag == 'agreement_id':
+            pass
+        elif tag == 'handle_actor_id':
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Plot Actor: ' + tag + '\n')
+    
+    plot_actor = models.PlotActor.objects.create(world=plot.world, plot=plot, plot_role=plot_role, type=type, has_messenger=has_messenger)
+    plot_actor.save()
+
+    return {'plot_actor': plot_actor, 'actor_id': actor_id, 'delegated_hfid': delegated_hfid}
+
+
+def save_intrigue_actor(element, hf):
+    local_id, target_hfid, role, strategy, civ_id = None, None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'local_id':
+            local_id = child.text
+        elif tag == 'hfid':
+            target_hfid = child.text
+        elif tag == 'role':
+            role = child.text
+        elif tag == 'strategy':
+            strategy = child.text
+        elif tag == 'entity_id':
+            civ_id = child.text
+        elif tag == 'handle_actor_id':
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Intrigue Actor: ' + tag + '\n')
+    
+    intrigue_actor = models.IntrigueActor.objects.create(world=hf.world, local_id=local_id, source_hfid=hf, role=role, strategy=strategy)
+    intrigue_actor.save()
+
+    return {'intrigue_actor': intrigue_actor, 'target_hfid': target_hfid, 'civ_id': civ_id}
+
+def save_entity_position_link(element, hf):
+    position_id, start_year, civ_id = None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'position_profile_id':
+            position_id = child.text
+        elif tag == 'start_year':
+            start_year = child.text
+        elif tag == 'entity_id':
+            civ_id = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Position Link: ' + tag + '\n')
+    
+    entity_position_link = models.EntityPositionLink.objects.create(world=hf.world, hf_id=hf, start_year=start_year)
+    entity_position_link.save()
+
+    return {'entity_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
+
+def save_vague_relationship(element, hf):
+    exclude_tags = ['childhood_friend', 'athlete_buddy', 'war_buddy', 'jealous_obsession', 'artistic_buddy', 'scholar_buddy']
+    target_hfid, type = None, None
+    type = element[0].tag.strip()
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'hfid':
+            target_hfid = child.text
+        elif tag in exclude_tags:
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Vague Relationship: ' + tag + '\n')
+    
+    vague_relationship = models.VagueRelationship.objects.create(world=hf.world, source_hfid=hf, type=type)
+    vague_relationship.save()
+
+    return {'vague_relationship': vague_relationship, 'target_hfid': target_hfid}
+
+def save_entity_squad_link(element, hf):
+    squad_id, squad_position, civ_id, start_year = None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'squad_id':
+            squad_id = child.text
+        elif tag == 'squad_position':
+            squad_position = child.text
+        elif tag == 'entity_id':
+            civ_id = child.text
+        elif tag == 'start_year':
+            start_year = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Squad Link: ' + tag + '\n')
+    
+    entity_squad_link = models.EntitySquadLink.objects.create(world=hf.world, hf_id=hf, squad_id=squad_id, squad_position=squad_position, start_year=start_year)
+    entity_squad_link.save()
+
+    return {'entity_squad_link': entity_squad_link, 'civ_id': civ_id}
 
 def save_artifact(element, world):
     artifact_arguments = []
@@ -367,7 +635,6 @@ def save_artifact(element, world):
 
         return missing
 
-entity_position_assignments = []
 def save_entity(element, world):
     chronicle_id, name, race, type, profession, weapon = None, None, None, None, None, None
     entity_positions = []
@@ -439,7 +706,6 @@ def save_entity(element, world):
 
     if missing_fkeys:
         return missing_fkeys
-
         
 def save_entity_position(position, entity):
     world = entity.world

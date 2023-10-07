@@ -240,6 +240,13 @@ class Structures(models.Model):
     name2 = models.CharField(max_length=500, null=True)
     inhabitant = models.ForeignKey('HistoricalFigures', related_name='inhabitant_structures', null=True, on_delete=models.SET_NULL)
 
+class SiteProperty(models.Model):
+    world = models.ForeignKey('World', related_name='world_site_property', null=True, on_delete=models.CASCADE)
+    site_id = models.ForeignKey('Sites', related_name='site_property', null=True, on_delete=models.SET_NULL)
+    local_id = models.IntegerField()
+    type = models.CharField(max_length=500)
+    owner = models.ForeignKey('HistoricalFigures', related_name='owner_site_property', null=True, on_delete=models.SET_NULL)
+
 class UndergroundRegions(models.Model):
     world = models.ForeignKey('World', related_name='world_underground_regions', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
@@ -257,9 +264,13 @@ class WrittenContents(models.Model):
 
 class IntriguePlot(models.Model):
     world = models.ForeignKey('World', related_name='world_intrigue_plot', null=True, on_delete=models.CASCADE)
+    civ_id = models.ForeignKey('Entities', related_name='civ_intrigue_plot', null=True, on_delete=models.SET_NULL)
     local_id = models.IntegerField()
     source_hfid = models.ForeignKey('HistoricalFigures', related_name='source_intrigue_plot', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500, null=True)
+    on_hold = models.BooleanField(null=True, default=False)
+    artifact = models.ForeignKey('Artifact', related_name='artifact_intrigue_plot', null=True, on_delete=models.SET_NULL)
+    delegated_plot_hfid = models.ForeignKey('HistoricalFigures', related_name='delegated_plot_hfid_intrigue_plot', null=True, on_delete=models.SET_NULL)
 
 class IntrigueActor(models.Model):
     world = models.ForeignKey('World', related_name='world_intrigue_actor', null=True, on_delete=models.CASCADE)
@@ -268,6 +279,8 @@ class IntrigueActor(models.Model):
     target_hfid = models.ForeignKey('HistoricalFigures', related_name='target_intrigue_actor', null=True, on_delete=models.SET_NULL)
     role = models.CharField(max_length=500, null=True)
     strategy = models.CharField(max_length=500, null=True)
+    civ_id = models.ForeignKey('Entities', related_name='civ_intrigue_actor', null=True, on_delete=models.SET_NULL)
+
 
 class RelationshipProfileVisual(models.Model):
     world = models.ForeignKey('World', related_name='world_relationship_profile_visual', null=True, on_delete=models.CASCADE)
@@ -280,6 +293,9 @@ class RelationshipProfileVisual(models.Model):
     meet_count = models.IntegerField(null=True)
     respect = models.IntegerField(null=True)
     trust = models.IntegerField(null=True)
+    known_identity = models.ForeignKey('Identities', related_name='known_identity_relationship_profile_visual', null=True, on_delete=models.SET_NULL)
+    rep_friendly = models.IntegerField(null=True)
+    rep_information_source = models.IntegerField(null=True)
 
 class EntityFormerPositionLink(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_former_position_link', null=True, on_delete=models.CASCADE)
@@ -300,3 +316,33 @@ class Identities(models.Model):
     race = models.CharField(max_length=500, null=True)
     caste = models.CharField(max_length=500, null=True)
     profession = models.CharField(max_length=500, null=True)
+
+class EntityPositionLink(models.Model):
+    world = models.ForeignKey('World', related_name='world_entity_position_link', null=True, on_delete=models.CASCADE)
+    civ_id = models.ForeignKey('Entities', related_name='civ_entity_position_link', null=True, on_delete=models.SET_NULL)
+    hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_position_link', null=True, on_delete=models.SET_NULL)
+    position_id = models.ForeignKey('EntityPosition', related_name='entity_position_link', null=True, on_delete=models.SET_NULL)
+    start_year = models.IntegerField(null=True)
+
+class VagueRelationship(models.Model):
+    world = models.ForeignKey('World', related_name='world_vague_relationship', null=True, on_delete=models.CASCADE)
+    type = models.CharField(max_length=500)
+    source_hfid = models.ForeignKey('HistoricalFigures', related_name='source_vague_relationship', null=True, on_delete=models.SET_NULL)
+    target_hfid = models.ForeignKey('HistoricalFigures', related_name='target_vague_relationship', null=True, on_delete=models.SET_NULL)
+
+class EntitySquadLink(models.Model):
+    world = models.ForeignKey('World', related_name='world_entity_squad_link', null=True, on_delete=models.CASCADE)
+    hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_squad_link', null=True, on_delete=models.SET_NULL)
+    squad_id = models.IntegerField(null=True)
+    squad_position = models.IntegerField(null=True)
+    civ_id = models.ForeignKey('Entities', related_name='civ_entity_squad_link', null=True, on_delete=models.SET_NULL)
+    start_year = models.IntegerField(null=True)
+
+class PlotActor(models.Model):
+    world = models.ForeignKey('World', related_name='world_plot_actor', null=True, on_delete=models.CASCADE)
+    plot = models.ForeignKey('IntriguePlot', related_name='plot_plot_actor', null=True, on_delete=models.SET_NULL)
+    actor_id = models.ForeignKey('HistoricalFigures', related_name='actor_plot_actor', null=True, on_delete=models.SET_NULL)
+    plot_role = models.CharField(max_length=500, null=True)
+    delegated_plot_hfid = models.ForeignKey('HistoricalFigures', related_name='delegated_plot_hfid_plot_actor', null=True, on_delete=models.SET_NULL)
+    type = models.CharField(max_length=500, null=True)
+    has_messenger = models.BooleanField(null=True, default=False)
