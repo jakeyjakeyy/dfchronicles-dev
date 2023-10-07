@@ -49,6 +49,12 @@ def SaveLegends(root, world):
                     if lists:
                         for dict in lists:
                             missing_fkeys.append(dict)
+                elif child.tag == 'entity_population':
+                    lists = save_entity_population(child, world)
+                    if lists:
+                        missing_fkeys.append(lists)
+                elif child.tag == 'historical_era':
+                    save_historical_era(child, world)
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     
@@ -199,7 +205,7 @@ def save_entity(element, world):
             lists = save_occasion(occasion, entity)
             if lists:
                 for dict in lists:
-                    missing_fkeys.append(lists)
+                    missing_fkeys.append(dict)
         entity.save()
 
         
@@ -360,3 +366,37 @@ def save_feature(feature, schedule):
     if missing_fkeys:
         return missing_fkeys
     
+def save_historical_era(element, world):
+    name, start_year, end_year = None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'name':
+            name = child.text
+        elif tag == 'start_year':
+            start_year = child.text
+        elif tag == 'end_year':
+            end_year = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Historical Era: ' + tag + '\n')
+    
+    historical_era = models.HistoricalEras.objects.create(world=world, name=name, start_year=start_year, end_year=end_year)
+    historical_era.save()
+
+def save_entity_population(element, world):
+    civ_id, chronicle_id, race, population = None, None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'id':
+            chronicle_id = child.text
+        elif tag == 'civ_id':
+            civ_id = child.text
+        elif tag == 'race':
+            split = child.text.split(':')
+            race, population = split[0], split[1]
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Population: ' + tag + '\n')
+        
+    entity_pop = models.EntityPopulations.objects.create(world=world, chronicle_id=chronicle_id, race=race, population=population)
+    entity_pop.save()
+
+    return {'entity_pop': entity_pop, 'civ_id': civ_id}
