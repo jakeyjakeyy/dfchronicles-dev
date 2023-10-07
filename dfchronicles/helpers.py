@@ -32,7 +32,7 @@ def SaveLegends(root, world):
     exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
     missing_fkeys = []
 
-    test_tags = ['artifacts', 'entities']
+    test_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras']
 
     # Find all elements and run associated save function
     def save_element(element, world):
@@ -399,4 +399,5 @@ def save_entity_population(element, world):
     entity_pop = models.EntityPopulations.objects.create(world=world, chronicle_id=chronicle_id, race=race, population=population)
     entity_pop.save()
 
-    return {'entity_pop': entity_pop, 'civ_id': civ_id}
+    if civ_id:
+        return {'entity_pop': entity_pop, 'civ_id': civ_id}

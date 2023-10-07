@@ -67,8 +67,8 @@ class EntityPopulations(models.Model):
     civ_id = models.ForeignKey('Entities', related_name='entity_populations', null=True, on_delete=models.SET_NULL)
     # race and pop aren't separated in the XML
     # I imagine this will be easier to split on entity creation
-    race = models.CharField(max_length=500)
-    population = models.IntegerField()
+    race = models.CharField(max_length=500, null=True)
+    population = models.IntegerField(null=True)
 
 class Occasion(models.Model):
     world = models.ForeignKey('World', related_name='world_occasion', null=True, on_delete=models.CASCADE)
@@ -102,14 +102,14 @@ class HistoricalEventCollections(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_event_collections', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
     aggressor_entity_id = models.ForeignKey('Entities', related_name='attack_historical_event_collections', null=True, on_delete=models.SET_NULL)
-    attacking_hfid = models.ManyToManyField('HistoricalFigures', related_name='attack_hf_historical_event_collections', null=True)
+    attacking_hfid = models.ManyToManyField('HistoricalFigures', related_name='attack_hf_historical_event_collections')
     attacking_squad_animated = models.BooleanField(null=True, default=False)
     attacking_squad_deaths = models.IntegerField(null=True)
     attacking_squad_number = models.IntegerField(null=True)
     attacking_squad_race = models.CharField(max_length=500, null=True)
     attacking_squad_site = models.ForeignKey('Sites', related_name='attack_squad_site_historical_event_collections', null=True, on_delete=models.SET_NULL)
     defender_entity_id = models.ForeignKey('Entities', related_name='defend_historical_event_collections', null=True, on_delete=models.SET_NULL)
-    defending_hfid = models.ManyToManyField('HistoricalFigures', related_name='defend_hf_historical_event_collections', null=True)
+    defending_hfid = models.ManyToManyField('HistoricalFigures', related_name='defend_hf_historical_event_collections')
     defending_squad_animated = models.BooleanField(null=True, default=False)
     defending_squad_deaths = models.IntegerField(null=True)
     defending_squad_number = models.IntegerField(null=True)
@@ -123,7 +123,7 @@ class HistoricalEventCollections(models.Model):
     eventcol = models.IntegerField(null=True)
     feature_layer_id = models.IntegerField(null=True)
     name = models.CharField(max_length=500, null=True)
-    noncom_hfid = models.ManyToManyField('HistoricalFigures', related_name='noncom_hf_historical_event_collections', null=True)
+    noncom_hfid = models.ManyToManyField('HistoricalFigures', related_name='noncom_hf_historical_event_collections')
     occasion_id = models.IntegerField(null=True)
     outcome = models.CharField(max_length=500, null=True)
     site_id = models.ForeignKey('Sites', related_name='site_historical_event_collections', null=True, on_delete=models.SET_NULL)
