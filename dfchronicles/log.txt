@@ -1,5 +1,5 @@
 -----Saving legends.XML-----
-!UNUSED CHILD! Save Historical Figure: honor_entity
+Saving Historical Figures...
 !UNUSED CHILD! Save Legends: regions
 !UNUSED CHILD! Save Legends: underground_regions
 !UNUSED CHILD! Save Legends: sites
@@ -9,15 +9,6 @@ Saving artifacts...
 !UNUSED CHILD! Save Legends: historical_figures
 Saving entity_populations...
 Saving entities...
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
-!UNUSED TAG! Save Entity: honor
 !UNUSED CHILD! Save Legends: historical_events
 Saving historical_event_collections...
 Saving historical_eras...
@@ -26,6 +17,7 @@ Saving historical_eras...
 !UNUSED CHILD! Save Legends: musical_forms
 !UNUSED CHILD! Save Legends: dance_forms
 -----Saving legends_plus.XML-----
+Saving Historical Figures...
 !UNUSED CHILD! Save Legends: name
 !UNUSED CHILD! Save Legends: altname
 !UNUSED CHILD! Save Legends: landmasses

@@ -192,6 +192,7 @@ class EntityLink(models.Model):
     civ_id = models.ForeignKey('Entities', related_name='civ_entity_link', null=True, on_delete=models.SET_NULL)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_link', null=True, on_delete=models.SET_NULL)
     link_type = models.CharField(max_length=500, null=True)
+    link_strength = models.IntegerField(null=True)
 
 # seems to link lairs to historical figures
 class SiteLink(models.Model):
@@ -200,6 +201,7 @@ class SiteLink(models.Model):
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_site_link', null=True, on_delete=models.SET_NULL)
     link_type = models.CharField(max_length=500, null=True)
     site_id = models.ForeignKey('Sites', related_name='site_link', null=True, on_delete=models.SET_NULL)
+    structure_id = models.ForeignKey('Structures', related_name='structure_link', null=True, on_delete=models.SET_NULL)
 
 class HfSkill(models.Model):
     world = models.ForeignKey('World', related_name='world_hf_skill', null=True, on_delete=models.CASCADE)

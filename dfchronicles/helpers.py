@@ -39,6 +39,7 @@ def SaveLegends(root, world):
         # select historic figures tag from element
         hf = element.find('historical_figures')
         if hf:
+            open('log.txt', 'a').write('Saving Historical Figures...\n')
             for child in hf:
                 lists = save_historical_figure(child, world)
                 if lists:
@@ -86,6 +87,9 @@ def save_historical_figure(element, world):
     used_identities = []
     held_artifacts = []
     spheres = []
+    entity_links = []
+    site_links = []
+    hf_skills = []
     missing_fkeys = []
     for child in element:
         tag = child.tag.strip()
@@ -131,14 +135,11 @@ def save_historical_figure(element, world):
         elif tag == 'animated_string':
             animated_string = child.text
         elif tag == 'entity_link':
-            # class EntityLink
-            pass
+            entity_links.append(child)
         elif tag == 'site_link':
-            # class SiteLink
-            pass
+            site_links.append(child)
         elif tag == 'hf_skill':
-            # class HFSkill
-            pass
+            hf_skills.append(child)
         elif tag == 'hf_link':
             # class HFLink
             pass
@@ -191,7 +192,24 @@ def save_historical_figure(element, world):
         hf = models.HistoricalFigures.objects.create(world=world, chronicle_id=chronicle_id, appeared=appeared, associated_type=associated_type, birth_year=birth_year, caste=caste, death_year=death_year, deity=deity, goal=goal, name=name, race=race, sphere=sphere, journey_pet=journey_pet, force=force, animated=animated, animated_string=animated_string)
         hf.save()
 
-
+    if len(entity_links) > 0:
+        for link in entity_links:
+            lists = save_entity_link(link, hf)
+            if lists:
+                for dict in lists:
+                    missing_fkeys.append(dict)
+    if len(site_links) > 0:
+        for link in site_links:
+            lists = save_site_link(link, hf)
+            if lists:
+                for dict in lists:
+                    missing_fkeys.append(dict)
+    if len(hf_skills) > 0:
+        for skill in hf_skills:
+            lists = save_hf_skill(skill, hf)
+            if lists:
+                for dict in lists:
+                    missing_fkeys.append(dict)
     if current_identity:
         missing_fkeys.append({'historicfigure': hf, 'current_identity': current_identity})
     if len(used_identities) > 0:
@@ -205,6 +223,67 @@ def save_historical_figure(element, world):
     
     if missing_fkeys:
         return missing_fkeys
+    
+def save_entity_link(element, hf):
+    civ_id, link_type, link_strength = None, None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'entity_id':
+            civ_id = child.text
+        elif tag == 'link_type':
+            link_type = child.text
+        elif tag == 'link_strength':
+            link_strength = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Link: ' + tag + '\n')
+    
+    entity_link = models.EntityLink.objects.create(world=hf.world, hf_id=hf, link_type=link_type, link_strength=link_strength)
+    entity_link.save()
+
+    return {'entity_link': entity_link, 'civ_id': civ_id}
+
+def save_site_link(element, hf):
+    civ_id, site_id, link_type, structure_id = None, None, None, None
+    missing_fkeys = []
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'entity_id':
+            civ_id = child.text
+        elif tag == 'site_id':
+            site_id = child.text
+        elif tag == 'link_type':
+            link_type = child.text
+        elif tag == 'sub_id':
+            structure_id = child.text
+        elif tag == 'occupation_id':
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Site Link: ' + tag + '\n')
+    
+    site_link = models.SiteLink.objects.create(world=hf.world, hf_id=hf, link_type=link_type)
+    site_link.save()
+
+    if site_id:
+        missing_fkeys.append({'site_link': site_link, 'site_id': site_id})
+    if civ_id:
+        missing_fkeys.append({'site_link': site_link, 'civ_id': civ_id})
+    if structure_id:
+        missing_fkeys.append({'site_link': site_link, 'structure': [structure_id, site_id]})
+    return missing_fkeys
+
+def save_hf_skill(element, hf):
+    skill, total_ip = None, None
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'skill':
+            skill = child.text
+        elif tag == 'total_ip':
+            total_ip = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save HF Skill: ' + tag + '\n')
+    
+    hf_skill = models.HfSkill.objects.create(world=hf.world, hf_id=hf, skill=skill, total_ip=total_ip)
+    hf_skill.save()
 
 def save_artifact(element, world):
     artifact_arguments = []
