@@ -36,6 +36,14 @@ def SaveLegends(root, world):
 
     # Find all elements and run associated save function
     def save_element(element, world):
+        # select historic figures tag from element
+        hf = element.find('historical_figures')
+        if hf:
+            for child in hf:
+                lists = save_historical_figure(child, world)
+                if lists:
+                    for dict in lists:
+                        missing_fkeys.append(dict)
         for child in element:
             if child.tag not in exclude_tags and child.tag in test_tags:
                 open('log.txt', 'a').write('Saving ' + child.tag + '...\n')
@@ -65,11 +73,139 @@ def SaveLegends(root, world):
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     
     save_element(root, world)
-    open('log.txt', 'a').write('Missing Foreign Keys: ' + str(missing_fkeys) + '\n')
+    # open('log.txt', 'a').write('Missing Foreign Keys: ' + str(missing_fkeys) + '\n')
 
 
     
 # Save functions
+
+def save_historical_figure(element, world):
+    exclude_tags = ['birth_seconds72', 'death_seconds72', 'interaction_knowledge', 'sex', 'active_interaction', 'relationship_profile_hf_historical', 'entity_reputation']
+    chronicle_id, appeared, associated_type, birth_year, caste, death_year, deity, goal, name, race, journey_pet, ent_pop_id, current_identity, force, animated, animated_string = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
+
+    used_identities = []
+    held_artifacts = []
+    spheres = []
+    missing_fkeys = []
+    for child in element:
+        tag = child.tag.strip()
+        if tag == 'id':
+            chronicle_id = child.text
+        elif tag == 'appeared':
+            appeared = child.text
+        elif tag == 'associated_type':
+            associated_type = child.text
+        elif tag == 'birth_year':
+            birth_year = child.text
+        elif tag == 'caste':
+            caste = child.text
+        elif tag == 'death_year':
+            if int(child.text) == -1:
+                death_year = None
+            else:
+                death_year = child.text
+        elif tag == 'deity':
+            deity = True
+        elif tag == 'goal':
+            goal = child.text
+        elif tag == 'name':
+            name = child.text
+        elif tag == 'race':
+            race = child.text
+        elif tag == 'used_identity_id':
+            used_identities.append(child.text)
+        elif tag == 'sphere':
+            spheres.append(child.text)
+        elif tag == 'journey_pet':
+            journey_pet = child.text
+        elif tag == 'ent_pop_id':
+            ent_pop_id = child.text
+        elif tag == 'current_identity_id':
+            current_identity = child.text
+        elif tag == 'holds_artifact':
+            held_artifacts.append(child.text)
+        elif tag == 'force':
+            force = child.text
+        elif tag == 'animated':
+            animated = True
+        elif tag == 'animated_string':
+            animated_string = child.text
+        elif tag == 'entity_link':
+            # class EntityLink
+            pass
+        elif tag == 'site_link':
+            # class SiteLink
+            pass
+        elif tag == 'hf_skill':
+            # class HFSkill
+            pass
+        elif tag == 'hf_link':
+            # class HFLink
+            pass
+        elif tag == 'entity_former_position_link':
+            # class EntityFormerPositionLink
+            pass
+        elif tag == 'relationship_profile_hf_visual':
+            # class RelationshipProfileVisual
+            pass
+        elif tag == 'intrigue_plot':
+            # class IntriguePlot
+            pass
+        elif tag == 'intrigue_actor':
+            # class IntrigueActor
+            pass
+        elif tag == 'entity_position_link':
+            # class EntityPositionLink
+            pass
+        elif tag == 'vague_relationship':
+            # class VagueRelationship
+            pass
+        elif tag == 'site_property':
+            # class SiteProperty
+            pass
+        elif tag == 'entity_squad_link':
+            # class EntitySquadLink
+            pass
+        elif tag == 'honor_entity':
+            # class HonorEntity
+            pass
+        elif tag in exclude_tags:
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Historical Figure: ' + tag + '\n')
+    
+    try:
+        hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=chronicle_id)
+        exists = True
+    except models.HistoricalFigures.DoesNotExist:
+        exists = False
+
+    if exists:
+        hf.race = race
+        hf.save()
+    else:
+        sphere = None
+        if len(spheres) > 0:
+            sphere = ", ".join(spheres)
+      
+        hf = models.HistoricalFigures.objects.create(world=world, chronicle_id=chronicle_id, appeared=appeared, associated_type=associated_type, birth_year=birth_year, caste=caste, death_year=death_year, deity=deity, goal=goal, name=name, race=race, sphere=sphere, journey_pet=journey_pet, force=force, animated=animated, animated_string=animated_string)
+        hf.save()
+
+
+    if current_identity:
+        missing_fkeys.append({'historicfigure': hf, 'current_identity': current_identity})
+    if len(used_identities) > 0:
+        for identity in used_identities:
+            missing_fkeys.append({'historicfigure': hf, 'used_identity': identity})
+    if len(held_artifacts) > 0:
+        for artifact in held_artifacts:
+            missing_fkeys.append({'historicfigure': hf, 'held_artifact': artifact})
+    if ent_pop_id:
+        missing_fkeys.append({'historicfigure': hf, 'ent_pop_id': ent_pop_id})
+    
+    if missing_fkeys:
+        return missing_fkeys
+
 def save_artifact(element, world):
     artifact_arguments = []
 
@@ -181,7 +317,7 @@ def save_entity(element, world):
             weapon = child.text
         elif child.tag == 'worship_id':
             worship_ids.append(int(child.text))
-        elif child.tag == 'child' or child.tag == 'entity_link' or child.tag == 'histfig_id':
+        elif child.tag == 'child' or child.tag == 'entity_link' or child.tag == 'histfig_id' or child.tag == 'honor':
             pass
         else:
             open('log.txt', 'a').write('!UNUSED TAG! Save Entity: ' + child.tag + '\n')

@@ -174,10 +174,17 @@ class HistoricalFigures(models.Model):
     death_year = models.IntegerField(null=True)
     deity = models.BooleanField(null=True, default=False)
     goal = models.CharField(max_length=500, null=True)
+    journey_pet = models.CharField(max_length=500, null=True)
     name = models.CharField(max_length=500, null=True)
     race = models.CharField(max_length=500, null=True)
     sphere = models.CharField(max_length=500, null=True)
-    used_identity = models.ForeignKey('Identities', related_name='used_identity_historical_figures', null=True, on_delete=models.SET_NULL)
+    used_identity = models.ManyToManyField('Identities', related_name='used_identity_historical_figures')
+    ent_pop_id = models.ForeignKey('EntityPopulations', related_name='ent_pop_historical_figures', null=True, on_delete=models.SET_NULL)
+    current_identity = models.ForeignKey('Identities', related_name='current_identity_historical_figures', null=True, on_delete=models.SET_NULL)
+    held_artifact = models.ManyToManyField('Artifact', related_name='holds_artifact_historical_figures')
+    force = models.BooleanField(null=True, default=False)
+    animated = models.BooleanField(null=True, default=False)
+    animated_string = models.CharField(max_length=500, null=True)
 
 # links historical figures to civs
 class EntityLink(models.Model):
