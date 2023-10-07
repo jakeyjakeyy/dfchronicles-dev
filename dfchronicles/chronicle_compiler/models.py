@@ -7,6 +7,9 @@ class World(models.Model):
     name = models.CharField(max_length=500)
     name2 = models.CharField(max_length=500, null=True)
     owner = models.ForeignKey(User, related_name='worlds', null=True, on_delete=models.SET_NULL)
+    
+    def __str__(self):
+        return f"{self.id} | {self.name} | {self.owner}"
 
 class Artifact(models.Model):
     world = models.ForeignKey('World', related_name='world_artifacts', null=True, on_delete=models.CASCADE)
@@ -23,6 +26,9 @@ class Artifact(models.Model):
     item_description = models.CharField(max_length=500, null=True)
     structure_local_id = models.ForeignKey('Structures', null=True, related_name='structure_artifacts', on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f"{self.name} | {self.world}"
+
 class Entities(models.Model):
     world = models.ForeignKey('World', related_name='world_entities', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
@@ -33,6 +39,8 @@ class Entities(models.Model):
     weapon = models.CharField(max_length=500, null=True)
     worship_id = models.ForeignKey('HistoricalFigures', related_name='worship_hf_entities', null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f"{self.name} | {self.world}"
 
 class EntityPosition(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_position', null=True, on_delete=models.CASCADE)

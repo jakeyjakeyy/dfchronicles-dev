@@ -4,9 +4,21 @@ from .models import World, Artifact, Entities, EntityPosition, EntityPositionAss
 # Register your models here.
 
 
+class EntityPositionInline(admin.TabularInline):
+    model = EntityPosition
+    extra = 0
+class OccasionInline(admin.TabularInline):
+    model = Occasion
+    extra = 0
+    
+class EntitiesAdmin(admin.ModelAdmin):
+    inlines = [
+        EntityPositionInline, OccasionInline
+    ]
+
 admin.site.register(World)
 admin.site.register(Artifact)
-admin.site.register(Entities)
+admin.site.register(Entities, EntitiesAdmin)
 admin.site.register(EntityPosition)
 admin.site.register(EntityPositionAssignment)
 admin.site.register(EntityPopulations)
