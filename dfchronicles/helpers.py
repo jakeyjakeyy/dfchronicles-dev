@@ -195,7 +195,11 @@ def save_entity(element, world):
             lists = save_entity_position_assignment(assignment, entity)
             if lists:
                 missing_fkeys.append(lists)
-        # [save_occasion(occasion, entity) for occasion in occasions]
+        for occasion in occasions:
+            lists = save_occasion(occasion, entity)
+            if lists:
+                for dict in lists:
+                    missing_fkeys.append(lists)
         entity.save()
 
         
@@ -260,7 +264,99 @@ def save_entity_position_assignment(assignment, entity):
         missing = {'entity_position_assignment': entity_position_assignment, 'hf_id': hf_id}
         return missing
 
-# def save_occasion(occasion, entity):
-#     world = entity.world
-#     civ_id = entity
-#     for child in occasion:
+def save_occasion(occasion, entity):
+    world = entity.world
+    civ_id = entity
+    schedules = []
+    missing_fkeys = []
+    civ_occasion_id, name= None, None
+    for child in occasion:
+        if child.tag == 'id':
+            civ_occasion_id = child.text
+        elif child.tag == 'name':
+            name = child.text
+        elif child.tag == 'schedule':
+            schedules.append(child)
+        elif child.tag == 'event':
+            pass
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Occasion: ' + child.tag + '\n')
+
+    occasion = models.Occasion.objects.create(world=world, civ_occasion_id=civ_occasion_id, civ_id=civ_id, name=name)
+    occasion.save()
+    for schedule in schedules:
+        lists = save_schedule(schedule, occasion)
+        if lists:
+            for dict in lists:
+                missing_fkeys.append(dict)
+
+    if missing_fkeys:
+        return missing_fkeys
+        
+def save_schedule(schedule, occasion):
+    world = occasion.world
+    references = []
+    features = []
+    missing_fkeys = []
+    occasion_schedule_id, type, item_type, item_subtype = None, None, None, None
+    for child in schedule:
+        tag = child.tag.strip()
+        if tag == 'id':
+            occasion_schedule_id = child.text
+        elif tag == 'type':
+            type = child.text
+        elif tag == 'reference':
+            if int(child.text) == -1:
+                pass
+            else:
+                references.append(child.text)
+        elif tag == 'item_type':
+            item_type = child.text
+        elif tag == 'item_subtype':
+            item_subtype = child.text
+        elif tag == 'feature':
+            features.append(child)
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Schedule: ' + tag + '\n')
+
+    schedule = models.Schedule.objects.create(world=world, occasion_schedule_id=occasion_schedule_id, occasion=occasion, type=type, item_type=item_type, item_subtype=item_subtype)
+    schedule.save()
+
+    for feature in features:
+        lists = save_feature(feature, schedule)
+        if lists:
+            for dict in lists:
+                missing_fkeys.append(dict)
+
+    for reference in references:
+        missing_fkeys.append({'schedule': schedule, 'reference': reference})
+
+    if missing_fkeys:
+        return missing_fkeys
+
+def save_feature(feature, schedule):
+    world = schedule.world
+    references = []
+    missing_fkeys = []
+    type = None
+    for child in feature:
+        tag = child.tag.strip()
+        if tag == 'type':
+            type = child.text
+        elif tag == 'reference':
+            if int(child.text) == -1:
+                pass
+            else:
+                references.append(child.text)
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Feature: ' + tag + '\n')
+    
+    feature = models.Feature.objects.create(world=world, schedule=schedule, type=type)
+    feature.save()
+
+    for reference in references:
+        missing_fkeys.append({'feature': feature, 'reference': reference})
+
+    if missing_fkeys:
+        return missing_fkeys
+    

@@ -67,10 +67,6 @@ class Occasion(models.Model):
     civ_occasion_id = models.IntegerField()
     civ_id = models.ForeignKey('Entities', related_name='occasion', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=500)
-    start_year = models.IntegerField()
-    end_year = models.IntegerField(null=True)
-    site_id = models.ForeignKey('Sites', related_name='occasion', null=True, on_delete=models.SET_NULL)
-    type = models.CharField(max_length=500)
 
 class Schedule(models.Model):
     world = models.ForeignKey('World', related_name='world_schedules', null=True, on_delete=models.CASCADE)
