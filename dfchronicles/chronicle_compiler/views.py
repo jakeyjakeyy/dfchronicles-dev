@@ -27,9 +27,9 @@ class ProcessXML(APIView):
         # Get world from legends_plus and save to DB. This is our reference point.
         world = helpers.SaveWorld(legendsplus_root, request.user)
         # Get all data from legends and save to DB.
-        open('log.txt', 'a').write('--------------------Saving legends\n')
+        open('log.txt', 'a').write('-----Saving legends.XML-----\n')
         helpers.SaveLegends(legends_root, world)
-        open('log.txt', 'a').write('--------------------Saving legends_plus\n')
+        open('log.txt', 'a').write('-----Saving legends_plus.XML-----\n')
         helpers.SaveLegends(legendsplus_root, world)
 
         return Response({'message': 'Archive created'})
