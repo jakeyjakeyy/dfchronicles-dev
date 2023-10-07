@@ -215,20 +215,23 @@ def save_entity_position(position, entity):
     civ_id = entity
     civ_position_id, name, name_male, name_female, spouse, spouse_male, spouse_female = None, None, None, None, None, None, None
     for child in position:
-        if child.tag == 'id':
+        tag = child.tag.strip()
+        if tag == 'id':
             civ_position_id = child.text
-        if child.tag == 'name':
+        elif tag == 'name':
             name = child.text
-        if child.tag == 'name_male':
+        elif tag == 'name_male':
             name_male = child.text
-        if child.tag == 'name_female':
+        elif tag == 'name_female':
             name_female = child.text
-        if child.tag == 'spouse':
+        elif tag == 'spouse':
             spouse = child.text
-        if child.tag == 'spouse_male':
+        elif tag == 'spouse_male':
             spouse_male = child.text
-        if child.tag == 'spouse_female':
+        elif tag == 'spouse_female':
             spouse_female = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Position: ' + tag + '\n')
 
     entity_position = models.EntityPosition.objects.create(world=world, civ_position_id=civ_position_id, civ_id=civ_id, name=name, name_male=name_male, name_female=name_female, spouse=spouse, spouse_male=spouse_male, spouse_female=spouse_female)
     entity_position.save()
@@ -236,16 +239,21 @@ def save_entity_position(position, entity):
 def save_entity_position_assignment(assignment, entity):
     world = entity.world
     civ_id = entity
-    hf_id, civ_position_assignment_id, position = None, None, None
+    hf_id, civ_position_assignment_id, position, squad_id = None, None, None, None
     for child in assignment:
-        if child.tag == 'id':
+        tag = child.tag.strip()
+        if tag == 'id':
             civ_position_assignment_id = child.text
-        if child.tag == 'position_id':
+        elif tag == 'position_id':
             position = models.EntityPosition.objects.get(world=world, civ_id=civ_id, civ_position_id=child.text)
-        if child.tag == 'histfig':
+        elif tag == 'histfig':
             hf_id = child.text
+        elif tag == 'squad_id':
+            squad_id = child.text
+        else:
+            open('log.txt', 'a').write('!UNUSED CHILD! Save Entity Position Assignment: ' + tag + '\n')
 
-    entity_position_assignment = models.EntityPositionAssignment.objects.create(world=world, civ_position_assignment_id=civ_position_assignment_id, civ_id=civ_id, position_id=position, hf_id=None)
+    entity_position_assignment = models.EntityPositionAssignment.objects.create(world=world, civ_position_assignment_id=civ_position_assignment_id, civ_id=civ_id, position_id=position, squad_id=squad_id, hf_id=None)
     entity_position_assignment.save()
     
     if hf_id:

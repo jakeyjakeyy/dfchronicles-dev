@@ -51,6 +51,7 @@ class EntityPositionAssignment(models.Model):
     civ_id = models.ForeignKey('Entities', related_name='entity_position_assignment', null=True, on_delete=models.SET_NULL)
     position_id = models.ForeignKey('EntityPosition', related_name='entity_position_assignment', null=True, on_delete=models.SET_NULL)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_position_assignment', null=True, on_delete=models.SET_NULL)
+    squad_id = models.IntegerField(null=True)
 
 class EntityPopulations(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_populations', null=True, on_delete=models.CASCADE)
@@ -170,6 +171,7 @@ class HistoricalFigures(models.Model):
     birth_year = models.IntegerField(null=True)
     caste = models.CharField(max_length=500, null=True)
     death_year = models.IntegerField(null=True)
+    deity = models.BooleanField(default=False)
     goal = models.CharField(max_length=500, null=True)
     name = models.CharField(max_length=500, null=True)
     race = models.CharField(max_length=500, null=True)
