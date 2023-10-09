@@ -324,6 +324,9 @@ class IntriguePlot(models.Model):
     artifact = models.ForeignKey('Artifact', related_name='artifact_intrigue_plot', null=True, on_delete=models.SET_NULL)
     delegated_plot_hfid = models.ForeignKey('HistoricalFigures', related_name='delegated_plot_hfid_intrigue_plot', null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f"{self.type}"
+
 class IntrigueActor(models.Model):
     world = models.ForeignKey('World', related_name='world_intrigue_actor', null=True, on_delete=models.CASCADE)
     local_id = models.IntegerField()

@@ -98,6 +98,7 @@ def save_historical_figure(element, world):
     entity_positions_link = []
     vague_relationships = []
     squad_links = []
+    
     missing_fkeys = []
     for child in element:
         tag = child.tag.strip()
@@ -164,11 +165,7 @@ def save_historical_figure(element, world):
             vague_relationships.append(child)
         elif tag == 'entity_squad_link':
             squad_links.append(child)
-        elif tag == 'entity_squad_link':
-            # class EntitySquadLink
-            pass
         elif tag == 'honor_entity':
-            # class HonorEntity
             pass
         elif tag == 'site_property':
             pass
@@ -260,6 +257,7 @@ def save_historical_figure(element, world):
             if links:
                 for dict in links:
                     missing_fkeys.append(dict)
+
 
     if current_identity:
         missing_fkeys.append({'historicfigure': hf, 'current_identity': current_identity})
@@ -475,7 +473,6 @@ def save_plot_actor(element, plot):
     plot_actor.save()
 
     return {'plot_actor': plot_actor, 'actor_id': actor_id, 'delegated_hfid': delegated_hfid}
-
 
 def save_intrigue_actor(element, hf):
     local_id, target_hfid, role, strategy, civ_id, promised_me_immortality, promised_actor_immortality = None, None, None, None, None, None, None
