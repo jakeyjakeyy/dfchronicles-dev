@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-import helpers
-from .models import User
+from chronicle_compiler import models
+from utils import savedb as save
 
 import xml.etree.ElementTree as ET
 import json
@@ -25,12 +25,12 @@ class ProcessXML(APIView):
         legendsplus_root = legendsplus_tree.getroot()
         
         # Get world from legends_plus and save to DB. This is our reference point.
-        world = helpers.SaveWorld(legendsplus_root, request.user)
+        world = save.SaveWorld(legendsplus_root, request.user)
         # Get all data from legends and save to DB.
         open('log.txt', 'a').write('-----Saving legends.XML-----\n')
-        helpers.SaveLegends(legends_root, world)
+        save.SaveLegends(legends_root, world)
         open('log.txt', 'a').write('-----Saving legends_plus.XML-----\n')
-        helpers.SaveLegends(legendsplus_root, world)
+        save.SaveLegends(legendsplus_root, world)
 
         return Response({'message': 'Archive created'})
     
