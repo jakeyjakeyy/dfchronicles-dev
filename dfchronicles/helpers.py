@@ -170,6 +170,8 @@ def save_historical_figure(element, world):
         elif tag == 'honor_entity':
             # class HonorEntity
             pass
+        elif tag == 'site_property':
+            pass
         elif tag in exclude_tags:
             pass
         else:
@@ -430,6 +432,8 @@ def save_intrigue_plot(element, hf):
             delegated_plot_hfid = child.text
         elif tag == 'plot_actor':
             plot_actors.append(child)
+        elif tag == 'delegated_plot_id':
+            pass
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! Save Intrigue Plot: ' + tag + '\n')
     
@@ -474,7 +478,7 @@ def save_plot_actor(element, plot):
 
 
 def save_intrigue_actor(element, hf):
-    local_id, target_hfid, role, strategy, civ_id = None, None, None, None, None
+    local_id, target_hfid, role, strategy, civ_id, promised_me_immortality, promised_actor_immortality = None, None, None, None, None, None, None
     for child in element:
         tag = child.tag.strip()
         if tag == 'local_id':
@@ -489,10 +493,14 @@ def save_intrigue_actor(element, hf):
             civ_id = child.text
         elif tag == 'handle_actor_id':
             pass
+        elif tag == 'promised_actor_immortality':
+            promised_actor_immortality = True
+        elif tag == 'promised_me_immortality':
+            promised_me_immortality = True
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! Save Intrigue Actor: ' + tag + '\n')
     
-    intrigue_actor = models.IntrigueActor.objects.create(world=hf.world, local_id=local_id, source_hfid=hf, role=role, strategy=strategy)
+    intrigue_actor = models.IntrigueActor.objects.create(world=hf.world, local_id=local_id, source_hfid=hf, role=role, strategy=strategy, promised_me_immortality=promised_me_immortality, promised_actor_immortality=promised_actor_immortality)
     intrigue_actor.save()
 
     return {'intrigue_actor': intrigue_actor, 'target_hfid': target_hfid, 'civ_id': civ_id}
@@ -516,7 +524,7 @@ def save_entity_position_link(element, hf):
     return {'entity_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
 
 def save_vague_relationship(element, hf):
-    exclude_tags = ['childhood_friend', 'athlete_buddy', 'war_buddy', 'jealous_obsession', 'artistic_buddy', 'scholar_buddy']
+    exclude_tags = ['childhood_friend', 'athlete_buddy', 'war_buddy', 'jealous_obsession', 'artistic_buddy', 'scholar_buddy', 'persecution_grudge', 'religious_persecution_grudge']
     target_hfid, type = None, None
     type = element[0].tag.strip()
     for child in element:

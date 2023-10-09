@@ -1,22 +1,5 @@
 -----Saving legends.XML-----
 Saving Historical Figures...
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Intrigue Plot: delegated_plot_id
-!UNUSED CHILD! Save Intrigue Plot: delegated_plot_id
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Intrigue Actor: promised_actor_immortality
-!UNUSED CHILD! Save Intrigue Actor: promised_me_immortality
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Vague Relationship: persecution_grudge
-!UNUSED CHILD! Save Vague Relationship: persecution_grudge
-!UNUSED CHILD! Save Vague Relationship: persecution_grudge
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Vague Relationship: religious_persecution_grudge
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Historical Figure: site_property
-!UNUSED CHILD! Save Historical Figure: site_property
 !UNUSED CHILD! Save Legends: regions
 !UNUSED CHILD! Save Legends: underground_regions
 !UNUSED CHILD! Save Legends: sites

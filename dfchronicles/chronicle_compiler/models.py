@@ -280,6 +280,8 @@ class IntrigueActor(models.Model):
     role = models.CharField(max_length=500, null=True)
     strategy = models.CharField(max_length=500, null=True)
     civ_id = models.ForeignKey('Entities', related_name='civ_intrigue_actor', null=True, on_delete=models.SET_NULL)
+    promised_actor_immortality = models.BooleanField(null=True, default=False)
+    promised_me_immortality = models.BooleanField(null=True, default=False)
 
 
 class RelationshipProfileVisual(models.Model):
