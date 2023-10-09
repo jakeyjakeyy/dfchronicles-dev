@@ -27,7 +27,7 @@ class Artifact(models.Model):
     structure_local_id = models.ForeignKey('Structures', null=True, related_name='structure_artifacts', on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f"{self.name} | {self.world}"
+        return f"{self.name}"
 
 class Entities(models.Model):
     world = models.ForeignKey('World', related_name='world_entities', null=True, on_delete=models.CASCADE)
@@ -40,7 +40,7 @@ class Entities(models.Model):
     worship_id = models.ForeignKey('HistoricalFigures', related_name='worship_hf_entities', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f"{self.name} | {self.world}"
+        return f"{self.name}"
 
 class EntityPosition(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_position', null=True, on_delete=models.CASCADE)
@@ -53,6 +53,9 @@ class EntityPosition(models.Model):
     spouse_male = models.CharField(max_length=500, null=True)
     spouse_female = models.CharField(max_length=500, null=True)
 
+    def __str__(self):
+        return f"{self.name}"
+
 class EntityPositionAssignment(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_position_assignment', null=True, on_delete=models.CASCADE)
     civ_position_assignment_id = models.IntegerField()
@@ -60,6 +63,9 @@ class EntityPositionAssignment(models.Model):
     position_id = models.ForeignKey('EntityPosition', related_name='entity_position_assignment', null=True, on_delete=models.SET_NULL)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_position_assignment', null=True, on_delete=models.SET_NULL)
     squad_id = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.civ_id} | {self.position_id} | {self.hf_id}"
 
 class EntityPopulations(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_populations', null=True, on_delete=models.CASCADE)
@@ -70,11 +76,17 @@ class EntityPopulations(models.Model):
     race = models.CharField(max_length=500, null=True)
     population = models.IntegerField(null=True)
 
+    def __str__(self):
+        return f"{self.race} | {self.population}"
+
 class Occasion(models.Model):
     world = models.ForeignKey('World', related_name='world_occasion', null=True, on_delete=models.CASCADE)
     civ_occasion_id = models.IntegerField()
     civ_id = models.ForeignKey('Entities', related_name='occasion', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=500)
+
+    def __str__(self):
+        return f"{self.name}"
 
 class Schedule(models.Model):
     world = models.ForeignKey('World', related_name='world_schedules', null=True, on_delete=models.CASCADE)
@@ -85,11 +97,17 @@ class Schedule(models.Model):
     item_type = models.CharField(max_length=500, null=True)
     item_subtype = models.CharField(max_length=500, null=True)
 
+    def __str__(self):
+        return f"{self.type}"
+
 class Feature(models.Model):
     world = models.ForeignKey('World', related_name='world_feature', null=True, on_delete=models.CASCADE)
     schedule = models.ForeignKey('Schedule', related_name='schedule_feature', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500)
     reference = models.ForeignKey('WrittenContents', related_name='feature', null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return f"{self.type}"
 
 # I imagine this has more data, need a larger sample to confirm
 class HistoricalEras(models.Model):
@@ -97,6 +115,9 @@ class HistoricalEras(models.Model):
     name = models.CharField(max_length=500)
     start_year = models.IntegerField()
     end_year = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.name}"
 
 class HistoricalEventCollections(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_event_collections', null=True, on_delete=models.CASCADE)
@@ -129,6 +150,9 @@ class HistoricalEventCollections(models.Model):
     target_entity_id = models.ForeignKey('Entities', related_name='target_historical_event_collections', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500, null=True)
 
+    def __str__(self):
+        return f"{self.name} | {self.type}"
+
 class HistoricalEvents(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_events', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
@@ -157,12 +181,16 @@ class HistoricalEvents(models.Model):
     type = models.CharField(max_length=500, null=True)
     year = models.IntegerField(null=True)
 
+    def __str__(self):
+        return f"{self.type} | {self.year}"
+
 class Circumstance(models.Model):
     world = models.ForeignKey('World', related_name='world_circumstance', null=True, on_delete=models.CASCADE)
     historical_event = models.ForeignKey('HistoricalEvents', related_name='historical_event_circumstance', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500)
     hist_event_id = models.ManyToManyField('HistoricalEvents', related_name='hist_event_circumstance')
     hist_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='hist_event_collection_circumstance', null=True, on_delete=models.SET_NULL)
+
 
 class HistoricalFigures(models.Model):
     world = models.ForeignKey('World', related_name='world_historical_figures', null=True, on_delete=models.CASCADE)
@@ -186,6 +214,9 @@ class HistoricalFigures(models.Model):
     animated = models.BooleanField(null=True, default=False)
     animated_string = models.CharField(max_length=500, null=True)
 
+    def __str__(self):
+        return f"{self.name} | {self.race}"
+
 # links historical figures to civs
 class EntityLink(models.Model):
     world = models.ForeignKey('World', related_name='world_entity_link', null=True, on_delete=models.CASCADE)
@@ -193,6 +224,9 @@ class EntityLink(models.Model):
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_entity_link', null=True, on_delete=models.SET_NULL)
     link_type = models.CharField(max_length=500, null=True)
     link_strength = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.civ_id} | {self.hf_id} | {self.link_type}"
 
 # seems to link lairs to historical figures
 class SiteLink(models.Model):
@@ -203,11 +237,17 @@ class SiteLink(models.Model):
     site_id = models.ForeignKey('Sites', related_name='site_link', null=True, on_delete=models.SET_NULL)
     structure_id = models.ForeignKey('Structures', related_name='structure_link', null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f"{self.civ_id} | {self.hf_id} | {self.link_type}"
+
 class HfSkill(models.Model):
     world = models.ForeignKey('World', related_name='world_hf_skill', null=True, on_delete=models.CASCADE)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_skill', null=True, on_delete=models.SET_NULL)
     skill = models.CharField(max_length=500, null=True)
     total_ip = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.hf_id} | {self.skill}"
 
 class HfLink(models.Model):
     world = models.ForeignKey('World', related_name='world_hf_link', null=True, on_delete=models.CASCADE)
@@ -216,12 +256,18 @@ class HfLink(models.Model):
     link_type = models.CharField(max_length=500, null=True)
     link_strength = models.IntegerField(null=True)
 
+    def __str__(self):
+        return f"{self.hf_id} | {self.link_type}"
+
 class Regions(models.Model):
     world = models.ForeignKey('World', related_name='world_regions', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
     name = models.CharField(max_length=500)
     type = models.CharField(max_length=500)
     evilness = models.CharField(max_length=500, null=True)
+
+    def __str__(self):
+        return f"{self.name} | {self.type}"
 
 class Sites(models.Model):
     world = models.ForeignKey('World', related_name='world_sites', null=True, on_delete=models.CASCADE)
@@ -231,6 +277,9 @@ class Sites(models.Model):
     name = models.CharField(max_length=500)
     type = models.CharField(max_length=500)
 
+    def __str__(self):
+        return f"{self.name} | {self.type}"
+
 class Structures(models.Model):
     world = models.ForeignKey('World', related_name='world_structures', null=True, on_delete=models.CASCADE)
     site_id = models.ForeignKey('Sites', related_name='site_structures', null=True, on_delete=models.SET_NULL)
@@ -239,6 +288,9 @@ class Structures(models.Model):
     name = models.CharField(max_length=500, null=True)
     name2 = models.CharField(max_length=500, null=True)
     inhabitant = models.ForeignKey('HistoricalFigures', related_name='inhabitant_structures', null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return f"{self.name} | {self.type}"
 
 class SiteProperty(models.Model):
     world = models.ForeignKey('World', related_name='world_site_property', null=True, on_delete=models.CASCADE)
