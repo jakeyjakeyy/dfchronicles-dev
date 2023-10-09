@@ -17,5 +17,5 @@ def save_entity_former_position_link(element, hf):
     entity_position_link = models.EntityFormerPositionLink.objects.create(world=hf.world, hf_id=hf, start_year=start_year, end_year=end_year)
     entity_position_link.save()
 
-    return {'entity_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
+    return {'entity_former_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
    

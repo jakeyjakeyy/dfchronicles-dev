@@ -126,8 +126,7 @@ def save_historical_figure(element, world):
         for link in entity_links:
             lists = save_entity_link(link, hf)
             if lists:
-                for dict in lists:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(lists)
     if len(site_links) > 0:
         for link in site_links:
             lists = save_site_link(link, hf)
@@ -144,20 +143,17 @@ def save_historical_figure(element, world):
         for link in hf_links:
             links = save_hf_link(link, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
     if len(former_positions) > 0:
         for position in former_positions:
             links = save_entity_former_position_link(position, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
     if len(relationship_visuals) > 0:
         for visual in relationship_visuals:
             links = save_relationship_profile_visual(visual, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(dict)
     if len(intrigue_plots) > 0:
         for plot in intrigue_plots:
             links = save_intrigue_plot(plot, hf)
@@ -168,26 +164,22 @@ def save_historical_figure(element, world):
         for actor in intrigue_actors:
             links = save_intrigue_actor(actor, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
     if len(entity_positions_link) > 0:
         for position in entity_positions_link:
             links = save_entity_position_link(position, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
     if len(vague_relationships) > 0:
         for relationship in vague_relationships:
             links = save_vague_relationship(relationship, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
     if len(squad_links) > 0:
         for squad in squad_links:
             links = save_entity_squad_link(squad, hf)
             if links:
-                for dict in links:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(links)
 
 
     if current_identity:

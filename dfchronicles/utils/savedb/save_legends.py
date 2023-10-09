@@ -52,4 +52,4 @@ def SaveLegends(root, world):
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     
     save_element(root, world)
-    # open('log.txt', 'a').write('Missing Foreign Keys: ' + str(missing_fkeys) + '\n')
+    open('log.txt', 'a').write('Missing Foreign Keys: ' + str(missing_fkeys) + '\n')

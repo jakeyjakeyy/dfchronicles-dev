@@ -37,6 +37,5 @@ def save_intrigue_plot(element, hf):
         for actor in plot_actors:
             lists = save_plot_actor(actor, intrigue_plot)
             if lists:
-                for dict in lists:
-                    missing_fkeys.append(dict)
+                missing_fkeys.append(lists)
     return missing_fkeys
