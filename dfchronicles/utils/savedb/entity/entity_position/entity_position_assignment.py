@@ -20,5 +20,10 @@ def save_entity_position_assignment(assignment, entity):
     entity_position_assignment.save()
     
     if hf_id:
-        missing = {'entity_position_assignment': entity_position_assignment, 'hf_id': hf_id}
-        return missing
+        try:
+            hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
+            entity_position_assignment.hf_id = hf
+            entity_position_assignment.save()
+        except models.HistoricalFigures.DoesNotExist:
+            missing = {'entity_position_assignment': entity_position_assignment, 'hf_id': hf_id}
+            return missing

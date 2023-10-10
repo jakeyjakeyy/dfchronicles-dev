@@ -58,12 +58,16 @@ legends.xml+ legends_plus.xml
 https://www.dwarffortresswiki.org/index.php/DF2014:Legends
 Huge amount of data (aprox. $30,000 worth of tokens in raw data). This absolutely needs to be cleaned, or the project will simply be impossible. Available AI/ML models have nowhere near this much context length anyways, so something needs to be done.
 
-After cleaning up the data from xml, we can store the cleaned data in the servers database, then create a sqlite database on demand to view data information.
+After cleaning up the data from xml, we can store the cleaned data in the servers database, then create a sql database on demand to view data information.
 Current approach is to convert to JSON while eliminitating some unused keys. A majority of the data will still be saved to database, which we will save to server and decide what to give to the AI later.
 
 We can try to limit the data sent by sorting the data in relation to our best guesses at good stories. Big civilizations, old monsters, etc. and sending the data only relating to that topic
 
 No use it seems for the categories: poetic_forms, musical_forms, dance_forms
+
+visualize data and allow sorting. when viewing historical figure, maybe plot events over time, be able to sort by most events/ highest skill/ most hated/ etc
+
+find a way to determine possible interesting stories before sending relevant data to ai (super old necromancer hated by every civilization, adventurer who defeated said necromancer, etc)
 
 
 WRITEUP THOUGHTS:

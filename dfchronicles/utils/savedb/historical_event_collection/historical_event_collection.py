@@ -101,10 +101,20 @@ def save_historical_event_collection(element, world):
         missing.append({'event_collection': event_collection, 'defending_squad_site': defending_squad_site})
     if len(attacking_hfids) > 0:
         for hf_id in attacking_hfids:
-            missing.append({'event_collection': event_collection, 'attacking_hfid': hf_id})
+            try:
+                hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
+                event_collection.attacking_hfid.add(hf)
+                event_collection.save()
+            except models.HistoricalFigures.DoesNotExist:
+                missing.append({'event_collection': event_collection, 'attacking_hfid': hf_id})
     if len(defending_hfids) > 0:
         for hf_id in defending_hfids:
-            missing.append({'event_collection': event_collection, 'defending_hfid': hf_id})
+            try:
+                hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
+                event_collection.defending_hfid.add(hf)
+                event_collection.save()
+            except models.HistoricalFigures.DoesNotExist:
+                missing.append({'event_collection': event_collection, 'defending_hfid': hf_id})
     if len(noncom_hfids) > 0:
         for hf_id in noncom_hfids:
             missing.append({'event_collection': event_collection, 'noncom_hfid': hf_id})

@@ -180,6 +180,19 @@ class HistoricalEvents(models.Model):
     target_hfid = models.ForeignKey('HistoricalFigures', related_name='target_hf_historical_events', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500, null=True)
     year = models.IntegerField(null=True)
+    coords = models.CharField(max_length=500, null=True)
+    body_state = models.CharField(max_length=500, null=True)
+    death_penalty = models.BooleanField(null=True)
+    wrongful_conviction = models.BooleanField(null=True)
+    crime = models.CharField(max_length=500, null=True)
+    framer_hfid = models.ForeignKey('HistoricalFigures', related_name='framer_hf_historical_events', null=True, on_delete=models.SET_NULL)
+    fooled_hfid = models.ForeignKey('HistoricalFigures', related_name='fooled_hf_historical_events', null=True, on_delete=models.SET_NULL)
+    convicter_enid = models.ForeignKey('Entities', related_name='convicter_enid_historical_events', null=True, on_delete=models.SET_NULL)
+    convicted_hfid = models.ForeignKey('HistoricalFigures', related_name='convicted_hfid_historical_events', null=True, on_delete=models.SET_NULL)
+    circumstance = models.ForeignKey('HistoricalEventCollections', related_name='circumstance_historical_events', null=True, on_delete=models.SET_NULL)
+    stash_site = models.ForeignKey('Sites', related_name='stash_site_historical_events', null=True, on_delete=models.SET_NULL)
+    theft_method = models.CharField(max_length=500, null=True)
+    structure = models.ForeignKey('Structures', related_name='structure_historical_events', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.type} | {self.year}"
@@ -276,6 +289,8 @@ class Sites(models.Model):
     cur_owner_id = models.ForeignKey('Entities', related_name='owned_sites', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=500)
     type = models.CharField(max_length=500)
+    coords = models.CharField(max_length=500, null=True)
+    rectangle = models.CharField(max_length=500, null=True)
 
     def __str__(self):
         return f"{self.name} | {self.type}"
@@ -287,7 +302,7 @@ class Structures(models.Model):
     type = models.CharField(max_length=500)
     name = models.CharField(max_length=500, null=True)
     name2 = models.CharField(max_length=500, null=True)
-    inhabitant = models.ForeignKey('HistoricalFigures', related_name='inhabitant_structures', null=True, on_delete=models.SET_NULL)
+    inhabitant = models.ManyToManyField('HistoricalFigures', related_name='inhabitant_structures')
 
     def __str__(self):
         return f"{self.name} | {self.type}"

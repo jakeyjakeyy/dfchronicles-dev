@@ -3,6 +3,8 @@ from .artifact import save_artifact
 from .entity import save_entity, save_entity_population
 from .historical_era import save_historical_era
 from .historical_event_collection import save_historical_event_collection
+from .historical_event import save_historical_event
+from .site import save_site
 
 
 def SaveLegends(root, world):
@@ -10,7 +12,7 @@ def SaveLegends(root, world):
     exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
     missing_fkeys = []
 
-    test_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections']
+    test_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites']
 
     # Find all elements and run associated save function
     def save_element(element, world):
@@ -48,6 +50,12 @@ def SaveLegends(root, world):
                     if lists:
                         for dict in lists:
                             missing_fkeys.append(dict)
+                elif child.tag == 'historical_event':
+                    save_historical_event(child, world)
+                elif child.tag == 'site':
+                    lists = save_site(child, world)
+                    if lists:
+                        missing_fkeys.append(lists)
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     

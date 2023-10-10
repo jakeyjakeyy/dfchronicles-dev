@@ -69,7 +69,12 @@ def save_entity(element, world):
         entity.save()
     
     for worship_id in worship_ids:
-        missing_fkeys.append({'entity': entity, 'worship_id': worship_id})
+        try:
+            hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=worship_id)
+            entity.worship_id = hf
+            entity.save()
+        except models.HistoricalFigures.DoesNotExist:
+            missing_fkeys.append({'entity': entity, 'worship_id': worship_id})
 
     if missing_fkeys:
         return missing_fkeys

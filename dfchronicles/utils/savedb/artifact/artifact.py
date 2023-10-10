@@ -59,8 +59,6 @@ def save_artifact(element, world):
         if item_description:
             artifact.item_description = item_description
         artifact.save()
-        # artifact = models.Artifact.objects.filter(world=world, chronicle_id=chronicle_id)
-        pass
     else:
         # Artifact has not been seen before, create it
         artifact_arguments.append({'world' : world, 'chronicle_id': chronicle_id, 'name': name, 'name2': name2, 'page_number': page_number, 'item_type': item_type, 'material': material, 'item_subtype': item_subtype, 'item_description': item_description})
@@ -73,7 +71,12 @@ def save_artifact(element, world):
         if missing_site_id:
             missing['site'] = missing_site_id
         if missing_holder_id:
-            missing['holder_id'] = missing_holder_id
+            try:
+                holder = models.HistoricalFigures.objects.get(world=world, chronicle_id=missing_holder_id)
+                artifact.holder_id = holder
+                artifact.save()
+            except models.HistoricalFigures.DoesNotExist:
+                missing['holder_id'] = missing_holder_id
         if missing_written_content_id:
             missing['written_content_id'] = missing_written_content_id
         if missing_structure_local_id:
