@@ -193,6 +193,8 @@ class HistoricalEvents(models.Model):
     stash_site = models.ForeignKey('Sites', related_name='stash_site_historical_events', null=True, on_delete=models.SET_NULL)
     theft_method = models.CharField(max_length=500, null=True)
     structure = models.ForeignKey('Structures', related_name='structure_historical_events', null=True, on_delete=models.SET_NULL)
+    knowledge = models.CharField(max_length=500, null=True)
+    first = models.BooleanField(null=True)
 
     def __str__(self):
         return f"{self.type} | {self.year}"
@@ -303,6 +305,7 @@ class Structures(models.Model):
     name = models.CharField(max_length=500, null=True)
     name2 = models.CharField(max_length=500, null=True)
     inhabitant = models.ManyToManyField('HistoricalFigures', related_name='inhabitant_structures')
+    civ_id = models.ForeignKey('Entities', related_name='civ_structures', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.name} | {self.type}"
@@ -311,8 +314,9 @@ class SiteProperty(models.Model):
     world = models.ForeignKey('World', related_name='world_site_property', null=True, on_delete=models.CASCADE)
     site_id = models.ForeignKey('Sites', related_name='site_property', null=True, on_delete=models.SET_NULL)
     local_id = models.IntegerField()
-    type = models.CharField(max_length=500)
+    type = models.CharField(max_length=500, null=True)
     owner = models.ForeignKey('HistoricalFigures', related_name='owner_site_property', null=True, on_delete=models.SET_NULL)
+    structure_id = models.ForeignKey('Structures', related_name='structure_site_property', null=True, on_delete=models.SET_NULL)
 
 class UndergroundRegions(models.Model):
     world = models.ForeignKey('World', related_name='world_underground_regions', null=True, on_delete=models.CASCADE)

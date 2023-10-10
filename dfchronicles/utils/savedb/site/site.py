@@ -1,8 +1,10 @@
 from .structure import save_structure
+from .site_property import save_site_property
 def save_site(site, world):
     from chronicle_compiler import models
     chronicle_id, civ_id, cur_owner_id, name, type, coords, rectangle = None, None, None, None, None, None, None
     structures = []
+    properties = []
 
     for child in site:
         tag = child.tag.strip()
@@ -23,6 +25,9 @@ def save_site(site, world):
         elif tag == 'structures':
             for structure in child:
                 structures.append(structure)
+        elif tag == 'site_properties':
+            for prop in child:
+                properties.append(prop)
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! Save Site: ' + child.tag + '\n')
 
@@ -46,4 +51,6 @@ def save_site(site, world):
         site.save()
 
         for structure in structures:
-            save_structure(structure,site)
+            save_structure(structure, site)
+        for prop in properties:
+            save_site_property(prop, site)

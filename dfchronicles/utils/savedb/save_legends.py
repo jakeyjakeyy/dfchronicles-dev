@@ -7,12 +7,13 @@ from .historical_event import save_historical_event
 from .site import save_site
 
 
+
 def SaveLegends(root, world):
     class_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'historical_figures', 'regions', 'sites', 'underground_regions', 'written_contents', 'world_constructions']
     exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
     missing_fkeys = []
 
-    test_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites']
+    test_tags = ['artifacts', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites']
 
     # Find all elements and run associated save function
     def save_element(element, world):
@@ -25,6 +26,14 @@ def SaveLegends(root, world):
                 if lists:
                     for dict in lists:
                         missing_fkeys.append(dict)
+        ent = element.find('entities')
+        if ent:
+            open('log.txt', 'a').write('Saving Entities...\n')
+            for child in ent:
+                lists = save_entity(child, world)
+                if lists:
+                    for dict in lists:
+                        missing_fkeys.append(dict)
         for child in element:
             if child.tag not in exclude_tags and child.tag in test_tags:
                 open('log.txt', 'a').write('Saving ' + child.tag + '...\n')
@@ -34,11 +43,11 @@ def SaveLegends(root, world):
                     lists = save_artifact(child, world)
                     if lists:
                         missing_fkeys.append(lists)
-                elif child.tag == 'entity':
-                    lists = save_entity(child, world)
-                    if lists:
-                        for dict in lists:
-                            missing_fkeys.append(dict)
+                # elif child.tag == 'entity':
+                #     lists = save_entity(child, world)
+                #     if lists:
+                #         for dict in lists:
+                #             missing_fkeys.append(dict)
                 elif child.tag == 'entity_population':
                     lists = save_entity_population(child, world)
                     if lists:

@@ -1,6 +1,6 @@
 def save_structure(structure, site):
     from chronicle_compiler import models
-    structure_id, type, name, name2 = None, None, None, None
+    structure_id, type, name, name2, civ_id = None, None, None, None, None
     inhabitants = []
     for child in structure:
         tag = child.tag.strip()
@@ -14,10 +14,12 @@ def save_structure(structure, site):
             name2 = child.text
         elif tag == 'inhabitant':
             inhabitants.append(child.text)
+        elif tag == 'entity_id':
+            civ_id = models.Entities.objects.get(world=site.world, chronicle_id=child.text)
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! Save Structure: ' + child.tag + '\n')
 
-    struct = models.Structures.objects.create(world=site.world, site_id=site, structure_id=structure_id, type=type, name=name, name2=name2)
+    struct = models.Structures.objects.create(world=site.world, site_id=site, structure_id=structure_id, type=type, name=name, name2=name2, civ_id=civ_id)
     struct.save()
 
     for inhabitant in inhabitants:

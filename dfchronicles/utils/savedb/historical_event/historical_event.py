@@ -1,6 +1,6 @@
 def save_historical_event(event, world):
     from chronicle_compiler import models
-    chronicle_id, body_part, caste, civ_id, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, site_id, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
+    chronicle_id, body_part, caste, civ_id, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, site_id, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure, knowledge, first = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
 
     exclude_tags = ['seconds72', 'feature_layer_id']
     for child in event:
@@ -78,6 +78,10 @@ def save_historical_event(event, world):
         elif tag == 'structure':
             if int(child.text) != -1:
                 structure = child.text
+        elif tag == 'knowledge':
+            knowledge = child.text
+        elif tag == 'first':
+            first = True
         elif tag in exclude_tags:
             pass
         else:
@@ -142,7 +146,7 @@ def save_historical_event(event, world):
         if civ_id:
             civ_id = models.Entities.objects.get(world=world, chronicle_id=civ_id)
 
-        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, civ_id=civ_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, site_id=site_id, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure)
+        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, civ_id=civ_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, site_id=site_id, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure, knowledge=knowledge, first=first)
         he.save()
 
         if circumstance:
