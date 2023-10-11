@@ -72,3 +72,4 @@ find a way to determine possible interesting stories before sending relevant dat
 
 WRITEUP THOUGHTS:
 show some sample XML data, explain the smallest dataset was over 1.3million lines. Sorted and transferred to database for use later.
+Speed of data entry is biggest flaw currently

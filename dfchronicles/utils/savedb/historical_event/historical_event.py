@@ -170,7 +170,7 @@ def save_historical_event(event, world):
             for site_id in site_ids:
                 he.site_id.add(models.Sites.objects.get(world=world, chronicle_id=site_id))
         if structure:
-            site_id = he.site_id
+            site_id = models.Sites.objects.get(world=world, chronicle_id=site_ids[0])
             he.structure = models.Structures.objects.get(world=world, structure_id=structure, site_id=site_id)
         
         he.save()
