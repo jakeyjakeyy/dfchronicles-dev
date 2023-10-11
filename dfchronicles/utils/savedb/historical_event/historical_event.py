@@ -1,7 +1,8 @@
 def save_historical_event(event, world):
     from chronicle_compiler import models
-    chronicle_id, body_part, caste, civ_id, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, site_id, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure, knowledge, first = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
+    chronicle_id, body_part, caste, civ_id, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, site_id, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure, knowledge, first, link, position_id, site_civ_id = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
 
+    missing_fkeys = []
     exclude_tags = ['seconds72', 'feature_layer_id']
     for child in event:
         tag = child.tag.strip()
@@ -16,7 +17,7 @@ def save_historical_event(event, world):
                 civ_id = child.text
         elif tag == 'death_cause':
             death_cause = child.text
-        elif tag == 'histfig' or tag == 'wounder' or tag == 'hfid':
+        elif tag == 'histfig' or tag == 'wounder' or tag == 'hfid' or tag == 'builder_hfid':
             if int(child.text) != -1:
                 hf_id = child.text
         elif tag == 'injury_type':
@@ -75,13 +76,20 @@ def save_historical_event(event, world):
                 stash_site = child.text
         elif tag == 'theft_method':
             theft_method = child.text
-        elif tag == 'structure':
+        elif tag == 'structure' or tag == 'structure_id':
             if int(child.text) != -1:
                 structure = child.text
         elif tag == 'knowledge':
             knowledge = child.text
         elif tag == 'first':
             first = True
+        elif tag == 'link':
+            link = child.text
+        elif tag == 'position_id':
+            position_id = child.text
+        elif tag == 'site_civ_id':
+            if int(child.text) != -1:
+                site_civ_id = child.text
         elif tag in exclude_tags:
             pass
         else:
@@ -145,9 +153,16 @@ def save_historical_event(event, world):
             structure = models.Structures.objects.get(world=world, structure_id=structure, site_id=site_id)
         if civ_id:
             civ_id = models.Entities.objects.get(world=world, chronicle_id=civ_id)
+        if site_civ_id:
+            site_civ_id = models.Entities.objects.get(world=world, chronicle_id=site_civ_id)
 
-        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, civ_id=civ_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, site_id=site_id, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure, knowledge=knowledge, first=first)
+        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, civ_id=civ_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, site_id=site_id, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure, knowledge=knowledge, first=first, link=link)
         he.save()
 
         if circumstance:
-            return {'historical_event': he, 'circumstance': circumstance}
+            missing_fkeys.append({'historical_event': he, 'circumstance_id': circumstance})
+        if position_id:
+            missing_fkeys.append({'historical_event': he, 'position_id': position_id})
+        
+        if missing_fkeys:
+            return missing_fkeys

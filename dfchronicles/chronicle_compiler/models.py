@@ -195,6 +195,8 @@ class HistoricalEvents(models.Model):
     structure = models.ForeignKey('Structures', related_name='structure_historical_events', null=True, on_delete=models.SET_NULL)
     knowledge = models.CharField(max_length=500, null=True)
     first = models.BooleanField(null=True)
+    link = models.CharField(max_length=500, null=True)
+    position_id = models.ForeignKey('EntityPosition', related_name='position_historical_events', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.type} | {self.year}"
@@ -306,6 +308,7 @@ class Structures(models.Model):
     name2 = models.CharField(max_length=500, null=True)
     inhabitant = models.ManyToManyField('HistoricalFigures', related_name='inhabitant_structures')
     civ_id = models.ForeignKey('Entities', related_name='civ_structures', null=True, on_delete=models.SET_NULL)
+    subtype = models.CharField(max_length=500, null=True)
 
     def __str__(self):
         return f"{self.name} | {self.type}"
