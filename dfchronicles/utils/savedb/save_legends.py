@@ -43,11 +43,6 @@ def SaveLegends(root, world):
                     lists = save_artifact(child, world)
                     if lists:
                         missing_fkeys.append(lists)
-                # elif child.tag == 'entity':
-                #     lists = save_entity(child, world)
-                #     if lists:
-                #         for dict in lists:
-                #             missing_fkeys.append(dict)
                 elif child.tag == 'entity_population':
                     lists = save_entity_population(child, world)
                     if lists:
