@@ -161,8 +161,8 @@ class HistoricalEvents(models.Model):
     caste = models.CharField(max_length=500, null=True)
     civ_id = models.ManyToManyField('Entities', related_name='civ_historical_events')
     death_cause = models.CharField(max_length=500, null=True)
-    # Not sure what feature_layer_id is
-    feature_layer_id = models.IntegerField(null=True)
+    # feature_layer = underground_region?
+    feature_layer_id = models.ForeignKey('UndergroundRegions', related_name='feature_layer_historical_events', null=True, on_delete=models.SET_NULL)
     hf_id = models.ForeignKey('HistoricalFigures', related_name='hf_historical_events', null=True, on_delete=models.SET_NULL)
     injury_type = models.CharField(max_length=500, null=True)
     link_type = models.CharField(max_length=500, null=True)
@@ -247,6 +247,11 @@ class HistoricalEvents(models.Model):
     account_shift = models.IntegerField(null=True)
     expelled_hfids = models.ManyToManyField('HistoricalFigures', related_name='expelled_hfids_historical_events')
     shrine_amount_destroyed = models.IntegerField(null=True)
+    resident_civ_id = models.ForeignKey('Entities', related_name='resident_civ_historical_events', null=True, on_delete=models.SET_NULL)
+    position_taker_hfid = models.ForeignKey('HistoricalFigures', related_name='position_taker_hfid_historical_events', null=True, on_delete=models.SET_NULL)
+    instigator_hfid = models.ForeignKey('HistoricalFigures', related_name='instigator_hfid_historical_events', null=True, on_delete=models.SET_NULL)
+    conspirator_hfid = models.ManyToManyField('HistoricalFigures', related_name='conspirator_hfid_historical_events')
+    actor_hfid = models.ForeignKey('HistoricalFigures', related_name='actor_hfid_historical_events', null=True, on_delete=models.SET_NULL)
     def __str__(self):
         return f"{self.type} | {self.year}"
 

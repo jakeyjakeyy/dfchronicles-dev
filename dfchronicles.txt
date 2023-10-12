@@ -73,3 +73,6 @@ find a way to determine possible interesting stories before sending relevant dat
 WRITEUP THOUGHTS:
 show some sample XML data, explain the smallest dataset was over 1.3million lines. Sorted and transferred to database for use later.
 Speed of data entry is biggest flaw currently
+Beautiful game, complicated data:
+    so much data, specifically in HistoricalEvents, seemed redundant and with many different names (site_hfid, site_id, site | hist_fig_id histfig hfid hist_figure_id)
+    
