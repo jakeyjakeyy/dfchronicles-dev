@@ -189,7 +189,8 @@ class HistoricalEvents(models.Model):
     fooled_hfid = models.ForeignKey('HistoricalFigures', related_name='fooled_hf_historical_events', null=True, on_delete=models.SET_NULL)
     convicter_enid = models.ForeignKey('Entities', related_name='convicter_enid_historical_events', null=True, on_delete=models.SET_NULL)
     convicted_hfid = models.ForeignKey('HistoricalFigures', related_name='convicted_hfid_historical_events', null=True, on_delete=models.SET_NULL)
-    circumstance = models.ForeignKey('HistoricalEventCollections', related_name='circumstance_historical_events', null=True, on_delete=models.SET_NULL)
+    circumstance_collection = models.ForeignKey('HistoricalEventCollections', related_name='circumstance_historical_events', null=True, on_delete=models.SET_NULL)
+    circumstance = models.CharField(max_length=500, null=True)
     stash_site = models.ForeignKey('Sites', related_name='stash_site_historical_events', null=True, on_delete=models.SET_NULL)
     theft_method = models.CharField(max_length=500, null=True)
     structure = models.ForeignKey('Structures', related_name='structure_historical_events', null=True, on_delete=models.SET_NULL)
@@ -198,6 +199,7 @@ class HistoricalEvents(models.Model):
     link = models.CharField(max_length=500, null=True)
     position_id = models.ForeignKey('EntityPosition', related_name='position_historical_events', null=True, on_delete=models.SET_NULL)
     identity = models.ForeignKey('Identities', related_name='identity_historical_events', null=True, on_delete=models.SET_NULL)
+    target_identity = models.ForeignKey('Identities', related_name='target_identity_historical_events', null=True, on_delete=models.SET_NULL)
     target_enid = models.ForeignKey('Entities', related_name='target_enid_historical_events', null=True, on_delete=models.SET_NULL)
     artifact = models.ForeignKey('Artifact', related_name='artifact_historical_events', null=True, on_delete=models.SET_NULL)
     occasion = models.ForeignKey('Occasion', related_name='occasion_historical_events', null=True, on_delete=models.SET_NULL)
@@ -213,7 +215,22 @@ class HistoricalEvents(models.Model):
     dispute = models.CharField(max_length=500, null=True)
     winner_hfid = models.ForeignKey('HistoricalFigures', related_name='winner_hfid_historical_events', null=True, on_delete=models.SET_NULL)
     competitor_hfid = models.ManyToManyField('HistoricalFigures', related_name='competitor_hfid_historical_events')
-
+    detected = models.BooleanField(null=True)
+    written_content = models.ForeignKey('WrittenContents', related_name='written_content_historical_events', null=True, on_delete=models.SET_NULL)
+    returning = models.BooleanField(null=True)
+    old_race = models.CharField(max_length=500, null=True)
+    old_caste = models.CharField(max_length=500, null=True)
+    new_race = models.CharField(max_length=500, null=True)
+    new_caste = models.CharField(max_length=500, null=True)
+    quality = models.IntegerField(null=True)
+    identity_rep = models.CharField(max_length=500, null=True)
+    target_identity_rep = models.CharField(max_length=500, null=True)
+    old_account = models.IntegerField(null=True)
+    new_account = models.IntegerField(null=True)
+    secret_goal = models.CharField(max_length=500, null=True)
+    method = models.CharField(max_length=500, null=True)
+    world_construction = models.ForeignKey('WorldConstruction', related_name='world_construction_historical_events', null=True, on_delete=models.SET_NULL)
+    master_world_construction = models.ForeignKey('WorldConstruction', related_name='master_world_construction_historical_events', null=True, on_delete=models.SET_NULL)
     def __str__(self):
         return f"{self.type} | {self.year}"
 
@@ -441,3 +458,6 @@ class PlotActor(models.Model):
     delegated_plot_hfid = models.ForeignKey('HistoricalFigures', related_name='delegated_plot_hfid_plot_actor', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500, null=True)
     has_messenger = models.BooleanField(null=True, default=False)
+
+class WorldConstruction(models.Model):
+    pass
