@@ -170,7 +170,6 @@ class HistoricalEvents(models.Model):
     old_job = models.CharField(max_length=500, null=True)
     part_lost = models.BooleanField(null=True)
     position = models.CharField(max_length=500, null=True)
-    promise_to_hfid = models.ForeignKey('HistoricalFigures', related_name='promise_hf_historical_events', null=True, on_delete=models.SET_NULL)
     race = models.CharField(max_length=500, null=True)
     reason = models.CharField(max_length=500, null=True)
     relationship = models.CharField(max_length=500, null=True)
@@ -252,6 +251,11 @@ class HistoricalEvents(models.Model):
     instigator_hfid = models.ForeignKey('HistoricalFigures', related_name='instigator_hfid_historical_events', null=True, on_delete=models.SET_NULL)
     conspirator_hfid = models.ManyToManyField('HistoricalFigures', related_name='conspirator_hfid_historical_events')
     actor_hfid = models.ForeignKey('HistoricalFigures', related_name='actor_hfid_historical_events', null=True, on_delete=models.SET_NULL)
+    musical_form = models.ForeignKey('MusicalForms', related_name='musical_form_historical_events', null=True, on_delete=models.SET_NULL)
+    poetic_form = models.ForeignKey('PoeticForms', related_name='poetic_form_historical_events', null=True, on_delete=models.SET_NULL)
+    dance_form = models.ForeignKey('DanceForms', related_name='dance_form_historical_events', null=True, on_delete=models.SET_NULL)
+    held_firm_in_interrogation = models.BooleanField(null=True)
+    pets = models.CharField(max_length=500, null=True)
     def __str__(self):
         return f"{self.type} | {self.year}"
 
@@ -481,4 +485,13 @@ class PlotActor(models.Model):
     has_messenger = models.BooleanField(null=True, default=False)
 
 class WorldConstruction(models.Model):
+    pass
+
+class MusicalForms(models.Model):
+    pass
+
+class PoeticForms(models.Model):
+    pass
+
+class DanceForms(models.Model):
     pass
