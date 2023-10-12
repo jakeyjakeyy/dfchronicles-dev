@@ -56,7 +56,10 @@ def SaveLegends(root, world):
                         for dict in lists:
                             missing_fkeys.append(dict)
                 elif child.tag == 'historical_event':
-                    save_historical_event(child, world)
+                    lists = save_historical_event(child, world)
+                    if lists:
+                        for dict in lists:
+                            missing_fkeys.append(dict)
                 elif child.tag == 'site':
                     lists = save_site(child, world)
                     if lists:

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import World, Artifact, Entities, EntityPosition, EntityPositionAssignment, EntityPopulations, Occasion, Schedule, Feature, HistoricalEras, HistoricalEventCollections, HistoricalEvents, HistoricalFigures, EntityLink, SiteLink, HfSkill, HfLink, Regions, Sites, Structures, UndergroundRegions, WrittenContents, IntriguePlot, IntrigueActor, RelationshipProfileVisual, EntityFormerPositionLink, Identities, EntityPositionLink, VagueRelationship, EntitySquadLink, PlotActor
+from .models import World, Artifact, Entities, EntityPosition, EntityPositionAssignment, EntityPopulations, Occasion, Schedule, Feature, HistoricalEras, HistoricalEventCollections, HistoricalEvents, HistoricalFigures, EntityLink, SiteLink, HfSkill, HfLink, Regions, Sites, Structures, UndergroundRegions, WrittenContents, IntriguePlot, IntrigueActor, RelationshipProfileVisual, EntityFormerPositionLink, Identities, EntityPositionLink, VagueRelationship, EntitySquadLink, PlotActor, SiteProperty
 # Register your models here.
 
 
@@ -47,3 +47,4 @@ admin.site.register(VagueRelationship)
 admin.site.register(EntitySquadLink)
 admin.site.register(PlotActor)
 admin.site.register(IntriguePlot)
+admin.site.register(SiteProperty)

@@ -231,6 +231,22 @@ class HistoricalEvents(models.Model):
     method = models.CharField(max_length=500, null=True)
     world_construction = models.ForeignKey('WorldConstruction', related_name='world_construction_historical_events', null=True, on_delete=models.SET_NULL)
     master_world_construction = models.ForeignKey('WorldConstruction', related_name='master_world_construction_historical_events', null=True, on_delete=models.SET_NULL)
+    site_property = models.ForeignKey('SiteProperty', related_name='site_property_historical_events', null=True, on_delete=models.SET_NULL)
+    last_owner = models.ForeignKey('HistoricalFigures', related_name='last_owner_historical_events', null=True, on_delete=models.SET_NULL)
+    inherited = models.BooleanField(null=True)
+    rebuilt_ruined = models.BooleanField(null=True)
+    purchased_unowned = models.BooleanField(null=True)
+    corruptor_seen_as = models.CharField(max_length=500, null=True)
+    target_seen_as = models.CharField(max_length=500, null=True)
+    successful = models.BooleanField(null=True)
+    mood = models.CharField(max_length=500, null=True)
+    new_site_civ = models.ForeignKey('Entities', related_name='new_site_civ_historical_events', null=True, on_delete=models.SET_NULL)
+    new_leader = models.ForeignKey('HistoricalFigures', related_name='new_leader_historical_events', null=True, on_delete=models.SET_NULL)
+    prison_months = models.IntegerField(null=True)
+    target_site = models.ForeignKey('Sites', related_name='target_site_id_historical_events', null=True, on_delete=models.SET_NULL)
+    account_shift = models.IntegerField(null=True)
+    expelled_hfids = models.ManyToManyField('HistoricalFigures', related_name='expelled_hfids_historical_events')
+    shrine_amount_destroyed = models.IntegerField(null=True)
     def __str__(self):
         return f"{self.type} | {self.year}"
 
