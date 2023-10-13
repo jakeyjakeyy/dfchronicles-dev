@@ -256,6 +256,9 @@ class HistoricalEvents(models.Model):
     dance_form = models.ForeignKey('DanceForms', related_name='dance_form_historical_events', null=True, on_delete=models.SET_NULL)
     held_firm_in_interrogation = models.BooleanField(null=True)
     pets = models.CharField(max_length=500, null=True)
+    mat = models.CharField(max_length=500, null=True)
+    bodies = models.ManyToManyField('HistoricalFigures', related_name='bodies_historical_events')
+    abuse_type = models.CharField(max_length=500, null=True)
     def __str__(self):
         return f"{self.type} | {self.year}"
 

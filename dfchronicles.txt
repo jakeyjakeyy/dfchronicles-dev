@@ -74,5 +74,8 @@ WRITEUP THOUGHTS:
 show some sample XML data, explain the smallest dataset was over 1.3million lines. Sorted and transferred to database for use later.
 Speed of data entry is biggest flaw currently
 Beautiful game, complicated data:
+    maybe these things go hand in hand
     so much data, specifically in HistoricalEvents, seemed redundant and with many different names (site_hfid, site_id, site | hist_fig_id histfig hfid hist_figure_id)
     
+could rewrite historical events into multiple data types based on content to minimize empty fields.
+Much of this (data entry) feels like a minimum viable product. there can be several improvements in speed and intricacy with more time and resources invested.
