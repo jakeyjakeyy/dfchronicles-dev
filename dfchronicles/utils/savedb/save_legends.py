@@ -19,24 +19,24 @@ def SaveLegends(root, world):
     # Find all elements and run associated save function
     def save_element(element, world):
         # select historic figures tag from element
-        # hf = element.find('historical_figures')
-        # if hf:
-        #     open('log.txt', 'a').write('Saving Historical Figures...\n')
-        #     for child in hf:
-        #         lists = save_historical_figure(child, world)
-        #         if lists:
-        #             for dict in lists:
-        #                 missing_fkeys.append(dict)
-        # ent = element.find('entities')
-        # if ent:
-        #     open('log.txt', 'a').write('Saving Entities...\n')
-        #     for child in ent:
-        #         lists = save_entity(child, world)
-        #         if lists:
-        #             for dict in lists:
-        #                 missing_fkeys.append(dict)
+        hf = element.find('historical_figures')
+        if hf:
+            open('log.txt', 'a').write('Saving Historical Figures...\n')
+            for child in hf:
+                lists = save_historical_figure(child, world)
+                if lists:
+                    for dict in lists:
+                        missing_fkeys.append(dict)
+        ent = element.find('entities')
+        if ent:
+            open('log.txt', 'a').write('Saving Entities...\n')
+            for child in ent:
+                lists = save_entity(child, world)
+                if lists:
+                    for dict in lists:
+                        missing_fkeys.append(dict)
         for child in element:
-            if child.tag not in exclude_tags and child.tag in spec_tags:
+            if child.tag not in exclude_tags and child.tag in test_tags:
                 open('log.txt', 'a').write('Saving ' + child.tag + '...\n')
                 save_element(child, world)
             else:
