@@ -88,23 +88,46 @@ def save_historical_event_collection(element, world):
 
     missing = []
     if civ_id:
-        missing.append({'event_collection': event_collection, 'civ_id': civ_id})
+        try:
+            civ = models.Entities.objects.get(world=world, chronicle_id=civ_id)
+            event_collection.civ_id = civ
+        except models.Entities.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'civ_id': civ_id})
     if site_id:
-        missing.append({'event_collection': event_collection, 'site_id': site_id})
+        try:
+            site = models.Sites.objects.get(world=world, chronicle_id=site_id)
+            event_collection.site_id = site
+        except models.Sites.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'site_id': site_id})
     if aggressor_entity_id:
-        missing.append({'event_collection': event_collection, 'aggressor_entity_id': aggressor_entity_id})
+        try:
+            entity = models.Entities.objects.get(world=world, chronicle_id=aggressor_entity_id)
+            event_collection.aggressor_entity_id = entity
+        except models.Entities.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'aggressor_entity_id': aggressor_entity_id})
     if defender_entity_id:
-        missing.append({'event_collection': event_collection, 'defender_entity_id': defender_entity_id})
+        try:
+            entity = models.Entities.objects.get(world=world, chronicle_id=defender_entity_id)
+            event_collection.defender_entity_id = entity
+        except models.Entities.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'defender_entity_id': defender_entity_id})
     if attacking_squad_site:
-        missing.append({'event_collection': event_collection, 'attacking_squad_site': attacking_squad_site})
+        try:
+            site = models.Sites.objects.get(world=world, chronicle_id=attacking_squad_site)
+            event_collection.attacking_squad_site = site
+        except models.Sites.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'attacking_squad_site': attacking_squad_site})
     if defending_squad_site:
-        missing.append({'event_collection': event_collection, 'defending_squad_site': defending_squad_site})
+        try:
+            site = models.Sites.objects.get(world=world, chronicle_id=defending_squad_site)
+            event_collection.defending_squad_site = site
+        except models.Sites.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'defending_squad_site': defending_squad_site})
     if len(attacking_hfids) > 0:
         for hf_id in attacking_hfids:
             try:
                 hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
                 event_collection.attacking_hfid.add(hf)
-                event_collection.save()
             except models.HistoricalFigures.DoesNotExist:
                 missing.append({'event_collection': event_collection, 'attacking_hfid': hf_id})
     if len(defending_hfids) > 0:
@@ -112,17 +135,30 @@ def save_historical_event_collection(element, world):
             try:
                 hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
                 event_collection.defending_hfid.add(hf)
-                event_collection.save()
             except models.HistoricalFigures.DoesNotExist:
                 missing.append({'event_collection': event_collection, 'defending_hfid': hf_id})
     if len(noncom_hfids) > 0:
         for hf_id in noncom_hfids:
-            missing.append({'event_collection': event_collection, 'noncom_hfid': hf_id})
+            try:
+                hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=hf_id)
+                event_collection.noncom_hfid.add(hf)
+            except models.HistoricalFigures.DoesNotExist:
+                missing.append({'event_collection': event_collection, 'noncom_hfid': hf_id})
     if len(events) > 0:
         for event in events:
-            missing.append({'event_collection': event_collection, 'event': event})
+            try:
+                event = models.HistoricalEvents.objects.get(world=world, chronicle_id=event)
+                event_collection.event.add(event)
+            except models.HistoricalEvents.DoesNotExist:
+                missing.append({'event_collection': event_collection, 'event': event})
     if target_entity_id:
-        missing.append({'event_collection': event_collection, 'target_entity_id': target_entity_id})
+        try:
+            entity = models.Entities.objects.get(world=world, chronicle_id=target_entity_id)
+            event_collection.target_entity_id = entity
+        except models.Entities.DoesNotExist:
+            missing.append({'event_collection': event_collection, 'target_entity_id': target_entity_id})
+
+    event_collection.save()
     
     if missing:
         return missing

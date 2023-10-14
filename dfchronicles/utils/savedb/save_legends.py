@@ -18,7 +18,7 @@ def SaveLegends(root, world):
 
     # Find all elements and run associated save function
     def save_element(element, world):
-        # select historic figures tag from element
+        # Historical Figures and Entities are saved first to minimize uninitialized foreign keys
         hf = element.find('historical_figures')
         if hf:
             open('log.txt', 'a').write('Saving Historical Figures...\n')
