@@ -20,7 +20,7 @@ def save_feature(feature, schedule):
     feature.save()
 
     for reference in references:
-        missing_fkeys.append({'feature': feature, 'reference': reference})
+        missing_fkeys.append({'feature': feature, 'reference': reference, 'type': type})
 
     if missing_fkeys:
         return missing_fkeys

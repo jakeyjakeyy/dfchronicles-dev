@@ -25,5 +25,5 @@ def save_site_link(element, hf):
     if civ_id:
         missing_fkeys.append({'site_link': site_link, 'civ_id': civ_id})
     if structure_id:
-        missing_fkeys.append({'site_link': site_link, 'structure': [structure_id, site_id]})
+        missing_fkeys.append({'site_link': site_link, 'structure': structure_id, 'site': site_id})
     return missing_fkeys

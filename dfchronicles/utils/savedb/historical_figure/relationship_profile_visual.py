@@ -33,4 +33,11 @@ def save_relationship_profile_visual(element, hf):
     relationship_profile_visual = models.RelationshipProfileVisual.objects.create(world=hf.world, source_hfid=hf, fear=fear, last_meet_year=last_meet_year, love=love, loyalty=loyalty, meet_count=meet_count, respect=respect, trust=trust,  rep_friendly=rep_friendly, rep_information_source=rep_information_source)
     relationship_profile_visual.save()
 
-    return {'relationship_profile_visual': relationship_profile_visual, 'target_hfid': target_hfid, 'known_identity': known_identity}
+    missing_fkeys = []
+
+    if target_hfid:
+        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual, 'target_hfid': target_hfid})
+    if known_identity:
+        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual, 'known_identity': known_identity})
+
+    return missing_fkeys

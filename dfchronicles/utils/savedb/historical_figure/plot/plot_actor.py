@@ -23,4 +23,12 @@ def save_plot_actor(element, plot):
     plot_actor = models.PlotActor.objects.create(world=plot.world, plot=plot, plot_role=plot_role, type=type, has_messenger=has_messenger)
     plot_actor.save()
 
-    return {'plot_actor': plot_actor, 'actor_id': actor_id, 'delegated_hfid': delegated_hfid}
+
+    missing_fkeys = []
+
+    if actor_id:
+        missing_fkeys.append({'plot_actor': plot_actor, 'actor_id': actor_id})
+    if delegated_hfid:
+        missing_fkeys.append({'plot_actor': plot_actor, 'delegated_hfid': delegated_hfid})
+
+    return missing_fkeys

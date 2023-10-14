@@ -25,4 +25,11 @@ def save_intrigue_actor(element, hf):
     intrigue_actor = models.IntrigueActor.objects.create(world=hf.world, local_id=local_id, source_hfid=hf, role=role, strategy=strategy, promised_me_immortality=promised_me_immortality, promised_actor_immortality=promised_actor_immortality)
     intrigue_actor.save()
 
-    return {'intrigue_actor': intrigue_actor, 'target_hfid': target_hfid, 'civ_id': civ_id}
+    missing_fkeys = []
+
+    if target_hfid:
+        missing_fkeys.append({'intrigue_actor': intrigue_actor, 'target_hfid': target_hfid})
+    if civ_id:
+        missing_fkeys.append({'intrigue_actor': intrigue_actor, 'civ_id': civ_id})
+
+    return missing_fkeys
