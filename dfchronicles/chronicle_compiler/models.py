@@ -188,7 +188,6 @@ class HistoricalEvents(models.Model):
     fooled_hfid = models.ForeignKey('HistoricalFigures', related_name='fooled_hf_historical_events', null=True, on_delete=models.SET_NULL)
     convicter_enid = models.ForeignKey('Entities', related_name='convicter_enid_historical_events', null=True, on_delete=models.SET_NULL)
     convicted_hfid = models.ForeignKey('HistoricalFigures', related_name='convicted_hfid_historical_events', null=True, on_delete=models.SET_NULL)
-    circumstance_collection = models.ForeignKey('HistoricalEventCollections', related_name='circumstance_historical_events', null=True, on_delete=models.SET_NULL)
     circumstance = models.CharField(max_length=500, null=True)
     stash_site = models.ForeignKey('Sites', related_name='stash_site_historical_events', null=True, on_delete=models.SET_NULL)
     theft_method = models.CharField(max_length=500, null=True)
@@ -266,7 +265,6 @@ class Circumstance(models.Model):
     world = models.ForeignKey('World', related_name='world_circumstance', null=True, on_delete=models.CASCADE)
     historical_event = models.ForeignKey('HistoricalEvents', related_name='historical_event_circumstance', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500)
-    hist_event_id = models.ManyToManyField('HistoricalEvents', related_name='hist_event_circumstance')
     hist_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='hist_event_collection_circumstance', null=True, on_delete=models.SET_NULL)
 
 
@@ -488,13 +486,25 @@ class PlotActor(models.Model):
     has_messenger = models.BooleanField(null=True, default=False)
 
 class WorldConstruction(models.Model):
-    pass
+    world = models.ForeignKey('World', related_name='world_world_construction', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    type = models.CharField(max_length=500)
+    coords = models.CharField(max_length=1000, null=True)
 
 class MusicalForms(models.Model):
-    pass
+    world = models.ForeignKey('World', related_name='world_musical_forms', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    name = models.CharField(max_length=500, null=True)
+    description = models.CharField(max_length=500, null=True)
 
 class PoeticForms(models.Model):
-    pass
+    world = models.ForeignKey('World', related_name='world_poetic_forms', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    name = models.CharField(max_length=500, null=True)
+    description = models.CharField(max_length=500, null=True)
 
 class DanceForms(models.Model):
-    pass
+    world = models.ForeignKey('World', related_name='world_dance_forms', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    name = models.CharField(max_length=500, null=True)
+    description = models.CharField(max_length=500, null=True)

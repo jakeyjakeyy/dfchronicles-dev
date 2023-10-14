@@ -1,6 +1,8 @@
+from .circumstance import save_circumstance
+
 def save_historical_event(event, world):
     from chronicle_compiler import models
-    chronicle_id, body_part, caste, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure, knowledge, first, link, position_id, site_civ_id, target_enid, artifact, occasion, schedule, attacker_civ_id, defender_civ_id, attacker_general_hfid, defender_general_hfid, subtype, initiating_entity, dispute, winner_hfid, detected, written_content, returning, old_race, old_caste, new_race, new_caste, circumstance_collection, quality, old_account, new_account, identity, target_identity, identity_rep, target_identity_rep, secret_goal, method, world_construction, master_world_construction, site_property, last_owner, rebuilt_ruined, inherited, purchased_unowned, corruptor_seen_as, target_seen_as, successful, mood, new_site_civ, new_leader, prison_months, target_site, account_shift, shrine_amount_destroyed, resident_civ_id, position_taker_hfid, instigator_hfid, actor_hfid, feature_layer_id, musical_form, poetic_form, dance_form, held_firm_in_interrogation, pets, mat, abuse_type = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
+    chronicle_id, body_part, caste, death_cause, hf_id, injury_type, link_type, new_job, old_job, part_lost, position, race, reason, relationship, state, subregion_id, target_hfid, type, year, coords, body_state, death_penalty, wrongful_conviction, crime, framer_hfid, fooled_hfid, convicter_enid, convicted_hfid, circumstance, stash_site, theft_method, structure, knowledge, first, link, position_id, site_civ_id, target_enid, artifact, occasion, schedule, attacker_civ_id, defender_civ_id, attacker_general_hfid, defender_general_hfid, subtype, initiating_entity, dispute, winner_hfid, detected, written_content, returning, old_race, old_caste, new_race, new_caste, quality, old_account, new_account, identity, target_identity, identity_rep, target_identity_rep, secret_goal, method, world_construction, master_world_construction, site_property, last_owner, rebuilt_ruined, inherited, purchased_unowned, corruptor_seen_as, target_seen_as, successful, mood, new_site_civ, new_leader, prison_months, target_site, account_shift, shrine_amount_destroyed, resident_civ_id, position_taker_hfid, instigator_hfid, actor_hfid, feature_layer_id, musical_form, poetic_form, dance_form, held_firm_in_interrogation, pets, mat, abuse_type, circumstance_id = None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None
 
     civ_ids = []
     site_ids = []
@@ -79,15 +81,9 @@ def save_historical_event(event, world):
         elif tag == 'convicted_hfid':
             convicted_hfid = child.text
         elif tag == 'circumstance':
-            circumstance = child.text
-            for child in tag:
-                if child.tag == 'hist_event_collection':
-                    circumstance_collection = child.text
-                if child.tag == 'type':
-                    circumstance = child.text
+            circumstance = child
         elif tag == 'circumstance_id':
-            if circumstance == 'historical event collection':
-                circumstance_collection = child.text
+            circumstance_id = child.text
         elif tag == 'stash_site':
             if int(child.text) != -1:
                 stash_site = child.text
@@ -345,7 +341,7 @@ def save_historical_event(event, world):
         if initiating_entity:
             initiating_entity = models.Entities.objects.get(world=world, chronicle_id=initiating_entity)
 
-        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure, knowledge=knowledge, first=first, link=link, site_civ_id=site_civ_id, target_enid=target_enid, artifact=artifact, attacker_civ_id=attacker_civ_id, defender_civ_id=defender_civ_id, attacker_general_hfid=attacker_general_hfid, defender_general_hfid=defender_general_hfid, subtype=subtype, initiating_entity=initiating_entity, dispute=dispute, winner_hfid=winner_hfid, detected=detected, returning=returning, old_race=old_race, new_race=new_race, old_caste=old_caste, new_caste=new_caste, circumstance=circumstance, quality=quality, old_account=old_account, new_account=new_account, identity_rep=identity_rep, target_identity_rep=target_identity_rep, secret_goal=secret_goal, method=method, site_property=site_property, last_owner=last_owner, rebuilt_ruined=rebuilt_ruined, inherited=inherited, purchased_unowned=purchased_unowned, corruptor_seen_as=corruptor_seen_as, target_seen_as=target_seen_as, successful=successful, mood=mood, new_site_civ=new_site_civ, new_leader=new_leader, prison_months=prison_months, target_site=target_site, account_shift=account_shift, shrine_amount_destroyed=shrine_amount_destroyed, resident_civ_id=resident_civ_id, position_taker_hfid=position_taker_hfid, instigator_hfid=instigator_hfid, actor_hfid=actor_hfid, held_firm_in_interrogation=held_firm_in_interrogation, pets=pets, mat=mat)
+        he = models.HistoricalEvents.objects.create(world=world, chronicle_id=chronicle_id, body_part=body_part, caste=caste, death_cause=death_cause, hf_id=hf_id, injury_type=injury_type, link_type=link_type, new_job=new_job, old_job=old_job, part_lost=part_lost, position=position, race=race, reason=reason, relationship=relationship, state=state, subregion_id=subregion_id, target_hfid=target_hfid, type=type, year=year, coords=coords, body_state=body_state, death_penalty=death_penalty, wrongful_conviction=wrongful_conviction, crime=crime, framer_hfid=framer_hfid, fooled_hfid=fooled_hfid, convicter_enid=convicter_enid, convicted_hfid=convicted_hfid, stash_site=stash_site, theft_method=theft_method, structure=structure, knowledge=knowledge, first=first, link=link, site_civ_id=site_civ_id, target_enid=target_enid, artifact=artifact, attacker_civ_id=attacker_civ_id, defender_civ_id=defender_civ_id, attacker_general_hfid=attacker_general_hfid, defender_general_hfid=defender_general_hfid, subtype=subtype, initiating_entity=initiating_entity, dispute=dispute, winner_hfid=winner_hfid, detected=detected, returning=returning, old_race=old_race, new_race=new_race, old_caste=old_caste, new_caste=new_caste, quality=quality, old_account=old_account, new_account=new_account, identity_rep=identity_rep, target_identity_rep=target_identity_rep, secret_goal=secret_goal, method=method, site_property=site_property, last_owner=last_owner, rebuilt_ruined=rebuilt_ruined, inherited=inherited, purchased_unowned=purchased_unowned, corruptor_seen_as=corruptor_seen_as, target_seen_as=target_seen_as, successful=successful, mood=mood, new_site_civ=new_site_civ, new_leader=new_leader, prison_months=prison_months, target_site=target_site, account_shift=account_shift, shrine_amount_destroyed=shrine_amount_destroyed, resident_civ_id=resident_civ_id, position_taker_hfid=position_taker_hfid, instigator_hfid=instigator_hfid, actor_hfid=actor_hfid, held_firm_in_interrogation=held_firm_in_interrogation, pets=pets, mat=mat)
         he.save()
 
         if civ_ids:
@@ -370,7 +366,7 @@ def save_historical_event(event, world):
 
         if position_id:
             try:
-                he.position_id = models.EntityPosition.objects.get(world=world, chronicle_id=position_id)
+                he.position_id = models.EntityPosition.objects.get(world=world, civ_position_id=position_id, civ_id=models.Entities.objects.get(world=world, chronicle_id=civ_ids[0]))
             except models.EntityPosition.DoesNotExist:
                 missing_fkeys.append({'historical_event': he, 'position_id': position_id})
         if identity:
@@ -393,11 +389,6 @@ def save_historical_event(event, world):
                 he.written_content = models.WrittenContents.objects.get(world=world, chronicle_id=written_content)
             except models.WrittenContents.DoesNotExist:
                 missing_fkeys.append({'historical_event': he, 'written_content': written_content})
-        if circumstance_collection:
-            try:
-                he.circumstance_collection = models.HistoricalEventCollections.objects.get(world=world, chronicle_id=circumstance_collection)
-            except models.HistoricalEventCollections.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'circumstance_collection': circumstance_collection})
         if musical_form:
             try:
                 he.musical_form = models.MusicalForms.objects.get(world=world, chronicle_id=musical_form)
@@ -415,13 +406,13 @@ def save_historical_event(event, world):
                 missing_fkeys.append({'historical_event': he, 'dance_form': dance_form})
         if world_construction:
             try:
-                he.world_construction = models.WorldConstructions.objects.get(world=world, chronicle_id=world_construction)
-            except models.WorldConstructions.DoesNotExist:
+                he.world_construction = models.WorldConstruction.objects.get(world=world, chronicle_id=world_construction)
+            except models.WorldConstruction.DoesNotExist:
                 missing_fkeys.append({'historical_event': he, 'world_construction': world_construction})
         if master_world_construction:
             try:
-                he.master_world_construction = models.WorldConstructions.objects.get(world=world, chronicle_id=master_world_construction)
-            except models.WorldConstructions.DoesNotExist:
+                he.master_world_construction = models.WorldConstruction.objects.get(world=world, chronicle_id=master_world_construction)
+            except models.WorldConstruction.DoesNotExist:
                 missing_fkeys.append({'historical_event': he, 'master_world_construction': master_world_construction})
         # Feature layer should be saved by this point in final build, this is temp to avoid error
         if feature_layer_id:
@@ -429,6 +420,10 @@ def save_historical_event(event, world):
                 he.feature_layer_id = models.UndergroundRegions.objects.get(world=world, chronicle_id=feature_layer_id)
             except models.UndergroundRegions.DoesNotExist:
                 missing_fkeys.append({'historical_event': he, 'feature_layer_id': feature_layer_id})
+        if circumstance:
+            lists = save_circumstance(world, circumstance, he, circumstance_id)
+            if lists:
+                missing_fkeys.append(lists)
 
         he.save()
 
