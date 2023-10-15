@@ -35,6 +35,7 @@ def SaveLegends(root, world):
                 if lists:
                     for dict in lists:
                         missing_fkeys.append(dict)
+        # Save remaining elements
         for child in element:
             if child.tag not in exclude_tags and child.tag in test_tags:
                 open('log.txt', 'a').write('Saving ' + child.tag + '...\n')
@@ -64,6 +65,7 @@ def SaveLegends(root, world):
                     lists = save_site(child, world)
                     if lists:
                         missing_fkeys.append(lists)
+                        
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     

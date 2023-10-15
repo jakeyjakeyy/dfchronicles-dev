@@ -20,5 +20,6 @@ def save_site_property(prop, site):
         owner = models.HistoricalFigures.objects.get(world=site.world, chronicle_id=owner)
     if structure_id:
         structure_id = models.Structures.objects.get(world=site.world, structure_id=structure_id, site_id=site)
+
     property = models.SiteProperty.objects.create(world=site.world, site_id=site, local_id=local_id, type=type, owner=owner, structure_id=structure_id)
     property.save()

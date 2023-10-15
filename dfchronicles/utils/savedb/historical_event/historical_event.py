@@ -28,7 +28,11 @@ def save_historical_event(event, world):
         elif tag == 'death_cause' or tag == 'cause':
             death_cause = child.text
         elif tag in ['histfig', 'wounder_hfid', 'hfid', 'builder_hfid', 'trickster_hfid', 'hist_figure_id', 'slayer_hfid', 'group_1_hfid', 'group_hfid', 'snatcher_hfid', 'changer_hfid', 'gambler_hfid', 'hfid1', 'attacker_hfid', 'teacher_hfid', 'corruptor_hfid', 'aquirer_hfid', 'seeker_hfid', 'giver_hist_figure_id', 'acquirer_hfid', 'trader_hfid', 'persecutor_hfid', 'eater', 'speaker_hfid', 'hist_fig_id', 'overthrown_hfid', 'doer_hfid', 'group', 'slayer_hf', 'wounder', 'builder_hf', 'trickster', 'creator_hfid', 'hf', 'changer', 'teacher', 'doer', 'region']:
-            if int(child.text) != -1:
+            # prevent these from overwriting each other
+            if child.tag == 'slayer_hfid' and int(child.text) != -1:
+                target_hfid = hf_id
+                hf_id = child.text
+            elif int(child.text) != -1:
                 hf_id = child.text
         elif tag == 'injury_type':
             injury_type = child.text
