@@ -14,10 +14,12 @@ def save_structure(structure, site):
             name2 = child.text
         elif tag == 'inhabitant':
             inhabitants.append(child.text)
-        elif tag == 'entity_id':
+        elif tag == 'entity_id' or tag == 'religion':
             civ_id = models.Entities.objects.get(world=site.world, chronicle_id=child.text)
         elif tag == 'subtype':
             subtype = child.text
+        elif tag == 'deity_type' or tag == 'dungeon_type':
+            pass
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! Save Structure: ' + child.tag + '\n')
 

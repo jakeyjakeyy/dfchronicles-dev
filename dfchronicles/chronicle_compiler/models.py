@@ -341,6 +341,8 @@ class Regions(models.Model):
     name = models.CharField(max_length=500)
     type = models.CharField(max_length=500)
     evilness = models.CharField(max_length=500, null=True)
+    coords = models.CharField(null=True)
+    force = models.ForeignKey('HistoricalFigures', related_name='force_regions', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.name} | {self.type}"
@@ -385,6 +387,7 @@ class UndergroundRegions(models.Model):
     chronicle_id = models.IntegerField()
     type = models.CharField(max_length=500)
     depth = models.IntegerField(null=True)
+    coords = models.CharField(null=True)
 
 class WrittenContents(models.Model):
     world = models.ForeignKey('World', related_name='world_written_contents', null=True, on_delete=models.CASCADE)
@@ -490,6 +493,7 @@ class WorldConstruction(models.Model):
     chronicle_id = models.IntegerField()
     type = models.CharField(max_length=500)
     coords = models.CharField(max_length=1000, null=True)
+    name = models.CharField(max_length=500, null=True)
 
 class MusicalForms(models.Model):
     world = models.ForeignKey('World', related_name='world_musical_forms', null=True, on_delete=models.CASCADE)

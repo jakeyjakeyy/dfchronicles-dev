@@ -5,14 +5,17 @@ from .historical_era import save_historical_era
 from .historical_event_collection import save_historical_event_collection
 from .historical_event import save_historical_event
 from .site import save_site
+from .region import save_region
+from .underground_region import save_underground_region
+from .world_construction import save_world_construction
 
 
 
 def SaveLegends(root, world):
     class_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'historical_figures', 'regions', 'sites', 'underground_regions', 'written_contents', 'world_constructions']
-    exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle', 'world_constructions']
+    exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle']
     spec_tags = ['historical_events']
-    test_tags = ['artifacts', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites']
+    test_tags = ['artifacts', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites', 'regions', 'underground_regions', 'world_constructions']
     
     missing_fkeys = []
 
@@ -65,7 +68,20 @@ def SaveLegends(root, world):
                     lists = save_site(child, world)
                     if lists:
                         missing_fkeys.append(lists)
-                        
+                elif child.tag == 'region':
+                    lists = save_region(child, world)
+                    if lists:
+                        missing_fkeys.append(lists)
+                elif child.tag == 'underground_region':
+                    lists = save_underground_region(child, world)
+                    if lists:
+                        missing_fkeys.append(lists)
+                elif child.tag == 'world_construction':
+                    if len(child) > 0:
+                        lists = save_world_construction(child, world)
+                        if lists:
+                            missing_fkeys.append(lists)
+
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')
     
