@@ -115,7 +115,7 @@ def save_historical_event(event, world):
                 artifact = child.text
         elif tag in ['identity_id', 'identity_id1', 'corruptor_identity', 'identity_histfig_id']:
             identity = child.text
-        elif tag == 'identity_id2':
+        elif tag == 'identity_id2' or tag == 'target_identity':
             target_identity = child.text
         elif tag == 'occasion_id':
             occasion = child.text

@@ -2,7 +2,7 @@ def SaveWorld(root, owner):
     from chronicle_compiler import models
 
     # testing
-    # return models.World.objects.get(id=242)
+    # return models.World.objects.get(id=271)
 
     owner = models.User.objects.get(id=1)
     if root[1].tag == 'altname':

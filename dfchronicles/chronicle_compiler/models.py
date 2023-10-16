@@ -394,7 +394,7 @@ class WrittenContents(models.Model):
     chronicle_id = models.IntegerField()
     author_hfid = models.ForeignKey('HistoricalFigures', related_name='written_contents', null=True, on_delete=models.SET_NULL)
     form = models.CharField(max_length=500)
-    title = models.CharField(max_length=500)
+    title = models.CharField(max_length=500, null=True)
     style = models.CharField(max_length=500, null=True)
     reference = models.ForeignKey('WrittenContents', related_name='reference_written_contents', null=True, on_delete=models.SET_NULL)
 
@@ -499,16 +499,24 @@ class MusicalForms(models.Model):
     world = models.ForeignKey('World', related_name='world_musical_forms', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
     name = models.CharField(max_length=500, null=True)
-    description = models.CharField(max_length=500, null=True)
+    description = models.CharField(null=True)
 
 class PoeticForms(models.Model):
     world = models.ForeignKey('World', related_name='world_poetic_forms', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
     name = models.CharField(max_length=500, null=True)
-    description = models.CharField(max_length=500, null=True)
+    description = models.CharField(null=True)
 
 class DanceForms(models.Model):
     world = models.ForeignKey('World', related_name='world_dance_forms', null=True, on_delete=models.CASCADE)
     chronicle_id = models.IntegerField()
     name = models.CharField(max_length=500, null=True)
-    description = models.CharField(max_length=500, null=True)
+    description = models.CharField(null=True)
+
+class WrittenContentReference(models.Model):
+    world = models.ForeignKey('World', related_name='world_written_content_reference', null=True, on_delete=models.CASCADE)
+    written_content = models.ForeignKey('WrittenContents', related_name='written_content_written_content_reference', null=True, on_delete=models.SET_NULL)
+    musical_form = models.ForeignKey('MusicalForms', related_name='musical_form_written_content_reference', null=True, on_delete=models.SET_NULL)
+    poetic_form = models.ForeignKey('PoeticForms', related_name='poetic_form_written_content_reference', null=True, on_delete=models.SET_NULL)
+    dance_form = models.ForeignKey('DanceForms', related_name='dance_form_written_content_reference', null=True, on_delete=models.SET_NULL)
+    site = models.ForeignKey('Sites', related_name='site_written_content_reference', null=True, on_delete=models.SET_NULL)

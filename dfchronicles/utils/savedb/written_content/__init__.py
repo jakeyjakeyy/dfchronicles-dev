@@ -1,0 +1,1 @@
+from .written_content import save_written_content
