@@ -93,7 +93,6 @@ class Schedule(models.Model):
     occasion_schedule_id = models.IntegerField()
     occasion = models.ForeignKey('Occasion', related_name='occasion_schedule', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500)
-    reference = models.ForeignKey('WrittenContents', related_name='schedule', null=True, on_delete=models.SET_NULL)
     item_type = models.CharField(max_length=500, null=True)
     item_subtype = models.CharField(max_length=500, null=True)
 
@@ -104,7 +103,6 @@ class Feature(models.Model):
     world = models.ForeignKey('World', related_name='world_feature', null=True, on_delete=models.CASCADE)
     schedule = models.ForeignKey('Schedule', related_name='schedule_feature', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500)
-    reference = models.ForeignKey('WrittenContents', related_name='feature', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.type}"
@@ -396,7 +394,6 @@ class WrittenContents(models.Model):
     form = models.CharField(max_length=500)
     title = models.CharField(max_length=500, null=True)
     style = models.CharField(max_length=500, null=True)
-    reference = models.ForeignKey('WrittenContents', related_name='reference_written_contents', null=True, on_delete=models.SET_NULL)
 
 class IntriguePlot(models.Model):
     world = models.ForeignKey('World', related_name='world_intrigue_plot', null=True, on_delete=models.CASCADE)
@@ -520,3 +517,18 @@ class WrittenContentReference(models.Model):
     poetic_form = models.ForeignKey('PoeticForms', related_name='poetic_form_written_content_reference', null=True, on_delete=models.SET_NULL)
     dance_form = models.ForeignKey('DanceForms', related_name='dance_form_written_content_reference', null=True, on_delete=models.SET_NULL)
     site = models.ForeignKey('Sites', related_name='site_written_content_reference', null=True, on_delete=models.SET_NULL)
+
+class Landmass(models.Model):
+    world = models.ForeignKey('World', related_name='world_landmass', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    name = models.CharField(null=True)
+    coord1 = models.CharField(null=True)
+    coord2 = models.CharField(null=True)
+
+class MountainPeak(models.Model):
+    world = models.ForeignKey('World', related_name='world_mountain_peak', null=True, on_delete=models.CASCADE)
+    chronicle_id = models.IntegerField()
+    name = models.CharField(null=True)
+    coords = models.CharField(null=True)
+    height = models.IntegerField(null=True)
+    volcano = models.BooleanField(null=True, default=False)

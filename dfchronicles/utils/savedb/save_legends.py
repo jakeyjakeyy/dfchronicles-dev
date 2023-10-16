@@ -10,13 +10,14 @@ from .underground_region import save_underground_region
 from .world_construction import save_world_construction
 from .written_content import save_written_content
 from .form import save_form
+from .landmass import save_landmass
+from .mountain_peak import save_mountain_peak
+from .identity import save_identity
 
 
 def SaveLegends(root, world):
-    class_tags = ['artifacts', 'entities', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'historical_figures', 'regions', 'sites', 'underground_regions', 'written_contents', 'world_constructions']
     exclude_tags = ['start_seconds72', 'end_seconds72', 'birth_seconds72', 'death_seconds72', 'author_roll', 'form_id', 'coords', 'rectangle']
-    spec_tags = ['written_contents']
-    test_tags = ['artifacts', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites', 'regions', 'underground_regions', 'world_constructions', 'written_contents', 'poetic_forms', 'musical_forms', 'dance_forms']
+    class_tags = ['artifacts', 'entity_populations', 'historical_eras', 'historical_event_collections', 'historical_events', 'sites', 'regions', 'underground_regions', 'world_constructions', 'written_contents', 'poetic_forms', 'musical_forms', 'dance_forms', 'landmasses', 'mountain_peaks', 'identities']
     
     missing_fkeys = []
 
@@ -41,7 +42,7 @@ def SaveLegends(root, world):
                         missing_fkeys.append(dict)
         # Save remaining elements
         for child in element:
-            if child.tag not in exclude_tags and child.tag in test_tags:
+            if child.tag not in exclude_tags and child.tag in class_tags:
                 open('log.txt', 'a').write('Saving ' + child.tag + '...\n')
                 save_element(child, world)
             else:
@@ -92,6 +93,12 @@ def SaveLegends(root, world):
                     save_form(child, world, 'musical')
                 elif child.tag == 'dance_form':
                     save_form(child, world, 'dance')
+                elif child.tag == 'mountain_peak':
+                    save_mountain_peak(child, world)
+                elif child.tag == 'landmass':
+                    save_landmass(child, world)
+                elif child.tag == 'identity':
+                    save_identity(child, world)
 
                 else:
                     open('log.txt', 'a').write('!UNUSED CHILD! Save Legends: ' + child.tag + '\n')

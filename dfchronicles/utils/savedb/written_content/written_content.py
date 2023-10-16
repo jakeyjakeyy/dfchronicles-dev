@@ -25,7 +25,7 @@ def save_written_content(element, world):
                     form = 'site'
                 if sc.tag == 'id' and form == 'site':
                     reference = sc.text
-        elif tag == 'author_roll':
+        elif tag in ['author_roll', 'page_start', 'page_end', 'type', 'author',]:
             pass
         else:
             open('log.txt', 'a').write('!UNUSED CHILD! written_content: ' + tag + '\n')

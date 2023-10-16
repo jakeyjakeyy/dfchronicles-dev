@@ -39,8 +39,8 @@ def save_schedule(schedule, occasion):
             for dict in lists:
                 missing_fkeys.append(dict)
 
-    for reference in references:
-        missing_fkeys.append({'schedule': schedule, 'reference': reference, 'type': type})
+    # for reference in references:
+    #     missing_fkeys.append({'schedule': schedule, 'reference': reference, 'type': type})
 
     if missing_fkeys:
         return missing_fkeys
