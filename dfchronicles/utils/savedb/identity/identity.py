@@ -10,12 +10,14 @@ def save_identity(identity, world):
         elif tag == 'name':
             name = child.text
         elif tag == 'histfig_id':
-            hf_id = child.text
+            if int(child.text) >= 0:
+                hf_id = models.HistoricalFigures.objects.get(world=world, chronicle_id=child.text)
         elif tag == 'birth_year':
-            if int(child.tag) >= 0:
+            if int(child.text) >= 0:
                 birth_year = child.text
         elif tag == 'entity_id':
-            civ_id = models.Entities.objects.get(world=world, chronicle_id=child.text)
+            if int(child.text) >= 0:
+                civ_id = models.Entities.objects.get(world=world, chronicle_id=child.text)
         elif tag == 'nemesis':
             nemesis = models.HistoricalFigures.objects.get(world=world, chronicle_id=child.text)
         elif tag == 'race':
@@ -30,3 +32,4 @@ def save_identity(identity, world):
             open('log.txt', 'a').write('!UNUSED CHILD! identity: ' + tag + '\n')
     
     identity = models.Identities.objects.create(world=world, chronicle_id=chronicle_id, name=name, hf_id=hf_id, birth_year=birth_year, civ_id=civ_id, nemesis=nemesis, race=race, caste=caste, profession=profession)
+    identity.save()
