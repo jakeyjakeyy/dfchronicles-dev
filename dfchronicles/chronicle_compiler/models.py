@@ -510,7 +510,7 @@ class DanceForms(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(null=True)
 
-class WrittenContentReference(models.Model):
+class WrittenContentForm(models.Model):
     world = models.ForeignKey('World', related_name='world_written_content_reference', null=True, on_delete=models.CASCADE)
     written_content = models.ForeignKey('WrittenContents', related_name='written_content_written_content_reference', null=True, on_delete=models.SET_NULL)
     musical_form = models.ForeignKey('MusicalForms', related_name='musical_form_written_content_reference', null=True, on_delete=models.SET_NULL)

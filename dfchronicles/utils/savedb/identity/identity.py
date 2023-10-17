@@ -18,7 +18,7 @@ def save_identity(identity, world):
         elif tag == 'entity_id':
             if int(child.text) >= 0:
                 civ_id = models.Entities.objects.get(world=world, chronicle_id=child.text)
-        elif tag == 'nemesis':
+        elif tag == 'nemesis_id':
             nemesis = models.HistoricalFigures.objects.get(world=world, chronicle_id=child.text)
         elif tag == 'race':
             race = child.text

@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import World, Artifact, Entities, EntityPosition, EntityPositionAssignment, EntityPopulations, Occasion, Schedule, Feature, HistoricalEras, HistoricalEventCollections, HistoricalEvents, HistoricalFigures, EntityLink, SiteLink, HfSkill, HfLink, Regions, Sites, Structures, UndergroundRegions, WrittenContents, IntriguePlot, IntrigueActor, RelationshipProfileVisual, EntityFormerPositionLink, Identities, EntityPositionLink, VagueRelationship, EntitySquadLink, PlotActor, SiteProperty
-# Register your models here.
+from .models import *
 
 
 class EntityPositionInline(admin.TabularInline):
@@ -48,3 +47,10 @@ admin.site.register(EntitySquadLink)
 admin.site.register(PlotActor)
 admin.site.register(IntriguePlot)
 admin.site.register(SiteProperty)
+admin.site.register(WorldConstruction)
+admin.site.register(MusicalForms)
+admin.site.register(PoeticForms)
+admin.site.register(DanceForms)
+admin.site.register(WrittenContentForm)
+admin.site.register(Landmass)
+admin.site.register(MountainPeak)
