@@ -510,13 +510,14 @@ class DanceForms(models.Model):
     name = models.CharField(max_length=500, null=True)
     description = models.CharField(null=True)
 
-class WrittenContentForm(models.Model):
+class WrittenContentReference(models.Model):
     world = models.ForeignKey('World', related_name='world_written_content_reference', null=True, on_delete=models.CASCADE)
-    written_content = models.ForeignKey('WrittenContents', related_name='written_content_written_content_reference', null=True, on_delete=models.SET_NULL)
+    written_content = models.ForeignKey('WrittenContents', related_name='source_written_content_reference', null=True, on_delete=models.SET_NULL)
     musical_form = models.ForeignKey('MusicalForms', related_name='musical_form_written_content_reference', null=True, on_delete=models.SET_NULL)
     poetic_form = models.ForeignKey('PoeticForms', related_name='poetic_form_written_content_reference', null=True, on_delete=models.SET_NULL)
     dance_form = models.ForeignKey('DanceForms', related_name='dance_form_written_content_reference', null=True, on_delete=models.SET_NULL)
     site = models.ForeignKey('Sites', related_name='site_written_content_reference', null=True, on_delete=models.SET_NULL)
+    written_content_reference = models.ForeignKey('WrittenContents', related_name='referenced_written_content_reference', null=True, on_delete=models.SET_NULL)
 
 class Landmass(models.Model):
     world = models.ForeignKey('World', related_name='world_landmass', null=True, on_delete=models.CASCADE)

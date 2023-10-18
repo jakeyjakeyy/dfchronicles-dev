@@ -23,7 +23,9 @@ def save_written_content(element, world):
             for sc in child:
                 if sc.tag == 'SITE':
                     form = 'site'
-                if sc.tag == 'id' and form == 'site':
+                if sc.tag == 'WRITTEN_CONTENT':
+                    form = 'written_content'
+                if sc.tag == 'id':
                     reference = sc.text
         elif tag in ['author_roll', 'page_start', 'page_end', 'type', 'author',]:
             pass
@@ -55,11 +57,15 @@ def save_written_content(element, world):
 
         if reference:
             if form == 'musical composition':
-                missing_fkeys.append({'chronicle': chronicle, 'form': 'musical', 'reference': reference})
+                missing_fkeys.append({'chronicle': chronicle, 'musical': reference})
             elif form == 'poem':
-                missing_fkeys.append({'chronicle': chronicle, 'form': 'poetic', 'reference': reference})
+                missing_fkeys.append({'chronicle': chronicle, 'poetic':reference})
             elif form == 'choreography':
-                missing_fkeys.append({'chronicle': chronicle, 'form': 'dance', 'reference': reference})
+                missing_fkeys.append({'chronicle': chronicle, 'dance': reference})
+            elif form == 'site':
+                missing_fkeys.append({'chronicle': chronicle, 'site': reference})
+            elif form == 'written_content':
+                missing_fkeys.append({'chronicle': chronicle, 'written_content': reference})
             else:
                 open('log.txt', 'a').write('!UNUSED CHILD! written_content_reference: ' + form + '\n')
             

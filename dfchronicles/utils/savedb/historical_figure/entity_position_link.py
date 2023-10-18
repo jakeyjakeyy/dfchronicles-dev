@@ -18,8 +18,7 @@ def save_entity_position_link(element, hf):
     missing_fkeys = []
 
     if position_id:
-        missing_fkeys.append({'entity_position_link': entity_position_link, 'position_id': position_id})
-    if civ_id:
-        missing_fkeys.append({'entity_position_link': entity_position_link, 'civ_id': civ_id})
+        return {'entity_position_link': entity_position_link, 'position_id': position_id, 'civ_id': civ_id}
+    elif civ_id:
+        return {'entity_position_link': entity_position_link, 'civ_id': civ_id}
 
-    return missing_fkeys
