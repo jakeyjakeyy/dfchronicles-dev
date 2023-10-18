@@ -32,13 +32,13 @@ def save_intrigue_plot(element, hf):
     intrigue_plot.save()
 
     if civ_iv:
-        missing_fkeys.append({'intrigue_plot': intrigue_plot, 'civ_iv': civ_iv})
+        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'civ_iv': civ_iv})
     if artifact:
-        missing_fkeys.append({'intrigue_plot': intrigue_plot, 'artifact': artifact})
+        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'artifact': artifact})
     if actor_id:
-        missing_fkeys.append({'intrigue_plot': intrigue_plot, 'actor_id': actor_id})
+        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'actor_id': actor_id})
     if delegated_plot_hfid:
-        missing_fkeys.append({'intrigue_plot': intrigue_plot, 'delegated_plot_hfid': delegated_plot_hfid})
+        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'delegated_plot_hfid': delegated_plot_hfid})
 
     if len(plot_actors) > 0:
         for actor in plot_actors:

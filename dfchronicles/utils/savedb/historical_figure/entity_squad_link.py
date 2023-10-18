@@ -17,4 +17,4 @@ def save_entity_squad_link(element, hf):
     entity_squad_link = models.EntitySquadLink.objects.create(world=hf.world, hf_id=hf, squad_id=squad_id, squad_position=squad_position, start_year=start_year)
     entity_squad_link.save()
 
-    return {'entity_squad_link': entity_squad_link, 'civ_id': civ_id}
+    return {'entity_squad_link': entity_squad_link.id, 'civ_id': civ_id}

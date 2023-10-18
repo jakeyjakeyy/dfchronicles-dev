@@ -15,4 +15,4 @@ def save_vague_relationship(element, hf):
     vague_relationship = models.VagueRelationship.objects.create(world=hf.world, source_hfid=hf, type=type)
     vague_relationship.save()
 
-    return {'vague_relationship': vague_relationship, 'target_hfid': target_hfid}
+    return {'vague_relationship': vague_relationship.id, 'target_hfid': target_hfid}

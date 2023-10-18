@@ -184,15 +184,15 @@ def save_historical_figure(element, world):
 
 
     if current_identity:
-        missing_fkeys.append({'historicfigure': hf, 'current_identity': current_identity})
+        missing_fkeys.append({'historicfigure': hf.id, 'current_identity': current_identity})
     if len(used_identities) > 0:
         for identity in used_identities:
-            missing_fkeys.append({'historicfigure': hf, 'used_identity': identity})
+            missing_fkeys.append({'historicfigure': hf.id, 'used_identity': identity})
     if len(held_artifacts) > 0:
         for artifact in held_artifacts:
-            missing_fkeys.append({'historicfigure': hf, 'held_artifact': artifact})
+            missing_fkeys.append({'historicfigure': hf.id, 'held_artifact': artifact})
     if ent_pop_id:
-        missing_fkeys.append({'historicfigure': hf, 'ent_pop_id': ent_pop_id})
+        missing_fkeys.append({'historicfigure': hf.id, 'ent_pop_id': ent_pop_id})
     
     if missing_fkeys:
         return missing_fkeys

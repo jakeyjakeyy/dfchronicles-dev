@@ -68,19 +68,19 @@ def save_artifact(element, world):
                 holder = models.HistoricalFigures.objects.get(world=world, chronicle_id=holder_hfid)
                 artifact.holder_id = holder
             except models.HistoricalFigures.DoesNotExist:
-                missing.append({'artifact': artifact, 'holder_id': holder_hfid})
+                missing.append({'artifact': artifact.id, 'holder_id': holder_hfid})
         if missing_written_content_id:
             try:
                 written_content = models.WrittenContents.objects.get(world=world, chronicle_id=missing_written_content_id)
                 artifact.written_content_id = written_content
             except models.WrittenContents.DoesNotExist:
-                missing.append({'artifact': artifact, 'written_content_id': missing_written_content_id})
+                missing.append({'artifact': artifact.id, 'written_content_id': missing_written_content_id})
         if missing_structure_local_id:
             try:
                 structure = models.Structures.objects.get(world=world, structure_id=missing_structure_local_id, site_id=site)
                 artifact.structure_local_id = structure
             except models.Structures.DoesNotExist:
-                missing.append({'artifact': artifact, 'structure_local_id': missing_structure_local_id})
+                missing.append({'artifact': artifact.id, 'structure_local_id': missing_structure_local_id})
         if site:
             artifact.site_id = site
 

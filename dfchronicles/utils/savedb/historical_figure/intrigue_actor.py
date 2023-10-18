@@ -28,8 +28,8 @@ def save_intrigue_actor(element, hf):
     missing_fkeys = []
 
     if target_hfid:
-        missing_fkeys.append({'intrigue_actor': intrigue_actor, 'target_hfid': target_hfid})
+        missing_fkeys.append({'intrigue_actor': intrigue_actor.id, 'target_hfid': target_hfid})
     if civ_id:
-        missing_fkeys.append({'intrigue_actor': intrigue_actor, 'civ_id': civ_id})
+        missing_fkeys.append({'intrigue_actor': intrigue_actor.id, 'civ_id': civ_id})
 
     return missing_fkeys

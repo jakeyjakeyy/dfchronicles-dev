@@ -1,0 +1,23 @@
+Historical Figure Average: 0.02814029907104457
+Entity Average: 0.0020662789773551256
+Artifact Average: 0.005686840856118322
+Entity Population Average: 0.0020619657304551866
+Historical Event Collection Average: 0.027083772839082157
+Historical Event Average: 0.01296034481025472
+Written Content Average: 0.004257585257662163
+
+Historical Figure Average: 0.028220393369890205
+Entity Average: 0.0021808316337315198
+Artifact Average: 0.005697430256041379
+Entity Population Average: 0.0020930926005045575
+Historical Event Collection Average: 0.024778661411410843
+Historical Event Average: 0.01210524349914186
+Written Content Average: 0.004021096545601049
+
+Historical Figure Average: 0.027050352813744242
+Entity Average: 0.0022417641465605443
+Artifact Average: 0.005351054969677426
+Entity Population Average: 0.001984940634833442
+Historical Event Collection Average: 0.025004665749346528
+Historical Event Average: 0.012313812055521808
+Written Content Average: 0.003917089749093676

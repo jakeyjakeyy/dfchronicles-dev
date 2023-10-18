@@ -36,8 +36,8 @@ def save_relationship_profile_visual(element, hf):
     missing_fkeys = []
 
     if target_hfid:
-        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual, 'target_hfid': target_hfid})
+        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual.id, 'target_hfid': target_hfid})
     if known_identity:
-        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual, 'known_identity': known_identity})
+        missing_fkeys.append({'relationship_profile_visual': relationship_profile_visual.id, 'known_identity': known_identity})
 
     return missing_fkeys

@@ -372,58 +372,58 @@ def save_historical_event(event, world):
             try:
                 he.position_id = models.EntityPosition.objects.get(world=world, civ_position_id=position_id, civ_id=models.Entities.objects.get(world=world, chronicle_id=civ_ids[0]))
             except models.EntityPosition.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'position_id': position_id})
+                missing_fkeys.append({'historical_event': he.id, 'position_id': position_id})
         if identity:
-            missing_fkeys.append({'historical_event': he, 'identity': identity})
+            missing_fkeys.append({'historical_event': he.id, 'identity': identity})
         if target_identity:
-            missing_fkeys.append({'historical_event': he, 'target_identity': target_identity})
+            missing_fkeys.append({'historical_event': he.id, 'target_identity': target_identity})
         if occasion:
             try:
                 occasion = models.Occasion.objects.get(world=world, civ_occasion_id=occasion, civ_id=models.Entities.objects.get(world=world, chronicle_id=civ_ids[0]))
                 he.occasion = occasion
             except models.Occasion.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'occasion': occasion, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
+                missing_fkeys.append({'historical_event': he.id, 'occasion': occasion, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
         if schedule:
             try:
                 he.schedule = models.Schedule.objects.get(world=world, occasion_schedule_id=schedule, occasion=occasion)
             except models.Schedule.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'schedule': schedule, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
+                missing_fkeys.append({'historical_event': he.id, 'schedule': schedule, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
         if written_content:
             try:
                 he.written_content = models.WrittenContents.objects.get(world=world, chronicle_id=written_content)
             except models.WrittenContents.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'written_content': written_content})
+                missing_fkeys.append({'historical_event': he.id, 'written_content': written_content})
         if musical_form:
             try:
                 he.musical_form = models.MusicalForms.objects.get(world=world, chronicle_id=musical_form)
             except models.MusicalForms.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'musical_form': musical_form})
+                missing_fkeys.append({'historical_event': he.id, 'musical_form': musical_form})
         if poetic_form:
             try:
                 he.poetic_form = models.PoeticForms.objects.get(world=world, chronicle_id=poetic_form)
             except models.PoeticForms.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'poetic_form': poetic_form})
+                missing_fkeys.append({'historical_event': he.id, 'poetic_form': poetic_form})
         if dance_form:
             try:
                 he.dance_form = models.DanceForms.objects.get(world=world, chronicle_id=dance_form)
             except models.DanceForms.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'dance_form': dance_form})
+                missing_fkeys.append({'historical_event': he.id, 'dance_form': dance_form})
         if world_construction:
             try:
                 he.world_construction = models.WorldConstruction.objects.get(world=world, chronicle_id=world_construction)
             except models.WorldConstruction.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'world_construction': world_construction})
+                missing_fkeys.append({'historical_event': he.id, 'world_construction': world_construction})
         if master_world_construction:
             try:
                 he.master_world_construction = models.WorldConstruction.objects.get(world=world, chronicle_id=master_world_construction)
             except models.WorldConstruction.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'master_world_construction': master_world_construction})
+                missing_fkeys.append({'historical_event': he.id, 'master_world_construction': master_world_construction})
         # Feature layer should be saved by this point in final build, this is temp to avoid error
         if feature_layer_id:
             try:
                 he.feature_layer_id = models.UndergroundRegions.objects.get(world=world, chronicle_id=feature_layer_id)
             except models.UndergroundRegions.DoesNotExist:
-                missing_fkeys.append({'historical_event': he, 'feature_layer_id': feature_layer_id})
+                missing_fkeys.append({'historical_event': he.id, 'feature_layer_id': feature_layer_id})
         if circumstance:
             lists = save_circumstance(world, circumstance, he, circumstance_id)
             if lists:

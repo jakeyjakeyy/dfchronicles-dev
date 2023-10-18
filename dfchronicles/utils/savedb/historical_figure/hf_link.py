@@ -15,4 +15,4 @@ def save_hf_link(element, hf):
     hf_link = models.HfLink.objects.create(world=hf.world, hf_origin_id=hf, link_type=link_type, link_strength=link_strength)
     hf_link.save()
 
-    return {'hf_link': hf_link, 'hf_id': hf_id}
+    return {'hf_link': hf_link.id, 'hf_id': hf_id}

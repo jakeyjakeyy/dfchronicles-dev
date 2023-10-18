@@ -15,4 +15,4 @@ def save_entity_link(element, hf):
     entity_link = models.EntityLink.objects.create(world=hf.world, hf_id=hf, link_type=link_type, link_strength=link_strength)
     entity_link.save()
 
-    return {'entity_link': entity_link, 'civ_id': civ_id}
+    return {'entity_link': entity_link.id, 'civ_id': civ_id}
