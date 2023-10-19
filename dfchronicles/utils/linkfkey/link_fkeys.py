@@ -48,16 +48,16 @@ def link_fkeys(fkeys, world):
             case {'historicfigure': _, 'used_identity': _}:
                 hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ui = models.Identities.objects.get(world=world, chronicle_id=dict['used_identity'])
-                hf.used_identity = ui
+                hf.used_identity.add(ui)
                 hf.save()
             case {'historicfigure': _, 'held_artifact': _}:
                 hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ha = models.Artifact.objects.get(world=world, chronicle_id=dict['held_artifact'])
-                hf.held_artifact = ha
+                hf.held_artifact.add(ha)
                 hf.save()
             case {'historicfigure': _, 'ent_pop_id': _}:
                 hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
-                ep = models.Entities.objects.get(world=world, chronicle_id=dict['ent_pop_id'])
+                ep = models.EntityPopulations.objects.get(world=world, chronicle_id=dict['ent_pop_id'])
                 hf.ent_pop_id = ep
                 hf.save()
             case {'entity_link': _, 'civ_id': _}:
@@ -137,7 +137,11 @@ def link_fkeys(fkeys, world):
                 ia.save()
             case {'entity_position_link': _, 'position_id': _, 'civ_id': _}:
                 epl = models.EntityPositionLink.objects.get(id=dict['entity_position_link'])
-                position = models.Positions.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=models.Entities.objects.get(world=world, chronicle_id=dict['civ_id']))
+                try:
+                    position = models.EntityPosition.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=models.Entities.objects.get(world=world, chronicle_id=dict['civ_id']))
+                except models.EntityPosition.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
                 epl.position_id = position
                 epl.save()
             case {'entity_position_link': _, 'civ_id': _}:
