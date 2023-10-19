@@ -69,6 +69,8 @@ def SaveLegends(root, world):
                     start_time = time.perf_counter()
                     lists = save_artifact(child, world)
                     if lists:
+                        for dict in lists:
+                            missing_fkeys.append(dict)
                         missing_fkeys.append(lists)
                     end_time = time.perf_counter()
                     art_timer['count'] += 1

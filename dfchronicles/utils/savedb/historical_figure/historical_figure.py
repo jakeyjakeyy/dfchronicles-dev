@@ -165,7 +165,8 @@ def save_historical_figure(element, world):
         for actor in intrigue_actors:
             links = save_intrigue_actor(actor, hf)
             if links:
-                missing_fkeys.append(links)
+                for dict in links:
+                    missing_fkeys.append(dict)
     if len(entity_positions_link) > 0:
         for position in entity_positions_link:
             links = save_entity_position_link(position, hf)

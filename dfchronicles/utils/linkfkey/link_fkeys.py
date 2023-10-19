@@ -40,23 +40,23 @@ def link_fkeys(fkeys, world):
                 he.dance_form = df
                 he.save()
             # Historical figure
-            case {'historical_figure': _, 'current_identity': _}:
-                hf = models.HistoricalFigures.objects.get(id=dict['historical_figure'])
+            case {'historicfigure': _, 'current_identity': _}:
+                hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ci = models.Identities.objects.get(world=world, chronicle_id=dict['current_identity'])
                 hf.current_identity = ci
                 hf.save()
-            case {'historical_figure': _, 'used_identity': _}:
-                hf = models.HistoricalFigures.objects.get(id=dict['historical_figure'])
+            case {'historicfigure': _, 'used_identity': _}:
+                hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ui = models.Identities.objects.get(world=world, chronicle_id=dict['used_identity'])
                 hf.used_identity = ui
                 hf.save()
-            case {'historical_figure': _, 'held_artifact': _}:
-                hf = models.HistoricalFigures.objects.get(id=dict['historical_figure'])
+            case {'historicfigure': _, 'held_artifact': _}:
+                hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ha = models.Artifact.objects.get(world=world, chronicle_id=dict['held_artifact'])
                 hf.held_artifact = ha
                 hf.save()
-            case {'historical_figure': _, 'ent_pop_id': _}:
-                hf = models.HistoricalFigures.objects.get(id=dict['historical_figure'])
+            case {'historicfigure': _, 'ent_pop_id': _}:
+                hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
                 ep = models.Entities.objects.get(world=world, chronicle_id=dict['ent_pop_id'])
                 hf.ent_pop_id = ep
                 hf.save()
@@ -75,9 +75,9 @@ def link_fkeys(fkeys, world):
                 civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
                 sl.civ_id = civ
                 sl.save()
-            case {'site_link': _, 'structure': _}:
+            case {'site_link': _, 'structure': _, 'site': _}:
                 sl = models.SiteLink.objects.get(id=dict['site_link'])
-                structure = models.Structures.objects.get(world=world, chronicle_id=dict['structure'])
+                structure = models.Structures.objects.get(world=world, structure_id=dict['structure'], site_id=models.Sites.objects.get(world=world, chronicle_id=dict['site']))
                 sl.structure = structure
                 sl.save()
             case {'hf_link': _, 'hf_id': _}:
