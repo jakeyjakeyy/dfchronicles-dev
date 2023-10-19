@@ -86,8 +86,14 @@ def link_fkeys(fkeys, world):
                 hfl.hf_id = hf
             case {'entity_former_position_link': _, 'position_id': _, 'civ_id': _}:
                 fpl = models.EntityFormerPositionLink.objects.get(id=dict['entity_former_position_link'])
-                position = models.EntityPosition.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=dict['civ_id'])
+                civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
+                try:
+                    position = models.EntityPosition.objects.get(world=world, civ_position_id=int(dict['position_id']), civ_id=civ)
+                except models.EntityPosition.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
                 fpl.position_id = position
+                fpl.civ_id = civ
                 fpl.save()
             case {'relationship_profile_visual': _, 'target_hfid': _}:
                 rpv = models.RelationshipProfileVisual.objects.get(id=dict['relationship_profile_visual'])
@@ -131,7 +137,7 @@ def link_fkeys(fkeys, world):
                 ia.save()
             case {'entity_position_link': _, 'position_id': _, 'civ_id': _}:
                 epl = models.EntityPositionLink.objects.get(id=dict['entity_position_link'])
-                position = models.Positions.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=dict['civ_id'])
+                position = models.Positions.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=models.Entities.objects.get(world=world, chronicle_id=dict['civ_id']))
                 epl.position_id = position
                 epl.save()
             case {'entity_position_link': _, 'civ_id': _}:
@@ -175,9 +181,11 @@ def link_fkeys(fkeys, world):
                 wcf = models.WrittenContentReference.objects.create(world=world, written_content=chronicle, written_content_reference=written_content)
                 wcf.save()
             case _:
-                open('log.txt', 'a').write(f'!MISSING VALUE! {dict}\n')
+                with open('log.txt', 'a') as log:
+                    log.write(f'!MISSING VALUE! {dict}\n')
         
         if debug:
             fkeys.remove(dict)
     if debug:
-        open('log.txt', 'a').write(f'{fkeys}\n')
+        with open('log.txt', 'a') as log:
+            log.write(f'{fkeys}\n')

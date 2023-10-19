@@ -29,21 +29,25 @@ class ProcessXML(APIView):
         # Get world from legends_plus and save to DB. This is our reference point.
         world = save.SaveWorld(legendsplus_root, request.user)
         # Get all data from legends and save to DB.
-        open('log.txt', 'a').write('-----Saving legends.XML-----\n')
+        with open('log.txt', 'w') as log:
+            log.write('-----Saving legends.XML-----\n')
         fkeys = save.SaveLegends(legends_root, world)
-        open('log.txt', 'a').write('-----Saving legends_plus.XML-----\n')
+        with open('log.txt', 'a') as log:
+            log.write('-----Saving legends_plus.XML-----\n')
         fkeysplus = save.SaveLegends(legendsplus_root, world)
 
         # Save all missing foreign keys
-        open('log.txt', 'a').write('-----Saving missing foreign keys-----\n')
-        start_time = time.time()
-        link.link_fkeys(fkeys, world)
-        end_time = time.time()
-        open('timer.txt', 'a').write('Missing fkeys: ' + str(end_time - start_time) + '\n')
-        start_time = time.time()
-        link.link_fkeys(fkeysplus, world)
-        end_time = time.time()
-        open('timer.txt', 'a').write('Missing fkeys plus: ' + str(end_time - start_time) + '\n')
+        with open('log.txt', 'a') as log:
+            log.write('-----Saving missing foreign keys-----\n')
+        with open('timer.txt', 'a') as timer:
+            start_time = time.perf_counter()
+            link.link_fkeys(fkeys, world)
+            end_time = time.perf_counter()
+            timer.write('Missing fkeys: ' + str(end_time - start_time) + '\n')
+            start_time = time.perf_counter()
+            link.link_fkeys(fkeysplus, world)
+            end_time = time.perf_counter()
+            timer.write('Missing fkeys plus: ' + str(end_time - start_time) + '\n')
 
         return Response({'message': 'Archive created'})
     

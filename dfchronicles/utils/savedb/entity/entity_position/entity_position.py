@@ -6,7 +6,7 @@ def save_entity_position(position, entity):
     for child in position:
         tag = child.tag.strip()
         if tag == 'id':
-            civ_position_id = child.text
+            civ_position_id = int(child.text)
         elif tag == 'name':
             name = child.text
         elif tag == 'name_male':

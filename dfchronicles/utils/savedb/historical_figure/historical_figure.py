@@ -154,7 +154,7 @@ def save_historical_figure(element, world):
             links = save_relationship_profile_visual(visual, hf)
             if links:
                 for link in links:
-                    missing_fkeys.append(links)
+                    missing_fkeys.append(link)
     if len(intrigue_plots) > 0:
         for plot in intrigue_plots:
             links = save_intrigue_plot(plot, hf)

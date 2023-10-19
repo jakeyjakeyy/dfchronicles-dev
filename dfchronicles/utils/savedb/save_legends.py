@@ -15,7 +15,6 @@ from .form import save_form
 from .landmass import save_landmass
 from .mountain_peak import save_mountain_peak
 from .identity import save_identity
-from ..linkfkey import link_fkeys
 
 
 def SaveLegends(root, world):
@@ -40,24 +39,24 @@ def SaveLegends(root, world):
         if hf:
             open('log.txt', 'a').write('Saving Historical Figures...\n')
             for child in hf:
-                start_time = time.time()
+                start_time = time.perf_counter()
                 lists = save_historical_figure(child, world)
                 if lists:
                     for dict in lists:
                         missing_fkeys.append(dict)
-                end_time = time.time()
+                end_time = time.perf_counter()
                 hf_timer['count'] += 1
                 hf_timer['time'] += end_time - start_time
         ent = element.find('entities')
         if ent:
             open('log.txt', 'a').write('Saving Entities...\n')
             for child in ent:
-                start_time = time.time()
+                start_time = time.perf_counter()
                 lists = save_entity(child, world)
                 if lists:
                     for dict in lists:
                         missing_fkeys.append(dict)
-                end_time = time.time()
+                end_time = time.perf_counter()
                 ent_timer['count'] += 1
                 ent_timer['time'] += end_time - start_time
         # Save remaining elements
@@ -67,39 +66,39 @@ def SaveLegends(root, world):
                 save_element(child, world)
             else:
                 if child.tag == 'artifact':
-                    start_time = time.time()
+                    start_time = time.perf_counter()
                     lists = save_artifact(child, world)
                     if lists:
                         missing_fkeys.append(lists)
-                    end_time = time.time()
+                    end_time = time.perf_counter()
                     art_timer['count'] += 1
                     art_timer['time'] += end_time - start_time
                 elif child.tag == 'entity_population':
-                    start_time = time.time()
+                    start_time = time.perf_counter()
                     lists = save_entity_population(child, world)
                     if lists:
                         missing_fkeys.append(lists)
-                    end_time = time.time()
+                    end_time = time.perf_counter()
                     entpop_timer['count'] += 1
                     entpop_timer['time'] += end_time - start_time
                 elif child.tag == 'historical_era':
                     save_historical_era(child, world)
                 elif child.tag == 'historical_event_collection':
-                    start_time = time.time()
+                    start_time = time.perf_counter()
                     lists = save_historical_event_collection(child, world)
                     if lists:
                         for dict in lists:
                             missing_fkeys.append(dict)
-                    end_time = time.time()
+                    end_time = time.perf_counter()
                     hec_timer['count'] += 1
                     hec_timer['time'] += end_time - start_time
                 elif child.tag == 'historical_event':
-                    start_time = time.time()
+                    start_time = time.perf_counter()
                     lists = save_historical_event(child, world)
                     if lists:
                         for dict in lists:
                             missing_fkeys.append(dict)
-                    end_time = time.time()
+                    end_time = time.perf_counter()
                     he_timer['count'] += 1
                     he_timer['time'] += end_time - start_time
                 elif child.tag == 'site':
@@ -120,11 +119,12 @@ def SaveLegends(root, world):
                         if lists:
                             missing_fkeys.append(lists)
                 elif child.tag == 'written_content':
-                    start_time = time.time()
+                    start_time = time.perf_counter()
                     lists = save_written_content(child, world)
                     if lists:
-                        missing_fkeys.append(lists)
-                    end_time = time.time()
+                        for dict in lists:
+                            missing_fkeys.append(dict)
+                    end_time = time.perf_counter()
                     writtencontent_timer['count'] += 1
                     writtencontent_timer['time'] += end_time - start_time
                 elif child.tag == 'poetic_form':
@@ -145,32 +145,31 @@ def SaveLegends(root, world):
     
     save_element(root, world)
 
-    if hf_avg:
-        hf_avg = hf_timer['time'] / hf_timer['count']
-        open('timer.txt', 'a').write('Historical Figure Average: ' + str(hf_avg) + '\n')
-    if ent_avg:
-        ent_avg = ent_timer['time'] / ent_timer['count']
-        open('timer.txt', 'a').write('Entity Average: ' + str(ent_avg) + '\n')
-    if art_avg:
-        art_avg = art_timer['time'] / art_timer['count']
-        open('timer.txt', 'a').write('Artifact Average: ' + str(art_avg) + '\n')
-    if entpop_avg:
-        entpop_avg = entpop_timer['time'] / entpop_timer['count']
-        open('timer.txt', 'a').write('Entity Population Average: ' + str(entpop_avg) + '\n')
-    if hec_avg:
-        hec_avg = hec_timer['time'] / hec_timer['count']
-        open('timer.txt', 'a').write('Historical Event Collection Average: ' + str(hec_avg) + '\n')
-    if he_avg:
-        he_avg = he_timer['time'] / he_timer['count']
-        open('timer.txt', 'a').write('Historical Event Average: ' + str(he_avg) + '\n')
-    if writtencontent_avg:
-        writtencontent_avg = writtencontent_timer['time'] / writtencontent_timer['count']
-        open('timer.txt', 'a').write('Written Content Average: ' + str(writtencontent_avg) + '\n')
+    with open('timer.txt', 'a') as timer:
+        if hf_timer != {'count': 0, 'time': 0}:
+            hf_avg = hf_timer['time'] / hf_timer['count']
+            timer.write('Historical Figure Average: ' + str(hf_avg) + '\n')
+        if ent_timer != {'count': 0, 'time': 0}:
+            ent_avg = ent_timer['time'] / ent_timer['count']
+            timer.write('Entity Average: ' + str(ent_avg) + '\n')
+        if art_timer != {'count': 0, 'time': 0}:
+            art_avg = art_timer['time'] / art_timer['count']
+            timer.write('Artifact Average: ' + str(art_avg) + '\n')
+        if entpop_timer != {'count': 0, 'time': 0}:
+            entpop_avg = entpop_timer['time'] / entpop_timer['count']
+            timer.write('Entity Population Average: ' + str(entpop_avg) + '\n')
+        if hec_timer != {'count': 0, 'time': 0}:
+            hec_avg = hec_timer['time'] / hec_timer['count']
+            timer.write('Historical Event Collection Average: ' + str(hec_avg) + '\n')
+        if he_timer != {'count': 0, 'time': 0}:
+            he_avg = he_timer['time'] / he_timer['count']
+            timer.write('Historical Event Average: ' + str(he_avg) + '\n')
+        if writtencontent_timer != {'count': 0, 'time': 0}:
+            writtencontent_avg = writtencontent_timer['time'] / writtencontent_timer['count']
+            timer.write('Written Content Average: ' + str(writtencontent_avg) + '\n\n')
 
 
     open('log.txt', 'a').write('Missing Foreign Keys: ' + str(missing_fkeys) + '\n')
-    # start_time = time.time()
-    # link_fkeys(missing_fkeys, world)
-    # end_time = time.time()
-    # open('timer.txt', 'a').write('Link Fkeys: ' + str(end_time - start_time) + '\n')
+
+    timer.close()
     return missing_fkeys
