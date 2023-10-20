@@ -11,7 +11,11 @@ def link_fkeys(fkeys, world):
             # Historical event
             case {'historical_event': _, 'identity': _}:
                 he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
-                identity = models.Identities.objects.get(world=world, chronicle_id=dict['identity'])
+                try:
+                    identity = models.Identities.objects.get(world=world, chronicle_id=dict['identity'])
+                except models.Identities.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
                 he.identity = identity
                 he.save()
             case {'historical_event': _, 'target_identity': _}:
@@ -102,7 +106,11 @@ def link_fkeys(fkeys, world):
                 rpv.save()
             case {'relationship_profile_visual': _, 'known_identity': _}:
                 rpv = models.RelationshipProfileVisual.objects.get(id=dict['relationship_profile_visual'])
-                identity = models.Identities.objects.get(world=world, chronicle_id=dict['known_identity'])
+                try:
+                    identity = models.Identities.objects.get(world=world, chronicle_id=dict['known_identity'])
+                except models.Identities.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
                 rpv.known_identity = identity
                 rpv.save()
             case {'intrigue_plot': _, 'civ_id': _}:
@@ -188,8 +196,7 @@ def link_fkeys(fkeys, world):
                 with open('log.txt', 'a') as log:
                     log.write(f'!MISSING VALUE! {dict}\n')
         
-        if debug:
-            fkeys.remove(dict)
+
     if debug:
         with open('log.txt', 'a') as log:
             log.write(f'{fkeys}\n')
