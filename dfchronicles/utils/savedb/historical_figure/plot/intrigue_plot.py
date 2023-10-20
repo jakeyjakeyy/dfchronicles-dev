@@ -32,7 +32,7 @@ def save_intrigue_plot(element, hf):
     intrigue_plot.save()
 
     if civ_iv:
-        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'civ_iv': civ_iv})
+        missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'civ_id': civ_iv})
     if artifact:
         missing_fkeys.append({'intrigue_plot': intrigue_plot.id, 'artifact': artifact})
     if actor_id:

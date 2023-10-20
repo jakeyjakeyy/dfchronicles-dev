@@ -19,7 +19,7 @@ def link_fkeys(fkeys, world):
                 he.identity = identity
                 he.save()
             case {'historical_event': _, 'target_identity': _}:
-                he = models.HistoricalEvents.objects.get(dict['historical_event'])
+                he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
                 ti = models.Identities.objects.get(world=world, chronicle_id=dict['target_identity'])
                 he.target_identity = ti
                 he.save()
@@ -43,6 +43,27 @@ def link_fkeys(fkeys, world):
                 df = models.DanceForms.objects.get(world=world, chronicle_id=dict['dance_form'])
                 he.dance_form = df
                 he.save()
+            case {'historical_event': _, 'position_id': _, 'civ_id': _}:
+                he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
+                civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
+                try:
+                    position = models.EntityPosition.objects.get(world=world, civ_position_id=dict['position_id'], civ_id=civ)
+                except models.EntityPosition.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
+                he.position_id = position
+                he.save()
+            case {'historical_event': _, 'occasion': _, 'civ_id': _}:
+                he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
+                civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
+                occasion = models.Occasions.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
+                he.occasion = occasion
+                he.save()
+            case {'historical_event': _, 'schedule': _, 'occasion': _}:
+                he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
+                civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
+                occasion = models.Occasions.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
+                schedule = models.Schedules.objects.get(world=world, occasion_schedule_id=dict['schedule'], occasion=occasion)
             # Historical figure
             case {'historicfigure': _, 'current_identity': _}:
                 hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])
@@ -192,6 +213,11 @@ def link_fkeys(fkeys, world):
                 written_content = models.WrittenContents.objects.get(world=world, chronicle_id=dict['written_content'])
                 wcf = models.WrittenContentReference.objects.create(world=world, written_content=chronicle, written_content_reference=written_content)
                 wcf.save()
+            case {'plot_actor': _, 'actor_id': _}:
+                # not sure how to link actor id to histfig
+                pass
+            case {'plot_actor': _, 'delegated_hfid': _}:
+                pass
             case _:
                 with open('log.txt', 'a') as log:
                     log.write(f'!MISSING VALUE! {dict}\n')

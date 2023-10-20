@@ -71,7 +71,6 @@ def SaveLegends(root, world):
                     if lists:
                         for dict in lists:
                             missing_fkeys.append(dict)
-                        missing_fkeys.append(lists)
                     end_time = time.perf_counter()
                     art_timer['count'] += 1
                     art_timer['time'] += end_time - start_time

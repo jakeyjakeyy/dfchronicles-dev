@@ -27,8 +27,8 @@ def save_plot_actor(element, plot):
     missing_fkeys = []
 
     if actor_id:
-        missing_fkeys.append({'plot_actor': plot_actor, 'actor_id': actor_id})
+        missing_fkeys.append({'plot_actor': plot_actor.id, 'actor_id': actor_id})
     if delegated_hfid:
-        missing_fkeys.append({'plot_actor': plot_actor, 'delegated_hfid': delegated_hfid})
+        missing_fkeys.append({'plot_actor': plot_actor.id, 'delegated_hfid': delegated_hfid})
 
     return missing_fkeys

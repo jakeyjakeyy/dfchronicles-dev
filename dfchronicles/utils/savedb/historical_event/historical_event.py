@@ -372,7 +372,7 @@ def save_historical_event(event, world):
             try:
                 he.position_id = models.EntityPosition.objects.get(world=world, civ_position_id=position_id, civ_id=models.Entities.objects.get(world=world, chronicle_id=civ_ids[0]))
             except models.EntityPosition.DoesNotExist:
-                missing_fkeys.append({'historical_event': he.id, 'position_id': position_id})
+                missing_fkeys.append({'historical_event': he.id, 'position_id': position_id, 'civ_id': civ_ids[0]})
         if identity:
             missing_fkeys.append({'historical_event': he.id, 'identity': identity})
         if target_identity:
@@ -382,12 +382,12 @@ def save_historical_event(event, world):
                 occasion = models.Occasion.objects.get(world=world, civ_occasion_id=occasion, civ_id=models.Entities.objects.get(world=world, chronicle_id=civ_ids[0]))
                 he.occasion = occasion
             except models.Occasion.DoesNotExist:
-                missing_fkeys.append({'historical_event': he.id, 'occasion': occasion, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
+                missing_fkeys.append({'historical_event': he.id, 'occasion': occasion, 'civ_id': civ_ids[0]})
         if schedule:
             try:
                 he.schedule = models.Schedule.objects.get(world=world, occasion_schedule_id=schedule, occasion=occasion)
             except models.Schedule.DoesNotExist:
-                missing_fkeys.append({'historical_event': he.id, 'schedule': schedule, 'civ_id': models.Entities.objects.get(world=world, chronicle_id=civ_ids[0])})
+                missing_fkeys.append({'historical_event': he.id, 'schedule': schedule, 'occasion': occasion})
         if written_content:
             try:
                 he.written_content = models.WrittenContents.objects.get(world=world, chronicle_id=written_content)
