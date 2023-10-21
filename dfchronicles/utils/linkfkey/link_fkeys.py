@@ -56,14 +56,16 @@ def link_fkeys(fkeys, world):
             case {'historical_event': _, 'occasion': _, 'civ_id': _}:
                 he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
                 civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
-                occasion = models.Occasions.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
+                occasion = models.Occasion.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
                 he.occasion = occasion
                 he.save()
-            case {'historical_event': _, 'schedule': _, 'occasion': _}:
+            case {'historical_event': _, 'schedule': _, 'occasion': _, 'civ_id': _}:
                 he = models.HistoricalEvents.objects.get(id=dict['historical_event'])
                 civ = models.Entities.objects.get(world=world, chronicle_id=dict['civ_id'])
-                occasion = models.Occasions.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
-                schedule = models.Schedules.objects.get(world=world, occasion_schedule_id=dict['schedule'], occasion=occasion)
+                occasion = models.Occasion.objects.get(world=world, civ_occasion_id=dict['occasion'], civ_id=civ)
+                schedule = models.Schedule.objects.get(world=world, occasion_schedule_id=dict['schedule'], occasion=occasion)
+                he.schedule = schedule
+                he.save()
             # Historical figure
             case {'historicfigure': _, 'current_identity': _}:
                 hf = models.HistoricalFigures.objects.get(id=dict['historicfigure'])

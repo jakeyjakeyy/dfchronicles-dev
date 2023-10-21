@@ -116,7 +116,8 @@ def save_historical_event(event, world):
         elif tag in ['identity_id', 'identity_id1', 'corruptor_identity', 'identity_histfig_id']:
             identity = child.text
         elif tag == 'identity_id2' or tag == 'target_identity':
-            target_identity = child.text
+            if int(child.text) != -1:
+                target_identity = child.text
         elif tag == 'occasion_id':
             occasion = child.text
         elif tag == 'schedule_id':
@@ -387,7 +388,7 @@ def save_historical_event(event, world):
             try:
                 he.schedule = models.Schedule.objects.get(world=world, occasion_schedule_id=schedule, occasion=occasion)
             except models.Schedule.DoesNotExist:
-                missing_fkeys.append({'historical_event': he.id, 'schedule': schedule, 'occasion': occasion})
+                missing_fkeys.append({'historical_event': he.id, 'schedule': schedule, 'occasion': occasion, 'civ_id': civ_ids[0]})
         if written_content:
             try:
                 he.written_content = models.WrittenContents.objects.get(world=world, chronicle_id=written_content)

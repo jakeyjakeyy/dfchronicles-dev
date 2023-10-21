@@ -1,3 +1,6 @@
+import cProfile
+import pstats
+
 from .entity_link import save_entity_link
 from .site_link import save_site_link
 from .hf_skill import save_hf_skill
@@ -31,80 +34,84 @@ def save_historical_figure(element, world):
     squad_links = []
     
     missing_fkeys = []
+    profiler = cProfile.Profile()
+    profiler.enable()
     for child in element:
         tag = child.tag.strip()
-        if tag == 'id':
-            chronicle_id = child.text
-        elif tag == 'appeared':
-            appeared = child.text
-        elif tag == 'associated_type':
-            associated_type = child.text
-        elif tag == 'birth_year':
-            birth_year = child.text
-        elif tag == 'caste':
-            caste = child.text
-        elif tag == 'death_year':
-            if int(child.text) == -1:
-                death_year = None
-            else:
-                death_year = child.text
-        elif tag == 'deity':
-            deity = True
-        elif tag == 'goal':
-            goal = child.text
-        elif tag == 'name':
-            name = child.text
-        elif tag == 'race':
-            race = child.text
-        elif tag == 'used_identity_id':
-            used_identities.append(child.text)
-        elif tag == 'sphere':
-            spheres.append(child.text)
-        elif tag == 'journey_pet':
-            journey_pet = child.text
-        elif tag == 'ent_pop_id':
-            ent_pop_id = child.text
-        elif tag == 'current_identity_id':
-            current_identity = child.text
-        elif tag == 'holds_artifact':
-            held_artifacts.append(child.text)
-        elif tag == 'force':
-            force = child.text
-        elif tag == 'animated':
-            animated = True
-        elif tag == 'animated_string':
-            animated_string = child.text
-        elif tag == 'entity_link':
-            entity_links.append(child)
-        elif tag == 'site_link':
-            site_links.append(child)
-        elif tag == 'hf_skill':
-            hf_skills.append(child)
-        elif tag == 'hf_link':
-            hf_links.append(child)
-        elif tag == 'entity_former_position_link':
-            former_positions.append(child)
-        elif tag == 'relationship_profile_hf_visual':
-            relationship_visuals.append(child)
-        elif tag == 'intrigue_plot':
-            intrigue_plots.append(child)
-        elif tag == 'intrigue_actor':
-            intrigue_actors.append(child)
-        elif tag == 'entity_position_link':
-            entity_positions_link.append(child)
-        elif tag == 'vague_relationship':
-            vague_relationships.append(child)
-        elif tag == 'entity_squad_link':
-            squad_links.append(child)
-        elif tag == 'honor_entity':
-            pass
-        elif tag == 'site_property':
-            pass
-        elif tag in exclude_tags:
-            pass
-        else:
-            open('log.txt', 'a').write('!UNUSED CHILD! Save Historical Figure: ' + tag + '\n')
-    
+        if tag in exclude_tags:
+            continue
+        match tag:
+            case 'id':
+                chronicle_id = child.text
+            case 'appeared':
+                appeared = child.text
+            case 'associated_type':
+                associated_type = child.text
+            case 'birth_year':
+                birth_year = child.text
+            case 'caste':
+                caste = child.text
+            case 'death_year':
+                if int(child.text) == -1:
+                    death_year = None
+                else:
+                    death_year = child.text
+            case 'deity':
+                deity = True
+            case 'goal':
+                goal = child.text
+            case 'name':
+                name = child.text
+            case 'race':
+                race = child.text
+            case 'used_identity_id':
+                used_identities.append(child.text)
+            case 'sphere':
+                spheres.append(child.text)
+            case 'journey_pet':
+                journey_pet = child.text
+            case 'ent_pop_id':
+                ent_pop_id = child.text
+            case 'current_identity_id':
+                current_identity = child.text
+            case 'holds_artifact':
+                held_artifacts.append(child.text)
+            case 'force':
+                force = child.text
+            case 'animated':
+                animated = True
+            case 'animated_string':
+                animated_string = child.text
+            case 'entity_link':
+                entity_links.append(child)
+            case 'site_link':
+                site_links.append(child)
+            case 'hf_skill':
+                hf_skills.append(child)
+            case 'hf_link':
+                hf_links.append(child)
+            case 'entity_former_position_link':
+                former_positions.append(child)
+            case 'relationship_profile_hf_visual':
+                relationship_visuals.append(child)
+            case 'intrigue_plot':
+                intrigue_plots.append(child)
+            case 'intrigue_actor':
+                intrigue_actors.append(child)
+            case 'entity_position_link':
+                entity_positions_link.append(child)
+            case 'vague_relationship':
+                vague_relationships.append(child)
+            case 'entity_squad_link':
+                squad_links.append(child)
+            case 'honor_entity':
+                pass
+            case 'site_property':
+                pass
+            case _:
+                with open('log.txt', 'a') as log:
+                    log.write('!UNUSED CHILD! Save Historical Figure: ' + tag + '\n')
+
     try:
         hf = models.HistoricalFigures.objects.get(world=world, chronicle_id=chronicle_id)
         exists = True
@@ -195,5 +202,9 @@ def save_historical_figure(element, world):
     if ent_pop_id:
         missing_fkeys.append({'historicfigure': hf.id, 'ent_pop_id': ent_pop_id})
     
+
+    profiler.disable()
+    stats = pstats.Stats(profiler).sort_stats('cumulative')
+    stats.dump_stats('historical_figure.prof')
     if missing_fkeys:
         return missing_fkeys
