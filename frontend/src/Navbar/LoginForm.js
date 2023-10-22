@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import "./LoginForm.css";
-import {sha256} from "js-sha256";
 
 function LoginForm({onClose}) {
     const [username, setUsername] = useState("");
@@ -8,13 +7,12 @@ function LoginForm({onClose}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const hashedPassword = sha256(password);
         fetch("http://localhost:8000/api/token", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password: hashedPassword }),
+        body: JSON.stringify({ username, password }),
         })
         .then((res) => res.json())
         .then((data) => {
