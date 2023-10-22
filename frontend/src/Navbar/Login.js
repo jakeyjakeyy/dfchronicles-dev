@@ -15,6 +15,13 @@ function Login() {
     const handleLoginFormClose = () => {
       setShowLoginForm(false);
     };
+    
+    const handleLogoutClick = () => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("refresh");
+      localStorage.removeItem("username");
+      window.location.reload();
+    }
   
     if (!localStorage.getItem("token")) {
       return (
@@ -26,7 +33,7 @@ function Login() {
     } else {
       return (
         <div className="Login">
-          <h3>Logout</h3>
+          <h3 onClick={handleLogoutClick}>Logout</h3>
         </div>
       );
     }

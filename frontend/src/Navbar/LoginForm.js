@@ -18,7 +18,9 @@ function LoginForm({onClose}) {
         .then((data) => {
             localStorage.setItem("token", data.access);
             localStorage.setItem("refresh", data.refresh);
+            localStorage.setItem("username", username);
             onClose();
+            window.location.reload();
         })
         .catch((err) => {
             console.log(err);
