@@ -4,10 +4,13 @@ from chronicle_compiler import models
 from utils import savedb as save
 from utils import linkfkey as link
 import time
+from django.contrib.auth import authenticate, login
+import logging
 
 import xml.etree.ElementTree as ET
 import json
 
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -18,6 +21,18 @@ class WhoAmI(APIView):
             return Response({'user': user.id})
         else:
             return Response({'user': 'Guest'})
+        
+class Login(APIView):
+    def post(self, request):
+        username = request.data['username']
+        password = request.data['password']
+        user = authenticate(request, username=username, password=password)
+        logger.info(f"username: {username}, password: {password}, request: {request}")
+        if user is not None:
+            login(request, user)
+            return Response({'user': user.id})
+        else:
+            return Response({'user': 'Guest', 'error': 'Invalid credentials'})
 
 class ProcessXML(APIView):
     def post(self, request):
