@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:8000/api/whoami')
       .then(res => res.json())
-      .then(data => setMessage(data.message))
+      .then(data => setMessage(data.user))
   })
   return (
     <div className="App">

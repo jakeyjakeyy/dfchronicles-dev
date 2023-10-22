@@ -13,7 +13,11 @@ import json
 
 class WhoAmI(APIView):
     def get(self, request):
-        return Response({'user': request.user.id})
+        user = request.user
+        if user.is_authenticated:
+            return Response({'user': user.id})
+        else:
+            return Response({'user': 'Guest'})
 
 class ProcessXML(APIView):
     def post(self, request):
