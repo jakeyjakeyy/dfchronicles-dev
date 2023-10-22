@@ -5,14 +5,8 @@ import LoginForm from "./LoginForm";
 
 
 function Login() {
-    const [message, setMessage] = useState("Fetching Data...");
     const [showLoginForm, setShowLoginForm] = useState(false);
   
-    useEffect(() => {
-      fetch("http://localhost:8000/api/whoami")
-        .then((res) => res.json())
-        .then((data) => setMessage(data.user));
-    }, []);
   
     const handleLoginClick = () => {
       setShowLoginForm(true);
@@ -22,7 +16,7 @@ function Login() {
       setShowLoginForm(false);
     };
   
-    if (message === "Guest") {
+    if (!localStorage.getItem("token")) {
       return (
         <div className="Login">
           <h3 onClick={handleLoginClick}>Login</h3>
@@ -31,7 +25,7 @@ function Login() {
       );
     } else {
       return (
-        <div className="Logout">
+        <div className="Login">
           <h3>Logout</h3>
         </div>
       );

@@ -4,9 +4,8 @@ from chronicle_compiler import models
 from utils import savedb as save
 from utils import linkfkey as link
 import time
-from django.contrib.auth import authenticate, login
 import logging
-from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 import xml.etree.ElementTree as ET
 import json
@@ -16,16 +15,14 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 class WhoAmI(APIView):
+    authentication_classes = [JWTAuthentication]
     def get(self, request):
         user = request.user
         if user.is_authenticated:
-            return Response({'user': user.id})
+            return Response({'username': user.username})
         else:
-            return Response({'user': 'Guest'})
+            return Response({'username': 'Guest'})
         
-class Login(TokenObtainPairView):
-    pass
-
 class ProcessXML(APIView):
     def post(self, request):
         # pull root files

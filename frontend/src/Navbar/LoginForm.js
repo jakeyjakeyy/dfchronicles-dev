@@ -16,7 +16,8 @@ function LoginForm({onClose}) {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
+            localStorage.setItem("token", data.access);
+            localStorage.setItem("refresh", data.refresh);
             onClose();
         })
         .catch((err) => {
