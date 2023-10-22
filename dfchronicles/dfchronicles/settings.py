@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'chronicle_compiler',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -149,4 +150,14 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'INFO',
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
 }

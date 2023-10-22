@@ -9,7 +9,7 @@ function LoginForm({onClose}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const hashedPassword = sha256(password);
-        fetch("http://localhost:8000/api/login", {
+        fetch("http://localhost:8000/api/token", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
