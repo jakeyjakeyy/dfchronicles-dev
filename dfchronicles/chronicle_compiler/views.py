@@ -59,3 +59,17 @@ class ProcessXML(APIView):
 
         return Response({'message': 'Archive created'})
     
+class Worlds(APIView):
+    authentication_classes = [JWTAuthentication]
+
+    def post(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            return Response({'message': 'Invalid token'})
+        
+        if request.data['request'] == 'worlds':
+            worlds = models.World.objects.filter(owner=user)
+            world_list = []
+            for world in worlds:
+                world_list.append(world.name)
+            return Response({'worlds': world_list})

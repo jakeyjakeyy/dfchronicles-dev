@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./LoginForm.css";
+import "./loginform.css";
 
 function LoginForm({onClose}) {
     const [username, setUsername] = useState("");
@@ -16,6 +16,10 @@ function LoginForm({onClose}) {
         })
         .then((res) => res.json())
         .then((data) => {
+            if (data.detail === "No active account found with the given credentials"){
+                alert("Invalid username or password.");
+                return;
+            }
             localStorage.setItem("token", data.access);
             localStorage.setItem("refresh", data.refresh);
             localStorage.setItem("username", username);

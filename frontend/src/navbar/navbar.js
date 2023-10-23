@@ -1,8 +1,8 @@
 import React from "react";
-import "./Navbar.css";
+import "./navbar.css";
 import { useState, useEffect } from "react";
-import Login from "./Login";
-import NavbarItem from "./NavbarItem";
+import Login from "./login";
+import NavbarItem from "./navbaritems";
 
 
 function Navbar({token, username, onLogout, onAppSelect, onLogin}) {
@@ -49,6 +49,7 @@ function Navbar({token, username, onLogout, onAppSelect, onLogin}) {
             <div>{username}</div>
             <NavbarItem name="Home" onSelect={onAppSelect} />
             <NavbarItem name="Upload" onSelect={onAppSelect} />
+            <NavbarItem name="Worlds" onSelect={onAppSelect} />
             <Login onLogin={onLogin} onLogout={onLogout}/>
         </div>
     );

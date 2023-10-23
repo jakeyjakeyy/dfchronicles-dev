@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
-import Navbar from './Navbar/Navbar';
-import UploadXMLForm from './UploadXMLForm';
-import Browser from './Browser/Browser';
+import Navbar from './navbar/navbar';
+import UploadXMLForm from './browser/upload/uploadxmlform';
+import Browser from './browser/browser';
 import './App.css';
 
 

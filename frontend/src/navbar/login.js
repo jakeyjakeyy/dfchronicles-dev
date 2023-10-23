@@ -1,7 +1,7 @@
 import React from "react";
-import "./Navbar.css";
+import "./navbar.css";
 import { useState, useEffect } from "react";
-import LoginForm from "./LoginForm";
+import LoginForm from "./loginform";
 
 
 function Login({onLogin, onLogout}) {

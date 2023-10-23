@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css";
+import "./navbar.css";
 
 function NavbarItem({ name, onSelect }) {
   const handleClick = () => {
