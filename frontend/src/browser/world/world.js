@@ -2,27 +2,30 @@ import React from "react";
 import "./world.css";
 import { useState, useEffect } from "react";
 
+function RefreshToken() {
+  const refresh = localStorage.getItem("refresh");
+  return fetch("http://localhost:8000/api/token/refresh", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ refresh: refresh }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      localStorage.setItem("token", data.access);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+function LoadWorld(id) {
+
+}
 
 function World() {
-  console.log("World");
     const [worlds, setWorlds] = useState([]);
-    function RefreshToken() {
-        const refresh = localStorage.getItem("refresh");
-        return fetch("http://localhost:8000/api/token/refresh", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ refresh: refresh }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("token", data.access);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
       
       async function GetWorlds() {
         const token = localStorage.getItem("token");
@@ -38,6 +41,8 @@ function World() {
         if (data.message === "Invalid token" || data.code === "token_not_valid") {
             await RefreshToken();
             await GetWorlds();
+            console.log("Refreshed token");
+            return ("Refreshed token");
         } else {
           const worlds = JSON.parse(data);
           return worlds;
@@ -47,8 +52,11 @@ function World() {
     useEffect(() => {
         async function fetchData() {
             const worlds = await GetWorlds();
-            console.log(worlds);
+            if (worlds === "Refreshed token") {
+                setWorlds([]);
+            } else {
             setWorlds(worlds);
+            }
         }
         fetchData();
     }, []);
