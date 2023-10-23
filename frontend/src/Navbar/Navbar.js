@@ -46,7 +46,7 @@ function Navbar() {
     //     });
     return (
         <div className="Nav">
-            <h3>{localStorage.getItem("username")}</h3>
+            <h5>{localStorage.getItem("username")}</h5>
             <Login />
         </div>
     );

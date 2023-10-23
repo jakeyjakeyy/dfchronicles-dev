@@ -26,14 +26,14 @@ function Login() {
     if (!localStorage.getItem("token")) {
       return (
         <div className="Login">
-          <h3 onClick={handleLoginClick}>Login</h3>
+          <h5 onClick={handleLoginClick}>Login</h5>
           {showLoginForm && <LoginForm onClose={handleLoginFormClose} />}
         </div>
       );
     } else {
       return (
         <div className="Login">
-          <h3 onClick={handleLogoutClick}>Logout</h3>
+          <h5 onClick={handleLogoutClick}>Logout</h5>
         </div>
       );
     }
