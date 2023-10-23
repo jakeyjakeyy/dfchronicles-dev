@@ -6,6 +6,8 @@ from utils import linkfkey as link
 import time
 import logging
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.renderers import JSONRenderer
+from .serializers import *
 
 import xml.etree.ElementTree as ET
 import json
@@ -69,7 +71,6 @@ class Worlds(APIView):
         
         if request.data['request'] == 'worlds':
             worlds = models.World.objects.filter(owner=user)
-            world_list = []
-            for world in worlds:
-                world_list.append(world.name)
-            return Response({'worlds': world_list})
+            serializer = WorldSerializer(worlds, many=True)
+            json = JSONRenderer().render(serializer.data)
+            return Response(json)
