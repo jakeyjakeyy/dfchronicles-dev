@@ -1,0 +1,6 @@
+.Browser {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vh;
+    margin-top: 2vh;
+}

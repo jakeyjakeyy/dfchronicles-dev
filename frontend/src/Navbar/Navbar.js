@@ -2,11 +2,11 @@ import React from "react";
 import "./Navbar.css";
 import { useState, useEffect } from "react";
 import Login from "./Login";
+import NavbarItem from "./NavbarItem";
 
 
-function Navbar() {
-    const [username, setUsername] = useState(localStorage.getItem("username"));
-    if (!localStorage.getItem("token")) {
+function Navbar({token, username, onLogout, onAppSelect, onLogin}) {
+    if (!token) {
         return (
             <div className="Nav">
                 <h3>Not logged in</h3>
@@ -46,8 +46,10 @@ function Navbar() {
     //     });
     return (
         <div className="Nav">
-            <h5>{localStorage.getItem("username")}</h5>
-            <Login />
+            <div>{username}</div>
+            <NavbarItem name="Home" onSelect={onAppSelect} />
+            <NavbarItem name="Upload" onSelect={onAppSelect} />
+            <Login onLogin={onLogin} onLogout={onLogout}/>
         </div>
     );
 }

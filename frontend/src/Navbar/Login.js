@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
 
 
-function Login() {
+function Login({onLogin, onLogout}) {
     const [showLoginForm, setShowLoginForm] = useState(false);
   
   
@@ -16,24 +16,18 @@ function Login() {
       setShowLoginForm(false);
     };
     
-    const handleLogoutClick = () => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("refresh");
-      localStorage.removeItem("username");
-      window.location.reload();
-    }
   
     if (!localStorage.getItem("token")) {
       return (
         <div className="Login">
-          <h5 onClick={handleLoginClick}>Login</h5>
+          <div onClick={handleLoginClick}>Login</div>
           {showLoginForm && <LoginForm onClose={handleLoginFormClose} />}
         </div>
       );
     } else {
       return (
         <div className="Login">
-          <h5 onClick={handleLogoutClick}>Logout</h5>
+          <div onClick={onLogout}>Logout</div>
         </div>
       );
     }
