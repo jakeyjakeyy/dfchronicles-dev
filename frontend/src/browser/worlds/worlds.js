@@ -1,24 +1,7 @@
 import React from "react";
 import "./worlds.css";
 import { useState, useEffect } from "react";
-
-function RefreshToken() {
-  const refresh = localStorage.getItem("refresh");
-  return fetch("http://localhost:8000/api/token/refresh", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ refresh: refresh }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.setItem("token", data.access);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+import GetWorlds from "../../utils/getworlds";
 
 
 function Worlds({onAppSelect, onSetId}) {
@@ -27,29 +10,6 @@ function Worlds({onAppSelect, onSetId}) {
         onAppSelect("World");
     }
     const [worlds, setWorlds] = useState([]);
-      
-      async function GetWorlds() {
-        const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8000/api/worlds", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `JWT ${token}`,
-          },
-          body: JSON.stringify({ request: "worlds" }),
-        });
-        const data = await response.json();
-        if (data.message === "Invalid token" || data.code === "token_not_valid") {
-            await RefreshToken();
-            await GetWorlds();
-            console.log("Refreshed token");
-            window.location.reload();
-            // return ("Refreshed token");
-        } else {
-          const worlds = JSON.parse(data);
-          return worlds;
-        }
-      }
 
     useEffect(() => {
         async function fetchData() {

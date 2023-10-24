@@ -1,0 +1,28 @@
+.WorldHeader {
+    position: fixed;
+    padding-top: 1rem;
+    padding-bottom: .6rem;
+    width: 100%;
+    background-color: #282c34;
+}
+
+.CategoriesList {
+    margin-top: 100px;
+}
+
+.CategoryTitle {
+    position: fixed;
+    width: 100%;
+    background-color: #282c34;
+    padding-bottom: 5px;
+}
+
+.Category {
+    margin-top: 100px;
+    width: 100%;
+}
+
+.CategoryList {
+    margin-top: 100px;
+    padding-top: 30px;
+}

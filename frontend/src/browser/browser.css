@@ -1,6 +1,13 @@
 .Browser {
     display: flex;
     flex-direction: column;
-    margin-left: 3vh;
-    margin-top: 2vh;
+    margin-left: 13%;
+}
+
+@media (max-width: 767px) {
+    .Browser {
+        margin-top: 25%;
+        margin-left: 1rem;
+        z-index: 0;
+    }
 }

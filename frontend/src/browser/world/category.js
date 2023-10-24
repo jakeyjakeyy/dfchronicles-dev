@@ -4,6 +4,7 @@ import LoadWorld from "../../utils/loadworld";
 import { useState, useEffect } from "react";
 
 function Category({category, id}) {
+    console.log(id);
     const [categoryData, setCategoryData] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -23,8 +24,10 @@ function Category({category, id}) {
 
     return (
         <div className="Category">
-            <h3>{category}</h3>
-            <ul>
+            <div className="CategoryTitle">
+                <h3>{category}</h3>
+            </div>
+            <ul className="CategoryList">
                 {categoryData.map((data) => (
                     <li key={data.id}>{data.name}</li>
                 ))}
