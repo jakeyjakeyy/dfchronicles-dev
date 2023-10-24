@@ -1,103 +1,45 @@
 import React from "react";
 import "./world.css";
-import { useState, useEffect } from "react";
+import RefreshToken from "../../utils/refreshtoken";
 
-function RefreshToken() {
-  const refresh = localStorage.getItem("refresh");
-  return fetch("http://localhost:8000/api/token/refresh", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ refresh: refresh }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.setItem("token", data.access);
+function LoadWorld(id) {
+    const token = localStorage.getItem("token");
+    return fetch("http://localhost:8000/api/worlds", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${token}`,
+      },
+        body: JSON.stringify({ request: "world", id: id }),
     })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === "Invalid token" || data.code === "token_not_valid") {
+          RefreshToken();
+          LoadWorld(id);
+        } else {
+          const world = JSON.parse(data);
+          return world;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 }
 
-// const LoadWorld = async (e) => {
-//   const token = localStorage.getItem("token");
-//   return fetch("http://localhost:8000/api/worlds", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `JWT ${token}`,
-//     },
-//     body: JSON.stringify({ request: "world", id: e.target.id }),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       if (data.message === "Invalid token" || data.code === "token_not_valid") {
-//         RefreshToken();
-//         LoadWorld(e);
-//       } else {
-//         const world = JSON.parse(data);
-//         return world;
-//       }
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
-
-
-function Worlds({onAppSelect, onSetId}) {
-    const handleClick = (e) => {
-        onSetId(e.target.id);
-        onAppSelect("World");
+function World({id, onSetId, onAppSelect}) {
+    LoadWorld(id)
+    const handleClick = () => {
+        onSetId(null);
+        onAppSelect("Worlds");
     }
-    const [worlds, setWorlds] = useState([]);
-      
-      async function GetWorlds() {
-        const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8000/api/worlds", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `JWT ${token}`,
-          },
-          body: JSON.stringify({ request: "worlds" }),
-        });
-        const data = await response.json();
-        if (data.message === "Invalid token" || data.code === "token_not_valid") {
-            await RefreshToken();
-            await GetWorlds();
-            console.log("Refreshed token");
-            return ("Refreshed token");
-        } else {
-          const worlds = JSON.parse(data);
-          return worlds;
-        }
-      }
-
-    useEffect(() => {
-        async function fetchData() {
-            const worlds = await GetWorlds();
-            if (worlds === "Refreshed token") {
-                setWorlds([]);
-            } else {
-            setWorlds(worlds);
-            }
-        }
-        fetchData();
-    }, []);
 
     return (
         <div className="World">
-        <h3>Worlds</h3>
-        <ul>
-          {worlds.map((world) => (
-            <li name={"World"} id={world.id} key={world.id} onClick={handleClick}>{world.name}</li>
-          ))}
-        </ul>
-      </div>
-    )
+            <h1>World {id}</h1>
+            <button onClick={handleClick}>Back</button>
+        </div>
+    );
 }
-    
 
-export default Worlds;
+export default World;
