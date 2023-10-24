@@ -10,6 +10,7 @@ from rest_framework.renderers import JSONRenderer
 from .serializers import *
 
 import xml.etree.ElementTree as ET
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -76,12 +77,6 @@ class Worlds(APIView):
         elif request.data['request'] == 'world':
             id = request.data['id']
             world = models.World.objects.get(id=id)
-            if 'category' not in request.data:
-                serializer = WorldsSerializer(world)
-                json = JSONRenderer().render(serializer.data)
-                return Response(json)
-            elif request.data['category'] == 'Artifacts':
-                artifacts = models.Artifact.objects.filter(world=world)
-                serializer = ArtifactSerializer(artifacts, many=True)
-                json = JSONRenderer().render(serializer.data)
-                return Response(json)
+            serializer = WorldSerializer(world)
+            json = JSONRenderer().render(serializer.data)
+            return Response(json)
