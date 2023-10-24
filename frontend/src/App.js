@@ -39,7 +39,7 @@ function App() {
         onAppSelect={handleAppSelect}
         onLogin={handleLogin}
       />
-      <Browser app={selectedApp} />
+      <Browser app={selectedApp} onAppSelect={handleAppSelect} />
     </div>
   );
 }

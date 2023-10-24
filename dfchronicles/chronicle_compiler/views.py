@@ -71,6 +71,12 @@ class Worlds(APIView):
         
         if request.data['request'] == 'worlds':
             worlds = models.World.objects.filter(owner=user)
-            serializer = WorldSerializer(worlds, many=True)
+            serializer = WorldsSerializer(worlds, many=True)
+            json = JSONRenderer().render(serializer.data)
+            return Response(json)
+        elif request.data['request'] == 'world':
+            id = request.data['id']
+            world = models.World.objects.get(id=id)
+            serializer = WorldSerializer(world)
             json = JSONRenderer().render(serializer.data)
             return Response(json)

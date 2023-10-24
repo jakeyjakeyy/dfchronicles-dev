@@ -20,11 +20,37 @@ function RefreshToken() {
     });
 }
 
-function LoadWorld(id) {
+// const LoadWorld = async (e) => {
+//   const token = localStorage.getItem("token");
+//   return fetch("http://localhost:8000/api/worlds", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `JWT ${token}`,
+//     },
+//     body: JSON.stringify({ request: "world", id: e.target.id }),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       if (data.message === "Invalid token" || data.code === "token_not_valid") {
+//         RefreshToken();
+//         LoadWorld(e);
+//       } else {
+//         const world = JSON.parse(data);
+//         return world;
+//       }
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
 
-}
 
-function World() {
+function Worlds({onAppSelect, onSetId}) {
+    const handleClick = (e) => {
+        onSetId(e.target.id);
+        onAppSelect("World");
+    }
     const [worlds, setWorlds] = useState([]);
       
       async function GetWorlds() {
@@ -66,7 +92,7 @@ function World() {
         <h3>Worlds</h3>
         <ul>
           {worlds.map((world) => (
-            <li key={world.id}>{world.name}</li>
+            <li name={"World"} id={world.id} key={world.id} onClick={handleClick}>{world.name}</li>
           ))}
         </ul>
       </div>
@@ -74,4 +100,4 @@ function World() {
 }
     
 
-export default World;
+export default Worlds;
