@@ -85,3 +85,8 @@ class Worlds(APIView):
                 serializer = ArtifactSerializer(artifacts, many=True)
                 json = JSONRenderer().render(serializer.data)
                 return Response(json)
+            elif request.data['category'] == 'Entities/Governments':
+                entities = models.Entities.objects.filter(world=world)
+                serializer = EntitySerializer(entities, many=True)
+                json = JSONRenderer().render(serializer.data)
+                return Response(json)

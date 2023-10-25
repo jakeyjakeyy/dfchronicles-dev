@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import World, Artifact
+from .models import World, Artifact, Entities
 
 class WorldsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,3 +15,8 @@ class ArtifactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artifact
         fields = ['name', 'name2', 'item_type'] 
+    
+class EntitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Entities
+        fields = ['name', 'race', 'type']

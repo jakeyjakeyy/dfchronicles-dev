@@ -29,7 +29,10 @@ function Category({category, id}) {
             </div>
             <ul className="CategoryList">
                 {categoryData.map((data) => (
-                    <li key={data.id}>{data.name}</li>
+                    <li key={data.id}>
+                        {category === "Artifacts" && `${data.name} | ${data.item_type}`}
+                        {category === "Entities/Governments" && `${data.race} ${data.type} | ${data.name}`}
+                    </li>
                 ))}
             </ul>
         </div>

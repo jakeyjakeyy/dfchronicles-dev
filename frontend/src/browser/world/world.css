@@ -26,3 +26,9 @@
     margin-top: 100px;
     padding-top: 30px;
 }
+
+@media (max-width: 767px) {
+    .WorldHeader {
+        padding-top: 1rem;
+    }
+}
