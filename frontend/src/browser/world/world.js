@@ -15,7 +15,7 @@ function World({id, onSetId, onAppSelect}) {
       fetchData();
   }, [id]);
   const handleClick = () => {
-    if (category == "World") {
+    if (category === "World") {
     onSetId(null);
     onAppSelect("Worlds");
     } else {
@@ -45,13 +45,13 @@ return (
     <h4>{world.name}</h4>
     <button onClick={handleClick}>Back</button>
     </div>
-    {category == "World" &&
+    {category === "World" &&
     <ul className="CategoriesList">
       {categories.map((category, index) => (
         <li key={index} onClick={handleCategory}>{category}</li>
       ))}
     </ul>}
-      {category != "World" && <Category category={category} id={id} />}
+      {category !== "World" && <Category category={category} id={id} />}
     </div>
 );
 }
