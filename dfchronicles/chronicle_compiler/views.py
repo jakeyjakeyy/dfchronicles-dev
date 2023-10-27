@@ -80,13 +80,95 @@ class Worlds(APIView):
                 serializer = WorldsSerializer(world)
                 json = JSONRenderer().render(serializer.data)
                 return Response(json)
-            elif request.data['category'] == 'Artifacts':
-                artifacts = models.Artifact.objects.filter(world=world)
-                serializer = ArtifactSerializer(artifacts, many=True)
-                json = JSONRenderer().render(serializer.data)
-                return Response(json)
-            elif request.data['category'] == 'Entities/Governments':
-                entities = models.Entities.objects.filter(world=world)
-                serializer = EntitySerializer(entities, many=True)
-                json = JSONRenderer().render(serializer.data)
-                return Response(json)
+            match request.data['category']:
+                case 'Artifacts':
+                    if 'object' in request.data:
+                        artifact = models.Artifact.objects.get(world=world, id=request.data['object'])
+                        serializer = ArtifactSerializer(artifact)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
+                    artifacts = models.Artifact.objects.filter(world=world)
+                    serializer = ArtifactsSerializer(artifacts, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Entities/Governments':
+                    entities = models.Entities.objects.filter(world=world)
+                    serializer = EntitiesSerializer(entities, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Populations':
+                    populations = models.EntityPopulations.objects.filter(world=world)
+                    serializer = EntityPopulationsSerializer(populations, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Occasions':
+                    occasions = models.Occasion.objects.filter(world=world)
+                    serializer = OccasionsSerializer(occasions, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Historical Eras':
+                    eras = models.HistoricalEras.objects.filter(world=world)
+                    serializer = ErasSerializer(eras, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Historical Event Collections':
+                    collections = models.HistoricalEventCollections.objects.filter(world=world)
+                    serializer = EventCollectionsSerializer(collections, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Historical Events':
+                    events = models.HistoricalEvents.objects.filter(world=world)
+                    serializer = HistoricalEventsSerializer(events, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Historical Figures':
+                    figures = models.HistoricalFigures.objects.filter(world=world)
+                    serializer = HistoricalFiguresSerializer(figures, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Regions':
+                    regions = models.Regions.objects.filter(world=world)
+                    serializer = RegionsSerializer(regions, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Sites':
+                    sites = models.Sites.objects.filter(world=world)
+                    serializer = SitesSerializer(sites, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Structures':
+                    structures = models.Structures.objects.filter(world=world)
+                    serializer = StructuresSerializer(structures, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Underground Regions':
+                    regions = models.UndergroundRegions.objects.filter(world=world)
+                    serializer = UndergroundRegionsSerializer(regions, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Written Contents':
+                    contents = models.WrittenContents.objects.filter(world=world)
+                    serializer = WrittenContentsSerializer(contents, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'World Constructions':
+                    constructions = models.WorldConstruction.objects.filter(world=world)
+                    serializer = WorldConstructionsSerializer(constructions, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Landmasses':
+                    landmasses = models.Landmass.objects.filter(world=world)
+                    serializer = LandmassesSerializer(landmasses, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Mountain Peaks':
+                    peaks = models.MountainPeak.objects.filter(world=world)
+                    serializer = MountainPeaksSerializer(peaks, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                case 'Plots':
+                    plots = models.IntriguePlot.objects.filter(world=world)
+                    serializer = IntriguePlotsSerializer(plots, many=True)
+                    json = JSONRenderer().render(serializer.data)
+                    return Response(json)
+                    

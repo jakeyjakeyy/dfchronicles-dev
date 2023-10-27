@@ -35,7 +35,7 @@ if (!world) {
   )
 }
 
-const categories = ['Artifacts', 'Entities/Governments', 'Populations', 'Occasions', 'Historical Eras', 'Historical Event Collections', 'Historical Events', 'Historical Figures', 'Regions', 'Sites', 'Structures', 'Underground Regions', 'Written Contents', 'World Constructions', 'Music, Dance, Poetic forms', 'Landmasses', 'Mountain Peaks']
+const categories = ['Artifacts', 'Entities/Governments', 'Populations', 'Occasions', 'Historical Eras', 'Historical Event Collections', 'Historical Events', 'Historical Figures', 'Regions', 'Sites', 'Structures', 'Underground Regions', 'Written Contents', 'World Constructions', 'Landmasses', 'Mountain Peaks', 'Plots']
 // add dieties to categories
 
 return (
