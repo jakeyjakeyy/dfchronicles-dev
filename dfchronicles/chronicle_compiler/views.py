@@ -122,6 +122,11 @@ class Worlds(APIView):
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Historical Figures':
+                    if "object" in request.data:
+                        figure = models.HistoricalFigures.objects.get(world=world, id=request.data['object'])
+                        serializer = HistoricalFigureSerializer(figure)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     figures = models.HistoricalFigures.objects.filter(world=world)
                     serializer = HistoricalFiguresSerializer(figures, many=True)
                     json = JSONRenderer().render(serializer.data)
