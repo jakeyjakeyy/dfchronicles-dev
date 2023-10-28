@@ -17,12 +17,26 @@ function LoadWorld(id, category) {
         LoadWorld(id);
       } else {
         const world = JSON.parse(data);
-        return world;
+        const cleanedWorld = removeEmpty(world);
+        return cleanedWorld;
       }
     })
     .catch((err) => {
       console.log(err);
     });
+}
+
+function removeEmpty(obj) {
+  for (const key in obj) {
+    if (obj[key] === null || obj[key] === undefined) {
+      // Remove key if value is null or empty
+      delete obj[key];
+    } else if (typeof obj[key] === "object") {
+      // Call for all nested objects
+      removeEmpty(obj[key]);
+    }
+  }
+  return obj;
 }
 
 export default LoadWorld;

@@ -33,7 +33,9 @@ function Category({category, id}) {
                     LoadWorld(id);
                 } else {
                     const world = JSON.parse(data);
-                    return world;
+                    const cleanedWorld = removeEmpty(world);
+                    console.log(cleanedWorld);
+                    return cleanedWorld;
                 }
                 })
                 .catch((err) => {
@@ -44,6 +46,19 @@ function Category({category, id}) {
         }
         fetchData();
     }
+
+    function removeEmpty(obj) {
+        for (const key in obj) {
+          if (obj[key] === null || obj[key] === undefined) {
+            // Remove key if value is null or empty
+            delete obj[key];
+          } else if (typeof obj[key] === "object") {
+            // Call for all nested objects
+            removeEmpty(obj[key]);
+          }
+        }
+        return obj;
+      }
 
     if (!categoryData || categoryData.length === 0) {
         return (
