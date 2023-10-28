@@ -92,6 +92,11 @@ class Worlds(APIView):
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Entities/Governments':
+                    if 'object' in request.data:
+                        entity = models.Entities.objects.get(world=world, id=request.data['object'])
+                        serializer = EntitySerializer(entity)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     entities = models.Entities.objects.filter(world=world)
                     serializer = EntitiesSerializer(entities, many=True)
                     json = JSONRenderer().render(serializer.data)
@@ -112,11 +117,21 @@ class Worlds(APIView):
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Historical Event Collections':
+                    if 'object' in request.data:
+                        collection = models.HistoricalEventCollections.objects.get(world=world, id=request.data['object'])
+                        serializer = EventCollectionSerializer(collection)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     collections = models.HistoricalEventCollections.objects.filter(world=world)
                     serializer = EventCollectionsSerializer(collections, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Historical Events':
+                    if 'object' in request.data:
+                        event = models.HistoricalEvents.objects.get(world=world, id=request.data['object'])
+                        serializer = HistoricalEventSerializer(event)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     events = models.HistoricalEvents.objects.filter(world=world)
                     serializer = HistoricalEventsSerializer(events, many=True)
                     json = JSONRenderer().render(serializer.data)
