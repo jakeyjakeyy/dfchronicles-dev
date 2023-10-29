@@ -147,6 +147,9 @@ class HistoricalEventCollections(models.Model):
     subregion_id = models.IntegerField(null=True)
     target_entity_id = models.ForeignKey('Entities', related_name='target_historical_event_collections', null=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=500, null=True)
+    event_collection = models.ManyToManyField('HistoricalEventCollections', related_name='event_historical_event_collections')
+    war_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='war_event_collection_historical_event_collections', null=True, on_delete=models.SET_NULL)
+    parent_event_collection = models.ForeignKey('HistoricalEventCollections', related_name='parent_event_collection_historical_event_collections', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.name} | {self.type}"

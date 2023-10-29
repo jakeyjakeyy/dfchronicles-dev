@@ -215,6 +215,30 @@ def link_fkeys(fkeys, world):
                 written_content = models.WrittenContents.objects.get(world=world, chronicle_id=dict['written_content'])
                 wcf = models.WrittenContentReference.objects.create(world=world, written_content=chronicle, written_content_reference=written_content)
                 wcf.save()
+            case {'event_collection': _, 'war_event_collection': _}:
+                event_col = models.HistoricalEventCollections.objects.get(id=dict['event_collection'])
+                war_col = models.HistoricalEventCollections.objects.get(world=world, chronicle_id=dict['war_event_collection'])
+                event_col.war_event_collection = war_col
+                event_col.save()
+            case {'event_collection': _, 'parent_event_collection': _}:
+                event_col = models.HistoricalEventCollections.objects.get(id=dict['event_collection'])
+                parent_col = models.HistoricalEventCollections.objects.get(world=world, chronicle_id=dict['parent_event_collection'])
+                event_col.parent_event_collection = parent_col
+                event_col.save()
+            case {'event_collection': _, 'child_event_collection': _}:
+                event_col = models.HistoricalEventCollections.objects.get(id=dict['event_collection'])
+                child_col = models.HistoricalEventCollections.objects.get(world=world, chronicle_id=dict['child_event_collection'])
+                event_col.event_collection.add(child_col)
+                event_col.save()
+            case {'event_collection': _, 'event': _}:
+                event_col = models.HistoricalEventCollections.objects.get(id=dict['event_collection'])
+                try:
+                    event = models.HistoricalEvents.objects.get(world=world, chronicle_id=int(dict['event']))
+                    event_col.event.add(event)
+                    event_col.save()
+                except models.HistoricalEvents.DoesNotExist:
+                    with open('log.txt', 'a') as log:
+                        log.write(f'!PROBLEM CHILD >:(! {dict}\n')
             case {'plot_actor': _, 'actor_id': _}:
                 # not sure how to link actor id to histfig
                 pass

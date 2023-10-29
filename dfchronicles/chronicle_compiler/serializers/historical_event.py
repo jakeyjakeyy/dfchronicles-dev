@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from ..models import HistoricalEvents
-from .entity import EntitySerializer
+from .entity import EntitiesSerializer
 from .historical_figure import HistoricalFiguresSerializer
 from .site import SitesSerializer, StructuresSerializer
 from .artifact import ArtifactsSerializer
@@ -12,34 +12,34 @@ class HistoricalEventsSerializer(serializers.ModelSerializer):
         fields = ['type', 'id']
         
 class HistoricalEventSerializer(serializers.ModelSerializer):
-    civ_id = EntitySerializer(read_only=True, many=True)
+    civ_id = EntitiesSerializer(read_only=True, many=True)
     hf_id = HistoricalFiguresSerializer(read_only=True)
     appointer_hfid = HistoricalFiguresSerializer(read_only=True)
     site_id = SitesSerializer(read_only=True, many=True)
     target_hfid = HistoricalFiguresSerializer(read_only=True)
     framer_hfid = HistoricalFiguresSerializer(read_only=True)
     fooled_hfid = HistoricalFiguresSerializer(read_only=True)
-    convicter_enid = EntitySerializer(read_only=True)
+    convicter_enid = EntitiesSerializer(read_only=True)
     convicted_hfid = HistoricalFiguresSerializer(read_only=True)
     stash_site = SitesSerializer(read_only=True)
     structure = StructuresSerializer(read_only=True)
-    attacker_civ_id = EntitySerializer(read_only=True)
+    attacker_civ_id = EntitiesSerializer(read_only=True)
     artifact = ArtifactsSerializer(read_only=True)
-    defender_civ_id = EntitySerializer(read_only=True,)
+    defender_civ_id = EntitiesSerializer(read_only=True,)
     attacker_general_hfid = HistoricalFiguresSerializer(read_only=True)
     defender_general_hfid = HistoricalFiguresSerializer(read_only=True)
-    initiating_entity = EntitySerializer(read_only=True)
-    joining_entity = EntitySerializer(read_only=True, many=True)
-    site_civ_id = EntitySerializer(read_only=True)
+    initiating_entity = EntitiesSerializer(read_only=True)
+    joining_entity = EntitiesSerializer(read_only=True, many=True)
+    site_civ_id = EntitiesSerializer(read_only=True)
     winner_hfid = HistoricalFiguresSerializer(read_only=True)
     competitor_hfid = HistoricalFiguresSerializer(read_only=True)
     written_content = WrittenContentsSerializer(read_only=True)
     last_owner = HistoricalFiguresSerializer(read_only=True)
-    new_site_civ = EntitySerializer(read_only=True)
+    new_site_civ = EntitiesSerializer(read_only=True)
     new_leader = HistoricalFiguresSerializer(read_only=True)
     target_site = SitesSerializer(read_only=True)
     expelled_hfids = HistoricalFiguresSerializer(read_only=True, many=True)
-    resident_civ_id = EntitySerializer(read_only=True)
+    resident_civ_id = EntitiesSerializer(read_only=True)
     position_taker_hfid = HistoricalFiguresSerializer(read_only=True)
     instigator_hfid = HistoricalFiguresSerializer(read_only=True)
     conspirator_hfid = HistoricalFiguresSerializer(read_only=True)
