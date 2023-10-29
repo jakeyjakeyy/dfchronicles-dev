@@ -5,6 +5,7 @@ from .historical_figure import HistoricalFiguresSerializer
 from .site import SitesSerializer, StructuresSerializer
 from .artifact import ArtifactsSerializer
 from .written_content import WrittenContentsSerializer
+from .occasion import OccasionSerializer
 
 class HistoricalEventsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,6 +46,7 @@ class HistoricalEventSerializer(serializers.ModelSerializer):
     conspirator_hfid = HistoricalFiguresSerializer(read_only=True)
     # actor_hfid = HistoricalFiguresSerializer(read_only=True)
     bodies = HistoricalFiguresSerializer(read_only=True, many=True)
+    occasion = OccasionSerializer(read_only=True)
 
     class Meta:
         model = HistoricalEvents

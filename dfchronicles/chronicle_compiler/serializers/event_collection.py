@@ -3,6 +3,7 @@ from ..models import HistoricalEventCollections
 from .historical_event import HistoricalEventSerializer
 from .entity import EntitiesSerializer
 from .historical_figure import HistoricalFiguresSerializer
+from .occasion import OccasionsSerializer
 
 class EventCollectionsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,6 +22,7 @@ class EventCollectionSerializer(serializers.ModelSerializer):
     site_id = EntitiesSerializer(read_only=True)
     target_entity_id = EntitiesSerializer(read_only=True)
     event = HistoricalEventSerializer(read_only=True, many=True)
+    # occasion_id = OccasionsSerializer(read_only=True) LINK OCCASION IN MODELS
     # event_collection = EventCollectionSerializer(read_only=True, many=True)
     class Meta:
         model = HistoricalEventCollections

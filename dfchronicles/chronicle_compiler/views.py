@@ -107,6 +107,11 @@ class Worlds(APIView):
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Occasions':
+                    if 'object' in request.data:
+                        occasion = models.Occasion.objects.get(id=request.data['object'])
+                        serializer = OccasionSerializer(occasion)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     occasions = models.Occasion.objects.filter(world=world)
                     serializer = OccasionsSerializer(occasions, many=True)
                     json = JSONRenderer().render(serializer.data)

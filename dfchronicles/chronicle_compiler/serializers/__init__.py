@@ -6,7 +6,7 @@ from .historical_event import HistoricalEventsSerializer, HistoricalEventSeriali
 from .artifact import ArtifactsSerializer, ArtifactSerializer
 from .entity import EntitiesSerializer, EntitySerializer
 from .entity_population import EntityPopulationsSerializer
-from .occasion import OccasionsSerializer
+from .occasion import OccasionsSerializer, OccasionSerializer
 from .era import ErasSerializer
 from .event_collection import EventCollectionsSerializer, EventCollectionSerializer
 from .region import RegionsSerializer
@@ -16,3 +16,4 @@ from .landmass import LandmassesSerializer
 from .mountain_peak import MountainPeaksSerializer
 from .intrigue_plot import IntriguePlotsSerializer
 from .identity import IdentitySerializer
+from .schedule import SchedulesSerializer
