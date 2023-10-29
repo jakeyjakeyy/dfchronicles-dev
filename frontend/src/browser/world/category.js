@@ -17,40 +17,58 @@ function Category({category, id}) {
     const fetchObj = e => {
         async function fetchData() {
             function LoadObj(id, category, object) {
-            const token = localStorage.getItem("token");
-            return fetch("http://localhost:8000/api/worlds", {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                Authorization: `JWT ${token}`,
-                },
-                body: JSON.stringify({ request: "world", id: id, category: category, object: object }),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                if (data.message === "Invalid token" || data.code === "token_not_valid") {
-                    RefreshToken();
-                    LoadWorld(id);
-                } else {
-                    const world = JSON.parse(data);
-                    const cleanedWorld = removeEmpty(world);
-                    console.log(cleanedWorld);
-                    return cleanedWorld;
-                }
+                const token = localStorage.getItem("token");
+                return fetch("http://localhost:8000/api/worlds", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `JWT ${token}`,
+                  },
+                  body: JSON.stringify({ request: "world", id: id, category: category, object: object }),
                 })
-                .catch((err) => {
-                console.log(err);
-                });
-            }
-            LoadObj(id, category, e.target.id);
-        }
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.message === "Invalid token" || data.code === "token_not_valid") {
+                      RefreshToken();
+                      LoadWorld(id);
+                    } else {
+                      const world = JSON.parse(data);
+                      const cleanedWorld = removeEmpty(world);
+                      for (const key in cleanedWorld) {
+                        if (key === "event_collection") {
+                          const promises = cleanedWorld[key].map((event) => {
+                            return LoadObj(id, "Historical Event Collections", event);
+                          });
+                          return Promise.all(promises).then((eventCollections) => {
+                            cleanedWorld[key] = eventCollections;
+                            return cleanedWorld;
+                          });
+                        }
+                      }
+                      return cleanedWorld;
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            const cleanedWorld = await LoadObj(id, category, e.target.id);
+            console.log(cleanedWorld);
+            return cleanedWorld;
+          }
         fetchData();
     }
 
     function removeEmpty(obj) {
         for (const key in obj) {
           if (obj[key] === null || obj[key] === undefined) {
-            // Remove key if value is null or empty
+            // Remove key if value is null or undefined
+            delete obj[key];
+          } else if (Array.isArray(obj[key]) && obj[key].length === 0) {
+            // Remove key if value is an empty array
+            delete obj[key];
+          } else if (typeof obj[key] === "object" && Object.keys(obj[key]).length === 0) {
+            // Remove key if value is an empty object
             delete obj[key];
           } else if (typeof obj[key] === "object") {
             // Call for all nested objects
