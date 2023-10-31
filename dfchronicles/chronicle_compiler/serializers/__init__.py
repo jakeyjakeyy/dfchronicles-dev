@@ -17,3 +17,4 @@ from .mountain_peak import MountainPeaksSerializer
 from .intrigue_plot import IntriguePlotsSerializer
 from .identity import IdentitySerializer
 from .schedule import SchedulesSerializer
+from .written_content_reference import WrittenContentReferenceSerializer

@@ -206,4 +206,9 @@ class Worlds(APIView):
                     serializer = IntriguePlotsSerializer(plots, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
+                # case 'Written Content Reference':
+                #     ref = models.WrittenContentReference.objects.filter(world=world, id=request.data['object'])
+                #     serializer = WrittenContentReferenceSerializer(ref)
+                #     json = JSONRenderer().render(serializer.data)
+                #     return Response(json)
                     
