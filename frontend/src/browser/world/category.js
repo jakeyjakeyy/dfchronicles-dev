@@ -35,13 +35,22 @@ function Category({category, id}) {
                       const world = JSON.parse(data);
                       const cleanedWorld = removeEmpty(world);
                       for (const key in cleanedWorld) {
-                        if (key === "event_collection") {
+                        if (key === "event_collection" || key === "attack_hf_historical_event_collections") {
                           const promises = cleanedWorld[key].map((event) => {
                             return LoadObj(id, "Historical Event Collections", event);
                           });
-                          return Promise.all(promises).then((eventCollections) => {
+                          Promise.all(promises).then((eventCollections) => {
                             cleanedWorld[key] = eventCollections;
-                            return cleanedWorld;
+                            // return cleanedWorld;
+                          });
+                        }
+                        if (key === "hf_historical_events" || key === "target_hf_historical_events"){
+                          const promises = cleanedWorld[key].map((event) => {
+                            return LoadObj(id, "Historical Events", event);
+                          });
+                          Promise.all(promises).then((events) => {
+                            cleanedWorld[key] = events;
+                            // return cleanedWorld;
                           });
                         }
                       }

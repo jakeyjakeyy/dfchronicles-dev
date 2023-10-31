@@ -152,11 +152,21 @@ class Worlds(APIView):
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Regions':
+                    if "object" in request.data:
+                        region = models.Regions.objects.get(world=world, id=request.data['object'])
+                        serializer = RegionSerializer(region)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     regions = models.Regions.objects.filter(world=world)
                     serializer = RegionsSerializer(regions, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
                 case 'Sites':
+                    if "object" in request.data:
+                        site = models.Sites.objects.get(world=world, id=request.data['object'])
+                        serializer = SiteSerializer(site)
+                        json = JSONRenderer().render(serializer.data)
+                        return Response(json)
                     sites = models.Sites.objects.filter(world=world)
                     serializer = SitesSerializer(sites, many=True)
                     json = JSONRenderer().render(serializer.data)

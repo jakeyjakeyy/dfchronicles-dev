@@ -1,6 +1,6 @@
 from .world import WorldsSerializer, WorldSerializer
 from .historical_figure import HistoricalFiguresSerializer, HistoricalFigureSerializer
-from .site import SitesSerializer, StructuresSerializer
+from .site import SitesSerializer, StructuresSerializer, SiteSerializer
 from .written_content import WrittenContentsSerializer
 from .historical_event import HistoricalEventsSerializer, HistoricalEventSerializer
 from .artifact import ArtifactsSerializer, ArtifactSerializer
@@ -9,7 +9,7 @@ from .entity_population import EntityPopulationsSerializer
 from .occasion import OccasionsSerializer, OccasionSerializer
 from .era import ErasSerializer
 from .event_collection import EventCollectionsSerializer, EventCollectionSerializer
-from .region import RegionsSerializer
+from .region import RegionsSerializer, RegionSerializer
 from .underground_region import UndergroundRegionsSerializer
 from .world_construction import WorldConstructionsSerializer
 from .landmass import LandmassesSerializer
