@@ -76,3 +76,19 @@ Beautiful game, complicated data:
     
 could rewrite historical events into multiple data types based on content to minimize empty fields.
 Much of this (data entry) feels like a minimum viable product. there can be several improvements in speed and intricacy with more time and resources invested.
+
+
+SAMPLE:
+    In the annals of history, the Chronicles of the Fantasy Realm, another chapter unfolded, adding more pages to the tapestry of events. This tale, known as "The Searing War," brought conflict and conquest to the world, igniting the passions of both humans and goblins.
+
+As the ninth year dawned, two great civilizations clashed in a blaze of fury. On one side stood the "Confederacy of Directions," a human civilization known for their fierce determination and ambition. Their leader, General Ramul Shovedrasped, led the charge. Alongside him were brave souls like Unib Paintdreamed, a dwarf of unwavering spirit, and Aye Adorebrushed, an elf of ancient wisdom.
+
+The other side of this bitter conflict was "The Cruelty of Punches," a goblin civilization infamous for their relentless brutality. Their leader, General Ngokang Profanevandal, had a fearsome reputation. He was joined by goblin warriors like Snodub Profanetrap, Xuspgas Blackwheel, and Nguslu Basinfiends.
+
+The battleground for this epic struggle was the sinister site of "Frothflies," a dark pit filled with treacherous traps and hidden horrors. The forces clashed in a fierce battle, where lives were sacrificed, and the ground soaked with the blood of the fallen. When the dust settled, it was the humans who emerged victorious, the goblins defeated, and their dark pit conquered.
+
+But the story didn't end there. The "Confederacy of Directions" continued their march, their ambitions unquenched. As the year drew to a close, they set their sights on the "Cruelty of Punches," intent on plundering the goblin civilization. General Oddom Highhandle, a Moon Brute of unparalleled strength, led this daring expedition. With unyielding determination, they descended upon the goblin realm.
+
+As the final pages of the year turned, "Frothflies" witnessed yet another pivotal moment in this saga. The goblin civilization, once feared and relentless, now faced the relentless advance of the humans. In a turn of events, "The Cruelty of Punches" was conquered, its once-mighty forces brought to their knees.
+
+And so, "The Searing War" came to an end, leaving a trail of triumph, sacrifice, and the eternal echoes of conflict in the annals of history. The world of the fantasy realm continued to evolve, with each battle and conquest shaping its destiny, as recorded by the diligent archivists of this enchanting realm.
