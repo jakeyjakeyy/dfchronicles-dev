@@ -8,6 +8,10 @@ import logging
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.renderers import JSONRenderer
 from .serializers import *
+import openai
+import os
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 import xml.etree.ElementTree as ET
 
@@ -15,75 +19,81 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 
+
 class WhoAmI(APIView):
     authentication_classes = [JWTAuthentication]
+
     def get(self, request):
         user = request.user
         if user.is_authenticated:
-            return Response({'username': user.username})
+            return Response({"username": user.username})
         else:
-            return Response({'username': 'Guest'})
-        
+            return Response({"username": "Guest"})
+
+
 class ProcessXML(APIView):
     def post(self, request):
         # pull root files
-        legends = request.FILES['legends']
+        legends = request.FILES["legends"]
         legends_tree = ET.parse(legends)
         legends_root = legends_tree.getroot()
 
-        legendsplus = request.FILES['legendsplus']
+        legendsplus = request.FILES["legendsplus"]
         legendsplus_tree = ET.parse(legendsplus)
         legendsplus_root = legendsplus_tree.getroot()
-        
+
         # Get world from legends_plus and save to DB. This is our reference point.
         world = save.SaveWorld(legendsplus_root, request.user)
         # Get all data from legends and save to DB.
-        with open('log.txt', 'w') as log:
-            log.write('-----Saving legends.XML-----\n')
+        with open("log.txt", "w") as log:
+            log.write("-----Saving legends.XML-----\n")
         fkeys = save.SaveLegends(legends_root, world)
-        with open('log.txt', 'a') as log:
-            log.write('-----Saving legends_plus.XML-----\n')
+        with open("log.txt", "a") as log:
+            log.write("-----Saving legends_plus.XML-----\n")
         fkeysplus = save.SaveLegends(legendsplus_root, world)
 
         # Save all missing foreign keys
-        with open('log.txt', 'a') as log:
-            log.write('-----Saving missing foreign keys-----\n')
-        with open('timer.txt', 'a') as timer:
+        with open("log.txt", "a") as log:
+            log.write("-----Saving missing foreign keys-----\n")
+        with open("timer.txt", "a") as timer:
             start_time = time.perf_counter()
             link.link_fkeys(fkeys, world)
             end_time = time.perf_counter()
-            timer.write('Missing fkeys: ' + str(end_time - start_time) + '\n')
+            timer.write("Missing fkeys: " + str(end_time - start_time) + "\n")
             start_time = time.perf_counter()
             link.link_fkeys(fkeysplus, world)
             end_time = time.perf_counter()
-            timer.write('Missing fkeys plus: ' + str(end_time - start_time) + '\n')
+            timer.write("Missing fkeys plus: " + str(end_time - start_time) + "\n")
 
-        return Response({'message': 'Archive created'})
-    
+        return Response({"message": "Archive created"})
+
+
 class Worlds(APIView):
     authentication_classes = [JWTAuthentication]
 
     def post(self, request):
         user = request.user
         if not user.is_authenticated:
-            return Response({'message': 'Invalid token'})
-        
-        if request.data['request'] == 'worlds':
+            return Response({"message": "Invalid token"})
+
+        if request.data["request"] == "worlds":
             worlds = models.World.objects.filter(owner=user)
             serializer = WorldsSerializer(worlds, many=True)
             json = JSONRenderer().render(serializer.data)
             return Response(json)
-        elif request.data['request'] == 'world':
-            id = request.data['id']
+        elif request.data["request"] == "world":
+            id = request.data["id"]
             world = models.World.objects.get(id=id)
-            if 'category' not in request.data:
+            if "category" not in request.data:
                 serializer = WorldsSerializer(world)
                 json = JSONRenderer().render(serializer.data)
                 return Response(json)
-            match request.data['category']:
-                case 'Artifacts':
-                    if 'object' in request.data:
-                        artifact = models.Artifact.objects.get(world=world, id=request.data['object'])
+            match request.data["category"]:
+                case "Artifacts":
+                    if "object" in request.data:
+                        artifact = models.Artifact.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = ArtifactSerializer(artifact)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -91,9 +101,11 @@ class Worlds(APIView):
                     serializer = ArtifactsSerializer(artifacts, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Entities/Governments':
-                    if 'object' in request.data:
-                        entity = models.Entities.objects.get(world=world, id=request.data['object'])
+                case "Entities/Governments":
+                    if "object" in request.data:
+                        entity = models.Entities.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = EntitySerializer(entity)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -101,14 +113,16 @@ class Worlds(APIView):
                     serializer = EntitiesSerializer(entities, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Populations':
+                case "Populations":
                     populations = models.EntityPopulations.objects.filter(world=world)
                     serializer = EntityPopulationsSerializer(populations, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Occasions':
-                    if 'object' in request.data:
-                        occasion = models.Occasion.objects.get(id=request.data['object'])
+                case "Occasions":
+                    if "object" in request.data:
+                        occasion = models.Occasion.objects.get(
+                            id=request.data["object"]
+                        )
                         serializer = OccasionSerializer(occasion)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -116,24 +130,30 @@ class Worlds(APIView):
                     serializer = OccasionsSerializer(occasions, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Historical Eras':
+                case "Historical Eras":
                     eras = models.HistoricalEras.objects.filter(world=world)
                     serializer = ErasSerializer(eras, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Historical Event Collections':
-                    if 'object' in request.data:
-                        collection = models.HistoricalEventCollections.objects.get(world=world, id=request.data['object'])
+                case "Historical Event Collections":
+                    if "object" in request.data:
+                        collection = models.HistoricalEventCollections.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = EventCollectionSerializer(collection)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
-                    collections = models.HistoricalEventCollections.objects.filter(world=world)
+                    collections = models.HistoricalEventCollections.objects.filter(
+                        world=world
+                    )
                     serializer = EventCollectionsSerializer(collections, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Historical Events':
-                    if 'object' in request.data:
-                        event = models.HistoricalEvents.objects.get(world=world, id=request.data['object'])
+                case "Historical Events":
+                    if "object" in request.data:
+                        event = models.HistoricalEvents.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = HistoricalEventSerializer(event)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -141,9 +161,11 @@ class Worlds(APIView):
                     serializer = HistoricalEventsSerializer(events, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Historical Figures':
+                case "Historical Figures":
                     if "object" in request.data:
-                        figure = models.HistoricalFigures.objects.get(world=world, id=request.data['object'])
+                        figure = models.HistoricalFigures.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = HistoricalFigureSerializer(figure)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -151,9 +173,11 @@ class Worlds(APIView):
                     serializer = HistoricalFiguresSerializer(figures, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Regions':
+                case "Regions":
                     if "object" in request.data:
-                        region = models.Regions.objects.get(world=world, id=request.data['object'])
+                        region = models.Regions.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = RegionSerializer(region)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -161,9 +185,11 @@ class Worlds(APIView):
                     serializer = RegionsSerializer(regions, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Sites':
+                case "Sites":
                     if "object" in request.data:
-                        site = models.Sites.objects.get(world=world, id=request.data['object'])
+                        site = models.Sites.objects.get(
+                            world=world, id=request.data["object"]
+                        )
                         serializer = SiteSerializer(site)
                         json = JSONRenderer().render(serializer.data)
                         return Response(json)
@@ -171,37 +197,37 @@ class Worlds(APIView):
                     serializer = SitesSerializer(sites, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Structures':
+                case "Structures":
                     structures = models.Structures.objects.filter(world=world)
                     serializer = StructuresSerializer(structures, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Underground Regions':
+                case "Underground Regions":
                     regions = models.UndergroundRegions.objects.filter(world=world)
                     serializer = UndergroundRegionsSerializer(regions, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Written Contents':
+                case "Written Contents":
                     contents = models.WrittenContents.objects.filter(world=world)
                     serializer = WrittenContentsSerializer(contents, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'World Constructions':
+                case "World Constructions":
                     constructions = models.WorldConstruction.objects.filter(world=world)
                     serializer = WorldConstructionsSerializer(constructions, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Landmasses':
+                case "Landmasses":
                     landmasses = models.Landmass.objects.filter(world=world)
                     serializer = LandmassesSerializer(landmasses, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Mountain Peaks':
+                case "Mountain Peaks":
                     peaks = models.MountainPeak.objects.filter(world=world)
                     serializer = MountainPeaksSerializer(peaks, many=True)
                     json = JSONRenderer().render(serializer.data)
                     return Response(json)
-                case 'Plots':
+                case "Plots":
                     plots = models.IntriguePlot.objects.filter(world=world)
                     serializer = IntriguePlotsSerializer(plots, many=True)
                     json = JSONRenderer().render(serializer.data)
@@ -211,4 +237,16 @@ class Worlds(APIView):
                 #     serializer = WrittenContentReferenceSerializer(ref)
                 #     json = JSONRenderer().render(serializer.data)
                 #     return Response(json)
-                    
+        elif request.data["request"] == "generate":
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective.",
+                    },
+                    {"role": "user", "content": request.data["prompt"]},
+                ],
+            )
+            json = JSONRenderer().render(completion)
+            return Response(json)
