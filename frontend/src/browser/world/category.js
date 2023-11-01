@@ -3,6 +3,7 @@ import "./world.css";
 import LoadWorld from "../../utils/loadworld";
 import LoadObj from "../../utils/loadobject";
 import { useState, useEffect } from "react";
+import GetGen from "../../utils/getgen";
 
 function Category({ category, id }) {
   const [categoryData, setCategoryData] = useState([]);
@@ -16,9 +17,11 @@ function Category({ category, id }) {
 
   const fetchObj = (e) => {
     async function fetchData() {
-      const cleanedWorld = await LoadObj(id, category, e.target.id);
-      console.log(cleanedWorld);
-      return cleanedWorld;
+      const obj = await LoadObj(id, category, e.target.id);
+      console.log(obj);
+      // return obj;
+      const gen = GetGen(obj);
+      console.log(gen);
     }
     fetchData();
   };

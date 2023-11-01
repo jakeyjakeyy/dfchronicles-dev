@@ -92,3 +92,18 @@ But the story didn't end there. The "Confederacy of Directions" continued their 
 As the final pages of the year turned, "Frothflies" witnessed yet another pivotal moment in this saga. The goblin civilization, once feared and relentless, now faced the relentless advance of the humans. In a turn of events, "The Cruelty of Punches" was conquered, its once-mighty forces brought to their knees.
 
 And so, "The Searing War" came to an end, leaving a trail of triumph, sacrifice, and the eternal echoes of conflict in the annals of history. The world of the fantasy realm continued to evolve, with each battle and conquest shaping its destiny, as recorded by the diligent archivists of this enchanting realm.
+
+
+
+
+
+AI:
+Model	        Input	                Output
+
+3.5TURBO
+4K context	    $0.0015 / 1K tokens	    $0.002 / 1K tokens
+16K context	    $0.003 / 1K tokens	    $0.004 / 1K tokens
+
+GPT-4
+8K context	    $0.03 / 1K tokens	    $0.06 / 1K tokens
+32K context	    $0.06 / 1K tokens	    $0.12 / 1K tokens

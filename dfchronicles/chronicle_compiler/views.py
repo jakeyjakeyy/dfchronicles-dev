@@ -10,7 +10,9 @@ from rest_framework.renderers import JSONRenderer
 from .serializers import *
 import openai
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 import xml.etree.ElementTree as ET
@@ -237,7 +239,17 @@ class Worlds(APIView):
                 #     serializer = WrittenContentReferenceSerializer(ref)
                 #     json = JSONRenderer().render(serializer.data)
                 #     return Response(json)
-        elif request.data["request"] == "generate":
+
+
+class Generate(APIView):
+    authentication_classes = [JWTAuthentication]
+
+    def post(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            return Response({"message": "Invalid token"})
+
+        if request.data["request"] == "generate":
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
