@@ -3,12 +3,12 @@ import RefreshToken from "./refreshtoken";
 function LoadWorld(id, category) {
   const token = localStorage.getItem("token");
   return fetch("http://localhost:8000/api/worlds", {
-      method: "POST",
-      headers: {
+    method: "POST",
+    headers: {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`,
     },
-      body: JSON.stringify({ request: "world", id: id, category: category }),
+    body: JSON.stringify({ request: "world", id: id, category: category }),
   })
     .then((res) => res.json())
     .then((data) => {

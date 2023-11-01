@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import Navbar from './navbar/navbar';
-import UploadXMLForm from './browser/upload/uploadxmlform';
-import Browser from './browser/browser';
-import './App.css';
-
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import Navbar from "./navbar/navbar";
+import UploadXMLForm from "./browser/upload/uploadxmlform";
+import Browser from "./browser/browser";
+import "./App.css";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
