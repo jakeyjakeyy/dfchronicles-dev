@@ -20,9 +20,9 @@ function Category({ category, id }) {
       const obj = await LoadObj(id, category, e.target.id);
       console.log(obj);
       // return obj;
-      const objjson = JSON.stringify(obj);
-      const gen = GetGen(objjson);
-      console.log(gen);
+      // const objjson = JSON.stringify(obj);
+      // const gen = GetGen(objjson);
+      // console.log(gen);
     }
     fetchData();
   };

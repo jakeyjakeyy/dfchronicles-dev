@@ -255,10 +255,13 @@ class Generate(APIView):
                 messages=[
                     {
                         "role": "system",
-                        "content": "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective.",
+                        # "content": "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective.",
+                        "content": 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details and unexpected twists to captivate the reader. The story should be written in the third person, taking readers on a journey through this extraordinary realm.',
                     },
                     {"role": "user", "content": request.data["prompt"]},
                 ],
+                temperature=0.7,
+                top_p=0.8,
             )
             json = JSONRenderer().render(completion)
             return Response(json)
