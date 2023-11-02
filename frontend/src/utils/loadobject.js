@@ -3,7 +3,7 @@ import RefreshToken from "./refreshtoken";
 
 function removeEmpty(obj) {
   for (const key in obj) {
-    if (obj[key] === null || obj[key] === undefined) {
+    if (obj[key] === null || obj[key] === undefined || obj[key] === 0) {
       // Remove key if value is null or undefined
       delete obj[key];
     } else if (Array.isArray(obj[key]) && obj[key].length === 0) {
