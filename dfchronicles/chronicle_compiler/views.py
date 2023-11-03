@@ -11,7 +11,7 @@ from .serializers import *
 import openai
 import os
 from dotenv import load_dotenv
-import json
+import tiktoken
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -244,7 +244,7 @@ class Worlds(APIView):
 
 class Generate(APIView):
     authentication_classes = [JWTAuthentication]
-    prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details and unexpected twists to captivate the reader. The story should be written in the third person, taking readers on a journey through this extraordinary realm. If an object has two names, the second name is in Dwarvish language. If an event has "target_hfid" or similar, the outcome of the event applies to the target. The significance of each event ranges from altering the history of the world to being a mundane moment in a larger story.'
+    prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details that may not explicitly be provided to you, in order to captivate the reader. The story should take readers on a journey through this extraordinary realm. If an object has two names, the second name is in Dwarvish language. If an event has "target_hfid" or similar, the outcome of the event applies to the target.'
     # "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective."
 
     def post(self, request):
@@ -253,6 +253,9 @@ class Generate(APIView):
             return Response({"message": "Invalid token"})
 
         if request.data["request"] == "generate":
+            enc = tiktoken.encoding_for_model("gpt-3.5-turbo")
+            if len(enc.encode(request.data["prompt"])) > 3000:
+                return Response({"message": "Prompt too long"})
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -268,7 +271,7 @@ class Generate(APIView):
             
             # Save Generation to databse
             gen = models.Generations.objects.create(
-                user=user, prompt=self.prompt, response=completion
+                user=user, object=request.data["prompt"], prompt=self.prompt, response=completion
             )
             gen.save()
             
