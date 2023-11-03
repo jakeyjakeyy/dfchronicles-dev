@@ -1278,6 +1278,5 @@ class MountainPeak(models.Model):
 
 class Generations(models.Model):
     user = models.ForeignKey(User, related_name='generations', null=True, on_delete=models.SET_NULL)
-    object = models.CharField()
     prompt = models.CharField()
     response = models.CharField()

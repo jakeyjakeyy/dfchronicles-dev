@@ -253,8 +253,6 @@ class Generate(APIView):
             return Response({"message": "Invalid token"})
 
         if request.data["request"] == "generate":
-            prompt_dict = json.loads(request.data["prompt"])
-            id = prompt_dict["id"]
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -270,7 +268,7 @@ class Generate(APIView):
             
             # Save Generation to databse
             gen = models.Generations.objects.create(
-                user=user, object=id, prompt=self.prompt, response=completion
+                user=user, prompt=self.prompt, response=completion
             )
             gen.save()
             
