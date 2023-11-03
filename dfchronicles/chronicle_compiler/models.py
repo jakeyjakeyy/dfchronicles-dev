@@ -1274,3 +1274,10 @@ class MountainPeak(models.Model):
     coords = models.CharField(null=True)
     height = models.IntegerField(null=True)
     volcano = models.BooleanField(null=True, default=False)
+
+
+class Generations(models.Model):
+    user = models.ForeignKey(User, related_name='generations', null=True, on_delete=models.SET_NULL)
+    object = models.CharField()
+    prompt = models.CharField()
+    response = models.CharField()

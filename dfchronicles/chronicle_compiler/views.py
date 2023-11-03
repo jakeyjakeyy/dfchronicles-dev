@@ -11,6 +11,7 @@ from .serializers import *
 import openai
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -243,6 +244,8 @@ class Worlds(APIView):
 
 class Generate(APIView):
     authentication_classes = [JWTAuthentication]
+    prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details and unexpected twists to captivate the reader. The story should be written in the third person, taking readers on a journey through this extraordinary realm. If an object has two names, the second name is in Dwarvish language. If an event has "target_hfid" or similar, the outcome of the event applies to the target. The significance of each event ranges from altering the history of the world to being a mundane moment in a larger story.'
+    # "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective."
 
     def post(self, request):
         user = request.user
@@ -250,18 +253,27 @@ class Generate(APIView):
             return Response({"message": "Invalid token"})
 
         if request.data["request"] == "generate":
+            prompt_dict = json.loads(request.data["prompt"])
+            id = prompt_dict["id"]
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                     {
                         "role": "system",
-                        # "content": "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective.",
-                        "content": 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details and unexpected twists to captivate the reader. The story should be written in the third person, taking readers on a journey through this extraordinary realm.',
+                        "content": self.prompt,
                     },
                     {"role": "user", "content": request.data["prompt"]},
                 ],
                 temperature=0.7,
                 top_p=0.8,
             )
-            json = JSONRenderer().render(completion)
-            return Response(json)
+            
+            # Save Generation to databse
+            gen = models.Generations.objects.create(
+                user=user, object=id, prompt=self.prompt, response=completion
+            )
+            gen.save()
+            
+            response = completion["choices"][0]["message"]["content"]
+            jsonres = JSONRenderer().render(response)
+            return Response(jsonres)

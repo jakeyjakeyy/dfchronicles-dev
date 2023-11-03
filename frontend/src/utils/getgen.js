@@ -2,6 +2,7 @@ import RefreshToken from "./refreshtoken";
 
 function GetGen(object) {
   const token = localStorage.getItem("token");
+  const jsonobject = JSON.stringify(object);
   return fetch("http://localhost:8000/api/generate", {
     method: "POST",
     headers: {
@@ -10,7 +11,7 @@ function GetGen(object) {
     },
     body: JSON.stringify({
       request: "generate",
-      prompt: object,
+      prompt: jsonobject,
     }),
   })
     .then((res) => res.json())

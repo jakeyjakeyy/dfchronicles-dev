@@ -192,3 +192,9 @@ class CreatureRaw(models.Model):
     name = models.CharField(max_length=100)
     name_singular = models.CharField(max_length=100, null=True)
     name_plural = models.CharField(max_length=100, null=True)
+    
+class Generations(models.Model):
+    user = models.ForeignKey('User', related_name='generations', null=True)
+    object = models.CharField()
+    prompt = models.CharField()
+    response = models.CharField()
