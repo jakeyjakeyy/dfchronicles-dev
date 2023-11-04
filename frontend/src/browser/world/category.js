@@ -45,9 +45,6 @@ function Category({ category, id }) {
   } else {
     return (
       <div className="Category">
-        <div className="CategoryTitle">
-          <h3>{category}</h3>
-        </div>
         <ul className="CategoryList">
           {categoryData.map((data) => (
             <li

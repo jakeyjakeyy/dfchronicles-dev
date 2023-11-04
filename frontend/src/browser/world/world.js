@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 function World({ id, onSetId, onAppSelect }) {
   const [world, setWorld] = useState([]);
   const [category, setCategory] = useState("World");
+  const [categoryname, setCategoryName] = useState();
   useEffect(() => {
     async function fetchData() {
       const world = await LoadWorld(id);
@@ -24,6 +25,7 @@ function World({ id, onSetId, onAppSelect }) {
   };
 
   const handleCategory = (e) => {
+    setCategoryName(e.target.innerHTML);
     setCategory(e.target.innerHTML);
   };
 
@@ -62,6 +64,7 @@ function World({ id, onSetId, onAppSelect }) {
         <h3>{world.name2}</h3>
         <h4>{world.name}</h4>
         <button onClick={handleClick}>Back</button>
+        <h3>{categoryname}</h3>
       </div>
       {category === "World" && (
         <ul className="CategoriesList">
