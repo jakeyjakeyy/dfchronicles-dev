@@ -8,9 +8,8 @@ function Object({ object }) {
   useEffect(() => {
     async function fetchData() {
       if (object.length !== 0) {
-        console.log("called");
-        const response = await GetGen(object);
-        //   const response = "test";
+        // const response = await GetGen(object);
+        const response = "test";
         setResponse(response);
       }
     }
@@ -21,6 +20,12 @@ function Object({ object }) {
     return (
       <div className="Object">
         <h3>Loading...</h3>
+      </div>
+    );
+  } else if (response.message) {
+    return (
+      <div className="Object">
+        <h3>{response.message}</h3>
       </div>
     );
   } else {

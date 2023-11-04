@@ -20,8 +20,9 @@ function GetGen(object) {
         RefreshToken();
         return GetGen(object);
       } else {
-        const gen = JSON.parse(data);
-        return gen;
+        // const gen = JSON.parse(data);
+        // return gen;
+        return data;
       }
     })
     .catch((err) => {

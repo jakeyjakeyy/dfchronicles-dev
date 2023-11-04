@@ -31,7 +31,7 @@ function World({ id, onSetId, onAppSelect }) {
 
   if (!world) {
     return (
-      <div className="World">
+      <div className="Category">
         <h1>Loading...</h1>
       </div>
     );

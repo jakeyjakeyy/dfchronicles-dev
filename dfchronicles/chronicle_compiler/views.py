@@ -246,7 +246,7 @@ class Generate(APIView):
     authentication_classes = [JWTAuthentication]
     # prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", where the world adheres steadfastly to its rules and constraints, imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details that may not explicitly be provided to you, in order to captivate the reader. The story should take readers on a journey through this extraordinary realm. If an object has two names, the second name is in Dwarvish language. If an event has "target_hfid" or similar, the outcome of the event applies to the target.'
     # prompt = "Imagine yourself as a skilled archivist in the unique world of 'Dwarf Fortress'. Your mission is to create an engaging narrative that captures the essence of this extraordinary world. While staying true to the established facts, add vivid details to captivate the reader. Take your readers on a journey through this realm, and make the story come alive. If an object has two names, include the second Dwarvish name. If an event involves 'target_hfid' or similar terms, ensure that the outcome is applied to the target."
-    prompt = "Imagine yourself as a skilled archivist in the unique world of 'Dwarf Fortress,' a realm where the rules and constraints shape everything. Your mission is to create an engaging narrative that captures the essence of this extraordinary world, including its deities, necromancers, great beasts, and other fantastical elements. However, unless otherwise specified, assume that any named figure has no otherworldly powers. While staying true to the established facts, add vivid details to captivate the reader. Take your readers on a journey through this realm, and make the story come alive. If an object has two names, include the second Dwarvish name. If an event involves a 'target_', ensure that 'type' is applied to the target."
+    prompt = "Imagine yourself as a skilled archivist in the unique setting of Dwarf Fortress a realm where the rules and constraints shape everything. Your mission is to create an engaging narrative that captures the essence of this extraordinary world. While staying true to the established facts, add vivid details to captivate the reader. Take your readers on a journey through this realm, and make the story come alive. If an object has two names, include the second Dwarvish name."
     # "Act like an archivist from a fantasy realm who is chronicling events and the history of your world to provide an exciting recount of the information provided. Write a detailed story based on the information provided. Fill in details to make the story interesting while maintaining the overall facts provided. Write the story from a third person perspective."
 
     def post(self, request):
@@ -257,7 +257,7 @@ class Generate(APIView):
         if request.data["request"] == "generate":
             enc = tiktoken.encoding_for_model("gpt-3.5-turbo")
             if len(enc.encode(request.data["prompt"])) > 3000:
-                return Response({"message": "Prompt too long"})
+                return Response({"message": f"Prompt too long {len(enc.encode(request.data['prompt']))} of 3000 tokens"})
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
