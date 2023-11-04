@@ -3,6 +3,7 @@ import "./world.css";
 import LoadWorld from "../../utils/loadworld";
 import Category from "./category";
 import { useState, useEffect } from "react";
+import ListItem from "../listitem";
 
 function World({ id, onSetId, onAppSelect }) {
   const [world, setWorld] = useState([]);
@@ -21,12 +22,13 @@ function World({ id, onSetId, onAppSelect }) {
       onAppSelect("Worlds");
     } else {
       setCategory("World");
+      setCategoryName();
     }
   };
 
   const handleCategory = (e) => {
-    setCategoryName(e.target.innerHTML);
-    setCategory(e.target.innerHTML);
+    setCategoryName(e.target.id);
+    setCategory(e.target.id);
   };
 
   if (!world) {
@@ -67,13 +69,18 @@ function World({ id, onSetId, onAppSelect }) {
         <h3>{categoryname}</h3>
       </div>
       {category === "World" && (
-        <ul className="CategoriesList">
+        // <ul className="CategoriesList">
+        //   {categories.map((category, index) => (
+        //     <li key={index} onClick={handleCategory}>
+        //       {category}
+        //     </li>
+        //   ))}
+        // </ul>
+        <div className="ListItemsCategories">
           {categories.map((category, index) => (
-            <li key={index} onClick={handleCategory}>
-              {category}
-            </li>
+            <ListItem id={category} name={category} onClick={handleCategory} />
           ))}
-        </ul>
+        </div>
       )}
       {category !== "World" && <Category category={category} id={id} />}
     </div>

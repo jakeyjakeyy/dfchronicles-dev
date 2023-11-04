@@ -1,0 +1,29 @@
+.ListItems {
+  margin-top: 1rem;
+}
+.ListItemsCategories {
+  margin-top: 6rem;
+}
+
+.ListItem {
+  border: 1px solid #e0e0e0;
+  width: 100%;
+}
+.ListItem:hover {
+  border: 1px solid #4a97ac;
+  cursor: pointer;
+}
+
+.ListItemName {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.ListItemName2 {
+  font-size: 1.1rem;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}

@@ -3,6 +3,10 @@
   transform: translateX(10px);
 } */
 
+.World {
+  width: 50vw;
+}
+
 .WorldHeader {
   position: fixed;
   padding-top: 1rem;
