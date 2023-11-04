@@ -63,6 +63,8 @@ def save_historical_event(event, world):
             if int(child.text) != -1:
                 target_hfid = child.text
         elif tag == 'type':
+            if child.text == 'hf died':
+                type = 'target died'
             type = child.text
         elif tag == 'year':
             year = child.text

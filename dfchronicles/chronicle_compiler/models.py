@@ -236,7 +236,7 @@ class HistoricalEventCollections(models.Model):
     attacking_hfid = models.ManyToManyField(
         "HistoricalFigures", related_name="attack_hf_historical_event_collections"
     )
-    attacking_squad_animated = models.BooleanField(null=True, default=False)
+    attacking_squad_is_undead = models.BooleanField(null=True, default=False)
     attacking_squad_deaths = models.IntegerField(null=True)
     attacking_squad_number = models.IntegerField(null=True)
     attacking_squad_race = models.CharField(max_length=1000, null=True)
@@ -255,7 +255,7 @@ class HistoricalEventCollections(models.Model):
     defending_hfid = models.ManyToManyField(
         "HistoricalFigures", related_name="defend_hf_historical_event_collections"
     )
-    defending_squad_animated = models.BooleanField(null=True, default=False)
+    defending_squad_is_undead = models.BooleanField(null=True, default=False)
     defending_squad_deaths = models.IntegerField(null=True)
     defending_squad_number = models.IntegerField(null=True)
     defending_squad_race = models.CharField(max_length=1000, null=True)
