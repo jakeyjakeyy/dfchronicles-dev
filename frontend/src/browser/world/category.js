@@ -5,7 +5,7 @@ import LoadObj from "../../utils/loadobject";
 import { useState, useEffect } from "react";
 import Object from "./object";
 
-function Category({ category, id }) {
+function Category({ category, id, setcategoryname }) {
   const [categoryData, setCategoryData] = useState([]);
   const [app, setApp] = useState("Category");
   const [genobject, setGenObject] = useState([]);
@@ -25,6 +25,7 @@ function Category({ category, id }) {
       setGenObject(JSON.stringify(obj));
     }
     fetchData();
+    setcategoryname(e.target.id);
     setApp("Object");
   };
 

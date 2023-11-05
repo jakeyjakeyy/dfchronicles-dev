@@ -9,36 +9,6 @@ function World({ id, onSetId, onAppSelect }) {
   const [world, setWorld] = useState([]);
   const [category, setCategory] = useState("World");
   const [categoryname, setCategoryName] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const world = await LoadWorld(id);
-      setWorld(world);
-    }
-    fetchData();
-  }, [id]);
-  const handleClick = () => {
-    if (category === "World") {
-      onSetId(null);
-      onAppSelect("Worlds");
-    } else {
-      setCategory("World");
-      setCategoryName();
-    }
-  };
-
-  const handleCategory = (e) => {
-    setCategoryName(e.target.id);
-    setCategory(e.target.id);
-  };
-
-  if (!world) {
-    return (
-      <div className="Category">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
-
   const categories = [
     "Artifacts",
     "Entities/Governments",
@@ -59,6 +29,37 @@ function World({ id, onSetId, onAppSelect }) {
     "Plots",
   ];
   // add dieties to categories
+  useEffect(() => {
+    async function fetchData() {
+      const world = await LoadWorld(id);
+      setWorld(world);
+    }
+    fetchData();
+  }, [id]);
+  const handleClick = () => {
+    console.log(category);
+    console.log(categoryname);
+    if (category === "World") {
+      onSetId(null);
+      onAppSelect("Worlds");
+    } else if (category && categories.includes(category)) {
+      setCategory("World");
+      setCategoryName();
+    }
+  };
+
+  const handleCategory = (e) => {
+    setCategoryName(e.target.id);
+    setCategory(e.target.id);
+  };
+
+  if (!world) {
+    return (
+      <div className="Category">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="World">
@@ -82,7 +83,13 @@ function World({ id, onSetId, onAppSelect }) {
           ))}
         </div>
       )}
-      {category !== "World" && <Category category={category} id={id} />}
+      {category !== "World" && (
+        <Category
+          category={category}
+          id={id}
+          setcategoryname={setCategoryName}
+        />
+      )}
     </div>
   );
 }
