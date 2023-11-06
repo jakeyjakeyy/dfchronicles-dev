@@ -8,8 +8,8 @@ function Object({ object }) {
   useEffect(() => {
     async function fetchData() {
       if (object.length !== 0) {
-        // const response = await GetGen(object);
-        const response = "test";
+        const response = await GetGen(object);
+        // const response = "test";
         setResponse(response);
       }
     }
