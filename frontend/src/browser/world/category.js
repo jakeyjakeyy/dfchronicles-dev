@@ -47,14 +47,22 @@ function Category({ category, id, setcategoryname }) {
   } else {
     return (
       <div className="Category">
-        {categoryData.map((data) => (
-          <ListItem
-            name2={data.name ? data.name : "Unnamed Event"}
-            id={data.id}
-            onClick={fetchObj}
-            name={data.type ? data.type : data.name}
-          />
-        ))}
+        {categoryData
+          .filter(
+            (data) =>
+              data.type !== "add hf entity link" &&
+              data.type !== "remove hf entity link" &&
+              data.type !== "add hf site link" &&
+              data.type !== "change hf state"
+          )
+          .map((data) => (
+            <ListItem
+              name2={data.name ? data.name : "Unnamed Event"}
+              id={data.id}
+              onClick={fetchObj}
+              name={data.type ? data.type : data.name}
+            />
+          ))}
         )
       </div>
     );

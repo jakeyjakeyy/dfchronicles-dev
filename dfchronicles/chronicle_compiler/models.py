@@ -1281,3 +1281,4 @@ class Generations(models.Model):
     object = models.CharField()
     prompt = models.CharField()
     response = models.CharField()
+    time = models.DateTimeField(auto_now_add=True)

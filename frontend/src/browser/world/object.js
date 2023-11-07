@@ -31,7 +31,7 @@ function Object({ object }) {
   } else {
     return (
       <div className="Object">
-        <h3>{response}</h3>
+        <h3>{response.generation}</h3>
       </div>
     );
   }
