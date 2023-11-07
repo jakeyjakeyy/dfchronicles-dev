@@ -8,26 +8,17 @@ import ListItem from "../listitem";
 
 function Category({ category, id, setcategoryname }) {
   const [categoryData, setCategoryData] = useState([]);
-  const [app, setApp] = useState("Category");
+  const [app, setApp] = useState("Loading");
   const [genobject, setGenObject] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredData = categoryData.filter((data) => {
-    if (data.type) {
-      data.type.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (data.name) {
-      data.name.toLowerCase().includes(searchTerm.toLowerCase());
-    } else {
-      return null;
-    }
-  });
 
   useEffect(() => {
     async function fetchData() {
       const loadeddata = await LoadWorld(id, category);
       setCategoryData(loadeddata);
     }
-    fetchData();
+    fetchData().then(() => {
+      setApp("Categories");
+    });
   }, [id]);
 
   const fetchObj = (e) => {
@@ -42,21 +33,41 @@ function Category({ category, id, setcategoryname }) {
     setApp("Object");
   };
 
-  if (!categoryData || categoryData.length === 0) {
+  const getCategories = (e) => {
+    return true;
+  };
+
+  if (app === "Loading") {
     return (
       <div className="Category">
         <h3>Loading...</h3>
       </div>
     );
-  }
-
-  if (app === "Object") {
+  } else if (app === "Object") {
     return (
       <div className="Category">
         <Object object={genobject} />
       </div>
     );
-  } else {
+  } else if (app === "Categories") {
+    // count each category type
+    var catCount = {};
+    categoryData.forEach((data) => {
+      if (catCount[data.type]) {
+        catCount[data.type] += 1;
+      } else {
+        catCount[data.type] = 1;
+      }
+    });
+    console.log(catCount);
+    return (
+      <div className="Category">
+        {window.Object.entries(catCount).map(([key, value]) => (
+          <ListItem name={key} name2={value} onClick={getCategories} />
+        ))}
+      </div>
+    );
+  } else if (app === "Category") {
     return (
       <div className="Category">
         {/* <input
