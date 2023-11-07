@@ -66,7 +66,9 @@ function World({ id, onSetId, onAppSelect }) {
       <div className="WorldHeader">
         <h3>{world.name2}</h3>
         <h4>{world.name}</h4>
-        <button onClick={handleClick}>Back</button>
+        <div className="BackButton" onClick={handleClick}>
+          Back
+        </div>
         <h3>{categoryname}</h3>
       </div>
       {category === "World" && (

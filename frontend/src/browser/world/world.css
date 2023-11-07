@@ -15,6 +15,18 @@
   background-color: #282c34;
 }
 
+.BackButton {
+  width: fit-content;
+  font-size: 14px;
+  margin-top: 0.2rem;
+  padding: 0.2rem;
+  border: 1px solid #b0b6c2;
+  cursor: pointer;
+}
+.BackButton:hover {
+  border: 1px solid #4a97ac;
+}
+
 .CategoriesList {
   margin-top: 120px;
 }
