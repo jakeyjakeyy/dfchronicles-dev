@@ -1,0 +1,21 @@
+/* :root {
+  --text: #fcfcfd;
+  --background: #050505;
+  --primary: #918d8d;
+  --secondary: #252627;
+  --accent: #8a8f8a;
+} */
+
+:root {
+  /* --text: #fbf5ee;
+  --background: #161009;
+  --primary: #d8bc9d;
+  --secondary: #21180d;
+  --accent: #b38147; */
+
+  --text: #fbf5ee;
+  --background: #000000;
+  --primary: #1f3247;
+  --secondary: #2b1f13;
+  --accent: #5581b4;
+}

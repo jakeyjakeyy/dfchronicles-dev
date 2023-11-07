@@ -1,28 +1,38 @@
+@import "../root.css";
+
 .Nav {
   position: fixed;
   display: flex;
   flex-direction: column;
   width: 100px;
+  height: 100%;
   align-items: center;
   padding: 1rem;
-  border-right: 1px solid #e0e0e0;
+  /* border-right: 1px solid var(--accent); */
   font-size: 1.3rem;
+}
+.Nav-Border {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  background-color: var(--accent);
 }
 
 .NavItem,
 .Login,
 .Username {
   margin-bottom: 1rem;
-  color: #e0e0e0;
+  color: var(--text);
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
 .NavItem:hover,
 .Username:hover {
-  color: #4a97ac;
+  color: var(--primary);
 }
 .Login:hover {
-  color: #e99393;
+  color: var(--accent);
 }
 
 @media (max-width: 767px) {
@@ -31,15 +41,15 @@
     width: 100%;
     height: 10%;
     border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--accent);
     padding: 0;
     z-index: 1;
-    background-color: #282c34;
+    background-color: var(--background);
   }
   .NavItem {
     margin-right: 1rem;
     margin-bottom: 0;
-    color: #e0e0e0;
+    color: var(--text);
     cursor: pointer;
   }
 }

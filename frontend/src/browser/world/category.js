@@ -10,10 +10,22 @@ function Category({ category, id, setcategoryname }) {
   const [categoryData, setCategoryData] = useState([]);
   const [app, setApp] = useState("Category");
   const [genobject, setGenObject] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredData = categoryData.filter((data) => {
+    if (data.type) {
+      data.type.toLowerCase().includes(searchTerm.toLowerCase());
+    } else if (data.name) {
+      data.name.toLowerCase().includes(searchTerm.toLowerCase());
+    } else {
+      return null;
+    }
+  });
+
   useEffect(() => {
     async function fetchData() {
-      const categoryData = await LoadWorld(id, category);
-      setCategoryData(categoryData);
+      const loadeddata = await LoadWorld(id, category);
+      setCategoryData(loadeddata);
     }
     fetchData();
   }, [id]);
@@ -47,6 +59,12 @@ function Category({ category, id, setcategoryname }) {
   } else {
     return (
       <div className="Category">
+        {/* <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        /> */}
         {categoryData
           .filter(
             (data) =>

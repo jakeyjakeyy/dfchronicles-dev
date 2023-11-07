@@ -1,3 +1,5 @@
+@import "../root.css";
+
 .ListItems {
   margin-top: 1rem;
 }
@@ -6,11 +8,11 @@
 }
 
 .ListItem {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--secondary);
   width: 100%;
 }
 .ListItem:hover {
-  border: 1px solid #4a97ac;
+  border: 1px solid var(--primary);
   cursor: pointer;
 }
 

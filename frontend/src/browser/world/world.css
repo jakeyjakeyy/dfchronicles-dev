@@ -1,7 +1,4 @@
-/* .World {
-  position: fixed;
-  transform: translateX(10px);
-} */
+@import "../../root.css";
 
 .World {
   width: 50vw;
@@ -12,7 +9,7 @@
   padding-top: 1rem;
   padding-bottom: 0.6rem;
   width: 100%;
-  background-color: #282c34;
+  background-color: var(--background);
 }
 
 .BackButton {
@@ -20,11 +17,11 @@
   font-size: 14px;
   margin-top: 0.2rem;
   padding: 0.2rem;
-  border: 1px solid #b0b6c2;
+  border: 1px solid var(--primary);
   cursor: pointer;
 }
 .BackButton:hover {
-  border: 1px solid #4a97ac;
+  border: 1px solid var(--accent);
 }
 
 .CategoriesList {
@@ -34,7 +31,7 @@
 .CategoryTitle {
   position: fixed;
   width: 100%;
-  background-color: #282c34;
+  background-color: var(--background);
   padding-bottom: 5px;
 }
 
@@ -44,6 +41,10 @@
 }
 
 .CategoryList {
+  margin-top: 100px;
+}
+
+.Object {
   margin-top: 100px;
 }
 
