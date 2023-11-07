@@ -14,7 +14,11 @@ function Browser({ app, onAppSelect }) {
 
   return (
     <div className="Browser">
-      {app === "Home" && <h1>Home</h1>}
+      {app === "Home" && (
+        <div>
+          <h1>Home</h1> <div>add new gens here</div>
+        </div>
+      )}
       {app === "Upload" && <UploadXMLForm />}
       {app === "Worlds" && (
         <Worlds onAppSelect={onAppSelect} onSetId={handleSelectId} />
