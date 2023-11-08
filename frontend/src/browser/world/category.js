@@ -61,6 +61,7 @@ function Category({ category, id, setcategoryname }) {
         catCount[data.type] = 1;
       }
     });
+    console.log(catCount);
     if (window.Object.keys(catCount).length === 1) {
       setApp("Category");
     }
@@ -72,8 +73,15 @@ function Category({ category, id, setcategoryname }) {
       </div>
     );
   } else if (app === "Category") {
-    console.log(window.Object.keys(catCount).length);
-    if (window.Object.keys(catCount).length > 1) {
+    console.log(category);
+    if (
+      category == "Historical Events" ||
+      category == "Historical Event Collections" ||
+      category == "Entities/Governments" ||
+      category == "Sites" ||
+      category == "Structures" ||
+      category == "Underground Regions"
+    ) {
       return (
         <div className="Category">
           {categoryData
