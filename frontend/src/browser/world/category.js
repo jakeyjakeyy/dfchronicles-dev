@@ -10,6 +10,8 @@ function Category({ category, id, setcategoryname }) {
   const [categoryData, setCategoryData] = useState([]);
   const [app, setApp] = useState("Loading");
   const [genobject, setGenObject] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
+  var catCount = {};
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +36,8 @@ function Category({ category, id, setcategoryname }) {
   };
 
   const getCategories = (e) => {
-    return true;
+    setApp("Category");
+    setCategoryName(e.target.id);
   };
 
   if (app === "Loading") {
@@ -51,7 +54,6 @@ function Category({ category, id, setcategoryname }) {
     );
   } else if (app === "Categories") {
     // count each category type
-    var catCount = {};
     categoryData.forEach((data) => {
       if (catCount[data.type]) {
         catCount[data.type] += 1;
@@ -59,42 +61,54 @@ function Category({ category, id, setcategoryname }) {
         catCount[data.type] = 1;
       }
     });
-    console.log(catCount);
+    if (window.Object.keys(catCount).length === 1) {
+      setApp("Category");
+    }
     return (
       <div className="Category">
         {window.Object.entries(catCount).map(([key, value]) => (
-          <ListItem name={key} name2={value} onClick={getCategories} />
+          <ListItem name={key} name2={value} id={key} onClick={getCategories} />
         ))}
       </div>
     );
   } else if (app === "Category") {
-    return (
-      <div className="Category">
-        {/* <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        /> */}
-        {categoryData
-          .filter(
-            (data) =>
-              data.type !== "add hf entity link" &&
-              data.type !== "remove hf entity link" &&
-              data.type !== "add hf site link" &&
-              data.type !== "change hf state"
-          )
-          .map((data) => (
+    console.log(window.Object.keys(catCount).length);
+    if (window.Object.keys(catCount).length > 1) {
+      return (
+        <div className="Category">
+          {categoryData
+            .filter(
+              (data) =>
+                // data.type !== "add hf entity link" &&
+                // data.type !== "remove hf entity link" &&
+                // data.type !== "add hf site link" &&
+                // data.type !== "change hf state"
+                data.type === categoryName
+            )
+            .map((data) => (
+              <ListItem
+                name={data.name ? data.name : "Unnamed Event"}
+                id={data.id}
+                onClick={fetchObj}
+                name2={data.type ? data.type : data.name}
+              />
+            ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className="Category">
+          {categoryData.map((data) => (
             <ListItem
-              name2={data.name ? data.name : "Unnamed Event"}
+              name={data.name ? data.name : "Unnamed Event"}
               id={data.id}
               onClick={fetchObj}
-              name={data.type ? data.type : data.name}
+              name2={data.type ? data.type : data.name}
             />
           ))}
-        )
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 

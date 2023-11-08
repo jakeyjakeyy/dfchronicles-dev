@@ -30,8 +30,8 @@ function Object({ object }) {
     );
   } else {
     return (
-      <div className="Object">
-        <h3>{response.generation}</h3>
+      <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
+        {response.generation}
       </div>
     );
   }
