@@ -342,7 +342,7 @@ class HistoricalEvents(models.Model):
         null=True,
         on_delete=models.SET_NULL,
     )
-    hf_id = models.ForeignKey(
+    perpetrator_hfid = models.ForeignKey(
         "HistoricalFigures",
         related_name="hf_historical_events",
         null=True,
