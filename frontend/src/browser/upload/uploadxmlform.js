@@ -1,32 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import XMLParser from "react-xml-parser";
 
-function UploadXMLForm() {
-    const [legends, setlegends] = useState(null);
-    const [legendsplus, setlegendsplus] = useState(null);
+function UploadXMLForm({ setWorldXML, worldXML }) {
+  const [legends, setLegends] = useState(null);
+  const [legendsplus, setLegendsPlus] = useState(null);
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('legends', legends);
-        formData.append('legendsplus', legendsplus);
+    const reader1 = new FileReader();
+    const reader2 = new FileReader();
 
-        try {
-            await axios.post('http://localhost:8000/api/process-xml', formData);
-            alert('XML files processed and data stored.');
-        } catch (error) {
-            console.error('Error processing XML files:', error);
-        }
+    reader1.onload = function (event) {
+      const xml1 = new XMLParser().parseFromString(event.target.result);
+      reader2.onload = function (event) {
+        const xml2 = new XMLParser().parseFromString(event.target.result);
+        setWorldXML((prevWorldXML) => ({
+          ...prevWorldXML,
+          legends: xml1,
+          legendsplus: xml2,
+        }));
+      };
+      reader2.readAsText(legendsplus);
     };
+    reader1.readAsText(legends);
+    console.log(worldXML);
+  };
 
-    return (
-        <form onSubmit={handleFormSubmit}>
-            <input type="file" onChange={(e) => setlegends(e.target.files[0])} />
-            <input type="file" onChange={(e) => setlegendsplus(e.target.files[0])} />
-            <button type="submit">Upload and Process</button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleFormSubmit}>
+      <input type="file" onChange={(e) => setLegends(e.target.files[0])} />
+      <input type="file" onChange={(e) => setLegendsPlus(e.target.files[0])} />
+      <button type="submit">Upload and Process</button>
+    </form>
+  );
 }
 
 export default UploadXMLForm;

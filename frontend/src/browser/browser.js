@@ -7,6 +7,7 @@ import World from "./world/world";
 function Browser({ app, onAppSelect }) {
   console.log(app);
   const [id, setId] = useState(null);
+  const [worldXML, setWorldXML] = useState({});
 
   const handleSelectId = (id) => {
     setId(id);
@@ -19,7 +20,9 @@ function Browser({ app, onAppSelect }) {
           <h1>Home</h1> <div>add new gens here</div>
         </div>
       )}
-      {app === "Upload" && <UploadXMLForm />}
+      {app === "Upload" && (
+        <UploadXMLForm setWorldXML={setWorldXML} worldXML={worldXML} />
+      )}
       {app === "Worlds" && (
         <Worlds onAppSelect={onAppSelect} onSetId={handleSelectId} />
       )}
