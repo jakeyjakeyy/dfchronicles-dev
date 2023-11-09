@@ -9,7 +9,7 @@ function Object({ object }) {
     async function fetchData() {
       if (object.length !== 0) {
         const response = await GetGen(object);
-        // const response = "test";
+        // let response = { generation: "test\n\ntest" };
         setResponse(response);
       }
     }
@@ -30,7 +30,7 @@ function Object({ object }) {
     );
   } else {
     return (
-      <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
+      <div className="Object" style={{ whiteSpace: "pre-line" }}>
         {response.generation}
       </div>
     );
