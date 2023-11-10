@@ -4,38 +4,21 @@ import { useState, useEffect } from "react";
 import GetWorlds from "../../utils/getworlds";
 import ListItem from "../listitem";
 
-function Worlds({ onAppSelect, onSetId }) {
+function Worlds({ onAppSelect, legendsxml, legendsplusxml }) {
+  console.log(legendsxml, legendsplusxml);
   const handleClick = (e) => {
-    onSetId(e.target.id);
     onAppSelect("World");
   };
-  const [worlds, setWorlds] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const worlds = await GetWorlds();
-      if (worlds === "Refreshed token") {
-        setWorlds([]);
-      } else {
-        setWorlds(worlds);
-      }
-    }
-    fetchData();
-  }, []);
 
   return (
     <div className="World">
       <h3>Worlds</h3>
       <div className="ListItems">
-        {worlds.map((world) => (
-          // <li name={"World"} id={world.id} key={world.id} onClick={handleClick}>{world.name}</li>
-          <ListItem
-            name={world.name}
-            id={world.id}
-            onClick={handleClick}
-            name2={world.name2}
-          />
-        ))}
+        <ListItem
+          name={legendsplusxml.children[1].value}
+          name2={legendsplusxml.children[0].value}
+          onClick={handleClick}
+        />
       </div>
     </div>
   );

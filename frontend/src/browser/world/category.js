@@ -6,22 +6,28 @@ import { useState, useEffect } from "react";
 import Object from "./object";
 import ListItem from "../listitem";
 
-function Category({ category, id, setcategoryname }) {
+function Category({
+  category,
+  id,
+  setcategoryname,
+  legendsxml,
+  legendsplusxml,
+}) {
   const [categoryData, setCategoryData] = useState([]);
-  const [app, setApp] = useState("Loading");
+  const [app, setApp] = useState("Categories");
   const [genobject, setGenObject] = useState([]);
   const [categoryName, setCategoryName] = useState("");
   var catCount = {};
 
-  useEffect(() => {
-    async function fetchData() {
-      const loadeddata = await LoadWorld(id, category);
-      setCategoryData(loadeddata);
-    }
-    fetchData().then(() => {
-      setApp("Categories");
-    });
-  }, [id]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const loadeddata = await LoadWorld(id, category);
+  //     setCategoryData(loadeddata);
+  //   }
+  //   fetchData().then(() => {
+  //     setApp("Categories");
+  //   });
+  // }, [id]);
 
   const fetchObj = (e) => {
     async function fetchData() {
@@ -54,13 +60,14 @@ function Category({ category, id, setcategoryname }) {
     );
   } else if (app === "Categories") {
     // count each category type
-    categoryData.forEach((data) => {
-      if (catCount[data.type]) {
-        catCount[data.type] += 1;
-      } else {
-        catCount[data.type] = 1;
-      }
-    });
+    // categoryData.forEach((data) => {
+    //   if (catCount[data.type]) {
+    //     catCount[data.type] += 1;
+    //   } else {
+    //     catCount[data.type] = 1;
+    //   }
+    // });
+    CountCategoryTypes(legendsxml, legendsplusxml, catCount, category);
     console.log(catCount);
     if (window.Object.keys(catCount).length === 1) {
       setApp("Category");
@@ -117,6 +124,24 @@ function Category({ category, id, setcategoryname }) {
         </div>
       );
     }
+  }
+}
+
+function CountCategoryTypes(legendsxml, legendsplusxml, catCount, category) {
+  // count each category type
+  if (category === "Historical Event Collections") {
+    legendsxml
+      .getElementsByTagName("historical_event_collection")
+      .forEach((data) => {
+        data.getElementsByTagName("type").forEach((type) => {
+          console.log(type.value);
+          if (catCount[type.value]) {
+            catCount[type.value] += 1;
+          } else {
+            catCount[type.value] = 1;
+          }
+        });
+      });
   }
 }
 

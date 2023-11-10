@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import XMLParser from "react-xml-parser";
 
-function UploadXMLForm({ setWorldXML, worldXML }) {
+function UploadXMLForm({
+  setLegendsxml,
+  setLegendsPlusxml,
+  onAppSelect,
+  legendsxml,
+  legendsplusxml,
+}) {
   const [legends, setLegends] = useState(null);
   const [legendsplus, setLegendsPlus] = useState(null);
+
+  useEffect(() => {
+    if (legendsplusxml) {
+      onAppSelect("Worlds");
+    }
+  }, [legendsplusxml]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -14,17 +26,14 @@ function UploadXMLForm({ setWorldXML, worldXML }) {
     reader1.onload = function (event) {
       const xml1 = new XMLParser().parseFromString(event.target.result);
       reader2.onload = function (event) {
+        console.log(xml1.getElementsByTagName("df_world"));
         const xml2 = new XMLParser().parseFromString(event.target.result);
-        setWorldXML((prevWorldXML) => ({
-          ...prevWorldXML,
-          legends: xml1,
-          legendsplus: xml2,
-        }));
+        setLegendsxml(xml1);
+        setLegendsPlusxml(xml2);
       };
       reader2.readAsText(legendsplus);
     };
     reader1.readAsText(legends);
-    console.log(worldXML);
   };
 
   return (

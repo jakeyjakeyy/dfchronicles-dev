@@ -5,7 +5,7 @@ import Category from "./category";
 import { useState, useEffect } from "react";
 import ListItem from "../listitem";
 
-function World({ id, onSetId, onAppSelect }) {
+function World({ id, legendsxml, legendsplusxml, onAppSelect }) {
   const [world, setWorld] = useState([]);
   const [category, setCategory] = useState("World");
   const [categoryname, setCategoryName] = useState();
@@ -29,18 +29,11 @@ function World({ id, onSetId, onAppSelect }) {
     "Plots",
   ];
   // add dieties to categories
-  useEffect(() => {
-    async function fetchData() {
-      const world = await LoadWorld(id);
-      setWorld(world);
-    }
-    fetchData();
-  }, [id]);
+
   const handleClick = () => {
     console.log(category);
     console.log(categoryname);
     if (category === "World") {
-      onSetId(null);
       onAppSelect("Worlds");
     } else if (category && categories.includes(category)) {
       setCategory("World");
@@ -64,8 +57,8 @@ function World({ id, onSetId, onAppSelect }) {
   return (
     <div className="World">
       <div className="WorldHeader">
-        <h3>{world.name2}</h3>
-        <h4>{world.name}</h4>
+        <h3>{legendsplusxml.children[1].value}</h3>
+        <h4>{legendsplusxml.children[0].value}</h4>
         <div className="BackButton" onClick={handleClick}>
           Back
         </div>
@@ -81,7 +74,12 @@ function World({ id, onSetId, onAppSelect }) {
         // </ul>
         <div className="ListItemsCategories">
           {categories.map((category, index) => (
-            <ListItem id={category} name={category} onClick={handleCategory} />
+            <ListItem
+              id={category}
+              name={category}
+              onClick={handleCategory}
+              key={category}
+            />
           ))}
         </div>
       )}
@@ -90,6 +88,8 @@ function World({ id, onSetId, onAppSelect }) {
           category={category}
           id={id}
           setcategoryname={setCategoryName}
+          legendsxml={legendsxml}
+          legendsplusxml={legendsplusxml}
         />
       )}
     </div>
