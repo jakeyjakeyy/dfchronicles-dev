@@ -5,16 +5,6 @@ import GetGen from "../../utils/getgen";
 
 function Object({ object }) {
   const [response, setResponse] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      if (object.length !== 0) {
-        const response = await GetGen(object);
-        // let response = { generation: "test\n\ntest" };
-        setResponse(response);
-      }
-    }
-    fetchData();
-  }, [object]);
 
   if (!response || response.length === 0) {
     return (

@@ -13,11 +13,16 @@ function Category({
   legendsxml,
   legendsplusxml,
 }) {
-  const [categoryData, setCategoryData] = useState([]);
   const [app, setApp] = useState("Categories");
-  const [genobject, setGenObject] = useState([]);
   const [categoryName, setCategoryName] = useState("");
+  const [subcategory, setSubcategory] = useState("");
+  const [obj, setObj] = useState([]);
+  var categoryRaw = "";
   var catCount = {};
+
+  if (category === "Historical Event Collections") {
+    categoryRaw = "historical_event_collection";
+  }
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -30,20 +35,21 @@ function Category({
   // }, [id]);
 
   const fetchObj = (e) => {
-    async function fetchData() {
-      const obj = await LoadObj(id, category, e.target.id);
-      console.log(obj);
-      // return obj;
-      setGenObject(JSON.stringify(obj));
-    }
-    fetchData();
+    console.log("categoryraw = " + categoryRaw);
+    legendsxml.getElementsByTagName(categoryRaw).forEach((data) => {
+      data.getElementsByTagName("id").forEach((id) => {
+        if (id.value == e.target.id) {
+          setObj(data);
+        }
+      });
+    });
     setcategoryname(e.target.id);
     setApp("Object");
   };
 
   const getCategories = (e) => {
+    setSubcategory(e.target.id);
     setApp("Category");
-    setCategoryName(e.target.id);
   };
 
   if (app === "Loading") {
@@ -53,22 +59,15 @@ function Category({
       </div>
     );
   } else if (app === "Object") {
+    console.log(obj);
     return (
       <div className="Category">
-        <Object object={genobject} />
+        <Object object={obj} />
       </div>
     );
   } else if (app === "Categories") {
     // count each category type
-    // categoryData.forEach((data) => {
-    //   if (catCount[data.type]) {
-    //     catCount[data.type] += 1;
-    //   } else {
-    //     catCount[data.type] = 1;
-    //   }
-    // });
     CountCategoryTypes(legendsxml, legendsplusxml, catCount, category);
-    console.log(catCount);
     if (window.Object.keys(catCount).length === 1) {
       setApp("Category");
     }
@@ -80,7 +79,7 @@ function Category({
       </div>
     );
   } else if (app === "Category") {
-    console.log(category);
+    console.log(subcategory);
     if (
       category == "Historical Events" ||
       category == "Historical Event Collections" ||
@@ -89,38 +88,45 @@ function Category({
       category == "Structures" ||
       category == "Underground Regions"
     ) {
+      var objects = [];
+      legendsxml.getElementsByTagName(categoryRaw).forEach((data) => {
+        data.getElementsByTagName("type").forEach((type) => {
+          if (type.value === subcategory) {
+            objects.push(data);
+          }
+        });
+      });
+      console.log(objects);
       return (
         <div className="Category">
-          {categoryData
-            .filter(
-              (data) =>
-                // data.type !== "add hf entity link" &&
-                // data.type !== "remove hf entity link" &&
-                // data.type !== "add hf site link" &&
-                // data.type !== "change hf state"
-                data.type === categoryName
-            )
-            .map((data) => (
-              <ListItem
-                name={data.name ? data.name : "Unnamed Event"}
-                id={data.id}
-                onClick={fetchObj}
-                name2={data.type ? data.type : data.name}
-              />
-            ))}
+          {objects.map((data) => {
+            var nameElement = data.getElementsByTagName("name")[0];
+            var name =
+              nameElement && nameElement.value
+                ? nameElement.value
+                : "Unnamed Event";
+            var typeElement = data.getElementsByTagName("type")[0];
+            var name2 =
+              typeElement && typeElement.value ? typeElement.value : undefined;
+            var idElement = data.getElementsByTagName("id")[0];
+            var id = idElement && idElement.value ? idElement.value : undefined;
+            return (
+              <ListItem name={name} id={id} onClick={fetchObj} name2={name2} />
+            );
+          })}
         </div>
       );
     } else {
       return (
         <div className="Category">
-          {categoryData.map((data) => (
+          {/* {categoryData.map((data) => (
             <ListItem
               name={data.name ? data.name : "Unnamed Event"}
               id={data.id}
               onClick={fetchObj}
               name2={data.type ? data.type : data.name}
             />
-          ))}
+          ))} */}
         </div>
       );
     }
@@ -134,7 +140,6 @@ function CountCategoryTypes(legendsxml, legendsplusxml, catCount, category) {
       .getElementsByTagName("historical_event_collection")
       .forEach((data) => {
         data.getElementsByTagName("type").forEach((type) => {
-          console.log(type.value);
           if (catCount[type.value]) {
             catCount[type.value] += 1;
           } else {
