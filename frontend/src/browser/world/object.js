@@ -2,9 +2,14 @@ import React from "react";
 import "./world.css";
 import { useState, useEffect } from "react";
 import GetGen from "../../utils/getgen";
+import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
 
 function Object({ object }) {
   const [response, setResponse] = useState([]);
+
+  useEffect(() => {
+    loadObjectClient(object, setResponse);
+  }, [object]);
 
   if (!response || response.length === 0) {
     return (
