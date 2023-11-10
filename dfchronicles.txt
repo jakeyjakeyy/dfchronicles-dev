@@ -76,6 +76,7 @@ Beautiful game, complicated data:
     
 could rewrite historical events into multiple data types based on content to minimize empty fields.
 Much of this (data entry) feels like a minimum viable product. there can be several improvements in speed and intricacy with more time and resources invested.
+Switched to parsing XML in browser. Less current integration and more features to add but now file upload is only a few seconds instead of several minutes.
 
 
 SAMPLE:
