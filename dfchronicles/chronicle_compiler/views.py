@@ -285,5 +285,5 @@ class Generate(APIView):
             gen.save()
             
             response = completion["choices"][0]["message"]["content"]
-            jsonres = JSONRenderer().render(response)
-            return Response({"generation": jsonres})
+            return Response({"generation": response})
+            # return Response({"message": "New line test\n\nNew line test"})

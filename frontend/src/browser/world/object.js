@@ -17,6 +17,7 @@ function Object({ object, legendsxml, legendsplusxml }) {
       if (data.length === 0) {
         return;
       }
+      console.log(data);
       const loadeddata = await GetGen(data);
       setResponse(loadeddata);
     }
@@ -37,7 +38,7 @@ function Object({ object, legendsxml, legendsplusxml }) {
     );
   } else {
     return (
-      <div className="Object" style={{ whiteSpace: "pre-line" }}>
+      <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
         {response.generation}
       </div>
     );
