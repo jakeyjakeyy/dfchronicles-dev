@@ -26,7 +26,7 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
     object.getElementsByTagName(squadEntityTag).forEach((squad) => {
       let obj =
         legendsplusxml.getElementsByTagName("entity_population")[squad.value];
-      let civ = obj.getElementsByTagName("civ_id")[0].value;
+      let civ = obj.getElementsByTagName("civ_id")[0]?.value;
       let civname = legendsxml.getElementsByTagName("entity")[civ];
       civ = legendsplusxml.getElementsByTagName("entity")[civ];
       civname = civname.children[1]?.value;

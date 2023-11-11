@@ -10,6 +10,10 @@ function loadHistoricalEventCollection(
   recursion
 ) {
   console.log(object);
+  const world = {
+    name: legendsplusxml.children[1].value,
+    dwarvishname: legendsplusxml.children[0].value,
+  };
   const id = object.getElementsByTagName("id")[0]?.value;
   const startYear = object.getElementsByTagName("start_year")[0]?.value;
   const endYear = object.getElementsByTagName("end_year")[0]?.value;
@@ -156,15 +160,16 @@ function loadHistoricalEventCollection(
   const outcome = object.getElementsByTagName("outcome")[0]?.value;
 
   const json = {
-    id: id,
+    world: world,
+    name: name,
+    type: type,
+    // id: id,
     startYear: startYear,
     endYear: endYear,
+    outcome: outcome,
     eventCollections: eventCollections,
     events: events,
-    type: type,
-    name: name,
     subregion: subregion,
-    outcome: outcome,
   };
 
   if (Object.keys(featureLayer).length > 0) {

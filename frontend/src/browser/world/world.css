@@ -36,7 +36,7 @@
 }
 
 .Category {
-  margin-top: 120px;
+  margin-top: 150px;
   width: 100%;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .Object {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 @media (max-width: 767px) {

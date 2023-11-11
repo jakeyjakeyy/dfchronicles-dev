@@ -39,7 +39,7 @@ function Object({ object, legendsxml, legendsplusxml }) {
   } else {
     return (
       <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
-        {response.generation}
+        <p>{response.generation}</p>
       </div>
     );
   }

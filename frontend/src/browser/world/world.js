@@ -81,7 +81,7 @@ function World({ id, legendsxml, legendsplusxml, onAppSelect }) {
         <div className="BackButton" onClick={handleClick}>
           Back
         </div>
-        <h3>{categoryname}</h3>
+        <h4>{categoryname}</h4>
       </div>
       {category === "World" && (
         // <ul className="CategoriesList">
