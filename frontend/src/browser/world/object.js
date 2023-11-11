@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import GetGen from "../../utils/getgen";
 import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
 
-function Object({ object }) {
+function Object({ object, legendsxml, legendsplusxml }) {
   const [response, setResponse] = useState([]);
+  console.log(legendsxml, legendsplusxml);
 
   useEffect(() => {
-    loadObjectClient(object, setResponse);
+    loadObjectClient(object, setResponse, legendsxml, legendsplusxml);
   }, [object]);
 
   if (!response || response.length === 0) {

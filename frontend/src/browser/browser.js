@@ -5,7 +5,6 @@ import Worlds from "./worlds/worlds";
 import World from "./world/world";
 
 function Browser({ app, onAppSelect }) {
-  console.log(app);
   const [id, setId] = useState(null);
   const [legendsxml, setLegendsxml] = useState(null);
   const [legendsplusxml, setLegendsPlusxml] = useState(null);

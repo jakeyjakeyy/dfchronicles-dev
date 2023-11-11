@@ -62,7 +62,11 @@ function Category({
     console.log(obj);
     return (
       <div className="Category">
-        <Object object={obj} />
+        <Object
+          object={obj}
+          legendsxml={legendsxml}
+          legendsplusxml={legendsplusxml}
+        />
       </div>
     );
   } else if (app === "Categories") {
