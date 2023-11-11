@@ -1,6 +1,7 @@
 import loadHistoricalEvent from "./historicalevent";
 import LinkSquads from "./linksquads";
 import loadSubregion from "./subregion";
+import getEntityData from "./entity";
 
 function loadHistoricalEventCollection(
   object,
@@ -9,6 +10,7 @@ function loadHistoricalEventCollection(
   legendsplusxml,
   recursion
 ) {
+  const json = {};
   console.log(object);
   const world = {
     name: legendsplusxml.children[1].value,
@@ -97,13 +99,14 @@ function loadHistoricalEventCollection(
         site = undefined;
       } else {
         let obj = legendsxml.getElementsByTagName("site")[site.value];
-        let subname = obj.children[2].value;
-        let subtype = obj.children[1].value;
+        let subname = obj.getElementsByTagName("name")[0].value;
+        let subtype = obj.getElementsByTagName("type")[0].value;
 
         site = {
           name: subname,
           type: subtype,
         };
+        console.log(site);
       }
     });
   }
@@ -159,7 +162,12 @@ function loadHistoricalEventCollection(
   );
   const outcome = object.getElementsByTagName("outcome")[0]?.value;
 
-  const json = {
+  if (object.getElementsByTagName("defending_enid").length > 0) {
+    let enid = object.getElementsByTagName("defending_enid")[0].value;
+    var defenderCiv = getEntityData(enid, legendsxml, legendsplusxml);
+  }
+
+  json = {
     world: world,
     name: name,
     type: type,
@@ -179,6 +187,7 @@ function loadHistoricalEventCollection(
     json.isPartOfWar = isPartOfWar;
   }
   if (Object.keys(site).length > 0) {
+    console.log("adding to json");
     json.site = site;
   }
   if (Object.keys(attackingFigures).length > 0) {
@@ -192,6 +201,9 @@ function loadHistoricalEventCollection(
   }
   if (defendingSquads && Object.keys(defendingSquads).length > 0) {
     json.defendingSquads = defendingSquads;
+  }
+  if (defenderCiv) {
+    json.defenderCiv = defenderCiv;
   }
 
   return json;

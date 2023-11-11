@@ -1,4 +1,5 @@
 import loadSubregion from "./subregion";
+import getEntityData from "./entity";
 
 function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
   var event = {};
@@ -17,24 +18,9 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
       if (data.getElementsByTagName("attacker_civ_id").length > 0) {
         let civid = data.getElementsByTagName("attacker_civ_id")[0].value;
         if (civid) {
-          let civ = legendsplusxml.getElementsByTagName("entity")[civid];
-          let civname = legendsxml.getElementsByTagName("entity")[civid];
-          civname = civname.children[1]?.value;
-          event.attackerCiv = {
-            race: civ.children[1].value,
-            type: civ.children[2].value,
-            name: civname,
-          };
+          event.attackerCiv = getEntityData(civid, legendsxml, legendsplusxml);
           civid = data.getElementsByTagName("defender_civ_id")[0].value;
-          civ = legendsplusxml.getElementsByTagName("entity")[civid];
-          civname = legendsxml.getElementsByTagName("entity")[civid];
-          console.log(civname);
-          civname = civname.children[1]?.value;
-          event.defenderCiv = {
-            race: civ.children[1].value,
-            type: civ.children[2].value,
-            name: civname,
-          };
+          event.defenderCiv = getEntityData(civid, legendsxml, legendsplusxml);
         }
       }
       event.subregion = loadSubregion(data, legendsxml, legendsplusxml);
@@ -99,6 +85,16 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
       if (data.getElementsByTagName("cause").length > 0) {
         event.cause = data.getElementsByTagName("cause")[0].value;
       }
+      if (data.getElementsByTagName("civ_id").length > 0) {
+        event.civ = getEntityData(
+          data.getElementsByTagName("civ_id")[0].value,
+          legendsxml,
+          legendsplusxml
+        );
+        if (data.getElementsByTagName("link").length > 0) {
+          event.link = data.getElementsByTagName("link")[0].value;
+        }
+      }
     }
   });
   return event;
@@ -121,4 +117,5 @@ function getHistoricalFigureData(tagName, data, legendsxml) {
   }
   return figureData;
 }
+
 export default loadHistoricalEvent;
