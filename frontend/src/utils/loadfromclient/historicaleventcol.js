@@ -1,5 +1,6 @@
 import loadHistoricalEvent from "./historicalevent";
 import LinkSquads from "./linksquads";
+import loadSubregion from "./subregion";
 
 function loadHistoricalEventCollection(
   object,
@@ -64,28 +65,7 @@ function loadHistoricalEventCollection(
         });
     });
   }
-  var subregion = {};
-  // Link to subregion
-  if (object.getElementsByTagName("subregion_id").length > 0) {
-    object.getElementsByTagName("subregion_id").forEach((region) => {
-      if (region.value === "-1") {
-        region = undefined;
-      } else {
-        let obj = legendsxml.getElementsByTagName("region")[region.value];
-        let subname = obj.children[1].value;
-        let subtype = obj.children[2].value;
-        let objplus =
-          legendsplusxml.getElementsByTagName("region")[region.value];
-        let evilness = objplus.children[2].value;
-
-        subregion = {
-          name: subname,
-          type: subtype,
-          evilness: evilness,
-        };
-      }
-    });
-  }
+  var subregion = loadSubregion(object, legendsxml, legendsplusxml);
   const featureLayer = {};
   // Link to feature layer
   if (object.getElementsByTagName("feature_layer_id").length > 0) {
@@ -209,9 +189,6 @@ function loadHistoricalEventCollection(
     json.defendingSquads = defendingSquads;
   }
 
-  if (!recursion) {
-    console.log(json);
-  }
   return json;
 }
 

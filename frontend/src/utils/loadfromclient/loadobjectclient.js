@@ -2,7 +2,7 @@ import loadHistoricalEventCollection from "./historicaleventcol";
 
 function loadObjectClient(object, setResponse, legendsxml, legendsplusxml) {
   if (object.name === "historical_event_collection") {
-    loadHistoricalEventCollection(
+    return loadHistoricalEventCollection(
       object,
       setResponse,
       legendsxml,

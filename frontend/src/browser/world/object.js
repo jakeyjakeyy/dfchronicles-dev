@@ -6,11 +6,22 @@ import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
 
 function Object({ object, legendsxml, legendsplusxml }) {
   const [response, setResponse] = useState([]);
+  const [data, setData] = useState([]);
   console.log(legendsxml, legendsplusxml);
 
   useEffect(() => {
-    loadObjectClient(object, setResponse, legendsxml, legendsplusxml);
+    setData(loadObjectClient(object, setResponse, legendsxml, legendsplusxml));
   }, [object]);
+  useEffect(() => {
+    async function fetchData() {
+      if (data.length === 0) {
+        return;
+      }
+      const loadeddata = await GetGen(data);
+      setResponse(loadeddata);
+    }
+    fetchData();
+  }, [data]);
 
   if (!response || response.length === 0) {
     return (

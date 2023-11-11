@@ -29,7 +29,7 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
       let civ = obj.getElementsByTagName("civ_id")[0].value;
       let civname = legendsxml.getElementsByTagName("entity")[civ];
       civ = legendsplusxml.getElementsByTagName("entity")[civ];
-      civname = civname.children[1].value;
+      civname = civname.children[1]?.value;
       const civdict = {
         race: civ.children[1].value,
         type: civ.children[2].value,
