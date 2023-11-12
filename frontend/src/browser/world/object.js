@@ -18,8 +18,8 @@ function Object({ object, legendsxml, legendsplusxml }) {
         return;
       }
       console.log(data);
-      // const loadeddata = await GetGen(data);
-      const loadeddata = { generation: "test" };
+      const loadeddata = await GetGen(data);
+      // const loadeddata = { generation: "test" };
       setResponse(loadeddata);
     }
     fetchData();

@@ -24,22 +24,23 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
   if (object.getElementsByTagName(squadEntityTag).length > 0) {
     let squads = 0;
     object.getElementsByTagName(squadEntityTag).forEach((squad) => {
-      let obj =
-        legendsplusxml.getElementsByTagName("entity_population")[squad.value];
-      if (!obj) {
-        return;
+      if (
+        legendsplusxml.getElementsByTagName("entity_population")[squad.value]
+      ) {
+        let obj =
+          legendsplusxml.getElementsByTagName("entity_population")[squad.value];
+        let civ = obj.getElementsByTagName("civ_id")[0].value;
+        let civname = legendsxml.getElementsByTagName("entity")[civ];
+        civ = legendsplusxml.getElementsByTagName("entity")[civ];
+        civname = civname.children[1]?.value;
+        const civdict = {
+          race: civ.children[1].value,
+          type: civ.children[2].value,
+          name: civname,
+        };
+        attackingSquads[squads].fromEntity = civdict;
+        squads++;
       }
-      let civ = obj.getElementsByTagName("civ_id")[0].value;
-      let civname = legendsxml.getElementsByTagName("entity")[civ];
-      civ = legendsplusxml.getElementsByTagName("entity")[civ];
-      civname = civname.children[1]?.value;
-      const civdict = {
-        race: civ.children[1].value,
-        type: civ.children[2].value,
-        name: civname,
-      };
-      attackingSquads[squads].fromEntity = civdict;
-      squads++;
     });
   }
 
@@ -62,14 +63,17 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
   if (object.getElementsByTagName(squadSiteTag).length > 0) {
     let squads = 0;
     object.getElementsByTagName(squadSiteTag).forEach((squad) => {
-      let obj = legendsxml.getElementsByTagName("site")[squad.value];
-      let subname = obj.children[2].value;
-      let subtype = obj.children[1].value;
-      attackingSquads[squads].fromSite = {
-        name: subname,
-        type: subtype,
-      };
-      squads++;
+      if (legendsplusxml.getElementsByTagName("site")[squad.value]) {
+        console.log(legendsplusxml.getElementsByTagName("site")[squad.value]);
+        let obj = legendsxml.getElementsByTagName("site")[squad.value];
+        let subname = obj.children[2].value;
+        let subtype = obj.children[1].value;
+        attackingSquads[squads].fromSite = {
+          name: subname,
+          type: subtype,
+        };
+        squads++;
+      }
     });
   }
   return attackingSquads;

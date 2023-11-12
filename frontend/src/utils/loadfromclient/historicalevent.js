@@ -8,13 +8,20 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
       console.log(data);
       event.year = data.getElementsByTagName("year")[0].value;
       event.type = data.getElementsByTagName("type")[0].value;
+
       if (event.type === "hf died") {
         event.type = "target died";
       }
+
       if (event.type === "hf wounded") {
         event.type = "target wounded";
       }
-      event.subtype = data.getElementsByTagName("subtype")[0]?.value;
+
+      let subtype = data.getElementsByTagName("subtype")[0]?.value;
+      if (subtype) {
+        event.subtype = subtype;
+      }
+
       if (data.getElementsByTagName("attacker_civ_id").length > 0) {
         let civid = data.getElementsByTagName("attacker_civ_id")[0].value;
         if (civid) {
@@ -23,13 +30,20 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
           event.defenderCiv = getEntityData(civid, legendsxml, legendsplusxml);
         }
       }
-      event.subregion = loadSubregion(data, legendsxml, legendsplusxml);
+
+      let subregion = loadSubregion(data, legendsxml, legendsplusxml);
+      if (subregion) {
+        event.subregion = subregion;
+      }
+
       if (data.getElementsByTagName("body_part").length > 0) {
         event.bodyPart = data.getElementsByTagName("body_part")[0].value;
       }
+
       if (data.getElementsByTagName("death_cause").length > 0) {
         event.deathCause = data.getElementsByTagName("death_cause")[0].value;
       }
+
       if (data.getElementsByTagName("group_1_hfid").length > 0) {
         var involvedFigures = {};
         involvedFigures[0] = getHistoricalFigureData(
@@ -48,6 +62,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
       if (involvedFigures) {
         event.involvedFigures = involvedFigures;
       }
+
       if (data.getElementsByTagName("attacker_general_hfid").length > 0) {
         event.attackerGeneral = getHistoricalFigureData(
           "attacker_general_hfid",
@@ -62,6 +77,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
           legendsxml
         );
       }
+
       const targetTagNames = ["woundee_hfid", "hfid"];
       for (let tagName of targetTagNames) {
         if (data.getElementsByTagName(tagName).length > 0) {
@@ -82,9 +98,11 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml) {
           );
         }
       }
+
       if (data.getElementsByTagName("cause").length > 0) {
         event.cause = data.getElementsByTagName("cause")[0].value;
       }
+
       if (data.getElementsByTagName("civ_id").length > 0) {
         event.civ = getEntityData(
           data.getElementsByTagName("civ_id")[0].value,
