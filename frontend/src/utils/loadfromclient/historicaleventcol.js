@@ -7,8 +7,7 @@ function loadHistoricalEventCollection(
   object,
   setResponse,
   legendsxml,
-  legendsplusxml,
-  recursion
+  legendsplusxml
 ) {
   const json = {};
   console.log(object);
@@ -20,7 +19,6 @@ function loadHistoricalEventCollection(
   json.startYear = object.getElementsByTagName("start_year")[0]?.value;
   json.endYear = object.getElementsByTagName("end_year")[0]?.value;
 
-  // Link to other event collections
   if (object.getElementsByTagName("eventcol").length > 0) {
     var eventCollections = [];
     object.getElementsByTagName("eventcol").forEach((eventcol) => {
@@ -31,8 +29,7 @@ function loadHistoricalEventCollection(
               data,
               setResponse,
               legendsxml,
-              legendsplusxml,
-              true
+              legendsplusxml
             )
           );
         }
@@ -40,7 +37,7 @@ function loadHistoricalEventCollection(
     });
     json.eventCollections = eventCollections;
   }
-  // Link to other events
+
   if (object.getElementsByTagName("event").length > 0) {
     var events = [];
     object.getElementsByTagName("event").forEach((event) => {
@@ -48,10 +45,13 @@ function loadHistoricalEventCollection(
     });
     json.events = events;
   }
+  if (object.getElementsByTagName("type").length > 0) {
+    json.type = object.getElementsByTagName("type")[0]?.value;
+  }
+  if (object.getElementsByTagName("name").length > 0) {
+    json.name = object.getElementsByTagName("name")[0]?.value;
+  }
 
-  json.type = object.getElementsByTagName("type")[0]?.value;
-  json.name = object.getElementsByTagName("name")[0]?.value;
-  // Link to war
   if (object.getElementsByTagName("war_eventcol").length > 0) {
     const isPartOfWar = {};
     object.getElementsByTagName("war_eventcol").forEach((war) => {
@@ -86,7 +86,7 @@ function loadHistoricalEventCollection(
   if (subregion) {
     json.subregion = subregion;
   }
-  // Link to feature layer
+
   const featureLayer = {};
   if (object.getElementsByTagName("feature_layer_id").length > 0) {
     object.getElementsByTagName("feature_layer_id").forEach((layer) => {
@@ -106,7 +106,7 @@ function loadHistoricalEventCollection(
     });
     json.featureLayer = featureLayer;
   }
-  // Link to site
+
   if (object.getElementsByTagName("site_id").length > 0) {
     object.getElementsByTagName("site_id").forEach((site) => {
       if (site.value === "-1") {
@@ -124,7 +124,7 @@ function loadHistoricalEventCollection(
       }
     });
   }
-  // link attackers
+
   if (object.getElementsByTagName("attacking_hfid").length > 0) {
     const attackingFigures = {};
     object.getElementsByTagName("attacking_hfid").forEach((attacker) => {
@@ -144,7 +144,7 @@ function loadHistoricalEventCollection(
     });
     json.attackingFigures = attackingFigures;
   }
-  // link defenders
+
   if (object.getElementsByTagName("defending_hfid").length > 0) {
     const defendingFigures = {};
     object.getElementsByTagName("defending_hfid").forEach((defender) => {
@@ -181,6 +181,10 @@ function loadHistoricalEventCollection(
   if (object.getElementsByTagName("defending_enid").length > 0) {
     let enid = object.getElementsByTagName("defending_enid")[0].value;
     json.defenderCiv = getEntityData(enid, legendsxml, legendsplusxml);
+  }
+  if (object.getElementsByTagName("attacking_enid").length > 0) {
+    let enid = object.getElementsByTagName("attacking_enid")[0].value;
+    json.attackerCiv = getEntityData(enid, legendsxml, legendsplusxml);
   }
 
   return json;
