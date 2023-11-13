@@ -8,20 +8,34 @@ function Object({ object, legendsxml, legendsplusxml }) {
   const [response, setResponse] = useState([]);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [status, setStatus] = useState("Loading");
 
   useEffect(() => {
     async function fetchData() {
       // Delay loading the object so loading screen can generate first
-      setTimeout(() => {
-        setData(
-          loadObjectClient(object, setResponse, legendsxml, legendsplusxml)
+      setTimeout(async () => {
+        const data = await loadObjectClient(
+          object,
+          setResponse,
+          legendsxml,
+          legendsplusxml,
+          setStatus
         );
+        setData(data);
         setIsLoading(false);
       }, 1000);
     }
     fetchData();
   }, [object]);
-  useEffect(() => {
+
+  if (isLoading) {
+    return (
+      <div className="Object">
+        <h4>Gathering data...</h4>
+        <h5>{status}</h5>
+      </div>
+    );
+  } else if (!response || response.length === 0) {
     async function fetchData() {
       if (data.length === 0) {
         return;
@@ -32,15 +46,6 @@ function Object({ object, legendsxml, legendsplusxml }) {
       setResponse(loadeddata);
     }
     fetchData();
-  }, [data]);
-
-  if (isLoading) {
-    return (
-      <div className="Object">
-        <h3>Gathering data...</h3>
-      </div>
-    );
-  } else if (!response || response.length === 0) {
     return (
       <div className="Object">
         <h3>Generating chronicle...</h3>
