@@ -35,7 +35,6 @@ function Category({
   // }, [id]);
 
   const fetchObj = (e) => {
-    console.log("categoryraw = " + categoryRaw);
     legendsxml.getElementsByTagName(categoryRaw).forEach((data) => {
       data.getElementsByTagName("id").forEach((id) => {
         if (id.value == e.target.id) {
