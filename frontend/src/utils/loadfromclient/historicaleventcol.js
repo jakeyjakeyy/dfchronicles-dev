@@ -128,7 +128,6 @@ function loadHistoricalEventCollection(
           name: subname,
           type: subtype,
         };
-        console.log(json.site);
       }
     });
   }

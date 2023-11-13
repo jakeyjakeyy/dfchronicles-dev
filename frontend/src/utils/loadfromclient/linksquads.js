@@ -1,3 +1,5 @@
+import getEntityData from "./entity";
+
 function LinkSquads(object, legendsxml, legendsplusxml, type) {
   let squadRaceTag =
     type === "attacking" ? "attacking_squad_race" : "defending_squad_race";
@@ -16,8 +18,14 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
   const squadDeaths = object.getElementsByTagName(squadDeathsTag);
   const squadSites = object.getElementsByTagName(squadSiteTag);
   const sites = legendsplusxml.getElementsByTagName("site");
+  const squadRaces = object.getElementsByTagName(squadRaceTag);
+  const squadCivs = object.getElementsByTagName(squadEntityTag);
 
-  let attackingSquads = Array(squadNumbers.length).fill({});
+  // Create an array with a separate object for each squad
+  let attackingSquads = Array(squadNumbers.length)
+    .fill(null)
+    .map(() => ({}));
+
   for (let i = 0; i < squadNumbers.length; i++) {
     attackingSquads[i].number = squadNumbers[i].value;
 
@@ -33,6 +41,21 @@ function LinkSquads(object, legendsxml, legendsplusxml, type) {
         name: subname,
         type: subtype,
       };
+    }
+    if (squadRaces[i]) {
+      attackingSquads[i].race = squadRaces[i].value;
+    }
+    if (squadCivs[i]) {
+      const fromCiv = getEntityData(
+        squadCivs[i].value,
+        legendsxml,
+        legendsplusxml
+      );
+      if (fromCiv) {
+        attackingSquads[i].fromCiv = fromCiv;
+      } else {
+        continue;
+      }
     }
   }
 
