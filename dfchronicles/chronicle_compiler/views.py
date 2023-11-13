@@ -255,12 +255,15 @@ class Generate(APIView):
         user = request.user
         # model = "gpt-3.5-turbo"
         model = "gpt-4-1106-preview"
+        maxTokens = 3000
+        if model == "gpt-4-1106-preview":
+            maxTokens = 4000
         if not user.is_authenticated:
             return Response({"message": "Invalid token"})
 
         if request.data["request"] == "generate":
             enc = tiktoken.encoding_for_model(model)
-            if len(enc.encode(request.data["prompt"])) > 3000:
+            if len(enc.encode(request.data["prompt"])) > maxTokens:
                 return Response({"message": f"Prompt too long {len(enc.encode(request.data['prompt']))} of 3000 tokens"})
             try:
                 completion = openai.ChatCompletion.create(

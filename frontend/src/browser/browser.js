@@ -13,14 +13,15 @@ function Browser({ app, onAppSelect }) {
     setId(id);
   };
 
-  return (
-    <div className="Browser">
-      {app === "Home" && (
-        <div>
-          <h1>Home</h1> <div>add new gens here</div>
-        </div>
-      )}
-      {app === "Upload" && (
+  if (app === "Home") {
+    return (
+      <div className="Browser">
+        <h1>Home</h1> <div>add new gens here</div>
+      </div>
+    );
+  } else if (app === "Upload") {
+    return (
+      <div className="Browser">
         <UploadXMLForm
           setLegendsxml={setLegendsxml}
           setLegendsPlusxml={setLegendsPlusxml}
@@ -28,24 +29,64 @@ function Browser({ app, onAppSelect }) {
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
         />
-      )}
-      {app === "Worlds" && (
+      </div>
+    );
+  } else if (app === "Worlds") {
+    return (
+      <div className="Browser">
         <Worlds
           onAppSelect={onAppSelect}
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
         />
-      )}
-      {app === "World" && (
+      </div>
+    );
+  } else if (app === "World") {
+    return (
+      <div className="Browser">
         <World
           id={id}
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
           onAppSelect={onAppSelect}
         />
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
+
+  // return (
+  //   <div className="Browser">
+  //     {app === "Home" && (
+  //       <div>
+  //         <h1>Home</h1> <div>add new gens here</div>
+  //       </div>
+  //     )}
+  //     {app === "Upload" && (
+  //       <UploadXMLForm
+  //         setLegendsxml={setLegendsxml}
+  //         setLegendsPlusxml={setLegendsPlusxml}
+  //         onAppSelect={onAppSelect}
+  //         legendsxml={legendsxml}
+  //         legendsplusxml={legendsplusxml}
+  //       />
+  //     )}
+  //     {app === "Worlds" && (
+  //       <Worlds
+  //         onAppSelect={onAppSelect}
+  //         legendsxml={legendsxml}
+  //         legendsplusxml={legendsplusxml}
+  //       />
+  //     )}
+  //     {app === "World" && (
+  //       <World
+  //         id={id}
+  //         legendsxml={legendsxml}
+  //         legendsplusxml={legendsplusxml}
+  //         onAppSelect={onAppSelect}
+  //       />
+  //     )}
+  //   </div>
+  // );
 }
 
 export default Browser;

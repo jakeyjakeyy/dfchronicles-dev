@@ -5,6 +5,9 @@ import GetWorlds from "../../utils/getworlds";
 import ListItem from "../listitem";
 
 function Worlds({ onAppSelect, legendsxml, legendsplusxml }) {
+  useEffect(() => {
+    console.log("called worlds");
+  }, []);
   if (!legendsxml || !legendsplusxml) {
     onAppSelect("Upload");
   } else {
