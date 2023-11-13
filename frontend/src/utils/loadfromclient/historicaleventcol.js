@@ -19,9 +19,10 @@ function loadHistoricalEventCollection(
   json.startYear = object.getElementsByTagName("start_year")[0]?.value;
   json.endYear = object.getElementsByTagName("end_year")[0]?.value;
 
-  if (object.getElementsByTagName("eventcol").length > 0) {
+  const eventcolElements = object.getElementsByTagName("eventcol");
+  if (eventcolElements.length > 0) {
     var eventCollections = [];
-    object.getElementsByTagName("eventcol").forEach((eventcol) => {
+    eventcolElements.forEach((eventcol) => {
       legendsxml.getElementsByTagName(object.name).forEach((data) => {
         if (data.getElementsByTagName("id")[0].value === eventcol.value) {
           eventCollections.push(
@@ -38,29 +39,34 @@ function loadHistoricalEventCollection(
     json.eventCollections = eventCollections;
   }
 
-  if (object.getElementsByTagName("event").length > 0) {
+  const eventElements = object.getElementsByTagName("event");
+  if (eventElements.length > 0) {
     var events = [];
-    object.getElementsByTagName("event").forEach((event) => {
+    eventElements.forEach((event) => {
       events.push(loadHistoricalEvent(event.value, legendsxml, legendsplusxml));
     });
     json.events = events;
   }
-  if (object.getElementsByTagName("type").length > 0) {
-    json.type = object.getElementsByTagName("type")[0]?.value;
+  const eventTypeElements = object.getElementsByTagName("event_type");
+  if (eventTypeElements.length > 0) {
+    json.type = eventTypeElements[0].value;
   }
-  if (object.getElementsByTagName("name").length > 0) {
-    json.name = object.getElementsByTagName("name")[0]?.value;
+  const eventNameElements = object.getElementsByTagName("event_name");
+  if (eventNameElements.length > 0) {
+    json.name = eventNameElements[0].value;
   }
 
-  if (object.getElementsByTagName("war_eventcol").length > 0) {
+  const warEventColElements = object.getElementsByTagName("war_eventcol");
+  if (warEventColElements.length > 0) {
     const isPartOfWar = {};
-    object.getElementsByTagName("war_eventcol").forEach((war) => {
+    warEventColElements.forEach((war) => {
       legendsxml
         .getElementsByTagName("historical_event_collection")
         .forEach((data) => {
-          if (data.getElementsByTagName("id")[0].value === war.value) {
+          let idElements = data.getElementsByTagName("id");
+          if (idElements[0].value === war.value) {
             isPartOfWar.name = data.getElementsByTagName("name")[0].value;
-            isPartOfWar.id = data.getElementsByTagName("id")[0].value;
+            isPartOfWar.id = idElements[0].value;
             isPartOfWar.startYear =
               data.getElementsByTagName("start_year")[0].value;
             isPartOfWar.endYear =
@@ -87,9 +93,10 @@ function loadHistoricalEventCollection(
     json.subregion = subregion;
   }
 
-  const featureLayer = {};
-  if (object.getElementsByTagName("feature_layer_id").length > 0) {
-    object.getElementsByTagName("feature_layer_id").forEach((layer) => {
+  const featurelayerElements = object.getElementsByTagName("feature_layer_id");
+  if (featurelayerElements.length > 0) {
+    const featureLayer = {};
+    featurelayerElements.forEach((layer) => {
       if (layer.value === "-1") {
         layer = undefined;
       } else {
@@ -107,8 +114,9 @@ function loadHistoricalEventCollection(
     json.featureLayer = featureLayer;
   }
 
-  if (object.getElementsByTagName("site_id").length > 0) {
-    object.getElementsByTagName("site_id").forEach((site) => {
+  const siteidElements = object.getElementsByTagName("site_id");
+  if (siteidElements.length > 0) {
+    siteidElements.forEach((site) => {
       if (site.value === "-1") {
         site = undefined;
       } else {
@@ -125,9 +133,10 @@ function loadHistoricalEventCollection(
     });
   }
 
-  if (object.getElementsByTagName("attacking_hfid").length > 0) {
+  const attackinghfidElements = object.getElementsByTagName("attacking_hfid");
+  if (attackinghfidElements.length > 0) {
     const attackingFigures = {};
-    object.getElementsByTagName("attacking_hfid").forEach((attacker) => {
+    attackinghfidElements.forEach((attacker) => {
       let obj =
         legendsxml.getElementsByTagName("historical_figure")[attacker.value];
       let subname = obj.getElementsByTagName("name")[0].value;
@@ -145,9 +154,10 @@ function loadHistoricalEventCollection(
     json.attackingFigures = attackingFigures;
   }
 
-  if (object.getElementsByTagName("defending_hfid").length > 0) {
+  const defendinghfidElements = object.getElementsByTagName("defending_hfid");
+  if (defendinghfidElements.length > 0) {
     const defendingFigures = {};
-    object.getElementsByTagName("defending_hfid").forEach((defender) => {
+    defendinghfidElements.forEach((defender) => {
       let obj =
         legendsxml.getElementsByTagName("historical_figure")[defender.value];
       let subname = obj.getElementsByTagName("name")[0].value;
@@ -178,12 +188,14 @@ function loadHistoricalEventCollection(
   );
   json.outcome = object.getElementsByTagName("outcome")[0]?.value;
 
-  if (object.getElementsByTagName("defending_enid").length > 0) {
-    let enid = object.getElementsByTagName("defending_enid")[0].value;
+  const defendingenidElements = object.getElementsByTagName("defending_enid");
+  if (defendingenidElements.length > 0) {
+    let enid = defendingenidElements[0].value;
     json.defenderCiv = getEntityData(enid, legendsxml, legendsplusxml);
   }
-  if (object.getElementsByTagName("attacking_enid").length > 0) {
-    let enid = object.getElementsByTagName("attacking_enid")[0].value;
+  const attackingenidElements = object.getElementsByTagName("attacking_enid");
+  if (attackingenidElements.length > 0) {
+    let enid = attackingenidElements[0].value;
     json.attackerCiv = getEntityData(enid, legendsxml, legendsplusxml);
   }
 
