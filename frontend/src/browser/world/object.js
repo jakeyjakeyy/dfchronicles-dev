@@ -8,11 +8,9 @@ function Object({ object, legendsxml, legendsplusxml }) {
   const [response, setResponse] = useState([]);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(legendsxml, legendsplusxml);
 
   useEffect(() => {
     async function fetchData() {
-      console.log("loading");
       // Delay loading the object so loading screen can generate first
       setTimeout(() => {
         setData(
@@ -29,8 +27,8 @@ function Object({ object, legendsxml, legendsplusxml }) {
         return;
       }
       console.log(data);
-      const loadeddata = await GetGen(data);
-      // const loadeddata = { generation: "test" };
+      // const loadeddata = await GetGen(data);
+      const loadeddata = { generation: "test" };
       setResponse(loadeddata);
     }
     fetchData();
