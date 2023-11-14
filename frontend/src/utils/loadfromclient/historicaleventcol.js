@@ -51,11 +51,11 @@ function loadHistoricalEventCollection(
     });
     json.events = events;
   }
-  const eventTypeElements = object.getElementsByTagName("event_type");
+  const eventTypeElements = object.getElementsByTagName("type");
   if (eventTypeElements.length > 0) {
     json.type = eventTypeElements[0].value;
   }
-  const eventNameElements = object.getElementsByTagName("event_name");
+  const eventNameElements = object.getElementsByTagName("name");
   if (eventNameElements.length > 0) {
     json.name = eventNameElements[0].value;
   }
@@ -116,9 +116,9 @@ function loadHistoricalEventCollection(
           type: subtype,
           depth: subdepth,
         };
+        json.featureLayer = featureLayer;
       }
     });
-    json.featureLayer = featureLayer;
   }
 
   const siteidElements = object.getElementsByTagName("site_id");
@@ -142,7 +142,8 @@ function loadHistoricalEventCollection(
 
   const attackinghfidElements = object.getElementsByTagName("attacking_hfid");
   if (attackinghfidElements.length > 0) {
-    const attackingFigures = {};
+    const attackingFigures = [];
+    let index = 0;
     attackinghfidElements.forEach((attacker) => {
       let obj = histfigs[attacker.value];
       let subname = obj.getElementsByTagName("name")[0].value;
@@ -150,19 +151,21 @@ function loadHistoricalEventCollection(
       let subcaste = obj.getElementsByTagName("caste")[0].value;
       let birthyear = obj.getElementsByTagName("birth_year")[0].value;
 
-      attackingFigures[attacker.value] = {
+      attackingFigures[index] = {
         name: subname,
         race: subrace,
         sex: subcaste,
         birthYear: birthyear,
       };
+      index++;
     });
     json.attackingFigures = attackingFigures;
   }
 
   const defendinghfidElements = object.getElementsByTagName("defending_hfid");
   if (defendinghfidElements.length > 0) {
-    const defendingFigures = {};
+    const defendingFigures = [];
+    let index = 0;
     defendinghfidElements.forEach((defender) => {
       let obj = histfigs[defender.value];
       let subname = obj.getElementsByTagName("name")[0].value;
@@ -170,12 +173,13 @@ function loadHistoricalEventCollection(
       let subcaste = obj.getElementsByTagName("caste")[0].value;
       let birthyear = obj.getElementsByTagName("birth_year")[0].value;
 
-      defendingFigures[defender.value] = {
+      defendingFigures[index] = {
         name: subname,
         race: subrace,
         sex: subcaste,
         birthYear: birthyear,
       };
+      index++;
     });
     json.defendingFigures = defendingFigures;
   }
@@ -191,7 +195,10 @@ function loadHistoricalEventCollection(
     legendsplusxml,
     "defending"
   );
-  json.outcome = object.getElementsByTagName("outcome")[0]?.value;
+  const outcome = object.getElementsByTagName("outcome")[0]?.value;
+  if (outcome) {
+    json.outcome = outcome;
+  }
 
   const defendingenidElements = object.getElementsByTagName("defending_enid");
   if (defendingenidElements.length > 0) {
