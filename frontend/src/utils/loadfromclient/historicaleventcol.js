@@ -183,18 +183,24 @@ function loadHistoricalEventCollection(
     });
     json.defendingFigures = defendingFigures;
   }
-  json.attackingSquads = LinkSquads(
+  const attackingSquads = LinkSquads(
     object,
     legendsxml,
     legendsplusxml,
     "attacking"
   );
-  json.defendingSquads = LinkSquads(
+  if (attackingSquads.length > 0) {
+    json.attackingSquads = attackingSquads;
+  }
+  const defendingSquads = LinkSquads(
     object,
     legendsxml,
     legendsplusxml,
     "defending"
   );
+  if (defendingSquads.length > 0) {
+    json.defendingSquads = defendingSquads;
+  }
   const outcome = object.getElementsByTagName("outcome")[0]?.value;
   if (outcome) {
     json.outcome = outcome;

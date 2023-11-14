@@ -13,11 +13,12 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
   ).find((event) => {
     return event.getElementsByTagName("id")[0].value === id;
   });
+  console.log(data);
+  console.log(dataplus);
   if (!data && !dataplus) {
     return null;
   }
   if (data.getElementsByTagName("id")[0].value === id) {
-    console.log(data);
     event.year = data.getElementsByTagName("year")[0].value;
     event.type = data.getElementsByTagName("type")[0].value;
 
@@ -146,7 +147,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
     const stashSite = dataplus.getElementsByTagName("stash_site");
     if (stashSite.length > 0) {
       if (stashSite.value !== "-1") {
-        event.stashSite = {
+        event.postStashSite = {
           name: legendsxml
             .getElementsByTagName("site")
             [stashSite[0].value].getElementsByTagName("name")[0].value,
@@ -160,6 +161,15 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
     if (theftMethod.length > 0) {
       event.theftMethod = theftMethod[0].value;
     }
+    const plushfid = dataplus.getElementsByTagName("histfig");
+    if (plushfid.length > 0) {
+      event.instigator = getHistoricalFigureData(
+        "histfig",
+        dataplus,
+        legendsxml,
+        histfigs
+      );
+    }
   }
   return event;
 }
@@ -168,13 +178,7 @@ function getHistoricalFigureData(tagName, data, legendsxml, histfigs) {
   let figureData = {};
   if (data.getElementsByTagName(tagName).length > 0) {
     const hfid = data.getElementsByTagName(tagName)[0].value;
-    const figure = Array.from(
-      histfigs.find((figure) => {
-        if (figure.getElementsByTagName("id")[0].value === hfid) {
-          return figure;
-        }
-      })
-    );
+    const figure = histfigs[hfid];
     if (figure.length === 0) {
       return null;
     }

@@ -84,13 +84,6 @@ function World({ id, legendsxml, legendsplusxml, onAppSelect }) {
         <h4>{categoryname}</h4>
       </div>
       {category === "World" && (
-        // <ul className="CategoriesList">
-        //   {categories.map((category, index) => (
-        //     <li key={index} onClick={handleCategory}>
-        //       {category}
-        //     </li>
-        //   ))}
-        // </ul>
         <div className="ListItemsCategories">
           {categories.map((category, index) => (
             <ListItem
