@@ -8,7 +8,12 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
   ).find((event) => {
     return event.getElementsByTagName("id")[0].value === id;
   });
-  if (!data) {
+  const dataplus = Array.from(
+    legendsplusxml.getElementsByTagName("historical_event")
+  ).find((event) => {
+    return event.getElementsByTagName("id")[0].value === id;
+  });
+  if (!data && !dataplus) {
     return null;
   }
   if (data.getElementsByTagName("id")[0].value === id) {
@@ -125,6 +130,35 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
       if (data.getElementsByTagName("link").length > 0) {
         event.link = data.getElementsByTagName("link")[0].value;
       }
+    }
+
+    const itemtype = data.getElementsByTagName("item_type");
+    if (itemtype.length > 0) {
+      event.itemType = dataplus.getElementsByTagName("item_type")[0].value;
+    }
+    if (!dataplus) {
+      return event;
+    }
+    const mat = dataplus.getElementsByTagName("mat");
+    if (mat.length > 0) {
+      event.item_material = mat[0].value;
+    }
+    const stashSite = dataplus.getElementsByTagName("stash_site");
+    if (stashSite.length > 0) {
+      if (stashSite.value !== "-1") {
+        event.stashSite = {
+          name: legendsxml
+            .getElementsByTagName("site")
+            [stashSite[0].value].getElementsByTagName("name")[0].value,
+          type: legendsxml
+            .getElementsByTagName("site")
+            [stashSite[0].value].getElementsByTagName("type")[0].value,
+        };
+      }
+    }
+    const theftMethod = dataplus.getElementsByTagName("theft_method");
+    if (theftMethod.length > 0) {
+      event.theftMethod = theftMethod[0].value;
     }
   }
   return event;

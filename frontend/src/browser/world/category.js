@@ -22,6 +22,8 @@ function Category({
 
   if (category === "Historical Event Collections") {
     categoryRaw = "historical_event_collection";
+  } else if (category === "Written Contents") {
+    categoryRaw = "written_content";
   }
 
   // useEffect(() => {
@@ -69,20 +71,27 @@ function Category({
       </div>
     );
   } else if (app === "Categories") {
-    // count each category type
-    CountCategoryTypes(legendsxml, legendsplusxml, catCount, category);
-    if (window.Object.keys(catCount).length === 1) {
+    if (categoryRaw === "written_content") {
       setApp("Category");
+    } else {
+      CountCategoryTypes(legendsxml, legendsplusxml, catCount, categoryRaw);
+      if (window.Object.keys(catCount).length === 1) {
+        setApp("Category");
+      }
+      return (
+        <div className="Category">
+          {window.Object.entries(catCount).map(([key, value]) => (
+            <ListItem
+              name={key}
+              name2={value}
+              id={key}
+              onClick={getCategories}
+            />
+          ))}
+        </div>
+      );
     }
-    return (
-      <div className="Category">
-        {window.Object.entries(catCount).map(([key, value]) => (
-          <ListItem name={key} name2={value} id={key} onClick={getCategories} />
-        ))}
-      </div>
-    );
   } else if (app === "Category") {
-    console.log(subcategory);
     if (
       category == "Historical Events" ||
       category == "Historical Event Collections" ||
@@ -120,16 +129,21 @@ function Category({
         </div>
       );
     } else {
+      console.log(legendsxml.getElementsByTagName(categoryRaw));
       return (
         <div className="Category">
-          {/* {categoryData.map((data) => (
-            <ListItem
-              name={data.name ? data.name : "Unnamed Event"}
-              id={data.id}
-              onClick={fetchObj}
-              name2={data.type ? data.type : data.name}
-            />
-          ))} */}
+          {Array.from(legendsxml.getElementsByTagName(categoryRaw)).map(
+            (data) => {
+              return (
+                <ListItem
+                  name={data.getElementsByTagName("form")[0].value}
+                  name2={data.getElementsByTagName("title")[0]?.value}
+                  id={data.getElementsByTagName("id")[0].value}
+                  onClick={fetchObj}
+                />
+              );
+            }
+          )}
         </div>
       );
     }
@@ -138,18 +152,16 @@ function Category({
 
 function CountCategoryTypes(legendsxml, legendsplusxml, catCount, category) {
   // count each category type
-  if (category === "Historical Event Collections") {
-    legendsxml
-      .getElementsByTagName("historical_event_collection")
-      .forEach((data) => {
-        data.getElementsByTagName("type").forEach((type) => {
-          if (catCount[type.value]) {
-            catCount[type.value] += 1;
-          } else {
-            catCount[type.value] = 1;
-          }
-        });
+  if (category === "historical_event_collection") {
+    legendsxml.getElementsByTagName(category).forEach((data) => {
+      data.getElementsByTagName("type").forEach((type) => {
+        if (catCount[type.value]) {
+          catCount[type.value] += 1;
+        } else {
+          catCount[type.value] = 1;
+        }
       });
+    });
   }
 }
 
