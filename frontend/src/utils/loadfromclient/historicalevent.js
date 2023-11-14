@@ -133,7 +133,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
       }
     }
 
-    const itemtype = data.getElementsByTagName("item_type");
+    const itemtype = dataplus.getElementsByTagName("item_type");
     if (itemtype.length > 0) {
       event.itemType = dataplus.getElementsByTagName("item_type")[0].value;
     }
