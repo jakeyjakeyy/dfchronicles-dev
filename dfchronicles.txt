@@ -1,54 +1,40 @@
 Project Name: Dwarf Fortress Chronicle Generator
 
 Description:
-The Dwarf Fortress Chronicle Generator is a web application that takes Dwarf Fortress world history files uploaded by users and uses AI techniques to create narrative stories based on the historical events within those worlds. Users can explore the unique and complex histories of their Dwarf Fortress worlds through generated stories.
+Dwarf Fortress Chronicle Generator is a web application that takes Dwarf Fortress world history files and uses AI to create narrative stories based on the historical events within those worlds. Users can explore the unique and complex histories of their Dwarf Fortress worlds through generated stories.
 
 Key Features:
 
     User Authentication and Uploads:
         Implement user authentication and user profiles using Django.
-        Users can upload their Dwarf Fortress world history files for analysis and story generation.
+        Users can upload their Dwarf Fortress world history files for story generation.
 
-    AI Analysis of World History:
-        AI component that can parse and analyze the uploaded Dwarf Fortress world history files.
-        The AI should identify significant historical events, characters, civilizations, wars, and other notable occurrences.
+    XML conversion:
+        Use the provided XMLs to create a JSON object for the selected event.
+        Send JSON object to custom backend API, to forward and communicate with OpenAI API. 
 
     Narrative Generation:
-        Use the AI analysis to generate narratives that tell stories about the world's history.
-        The narratives should be engaging, coherent, and detailed, showcasing the rich content of Dwarf Fortress worlds.
-		Each found story makes a 'book' about the event. A hero slaying a monster, a civilization that stood the test of time, etc.
+        Use the OpenAI to generate narratives that tell stories about the world's history.
+        The narratives should be engaging, coherent, and detailed while staying true to the provided information.
 
     Interactive Story Presentation:
         Display generated stories in an interactive and visually appealing format on the web platform.
         Allow users to navigate through different parts of the story and explore specific events or characters.
 
-    Story Customization:
-        Give users the ability to customize the generated stories by selecting specific events or characters to focus on.
-        Provide options to tweak the narrative style or length.
-
     Database Storage:
-        Store user profiles, uploaded world history files, and generated stories in a database for easy retrieval and access.
+        Store user profiles and generated stories in a database for easy retrieval and access.
 
     Search and Browse:
         Implement a search and filter functionality, allowing users to search for specific stories or historical events from their uploaded world history files.
 
     User Feedback and Ratings:
         Enable users to provide feedback on generated stories and rate them.
-        Use this feedback to improve the AI's narrative generation over time.
-
-Monetization Options:
-
-    Freemium Model: Offer basic narrative generation for free and provide premium features such as advanced story customization or ad-free experience for a subscription fee.
-
-    Ads and Sponsorships: Display relevant ads on the platform, potentially collaborating with Dwarf Fortress-related communities or modders.
-
-    Donations: Allow users to make voluntary donations to support the platform and access special features.
+        Use this feedback to improve the prompt used for generation.
 
 Tech Stack:
 
     Django for backend and user authentication.
-    AI/ML libraries for text analysis and narrative generation.
-    React, HTML, CSS, and JavaScript for the web interface.
+    React for the web interface.
     Database (Postgres) for storing user data and generated stories.
 
 
@@ -56,20 +42,11 @@ First Thoughts:
 
 legends.xml+ legends_plus.xml
 https://www.dwarffortresswiki.org/index.php/DF2014:Legends
-Huge amount of data (aprox. $30,000 worth of tokens in raw data). This absolutely needs to be cleaned, or the project will simply be impossible. Available AI/ML models have nowhere near this much context length anyways, so something needs to be done.
+Huge amount of data (6 million + lines raw data). This needs to be cleaned to use a minimum amount of tokens while providing all necessary data.
 
-After getting the data from xml, we can store in the servers database.
-
-We can try to limit the data sent by sorting the data in relation to our best guesses at good stories. Big civilizations, old monsters, etc. and sending the data only relating to that topic
-
-visualize data and allow sorting. when viewing historical figure, maybe plot events over time, be able to sort by most events/ highest skill/ most hated/ etc
-
-find a way to determine possible interesting stories before sending relevant data to ai (super old necromancer hated by every civilization, adventurer who defeated said necromancer, etc)
-
+After getting the data from XML, we can store it in the server's database.
 
 WRITEUP THOUGHTS:
-show some sample XML data, explain the smallest dataset was over 1.3million lines. Sorted and transferred to database for use later.
-Speed of data entry is biggest flaw currently
 Beautiful game, complicated data:
     maybe these things go hand in hand
     so much data, specifically in HistoricalEvents, seemed redundant and with many different names (site_hfid, site_id, site | hist_fig_id histfig hfid hist_figure_id)
