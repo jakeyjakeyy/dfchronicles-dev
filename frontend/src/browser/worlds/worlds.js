@@ -8,7 +8,8 @@ function Worlds({ onAppSelect, legendsxml, legendsplusxml }) {
   if (!legendsxml || !legendsplusxml) {
     onAppSelect("Upload");
   } else {
-    console.log(legendsxml, legendsplusxml);
+    console.log(legendsxml);
+    console.log(legendsplusxml);
     const handleClick = (e) => {
       onAppSelect("World");
     };
