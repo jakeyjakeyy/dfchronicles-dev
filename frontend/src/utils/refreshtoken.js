@@ -9,7 +9,7 @@ function RefreshToken() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.detail === "Given token not valid for any token type") {
+      if (data.detail === "Token is invalid or expired") {
         localStorage.removeItem("refresh");
         localStorage.removeItem("token");
         return { message: "Expired token" };

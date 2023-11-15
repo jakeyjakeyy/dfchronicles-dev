@@ -15,22 +15,20 @@ async function GetGen(object) {
     }),
   })
     .then((res) => res.json())
-    .then((data) => {
+    .then(async (data) => {
       if (data.message === "Invalid token" || data.code === "token_not_valid") {
-        RefreshToken().then((res) => {
-          if (res.message !== undefined) {
-            return { message: res.message };
-          }
-        });
+        const res = await RefreshToken();
+        if (res.message === "Expired token") {
+          return { message: "Please log in again." };
+        }
         return GetGen(object);
       } else {
-        // const gen = JSON.parse(data);
-        // return gen;
         return data;
       }
     })
     .catch((err) => {
       console.log(err);
+      throw err;
     });
 }
 

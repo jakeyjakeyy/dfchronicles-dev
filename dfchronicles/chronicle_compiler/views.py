@@ -253,8 +253,8 @@ class Generate(APIView):
 
     def post(self, request):
         user = request.user
-        # model = "gpt-3.5-turbo"
-        model = "gpt-4-1106-preview"
+        model = "gpt-3.5-turbo"
+        # model = "gpt-4-1106-preview"
         maxTokens = 3000
         if model == "gpt-4-1106-preview":
             maxTokens = 4000
