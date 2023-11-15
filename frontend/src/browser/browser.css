@@ -11,3 +11,7 @@
     z-index: 0;
   }
 }
+
+.ListItemContainer {
+  margin-right: 1rem;
+}

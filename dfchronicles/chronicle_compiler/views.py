@@ -20,7 +20,10 @@ class Generations(APIView):
     authentication_classes = [JWTAuthentication]
     
     def get(self, request):
-        generations = models.Generation.objects.filter(id_gte=102) # ignore the first 101 generations used in testing
+        generations = models.Generation.objects.all() 
+        for gen in generations: # ignore the first 101 generations used in testing
+            if gen.id < 102 or not gen.id:
+                gen.delete()
         serializer = GenerationSerializer(generations, many=True)
         return Response(serializer.data)
     
@@ -70,8 +73,8 @@ class Generate(APIView):
 
     def post(self, request):
         user = request.user
-        model = "gpt-3.5-turbo"
-        # model = "gpt-4-1106-preview"
+        # model = "gpt-3.5-turbo"
+        model = "gpt-4-1106-preview"
         maxTokens = 3000
         if model == "gpt-4-1106-preview":
             maxTokens = 4000
@@ -98,7 +101,7 @@ class Generate(APIView):
             except openai.error.ServiceUnavailableErrorr:
                 return Response({"message": "Service Unavailable"})
             
-            gen = models.Generations.objects.create(
+            gen = models.Generation.objects.create(
                 user=user, object=request.data["prompt"], prompt=self.prompt, response=completion, generation=completion["choices"][0]["message"]["content"]
             )
             gen.save()

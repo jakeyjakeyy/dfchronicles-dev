@@ -18,7 +18,7 @@ async function GetGen(object) {
     .then(async (data) => {
       if (data.message === "Invalid token" || data.code === "token_not_valid") {
         const res = await RefreshToken();
-        if (res.message === "Expired token") {
+        if (res && res.message === "Expired token") {
           return { message: "Please log in again." };
         }
         return GetGen(object);
