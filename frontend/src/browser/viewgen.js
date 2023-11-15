@@ -1,7 +1,6 @@
 import React from "react";
 
 function ViewGen({ gen }) {
-  console.log(gen);
   return (
     <div className="ViewGen">
       <h1>ViewGen</h1>
