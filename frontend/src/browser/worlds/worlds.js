@@ -1,7 +1,6 @@
 import React from "react";
 import "./worlds.css";
 import { useState, useEffect } from "react";
-import GetWorlds from "../../utils/getworlds";
 import ListItem from "../listitem";
 
 function Worlds({ onAppSelect, legendsxml, legendsplusxml }) {

@@ -1,22 +1,68 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from chronicle_compiler import models
-from utils import savedb as save
-from utils import linkfkey as link
 import time
 import logging
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.renderers import JSONRenderer
-from .serializers import *
 import openai
 import os
 from dotenv import load_dotenv
 import tiktoken
+from .serializers import GenerationSerializer
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 logger = logging.getLogger(__name__)
+
+class Generations(APIView):
+    authentication_classes = [JWTAuthentication]
+    
+    def get(self, request):
+        generations = models.Generation.objects.filter(id_gte=102) # ignore the first 101 generations used in testing
+        serializer = GenerationSerializer(generations, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            return Response({"message": "Invalid token"})
+        
+        if request.data["request"] == "favorite":
+            try:
+                favorite = models.Favorite.objects.get(user=user, generation=request.data["generation"])
+                favorite.delete()
+                return Response({"message": "Favorite removed"})
+            except models.Favorite.DoesNotExist:
+                generation = models.Generation.objects.get(id=request.data["generation"])
+                favorite = models.Favorite.objects.create(user=user, generation=generation)
+                favorite.save()
+                return Response({"message": "Favorite added"})
+            
+        if request.data["request"] == "comment":
+            if request.data["delete"]:
+                comment = models.Comment.objects.get(id=request.data["comment"])
+                if comment.user != user:
+                    return Response({"message": "Invalid token"})
+                comment.delete()
+                return Response({"message": "Comment removed"})
+            generation = models.Generation.objects.get(id=request.data["generation"])
+            comment = models.Comment.objects.create(user=user, generation=generation, comment=request.data["comment"])
+            comment.save()
+            return Response({"message": "Comment added"})
+        
+        if request.data["request"] == "rate":
+            rating = models.Rating.objects.create(user=user, generation=request.data["generation"], rating=request.data["rating"])
+            rating.save()
+            return Response({"message": "Rating added"})
+        
+        
+    
+
+class Interaction(APIView):
+    authentication_classes = [JWTAuthentication]
+    
 
 class Generate(APIView):
     authentication_classes = [JWTAuthentication]
@@ -53,7 +99,7 @@ class Generate(APIView):
                 return Response({"message": "Service Unavailable"})
             
             gen = models.Generations.objects.create(
-                user=user, object=request.data["prompt"], prompt=self.prompt, response=completion
+                user=user, object=request.data["prompt"], prompt=self.prompt, response=completion, generation=completion["choices"][0]["message"]["content"]
             )
             gen.save()
             

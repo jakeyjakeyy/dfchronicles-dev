@@ -1,6 +1,5 @@
 import React from "react";
 import "./world.css";
-import LoadWorld from "../../utils/loadworld";
 import LoadObj from "../../utils/loadobject";
 import { useState, useEffect } from "react";
 import Object from "./object";

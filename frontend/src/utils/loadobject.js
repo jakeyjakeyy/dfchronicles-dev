@@ -1,4 +1,3 @@
-import LoadWorld from "./loadworld";
 import RefreshToken from "./refreshtoken";
 
 function removeEmpty(obj) {
@@ -42,7 +41,6 @@ function LoadObj(id, category, object) {
     .then((data) => {
       if (data.message === "Invalid token" || data.code === "token_not_valid") {
         RefreshToken();
-        LoadWorld(id);
       } else {
         const world = JSON.parse(data);
         const cleanedWorld = removeEmpty(world);
