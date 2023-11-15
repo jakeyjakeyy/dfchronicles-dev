@@ -1,0 +1,313 @@
+{
+  "name": "historical_event_collection",
+  "attributes": {},
+  "children": [
+    {
+      "name": "id",
+      "attributes": {},
+      "children": [],
+      "value": "5"
+    },
+    {
+      "name": "start_year",
+      "attributes": {},
+      "children": [],
+      "value": "1"
+    },
+    {
+      "name": "start_seconds72",
+      "attributes": {},
+      "children": [],
+      "value": "58800"
+    },
+    {
+      "name": "end_year",
+      "attributes": {},
+      "children": [],
+      "value": "1"
+    },
+    {
+      "name": "end_seconds72",
+      "attributes": {},
+      "children": [],
+      "value": "58800"
+    },
+    {
+      "name": "eventcol",
+      "attributes": {},
+      "children": [],
+      "value": "6"
+    },
+    {
+      "name": "event",
+      "attributes": {},
+      "children": [],
+      "value": "427"
+    },
+    {
+      "name": "event",
+      "attributes": {},
+      "children": [],
+      "value": "428"
+    },
+    {
+      "name": "type",
+      "attributes": {},
+      "children": [],
+      "value": "battle"
+    },
+    {
+      "name": "name",
+      "attributes": {},
+      "children": [],
+      "value": "the scalded battles"
+    },
+    {
+      "name": "war_eventcol",
+      "attributes": {},
+      "children": [],
+      "value": "4"
+    },
+    {
+      "name": "subregion_id",
+      "attributes": {},
+      "children": [],
+      "value": "26"
+    },
+    {
+      "name": "feature_layer_id",
+      "attributes": {},
+      "children": [],
+      "value": "-1"
+    },
+    {
+      "name": "site_id",
+      "attributes": {},
+      "children": [],
+      "value": "-1"
+    },
+    {
+      "name": "coords",
+      "attributes": {},
+      "children": [],
+      "value": "28,22"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "73"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "74"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "76"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "77"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "79"
+    },
+    {
+      "name": "attacking_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "82"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "317"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "318"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "319"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "320"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "321"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "322"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "323"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "324"
+    },
+    {
+      "name": "defending_hfid",
+      "attributes": {},
+      "children": [],
+      "value": "325"
+    },
+    {
+      "name": "attacking_squad_race",
+      "attributes": {},
+      "children": [],
+      "value": "GOBLIN"
+    },
+    {
+      "name": "attacking_squad_entity_pop",
+      "attributes": {},
+      "children": [],
+      "value": "26"
+    },
+    {
+      "name": "attacking_squad_number",
+      "attributes": {},
+      "children": [],
+      "value": "13"
+    },
+    {
+      "name": "attacking_squad_deaths",
+      "attributes": {},
+      "children": [],
+      "value": "0"
+    },
+    {
+      "name": "attacking_squad_site",
+      "attributes": {},
+      "children": [],
+      "value": "6"
+    },
+    {
+      "name": "attacking_squad_race",
+      "attributes": {},
+      "children": [],
+      "value": "GOBLIN"
+    },
+    {
+      "name": "attacking_squad_entity_pop",
+      "attributes": {},
+      "children": [],
+      "value": "26"
+    },
+    {
+      "name": "attacking_squad_number",
+      "attributes": {},
+      "children": [],
+      "value": "4"
+    },
+    {
+      "name": "attacking_squad_deaths",
+      "attributes": {},
+      "children": [],
+      "value": "0"
+    },
+    {
+      "name": "attacking_squad_site",
+      "attributes": {},
+      "children": [],
+      "value": "39"
+    },
+    {
+      "name": "defending_squad_race",
+      "attributes": {},
+      "children": [],
+      "value": "ELF"
+    },
+    {
+      "name": "defending_squad_entity_pop",
+      "attributes": {},
+      "children": [],
+      "value": "43"
+    },
+    {
+      "name": "defending_squad_number",
+      "attributes": {},
+      "children": [],
+      "value": "3"
+    },
+    {
+      "name": "defending_squad_deaths",
+      "attributes": {},
+      "children": [],
+      "value": "3"
+    },
+    {
+      "name": "defending_squad_site",
+      "attributes": {},
+      "children": [],
+      "value": "22"
+    },
+    {
+      "name": "defending_squad_race",
+      "attributes": {},
+      "children": [],
+      "value": "ELF"
+    },
+    {
+      "name": "defending_squad_entity_pop",
+      "attributes": {},
+      "children": [],
+      "value": "43"
+    },
+    {
+      "name": "defending_squad_number",
+      "attributes": {},
+      "children": [],
+      "value": "5"
+    },
+    {
+      "name": "defending_squad_deaths",
+      "attributes": {},
+      "children": [],
+      "value": "5"
+    },
+    {
+      "name": "defending_squad_site",
+      "attributes": {},
+      "children": [],
+      "value": "37"
+    },
+    {
+      "name": "outcome",
+      "attributes": {},
+      "children": [],
+      "value": "attacker won"
+    }
+  ],
+  "value": ""
+}

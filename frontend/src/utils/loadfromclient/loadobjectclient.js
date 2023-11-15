@@ -1,13 +1,8 @@
 import loadHistoricalEventCollection from "./historicaleventcol";
 
-function loadObjectClient(object, setResponse, legendsxml, legendsplusxml) {
+function loadObjectClient(object, legendsxml, legendsplusxml) {
   if (object.name === "historical_event_collection") {
-    return loadHistoricalEventCollection(
-      object,
-      setResponse,
-      legendsxml,
-      legendsplusxml
-    );
+    return loadHistoricalEventCollection(object, legendsxml, legendsplusxml);
   }
 }
 

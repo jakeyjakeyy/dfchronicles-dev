@@ -16,7 +16,6 @@ function Object({ object, legendsxml, legendsplusxml }) {
       setTimeout(async () => {
         const data = await loadObjectClient(
           object,
-          setResponse,
           legendsxml,
           legendsplusxml,
           setStatus
@@ -41,8 +40,8 @@ function Object({ object, legendsxml, legendsplusxml }) {
         return;
       }
       console.log(data);
-      const loadeddata = await GetGen(data);
-      // const loadeddata = { generation: "test" };
+      // const loadeddata = await GetGen(data);
+      const loadeddata = { generation: "test" };
       setResponse(loadeddata);
     }
     fetchData();

@@ -1,0 +1,325 @@
+{
+    "world": {
+      "name": "The Plane of Enchanting",
+      "dwarvishname": "Sil Minbaz"
+    },
+    "id": "5",
+    "startYear": "1",
+    "endYear": "1",
+    "eventCollections": [
+      {
+        "world": {
+          "name": "The Plane of Enchanting",
+          "dwarvishname": "Sil Minbaz"
+        },
+        "id": "6",
+        "startYear": "1",
+        "endYear": "1",
+        "events": [
+          {
+            "year": "1",
+            "type": "hf simple battle event",
+            "subtype": "confront",
+            "subregion": {
+              "name": "the forest of irons",
+              "type": "Forest",
+              "evilness": "neutral"
+            },
+            "involvedFigures": {
+              "0": {
+                "id": "73",
+                "name": "rithesa seduceconfuses the veil of rumors",
+                "race": "DEMON_3",
+                "caste": "DEFAULT"
+              },
+              "1": {
+                "id": "320",
+                "name": "fecici strengthmaws",
+                "race": "ELF",
+                "caste": "MALE"
+              }
+            }
+          },
+          {
+            "year": "1",
+            "type": "hf simple battle event",
+            "subtype": "scuffle",
+            "subregion": {
+              "name": "the forest of irons",
+              "type": "Forest",
+              "evilness": "neutral"
+            },
+            "involvedFigures": {
+              "0": {
+                "id": "73",
+                "name": "rithesa seduceconfuses the veil of rumors",
+                "race": "DEMON_3",
+                "caste": "DEFAULT"
+              },
+              "1": {
+                "id": "320",
+                "name": "fecici strengthmaws",
+                "race": "ELF",
+                "caste": "MALE"
+              }
+            }
+          }
+        ],
+        "type": "duel",
+        "subregion": {
+          "name": "the forest of irons",
+          "type": "Forest",
+          "evilness": "neutral"
+        },
+        "attackingFigures": [
+          {
+            "name": "rithesa seduceconfuses the veil of rumors",
+            "race": "DEMON_3",
+            "sex": "DEFAULT",
+            "birthYear": "-222"
+          }
+        ],
+        "defendingFigures": [
+          {
+            "name": "fecici strengthmaws",
+            "race": "ELF",
+            "sex": "MALE",
+            "birthYear": "-215"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "year": "1",
+        "type": "field battle",
+        "attackerCiv": {
+          "race": "goblin",
+          "type": "civilization",
+          "name": "sheersnis"
+        },
+        "defenderCiv": {
+          "race": "elf",
+          "type": "civilization",
+          "name": "the fellowship of noses"
+        },
+        "subregion": {
+          "name": "the forest of irons",
+          "type": "Forest",
+          "evilness": "neutral"
+        },
+        "attackerGeneral": {
+          "id": "73",
+          "name": "rithesa seduceconfuses the veil of rumors",
+          "race": "DEMON_3",
+          "caste": "DEFAULT"
+        },
+        "defenderGeneral": {
+          "id": "319",
+          "name": "pevo hilllives",
+          "race": "ELF",
+          "caste": "FEMALE"
+        }
+      },
+      {
+        "year": "1",
+        "type": "target died",
+        "subregion": {
+          "name": "the forest of irons",
+          "type": "Forest",
+          "evilness": "neutral"
+        },
+        "targetFigure": {
+          "id": "322",
+          "name": "bilalo sealrhymes",
+          "race": "ELF",
+          "caste": "FEMALE"
+        },
+        "attackerFigure": {
+          "id": "82",
+          "name": "smunstu stolendusts",
+          "race": "GOBLIN",
+          "caste": "FEMALE"
+        },
+        "cause": "struck"
+      }
+    ],
+    "type": "battle",
+    "name": "the scalded battles",
+    "isPartOfWar": {
+      "name": "the conflict of throwing",
+      "id": "4",
+      "startYear": "1",
+      "endYear": "2",
+      "agressorCivilization": {
+        "race": "goblin",
+        "type": "civilization",
+        "name": "sheersnis"
+      },
+      "defenderCivilization": {
+        "race": "elf",
+        "type": "civilization",
+        "name": "the fellowship of noses"
+      }
+    },
+    "subregion": {
+      "name": "the forest of irons",
+      "type": "Forest",
+      "evilness": "neutral"
+    },
+    "attackingFigures": [
+      {
+        "name": "rithesa seduceconfuses the veil of rumors",
+        "race": "DEMON_3",
+        "sex": "DEFAULT",
+        "birthYear": "-222"
+      },
+      {
+        "name": "dostngosp hatedfasten",
+        "race": "GOBLIN",
+        "sex": "FEMALE",
+        "birthYear": "-254"
+      },
+      {
+        "name": "dostngosp gravefly",
+        "race": "GOBLIN",
+        "sex": "MALE",
+        "birthYear": "-273"
+      },
+      {
+        "name": "nako soulvile",
+        "race": "GOBLIN",
+        "sex": "MALE",
+        "birthYear": "-231"
+      },
+      {
+        "name": "snodub spatterterror",
+        "race": "GOBLIN",
+        "sex": "MALE",
+        "birthYear": "-239"
+      },
+      {
+        "name": "smunstu stolendusts",
+        "race": "GOBLIN",
+        "sex": "FEMALE",
+        "birthYear": "-247"
+      }
+    ],
+    "defendingFigures": [
+      {
+        "name": "thilu stilledpoets",
+        "race": "ELF",
+        "sex": "MALE",
+        "birthYear": "-209"
+      },
+      {
+        "name": "aye adorebrushed",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-249"
+      },
+      {
+        "name": "pevo hilllives",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-271"
+      },
+      {
+        "name": "fecici strengthmaws",
+        "race": "ELF",
+        "sex": "MALE",
+        "birthYear": "-215"
+      },
+      {
+        "name": "masami braidviper",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-204"
+      },
+      {
+        "name": "bilalo sealrhymes",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-239"
+      },
+      {
+        "name": "enure buckzeal",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-199"
+      },
+      {
+        "name": "epeve passagetwilights",
+        "race": "ELF",
+        "sex": "FEMALE",
+        "birthYear": "-267"
+      },
+      {
+        "name": "awiri winterfountain",
+        "race": "ELF",
+        "sex": "MALE",
+        "birthYear": "-178"
+      }
+    ],
+    "attackingSquads": [
+      {
+        "number": "13",
+        "deaths": "0",
+        "fromSite": {
+          "name": "whispermaze",
+          "type": "hamlet"
+        },
+        "race": "GOBLIN",
+        "fromCiv": {
+          "race": "kobold",
+          "type": "civilization",
+          "name": "the barricade of sitting"
+        }
+      },
+      {
+        "number": "4",
+        "deaths": "0",
+        "fromSite": {
+          "name": "coilplagues",
+          "type": "dark pits"
+        },
+        "race": "GOBLIN",
+        "fromCiv": {
+          "race": "kobold",
+          "type": "civilization",
+          "name": "the barricade of sitting"
+        }
+      }
+    ],
+    "defendingSquads": [
+      {
+        "number": "3",
+        "deaths": "3",
+        "fromSite": {
+          "name": "carnagecradled",
+          "type": "vault"
+        },
+        "race": "ELF",
+        "fromCiv": {
+          "race": "elf",
+          "type": "sitegovernment",
+          "name": "the thin glen"
+        }
+      },
+      {
+        "number": "5",
+        "deaths": "5",
+        "fromSite": {
+          "name": "fortunebudded",
+          "type": "hamlet"
+        },
+        "race": "ELF",
+        "fromCiv": {
+          "race": "elf",
+          "type": "sitegovernment",
+          "name": "the thin glen"
+        }
+      }
+    ],
+    "outcome": "attacker won"
+  }

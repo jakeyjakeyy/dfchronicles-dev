@@ -133,12 +133,12 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
       }
     }
 
+    if (dataplus === undefined) {
+      return event;
+    }
     const itemtype = dataplus.getElementsByTagName("item_type");
     if (itemtype.length > 0) {
       event.itemType = dataplus.getElementsByTagName("item_type")[0].value;
-    }
-    if (!dataplus) {
-      return event;
     }
     const mat = dataplus.getElementsByTagName("mat");
     if (mat.length > 0) {

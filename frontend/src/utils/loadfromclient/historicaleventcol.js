@@ -3,12 +3,7 @@ import LinkSquads from "./linksquads";
 import loadSubregion from "./subregion";
 import getEntityData from "./entity";
 
-function loadHistoricalEventCollection(
-  object,
-  setResponse,
-  legendsxml,
-  legendsplusxml
-) {
+function loadHistoricalEventCollection(object, legendsxml, legendsplusxml) {
   const json = {};
   console.log(object);
   const histfigs = legendsxml.getElementsByTagName("historical_figure");
@@ -28,12 +23,7 @@ function loadHistoricalEventCollection(
       elementTags.forEach((data) => {
         if (data.getElementsByTagName("id")[0].value === eventcol.value) {
           eventCollections.push(
-            loadHistoricalEventCollection(
-              data,
-              setResponse,
-              legendsxml,
-              legendsplusxml
-            )
+            loadHistoricalEventCollection(data, legendsxml, legendsplusxml)
           );
         }
       });

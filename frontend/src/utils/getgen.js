@@ -18,7 +18,7 @@ async function GetGen(object) {
     .then((data) => {
       if (data.message === "Invalid token" || data.code === "token_not_valid") {
         RefreshToken().then((res) => {
-          if (res.message) {
+          if (res.message !== undefined) {
             return { message: res.message };
           }
         });
