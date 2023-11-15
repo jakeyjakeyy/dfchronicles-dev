@@ -1,1 +1,0 @@
-from .historical_figure import save_historical_figure

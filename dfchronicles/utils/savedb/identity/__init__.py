@@ -1,1 +1,0 @@
-from .identity import save_identity

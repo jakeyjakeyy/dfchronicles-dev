@@ -1,4 +1,4 @@
-# Dwarf Fortress Chronicle Generator
+# Dwarf Fortress Chronicles
 
 Generate stories from Dwarf Fortress legends data.
 
@@ -11,8 +11,6 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 - **Complex Data Processing:** The project involves complex data processing tasks. It requires converting XML files into JSON, interpreting the data, and generating narratives using AI. This is a more complex task than handling standard data types in other applications.
 
 - **AI Integration:** The use of AI to generate narratives adds a layer of complexity. It requires knowledge of AI, communication with a third-party API, and how to integrate it into a web application.
-
-- **Interactive Story Presentation:** The project presents the generated stories in an interactive format. This requires advanced front-end skills to create a visually appealing and user-friendly interface.
 
 - **Advanced Search Functionality:** The search and filter functionality goes beyond standard search features in e-commerce or social media apps. It allows users to search for specific stories or historical events, requiring a more complex search algorithm.
 

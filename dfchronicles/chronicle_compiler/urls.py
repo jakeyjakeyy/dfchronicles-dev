@@ -8,10 +8,7 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
-    path("process-xml", ProcessXML.as_view(), name="process-xml"),
-    path("whoami", WhoAmI.as_view(), name="whoami"),
     path("token", TokenObtainPairView.as_view(), name="token"),
     path("token/refresh", TokenRefreshView.as_view(), name="refresh"),
-    path("worlds", Worlds.as_view(), name="worlds"),
     path("generate", Generate.as_view(), name="generate"),
 ]
