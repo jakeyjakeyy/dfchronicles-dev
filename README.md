@@ -1,7 +1,9 @@
-#Dwarf Fortress Chronicle Generator
+# Dwarf Fortress Chronicle Generator
+
 Generate stories from Dwarf Fortress legends data.
 
-##Distinctiveness and Complexity
+## Distinctiveness and Complexity
+
 The Dwarf Fortress Chronicle Generator is a unique and complex project that stands apart from earlier projects such as our e-commerce and social media web applications.
 
 Unique Domain: Unlike common domains such as e-commerce or social media, this project operates in the niche domain of game world history narration. It required a deep dive into the data of Dwarf Fortress, and its world history files. It posed many questions such as how to interpret this data into engaging narratives.
