@@ -59,7 +59,13 @@ function ViewGen({ gen }) {
       await Generations("comment", gen.id, comment).then((data) => {
         if (data.message === "Comment added") {
           setComment("");
-          gen.id = gen.id;
+          Generations("commentQuery", gen.id).then((data) => {
+            if (data.comments) {
+              setComments(data.comments);
+            } else {
+              console.log(data);
+            }
+          });
         } else {
           console.log(data);
         }
@@ -93,16 +99,22 @@ function ViewGen({ gen }) {
       </div>
       <div className="CommentsDiv">
         <h4>Comments</h4>
-        <form>
-          <input
+        <div className="CommentForm">
+          <textarea
+            className="CommentInput"
             type="text"
+            value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="Leave a comment..."
           />
-          <button type="submit" onClick={submitComment}>
+          <button
+            className="CommentSubmit"
+            type="submit"
+            onClick={submitComment}
+          >
             Submit
           </button>
-        </form>
+        </div>
         <div className="Comments">
           {isLoading ? (
             <p>Loading comments...</p>
