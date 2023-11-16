@@ -66,6 +66,7 @@ function Category({
           object={obj}
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
+          setcategoryname={setcategoryname}
         />
       </div>
     );

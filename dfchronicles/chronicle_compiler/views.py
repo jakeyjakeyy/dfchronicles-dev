@@ -1,7 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from chronicle_compiler import models
-import time
 import logging
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.renderers import JSONRenderer
@@ -10,6 +9,7 @@ import os
 from dotenv import load_dotenv
 import tiktoken
 from .serializers import GenerationSerializer
+import re
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -21,10 +21,11 @@ class Generations(APIView):
     
     def get(self, request):
         generations = models.Generation.objects.all() 
-        for gen in generations: # ignore the first 101 generations used in testing
-            if gen.id < 102 or not gen.id:
-                gen.delete()
-        serializer = GenerationSerializer(generations, many=True)
+        cleangens = []
+        for gen in generations: # ignore early generations used in testing
+            if gen.id > 102:
+                cleangens.append(gen)
+        serializer = GenerationSerializer(cleangens, many=True)
         return Response(serializer.data)
     
     def post(self, request):
@@ -69,7 +70,7 @@ class Interaction(APIView):
 
 class Generate(APIView):
     authentication_classes = [JWTAuthentication]
-    prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details that may not explicitly be provided to you, in order to captivate the reader. The story should take readers on a journey through this extraordinary realm.'
+    prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details that may not explicitly be provided to you, in order to captivate the reader.The beginning of your response should start with you creating a title for your story encased in triple quotes("""title""").'
 
     def post(self, request):
         user = request.user
@@ -101,10 +102,14 @@ class Generate(APIView):
             except openai.error.ServiceUnavailableErrorr:
                 return Response({"message": "Service Unavailable"})
             
-            gen = models.Generation.objects.create(
-                user=user, object=request.data["prompt"], prompt=self.prompt, response=completion, generation=completion["choices"][0]["message"]["content"]
-            )
+            # Extract title from response
+            pattern = r'"""(.*?)"""'
+            match = re.search(pattern, completion["choices"][0]["message"]["content"])
+            extracted_text = match.group(1) if match else ""
+            
+            response = re.sub(pattern, "", completion["choices"][0]["message"]["content"])
+
+            gen = models.Generation.objects.create(user=user, object=request.data["prompt"], prompt=self.prompt, response=completion, generation=response, title=extracted_text)
             gen.save()
             
-            response = completion["choices"][0]["message"]["content"]
-            return Response({"generation": response})
+            return Response({"generation": response, "title": extracted_text, "id": gen.id})

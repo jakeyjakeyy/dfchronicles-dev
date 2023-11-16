@@ -1,0 +1,19 @@
+@import "../root.css";
+
+.ViewGen {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+.ViewGenHeader {
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  padding-top: 1rem;
+  background-color: var(--background);
+}
+
+.ViewGenContent {
+  flex-grow: 1;
+  margin-bottom: 5rem;
+}

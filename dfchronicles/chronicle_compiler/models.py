@@ -9,6 +9,7 @@ class Generation(models.Model):
     prompt = models.CharField()
     response = models.CharField()
     generation = models.CharField(default="")
+    title = models.CharField()
     time = models.DateTimeField(auto_now_add=True)
     
 class Rating(models.Model):

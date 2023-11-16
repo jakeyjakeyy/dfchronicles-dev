@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import GetGen from "../../utils/getgen";
 import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
 
-function Object({ object, legendsxml, legendsplusxml }) {
+function Object({ object, legendsxml, legendsplusxml, setcategoryname }) {
   const [response, setResponse] = useState([]);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -40,8 +40,8 @@ function Object({ object, legendsxml, legendsplusxml }) {
         return;
       }
       console.log(data);
-      // const loadeddata = await GetGen(data);
-      const loadeddata = { generation: "test" };
+      const loadeddata = await GetGen(data);
+      // const loadeddata = { generation: "test", title: "title test" };
       setResponse(loadeddata);
     }
     fetchData();
@@ -57,6 +57,7 @@ function Object({ object, legendsxml, legendsplusxml }) {
       </div>
     );
   } else {
+    setcategoryname(response.title);
     return (
       <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
         <p>{response.generation}</p>

@@ -43,7 +43,7 @@ function Browser({ app, onAppSelect }) {
             <ListItem
               key={gen.id}
               id={gen.id}
-              name={gen.user}
+              name={gen.title}
               name2={gen.generation}
               onClick={() => {
                 onAppSelect("ViewGen");
