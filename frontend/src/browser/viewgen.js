@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 import Generations from "../utils/generations";
 
 function ViewGen({ gen }) {
+  const [isLoading, setIsLoading] = useState(true);
   const [favorite, setFavorite] = React.useState(false);
   const [comments, setComments] = React.useState([]);
+  const [comment, setComment] = React.useState("");
 
   useEffect(() => {
     // API call to check if favorite
@@ -20,16 +22,20 @@ function ViewGen({ gen }) {
     }
     // Get comments
     async function fetchComments() {
-      const data = await Generations("commentQuery", gen.id);
-      if (data.message === "Comments") {
-        setComments(data.comments);
-      } else {
+      Generations("commentQuery", gen.id).then((data) => {
         console.log(data);
-      }
+        if (data.comments) {
+          setComments(data.comments);
+          setIsLoading(false);
+        } else {
+          console.log(data);
+          setIsLoading(false);
+        }
+      });
     }
     fetchData();
     fetchComments();
-  });
+  }, []);
   const handleFavoriteClick = () => {
     // API call to set favorite
     async function fetchData() {
@@ -39,6 +45,21 @@ function ViewGen({ gen }) {
           data.message === "Favorite removed"
         ) {
           setFavorite(!favorite);
+        } else {
+          console.log(data);
+        }
+      });
+    }
+    fetchData();
+  };
+  const submitComment = (e) => {
+    e.preventDefault();
+    // API call to submit comment
+    async function fetchData() {
+      await Generations("comment", gen.id, comment).then((data) => {
+        if (data.message === "Comment added") {
+          setComment("");
+          gen.id = gen.id;
         } else {
           console.log(data);
         }
@@ -73,11 +94,19 @@ function ViewGen({ gen }) {
       <div className="CommentsDiv">
         <h4>Comments</h4>
         <form>
-          <input type="text" placeholder="Comment" />
-          <button type="submit">Submit</button>
+          <input
+            type="text"
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Leave a comment..."
+          />
+          <button type="submit" onClick={submitComment}>
+            Submit
+          </button>
         </form>
         <div className="Comments">
-          {comments.length === 0 ? (
+          {isLoading ? (
+            <p>Loading comments...</p>
+          ) : comments.length === 0 ? (
             <p>No comments yet</p>
           ) : (
             comments.map((comment) => (

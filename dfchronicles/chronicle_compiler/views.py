@@ -8,7 +8,7 @@ import openai
 import os
 from dotenv import load_dotenv
 import tiktoken
-from .serializers import GenerationSerializer
+from .serializers import *
 import re
 
 load_dotenv()
@@ -58,6 +58,7 @@ class Generations(APIView):
                 if request.data["query"]:
                     try:
                         comments = models.Comment.objects.filter(generation=request.data["generation"])
+                        comments = CommentSerializer(comments, many=True).data
                         return Response({"comments": comments})
                     except models.Generation.DoesNotExist:
                         return Response({"comments": "None"})
