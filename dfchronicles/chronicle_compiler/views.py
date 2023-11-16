@@ -54,12 +54,24 @@ class Generations(APIView):
                 return Response({"message": "Favorite added"})
             
         if request.data["request"] == "comment":
-            if request.data["delete"]:
-                comment = models.Comment.objects.get(id=request.data["comment"])
-                if comment.user != user:
-                    return Response({"message": "Invalid token"})
-                comment.delete()
-                return Response({"message": "Comment removed"})
+            try:
+                if request.data["query"]:
+                    try:
+                        comments = models.Comment.objects.filter(generation=request.data["generation"])
+                        return Response({"comments": comments})
+                    except models.Generation.DoesNotExist:
+                        return Response({"comments": "None"})
+            except KeyError:
+                pass
+            try:
+                if request.data["delete"]:
+                    comment = models.Comment.objects.get(id=request.data["comment"])
+                    if comment.user != user:
+                        return Response({"message": "Invalid token"})
+                    comment.delete()
+                    return Response({"message": "Comment removed"})
+            except KeyError:
+                pass
             generation = models.Generation.objects.get(id=request.data["generation"])
             comment = models.Comment.objects.create(user=user, generation=generation, comment=request.data["comment"])
             comment.save()

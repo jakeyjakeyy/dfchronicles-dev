@@ -6,6 +6,7 @@ import Generations from "../utils/generations";
 
 function ViewGen({ gen }) {
   const [favorite, setFavorite] = React.useState(false);
+  const [comments, setComments] = React.useState([]);
 
   useEffect(() => {
     // API call to check if favorite
@@ -17,9 +18,18 @@ function ViewGen({ gen }) {
         setFavorite(false);
       }
     }
+    // Get comments
+    async function fetchComments() {
+      const data = await Generations("commentQuery", gen.id);
+      if (data.message === "Comments") {
+        setComments(data.comments);
+      } else {
+        console.log(data);
+      }
+    }
     fetchData();
+    fetchComments();
   });
-
   const handleFavoriteClick = () => {
     // API call to set favorite
     async function fetchData() {
@@ -60,9 +70,24 @@ function ViewGen({ gen }) {
       <div className="ViewGenContent" style={{ whiteSpace: "pre-wrap" }}>
         <p>{gen.generation}</p>
       </div>
-      <div className="ViewGenComments">
+      <div className="CommentsDiv">
         <h4>Comments</h4>
-        <p>Comments go here</p>
+        <form>
+          <input type="text" placeholder="Comment" />
+          <button type="submit">Submit</button>
+        </form>
+        <div className="Comments">
+          {comments.length === 0 ? (
+            <p>No comments yet</p>
+          ) : (
+            comments.map((comment) => (
+              <div className="ViewGenComment" key={comment.id}>
+                <h5>{comment.user}</h5>
+                <p>{comment.comment}</p>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );

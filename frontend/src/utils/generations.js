@@ -17,49 +17,41 @@ async function Generations(request, id, feedback) {
         throw err;
       });
   } else if (request === "favoriteQuery") {
-    const token = localStorage.getItem("token");
-    return fetch("http://localhost:8000/api/generations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${token}`,
-      },
-      body: JSON.stringify({
-        request: "favorite",
-        generation: id,
-        query: "query",
-      }),
-    })
-      .then((res) => res.json())
-      .then(async (data) => {
-        return HandleRefresh(data, request, id);
-      })
-      .catch((err) => {
-        console.log(err);
-        throw err;
-      });
+    return apiCall(request, {
+      request: "favorite",
+      generation: id,
+      query: "query",
+    });
   } else if (request === "favorite") {
-    const token = localStorage.getItem("token");
-    return fetch("http://localhost:8000/api/generations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${token}`,
-      },
-      body: JSON.stringify({
-        request: "favorite",
-        generation: id,
-      }),
-    })
-      .then((res) => res.json())
-      .then(async (data) => {
-        return HandleRefresh(data, request, id);
-      })
-      .catch((err) => {
-        console.log(err);
-        throw err;
-      });
+    return apiCall(request, { request: "favorite", generation: id });
+  } else if (request === "commentQuery") {
+    return apiCall(request, {
+      request: "comment",
+      generation: id,
+      query: "query",
+    });
   }
+}
+
+function apiCall(request, data) {
+  console.log(data);
+  const token = localStorage.getItem("token");
+  return fetch("http://localhost:8000/api/generations", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`,
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then(async (data) => {
+      return HandleRefresh(data, request, data.id);
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
 }
 
 async function HandleRefresh(data, request, id, feedback) {
