@@ -15,28 +15,21 @@ function ViewGen({ gen }) {
   useEffect(() => {
     // API call to check if favorite
     async function fetchData() {
-      const data = await Generations("favoriteQuery", gen.id);
-      if (data.message === "Favorite") {
+      const data = await Generations("Query", gen.id);
+      if (data.userfavorite) {
         setFavorite(true);
       } else {
         setFavorite(false);
       }
-    }
-    // Get comments
-    async function fetchComments() {
-      Generations("commentQuery", gen.id).then((data) => {
+      if (data.comments) {
+        setComments(data.comments);
+        setIsLoading(false);
+      } else {
         console.log(data);
-        if (data.comments) {
-          setComments(data.comments);
-          setIsLoading(false);
-        } else {
-          console.log(data);
-          setIsLoading(false);
-        }
-      });
+        setIsLoading(false);
+      }
     }
     fetchData();
-    fetchComments();
   }, []);
   const handleFavoriteClick = () => {
     // API call to set favorite
@@ -75,8 +68,11 @@ function ViewGen({ gen }) {
     }
     fetchData();
   };
-  const handleSetRating = (rating) => {
-    setRating(rating);
+  const handleSetRating = (newRating) => {
+    if (rating === newRating) {
+      newRating = 0;
+    }
+    setRating(newRating);
   };
 
   return (

@@ -33,16 +33,14 @@ class Generations(APIView):
         if not user.is_authenticated:
             return Response({"message": "Invalid token"})
         
+        if request.data["request"] == "query":
+            generation = request.data["generation"]
+            userfavorite = models.Favorite.objects.filter(user=user, generation=generation)
+            comments = CommentSerializer(models.Comment.objects.filter(generation=generation), many=True).data
+            userrating = models.Rating.objects.filter(generation=generation, user=user)
+            return Response({"userfavorite": len(userfavorite), "comments": comments, "userrating": userrating})
+        
         if request.data["request"] == "favorite":
-            try:
-                if request.data["query"]:
-                    favorites = models.Favorite.objects.filter(user=user, generation=request.data["generation"])
-                    if favorites:
-                        return Response({"message": "Favorite"})
-                    else:
-                        return Response({"message": "Not Favorite"})
-            except KeyError:
-                pass
             try:
                 favorite = models.Favorite.objects.get(user=user, generation=request.data["generation"])
                 favorite.delete()
@@ -54,16 +52,6 @@ class Generations(APIView):
                 return Response({"message": "Favorite added"})
             
         if request.data["request"] == "comment":
-            try:
-                if request.data["query"]:
-                    try:
-                        comments = models.Comment.objects.filter(generation=request.data["generation"])
-                        comments = CommentSerializer(comments, many=True).data
-                        return Response({"comments": comments})
-                    except models.Generation.DoesNotExist:
-                        return Response({"comments": "None"})
-            except KeyError:
-                pass
             try:
                 if request.data["delete"]:
                     comment = models.Comment.objects.get(id=request.data["comment"])

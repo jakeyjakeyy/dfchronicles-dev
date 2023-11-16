@@ -17,20 +17,13 @@ async function Generations(request, id, feedback) {
         throw err;
       });
   }
-  if (request === "favoriteQuery") {
+  if (request === "Query") {
     return apiCall(request, {
-      request: "favorite",
+      request: "query",
       generation: id,
-      query: "query",
     });
   } else if (request === "favorite") {
     return apiCall(request, { request: "favorite", generation: id });
-  } else if (request === "commentQuery") {
-    return apiCall(request, {
-      request: "comment",
-      generation: id,
-      query: "query",
-    });
   } else if (request === "comment") {
     return apiCall(request, {
       request: "comment",
