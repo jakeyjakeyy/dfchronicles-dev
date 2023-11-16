@@ -20,7 +20,7 @@ class Generations(APIView):
     authentication_classes = [JWTAuthentication]
     
     def get(self, request):
-        generations = models.Generation.objects.all() 
+        generations = models.Generation.objects.all().order_by('-id') 
         cleangens = []
         for gen in generations: # ignore early generations used in testing
             if gen.id > 102:
