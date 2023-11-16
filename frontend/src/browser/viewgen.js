@@ -123,9 +123,15 @@ function ViewGen({ gen }) {
           ) : (
             comments.map((comment) => (
               <div className="ViewGenComment" key={comment.id}>
-                <h5>{comment.user}</h5>
-                <p>{comment.comment}</p>
-                <small>{new Date(comment.time).toLocaleString()}</small>
+                <div className="ViewGenCommentHeader">
+                  <h5>{comment.user}</h5>
+                </div>
+                <div className="ViewGenCommentContent">
+                  <p>{comment.comment}</p>
+                </div>
+                <div className="ViewGenCommentFooter">
+                  <small>{new Date(comment.time).toLocaleString()}</small>
+                </div>
               </div>
             ))
           )}

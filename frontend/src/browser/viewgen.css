@@ -24,10 +24,13 @@
 
 .CommentForm {
   margin: 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .CommentInput {
-  width: 100%;
+  width: 75%;
   height: 3rem;
   border: 1px solid var(--primary);
   border-radius: 0.5rem;
@@ -35,4 +38,38 @@
   background-color: var(--background);
   color: var(--text);
   white-space: pre-wrap;
+}
+
+.CommentSubmit {
+  margin-top: 0.5rem;
+  width: 25%;
+  height: 3rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--background);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.CommentSubmit:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.ViewGenComment {
+  white-space: pre-wrap;
+  margin: 1rem 0 1rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem;
+}
+
+.ViewGenCommentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ViewGenCommentContent {
+  margin-top: 0.3rem;
 }
