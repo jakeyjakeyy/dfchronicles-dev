@@ -16,7 +16,8 @@ async function Generations(request, id, feedback) {
         console.log(err);
         throw err;
       });
-  } else if (request === "favoriteQuery") {
+  }
+  if (request === "favoriteQuery") {
     return apiCall(request, {
       request: "favorite",
       generation: id,
@@ -40,7 +41,6 @@ async function Generations(request, id, feedback) {
 }
 
 function apiCall(request, data) {
-  console.log(data);
   const token = localStorage.getItem("token");
   return fetch("http://localhost:8000/api/generations", {
     method: "POST",
@@ -52,7 +52,7 @@ function apiCall(request, data) {
   })
     .then((res) => res.json())
     .then(async (data) => {
-      return HandleRefresh(data, request, data.id);
+      return HandleRefresh(data, request, data.generation);
     })
     .catch((err) => {
       console.log(err);

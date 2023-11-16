@@ -113,6 +113,7 @@ function ViewGen({ gen }) {
               <div className="ViewGenComment" key={comment.id}>
                 <h5>{comment.user}</h5>
                 <p>{comment.comment}</p>
+                <small>{new Date(comment.time).toLocaleString()}</small>
               </div>
             ))
           )}
