@@ -1,6 +1,6 @@
 import React from "react";
 import "./viewgen.css";
-import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Generations from "../utils/generations";
 
@@ -74,15 +74,15 @@ function ViewGen({ gen }) {
         <h3>{gen.title}</h3>
         <h4>{gen.user}</h4>
         {!favorite && (
-          <FaRegStar
-            color={"white"}
+          <FaRegHeart
+            color={"red"}
             className="FavButton"
             onClick={handleFavoriteClick}
           />
         )}
         {favorite && (
-          <FaStar
-            color={"gold"}
+          <FaHeart
+            color={"red"}
             className="FavButton"
             onClick={handleFavoriteClick}
           />

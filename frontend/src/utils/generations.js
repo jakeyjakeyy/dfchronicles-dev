@@ -52,6 +52,7 @@ function apiCall(request, data) {
   })
     .then((res) => res.json())
     .then(async (data) => {
+      console.log(data);
       return HandleRefresh(data, request, data.generation);
     })
     .catch((err) => {
