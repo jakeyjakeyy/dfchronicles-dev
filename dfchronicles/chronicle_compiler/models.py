@@ -15,7 +15,7 @@ class Generation(models.Model):
 class Rating(models.Model):
     user = models.ForeignKey(User, related_name='user_ratings', null=True, on_delete=models.SET_NULL)
     generation = models.ForeignKey(Generation, related_name='ratings', null=True, on_delete=models.SET_NULL)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=0)
     time = models.DateTimeField(auto_now_add=True)
     
 class Comment(models.Model):

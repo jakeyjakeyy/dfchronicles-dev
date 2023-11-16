@@ -25,8 +25,11 @@ function ViewGen({ gen }) {
         setComments(data.comments);
         setIsLoading(false);
       } else {
-        console.log(data);
         setIsLoading(false);
+      }
+      if (data.userrating) {
+        console.log(data.userrating);
+        setRating(data.userrating);
       }
     }
     fetchData();
@@ -73,6 +76,7 @@ function ViewGen({ gen }) {
       newRating = 0;
     }
     setRating(newRating);
+    Generations("rate", gen.id, newRating);
   };
 
   return (

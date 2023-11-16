@@ -30,6 +30,12 @@ async function Generations(request, id, feedback) {
       generation: id,
       comment: feedback,
     });
+  } else if (request === "rate") {
+    return apiCall(request, {
+      request: "rate",
+      generation: id,
+      rating: feedback,
+    });
   }
 }
 

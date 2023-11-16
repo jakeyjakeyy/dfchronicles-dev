@@ -35,9 +35,12 @@ class Generations(APIView):
         
         if request.data["request"] == "query":
             generation = request.data["generation"]
+            generation = models.Generation.objects.get(id=generation)
             userfavorite = models.Favorite.objects.filter(user=user, generation=generation)
             comments = CommentSerializer(models.Comment.objects.filter(generation=generation), many=True).data
-            userrating = models.Rating.objects.filter(generation=generation, user=user)
+            userrating = RatingSerializer(models.Rating.objects.filter(generation=generation, user=user), many=True).data
+            if len(userrating) > 0:
+                userrating = userrating[0]["rating"]
             return Response({"userfavorite": len(userfavorite), "comments": comments, "userrating": userrating})
         
         if request.data["request"] == "favorite":
@@ -67,9 +70,22 @@ class Generations(APIView):
             return Response({"message": "Comment added"})
         
         if request.data["request"] == "rate":
-            rating = models.Rating.objects.create(user=user, generation=request.data["generation"], rating=request.data["rating"])
-            rating.save()
-            return Response({"message": "Rating added"})
+            try:
+                generation = models.Generation.objects.get(id=request.data["generation"])
+                rating = models.Rating.objects.get(user=user, generation=generation)
+                rating.rating = request.data["rating"]
+                if rating.rating < 1:
+                    rating.delete()
+                    return Response({"message": "Rating removed"})
+                if rating.rating > 5:
+                    rating.rating = 5
+                rating.save()
+                return Response({"message": "Rating updated"})
+            except models.Rating.DoesNotExist:
+                generation = models.Generation.objects.get(id=request.data["generation"])
+                rating = models.Rating.objects.create(user=user, generation=generation, rating=request.data["rating"])
+                rating.save()
+                return Response({"message": "Rating added"})
         
         
     
