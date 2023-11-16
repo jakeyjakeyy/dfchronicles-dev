@@ -35,6 +35,15 @@ class Generations(APIView):
         
         if request.data["request"] == "favorite":
             try:
+                if request.data["query"]:
+                    favorites = models.Favorite.objects.filter(user=user, generation=request.data["generation"])
+                    if favorites:
+                        return Response({"message": "Favorite"})
+                    else:
+                        return Response({"message": "Not Favorite"})
+            except KeyError:
+                pass
+            try:
                 favorite = models.Favorite.objects.get(user=user, generation=request.data["generation"])
                 favorite.delete()
                 return Response({"message": "Favorite removed"})
