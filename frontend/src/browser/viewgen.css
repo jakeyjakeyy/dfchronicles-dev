@@ -8,8 +8,15 @@
 .ViewGenHeader {
   position: sticky;
   top: 0;
-  padding: 1rem 0 1rem;
+  padding: 1rem 0 0;
   background-color: var(--background);
+}
+
+.Favorite {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .ViewGenContent {
