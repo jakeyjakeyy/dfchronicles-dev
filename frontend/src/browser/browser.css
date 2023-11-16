@@ -15,3 +15,7 @@
 .ListItemContainer {
   margin-right: 1rem;
 }
+
+.ListItem {
+  padding: 0.5rem 0;
+}

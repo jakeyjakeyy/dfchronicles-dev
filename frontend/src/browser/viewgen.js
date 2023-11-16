@@ -1,14 +1,16 @@
 import React from "react";
 import "./viewgen.css";
-import { FaRegStar, FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Generations from "../utils/generations";
+import Rating from "./rating";
 
 function ViewGen({ gen }) {
   const [isLoading, setIsLoading] = useState(true);
   const [favorite, setFavorite] = React.useState(false);
   const [comments, setComments] = React.useState([]);
   const [comment, setComment] = React.useState("");
+  const [rating, setRating] = React.useState(0);
 
   useEffect(() => {
     // API call to check if favorite
@@ -73,26 +75,34 @@ function ViewGen({ gen }) {
     }
     fetchData();
   };
+  const handleSetRating = (rating) => {
+    setRating(rating);
+  };
 
   return (
     <div className="ViewGen">
       <div className="ViewGenHeader">
         <h3>{gen.title}</h3>
         <h4>{gen.user}</h4>
-        {!favorite && (
-          <FaRegHeart
-            color={"red"}
-            className="FavButton"
-            onClick={handleFavoriteClick}
-          />
-        )}
-        {favorite && (
-          <FaHeart
-            color={"red"}
-            className="FavButton"
-            onClick={handleFavoriteClick}
-          />
-        )}
+        <div className="Favorite">
+          {!favorite && (
+            <FaRegHeart
+              color={"red"}
+              className="FavButton"
+              onClick={handleFavoriteClick}
+            />
+          )}
+          {favorite && (
+            <FaHeart
+              color={"red"}
+              className="FavButton"
+              onClick={handleFavoriteClick}
+            />
+          )}
+        </div>
+        <div className="Rating">
+          <Rating rating={rating} onClick={handleSetRating} />
+        </div>
       </div>
       <div className="ViewGenContent" style={{ whiteSpace: "pre-wrap" }}>
         <p>{gen.generation}</p>
