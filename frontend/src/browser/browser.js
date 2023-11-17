@@ -7,7 +7,7 @@ import World from "./world/world";
 import Generations from "../utils/generations";
 import ListItem from "./listitem";
 import ViewGen from "./viewgen";
-import UserPage from "./userpage";
+import UserPage from "./userpage/userpage";
 
 function Browser({ app, onAppSelect }) {
   const [id, setId] = useState(null);

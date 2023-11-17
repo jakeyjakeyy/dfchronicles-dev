@@ -1,0 +1,46 @@
+@import "../../root.css";
+
+.Header {
+  margin: 1rem;
+  color: var(--primary);
+}
+
+.Body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.Selections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.TopRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.Favorites,
+.Comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  margin: 1rem;
+}
+.Generations {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
