@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./userpage.css";
-import GetUser from "../utils/getuser";
+import GetUser from "../../utils/getuser";
+import Card from "./card";
 
 function UserPage() {
   const username = localStorage.getItem("username");
@@ -32,9 +33,20 @@ function UserPage() {
         </div>
         <div className="Body">
           <div className="Selections">
-            <div className="Favorites"></div>
-            <div className="Generations"></div>
-            <div className="Comments"></div>
+            <div className="TopRow">
+              <div className="Favorites">
+                <Card
+                  title="Favorites"
+                  number={userdata.user_favorites.length}
+                />
+              </div>
+              <div className="Comments">
+                <Card title="Comments" number={userdata.user_comments.length} />
+              </div>
+            </div>
+            <div className="Generations">
+              <Card title="Generations" number={userdata.generations.length} />
+            </div>
           </div>
         </div>
       </div>
