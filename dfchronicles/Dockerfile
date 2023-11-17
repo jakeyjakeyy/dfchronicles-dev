@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.10
 COPY . /app/dfchronicles
 WORKDIR /app/dfchronicles
 RUN pip install -r requirements.txt

@@ -18,4 +18,5 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 ## Build notes
 
-- **Docker:** docker-compose in the main directory. If getting issues specifically with requirements.txt, try running 'pip install openai' and 'pip install tiktoken' and building again..
+- **Docker:** In the main directory, run the commands 'docker-compose build' and 'docker-compose up' in your terminal.
+- **Windows:** If building on a Windows machine, you may need to ensure you have WSL2 installed with a Linux distribution, (https://learn.microsoft.com/en-us/windows/wsl/install , https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm) as well as a Postgres client
