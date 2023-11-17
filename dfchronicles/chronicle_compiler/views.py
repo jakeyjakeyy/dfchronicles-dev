@@ -102,16 +102,27 @@ class User(APIView):
         if not user.is_authenticated:
             return Response({"message": "Invalid token"})
         
-        if request.data["fetch"] == "favorites":
-            favorites = request.data["favorites"]
-            generations = []
-            for favorite in favorites:
-                favobject = FavoriteSerializer(models.Favorite.objects.get(id=favorite)).data
-                logger.error(favobject["generation"])
-                gen = GenerationSerializer(models.Generation.objects.get(id=favobject["generation"])).data
-                generations.append(gen)
-            
-            return Response({"favorites": generations})
+        try:
+            if request.data["fetch"] == "favorites":
+                favorites = request.data["favorites"]
+                generations = []
+                for favorite in favorites:
+                    favobject = FavoriteSerializer(models.Favorite.objects.get(id=favorite)).data
+                    # gen = GenerationSerializer(models.Generation.objects.get(id=favobject["generation"])).data
+                    if favobject["generation"] not in generations:
+                        generations.append(favobject["generation"])
+                return Response({"favorites": generations})
+            elif request.data["fetch"] == "comments":
+                comments = request.data["comments"]
+                generations = []
+                for comment in comments:
+                    comobject = CommentSerializer(models.Comment.objects.get(id=comment)).data
+                    # gen = GenerationSerializer(models.Generation.objects.get(id=comobject["generation"])).data
+                    if comobject["generation"] not in generations:
+                        generations.append(comobject["generation"])
+                return Response({"comments": generations})
+        except KeyError:
+            pass
             
 
 class Interaction(APIView):

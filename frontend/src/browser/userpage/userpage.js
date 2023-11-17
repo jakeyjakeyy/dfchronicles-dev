@@ -20,7 +20,10 @@ function UserPage() {
       let result = await GetUser("Favorites", favorites);
       console.log(result);
     } else if (name === "Comments") {
-      console.log("Comments");
+      let comments = userdata.user_comments;
+      console.log(comments);
+      let result = await GetUser("Comments", comments);
+      console.log(result);
     }
   }
 
@@ -52,7 +55,13 @@ function UserPage() {
                 />
               </div>
               <div className="Comments">
-                <Card title="Comments" number={userdata.user_comments.length} />
+                <Card
+                  title="Comments"
+                  number={userdata.user_comments.length}
+                  onClick={() => {
+                    HandleClick("Comments");
+                  }}
+                />
               </div>
             </div>
             <div className="Generations">
