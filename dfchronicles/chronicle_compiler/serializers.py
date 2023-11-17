@@ -5,8 +5,7 @@ class GenerationSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Generation
-        # fields = '__all__'
-        fields = ['generation', 'id', 'user', 'title']
+        fields = ['generation', 'id', 'user', 'title', 'ratings', 'favorites']
         
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')

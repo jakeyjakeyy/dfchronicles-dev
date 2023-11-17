@@ -49,6 +49,7 @@ function Browser({ app, onAppSelect }) {
                 onAppSelect("ViewGen");
                 handleSelectId(gen);
               }}
+              ratings={gen.ratings}
             />
           ))}
         </div>
