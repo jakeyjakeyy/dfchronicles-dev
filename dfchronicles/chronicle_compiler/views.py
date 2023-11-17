@@ -87,8 +87,15 @@ class Generations(APIView):
                 rating.save()
                 return Response({"message": "Rating added"})
         
-        
+class User(APIView):
+    authentication_classes = [JWTAuthentication]
     
+    def get(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            return Response({"message": "Invalid token"})
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
 
 class Interaction(APIView):
     authentication_classes = [JWTAuthentication]

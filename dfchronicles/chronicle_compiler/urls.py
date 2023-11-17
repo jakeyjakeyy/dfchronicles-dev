@@ -11,5 +11,6 @@ urlpatterns = [
     path("token", TokenObtainPairView.as_view(), name="token"),
     path("token/refresh", TokenRefreshView.as_view(), name="refresh"),
     path("generate", Generate.as_view(), name="generate"),
-    path("generations", Generations.as_view(), name="generations")
+    path("generations", Generations.as_view(), name="generations"),
+    path("user", User.as_view(), name="users")
 ]

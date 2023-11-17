@@ -7,6 +7,7 @@ import World from "./world/world";
 import Generations from "../utils/generations";
 import ListItem from "./listitem";
 import ViewGen from "./viewgen";
+import UserPage from "./userpage";
 
 function Browser({ app, onAppSelect }) {
   const [id, setId] = useState(null);
@@ -97,7 +98,7 @@ function Browser({ app, onAppSelect }) {
   } else if (app === "User") {
     return (
       <div className="Browser">
-        <h1>User</h1>
+        <UserPage />
       </div>
     );
   }
