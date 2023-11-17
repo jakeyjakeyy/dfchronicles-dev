@@ -26,7 +26,7 @@ function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
 
   return (
     <div className="Nav">
-      <div className="Username">{username}</div>
+      <NavbarItem name={username} onSelect={onAppSelect} />
       <NavbarItem name="Home" onSelect={onAppSelect} />
       <NavbarItem name="Upload" onSelect={onAppSelect} />
       <NavbarItem name="Worlds" onSelect={onAppSelect} />

@@ -9,7 +9,6 @@ function ListItem({ name, name2, id, onClick, ratings }) {
     for (var i = 0; i < ratings.length; i++) {
       totalrating += ratings[i].rating;
     }
-    console.log(totalrating);
     rating = totalrating / ratings.length;
   }
   return (

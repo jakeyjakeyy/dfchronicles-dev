@@ -94,6 +94,12 @@ function Browser({ app, onAppSelect }) {
         <ViewGen gen={id} />
       </div>
     );
+  } else if (app === "User") {
+    return (
+      <div className="Browser">
+        <h1>User</h1>
+      </div>
+    );
   }
 }
 
