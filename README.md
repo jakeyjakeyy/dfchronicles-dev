@@ -15,3 +15,7 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 - **Advanced Search Functionality:** The search and filter functionality goes beyond standard search features in e-commerce or social media apps. It allows users to search for specific stories or historical events, requiring a more complex search algorithm.
 
 - **User Feedback and Ratings:** Implementing a system for user feedback and ratings adds another layer of complexity. It requires creating a system for users to rate and review generated stories, and a way to handle and store this data.
+
+## Build notes
+
+- **Docker:** docker-compose in the main directory. If getting issues specifically with requirements.txt, try running 'pip install openai' and 'pip install tiktoken' and building again..
