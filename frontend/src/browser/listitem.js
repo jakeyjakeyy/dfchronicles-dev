@@ -5,7 +5,11 @@ import { FaStar } from "react-icons/fa";
 function ListItem({ name, name2, id, onClick, ratings }) {
   var rating = null;
   if (ratings.length > 0) {
-    let totalrating = ratings.reduce((a, b) => a + b, 0);
+    let totalrating = 0;
+    for (var i = 0; i < ratings.length; i++) {
+      totalrating += ratings[i].rating;
+    }
+    console.log(totalrating);
     rating = totalrating / ratings.length;
   }
   return (
