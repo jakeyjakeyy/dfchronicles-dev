@@ -21,7 +21,6 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = ['user', 'generation', 'comment', 'time', 'id']
         
 class UserSerializer(serializers.ModelSerializer):
-    generations = GenerationSerializer(many=True, read_only=True)
     class Meta:
         model = User
         fields = ['id', 'username', 'generations', 'user_favorites', 'user_comments']
