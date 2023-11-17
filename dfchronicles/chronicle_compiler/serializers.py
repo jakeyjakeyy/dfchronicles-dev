@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Generation, Comment, Rating, User
+from .models import Generation, Comment, Rating, User, Favorite
 
 class RatingSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
@@ -25,3 +25,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'generations', 'user_favorites', 'user_comments']
+        
+class FavoriteSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source='user.username')
+    class Meta:
+        model = Favorite
+        fields = ['user', 'generation', 'time', 'id']

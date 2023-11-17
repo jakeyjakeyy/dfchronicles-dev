@@ -7,11 +7,22 @@ import Card from "./card";
 function UserPage() {
   const username = localStorage.getItem("username");
   const [userdata, setUserdata] = useState(null);
+
   useEffect(() => {
     GetUser().then((result) => {
       setUserdata(result);
     });
   }, []);
+
+  async function HandleClick(name) {
+    if (name === "Favorites") {
+      let favorites = userdata.user_favorites;
+      let result = await GetUser("Favorites", favorites);
+      console.log(result);
+    } else if (name === "Comments") {
+      console.log("Comments");
+    }
+  }
 
   if (userdata === null) {
     return (
@@ -25,7 +36,6 @@ function UserPage() {
       </div>
     );
   } else {
-    console.log(userdata);
     return (
       <div className="UserPage">
         <div className="Header">
@@ -38,6 +48,7 @@ function UserPage() {
                 <Card
                   title="Favorites"
                   number={userdata.user_favorites.length}
+                  onClick={() => HandleClick("Favorites")}
                 />
               </div>
               <div className="Comments">

@@ -96,6 +96,23 @@ class User(APIView):
             return Response({"message": "Invalid token"})
         serializer = UserSerializer(user)
         return Response(serializer.data)
+    
+    def post(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            return Response({"message": "Invalid token"})
+        
+        if request.data["fetch"] == "favorites":
+            favorites = request.data["favorites"]
+            generations = []
+            for favorite in favorites:
+                favobject = FavoriteSerializer(models.Favorite.objects.get(id=favorite)).data
+                logger.error(favobject["generation"])
+                gen = GenerationSerializer(models.Generation.objects.get(id=favobject["generation"])).data
+                generations.append(gen)
+            
+            return Response({"favorites": generations})
+            
 
 class Interaction(APIView):
     authentication_classes = [JWTAuthentication]
