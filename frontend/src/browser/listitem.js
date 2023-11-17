@@ -14,13 +14,17 @@ function ListItem({ name, name2, id, onClick, ratings }) {
         <div className="ListItemName" id={id} onClick={onClick}>
           {name}
         </div>
-        {rating !== null && (
+        {rating !== null ? (
           <div className="ListItemRating">
             <small>{rating.toFixed(1)}</small>
             <small>
               <FaStar color="gold" />
             </small>
             <small>({ratings.length})</small>
+          </div>
+        ) : (
+          <div className="ListItemRating">
+            <small>No ratings yet</small>
           </div>
         )}
       </div>
