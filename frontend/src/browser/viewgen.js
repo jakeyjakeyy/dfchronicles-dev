@@ -125,7 +125,7 @@ function ViewGen({ gen }) {
             Submit
           </button>
         </div>
-        <div className="Comments">
+        <div className="GenComments">
           {isLoading ? (
             <p>Loading comments...</p>
           ) : comments.length === 0 ? (

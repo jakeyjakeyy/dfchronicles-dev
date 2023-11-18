@@ -16,7 +16,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 logger = logging.getLogger(__name__)
 
-PAGINATION = 2
+PAGINATION = 5
 
 class Generations(APIView):
     authentication_classes = [JWTAuthentication]
