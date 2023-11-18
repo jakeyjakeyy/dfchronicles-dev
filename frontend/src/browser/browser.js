@@ -56,6 +56,7 @@ function Browser({ app, onAppSelect }) {
                 handleSelectId(gen);
               }}
               ratings={gen.ratings}
+              username={gen.user}
             />
           ))}
           {maxpage > 1 && (
@@ -64,7 +65,7 @@ function Browser({ app, onAppSelect }) {
                 className="PrevPage"
                 style={
                   currentpage === 1
-                    ? { pointerEvents: "none", opacity: 0.5 }
+                    ? { pointerEvents: "none", visibility: "hidden" }
                     : {}
                 }
               >
@@ -83,7 +84,7 @@ function Browser({ app, onAppSelect }) {
                 className="NextPage"
                 style={
                   currentpage > maxpage
-                    ? { pointerEvents: "none", opacity: 0.5 }
+                    ? { pointerEvents: "none", visibility: "hidden" }
                     : {}
                 }
               >

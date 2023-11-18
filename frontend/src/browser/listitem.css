@@ -17,8 +17,8 @@
   padding: 0.5rem;
 }
 .ListItem:hover {
-  border: 1px solid var(--primary);
-  box-shadow: 0 0 10px var(--primary);
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent);
   transform: scale(1.01);
   cursor: pointer;
 }
@@ -39,6 +39,21 @@
   overflow: hidden;
 }
 
+.ListItemInfo {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  small {
+    display: flex;
+    align-self: center;
+    font-size: 0.8rem;
+    margin: 0.2rem 0.2rem 0 0.2rem;
+  }
+}
+
 .ListItemRating {
   display: flex;
   align-items: center;
@@ -52,4 +67,11 @@
     font-size: 0.8rem;
     margin: 0.2rem 0.2rem 0 0.2rem;
   }
+}
+.ListItemUsername {
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  max-height: 2.5rem;
+  overflow: hidden;
+  color: var(--accent);
 }

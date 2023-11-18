@@ -2,7 +2,7 @@ import React from "react";
 import "./listitem.css";
 import { FaStar } from "react-icons/fa";
 
-function ListItem({ name, name2, id, onClick, ratings }) {
+function ListItem({ name, name2, id, onClick, ratings, username }) {
   var rating = null;
   if (ratings && ratings.length > 0) {
     let totalrating = 0;
@@ -17,19 +17,26 @@ function ListItem({ name, name2, id, onClick, ratings }) {
         <div className="ListItemName" id={id} onClick={onClick}>
           {name}
         </div>
-        {rating !== null ? (
-          <div className="ListItemRating">
-            <small>{rating.toFixed(1)}</small>
-            <small>
-              <FaStar color="gold" />
-            </small>
-            <small>({ratings.length})</small>
-          </div>
-        ) : ratings ? (
-          <div className="ListItemRating">
-            <small>No ratings yet</small>
-          </div>
-        ) : null}
+        <div className="ListItemInfo">
+          {rating !== null ? (
+            <div className="ListItemRating">
+              <small>{rating.toFixed(1)}</small>
+              <small>
+                <FaStar color="gold" />
+              </small>
+              <small>({ratings.length})</small>
+            </div>
+          ) : ratings ? (
+            <div className="ListItemRating">
+              <small>No ratings yet</small>
+            </div>
+          ) : null}
+          {username !== null ? (
+            <div className="ListItemUsername">
+              <small>by {username}</small>
+            </div>
+          ) : null}
+        </div>
       </div>
       <div className="ListItemName2" id={id} onClick={onClick}>
         {name2}
