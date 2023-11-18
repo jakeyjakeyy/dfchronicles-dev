@@ -16,6 +16,7 @@
   flex-direction: row;
   font-size: 1rem;
   color: var(--text);
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {

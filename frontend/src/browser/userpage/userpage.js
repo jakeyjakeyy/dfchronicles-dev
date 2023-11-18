@@ -4,11 +4,13 @@ import "./userpage.css";
 import GetUser from "../../utils/getuser";
 import Card from "./card";
 import ListItem from "../listitem";
+import ViewGen from "../viewgen";
 
 function UserPage() {
   const username = localStorage.getItem("username");
   const [userdata, setUserdata] = useState(null);
   const [generations, setGenerations] = useState(null);
+  const [gendata, setGendata] = useState(null);
 
   useEffect(() => {
     GetUser().then((result) => {
@@ -43,6 +45,18 @@ function UserPage() {
         </div>
         <div className="Body">
           <p>Loading...</p>
+        </div>
+      </div>
+    );
+  } else if (gendata !== null) {
+    console.log(gendata);
+    return (
+      <div className="UserPage">
+        <div className="Header">
+          <h2>{username}</h2>
+        </div>
+        <div className="Body">
+          <ViewGen gen={gendata} />
         </div>
       </div>
     );
@@ -100,6 +114,9 @@ function UserPage() {
               name={gen.title}
               name2={gen.generation}
               ratings={gen.ratings}
+              onClick={() => {
+                setGendata(gen);
+              }}
             />
           ))}
         </div>
