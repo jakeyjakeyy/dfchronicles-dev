@@ -18,37 +18,37 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 ## Running the web app
 
-1. **Build**
+### 1. **Build**
 
-   - **Docker:** In the main directory, run the following commands in your terminal.
+- **Docker:** In the main directory, run the following commands in your terminal.
 
-     ```
-     docker-compose build
-     docker-compose up
-     ```
+  ```
+  docker-compose build
+  docker-compose up
+  ```
 
-   - **Migrations:** Enter the backend docker image, and run the following commands in your terminal
+- **Migrations:** Enter the backend docker image, and run the following commands in your terminal
 
-     ```
-     python manage.py makemigrations
-     python manage.py migrate
-     ```
+  ```
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
 
-   - **AI:** By default there will not be any communication with OpenAI API, and the server will return a preset response.
+- **AI:** By default there will not be any communication with OpenAI API, and the server will return a preset response.
 
-     If you would like a real generation from the OpenAI API, follow these steps.
+If you would like a real generation from the OpenAI API, follow these steps:
 
-     - Create a `.env` file in `dfchronicles/backend`
-     - Place within it `OPENAI_API_KEY=your_openAI_API_key`.
+- Create a `.env` file in `dfchronicles/backend` if it doesn't exist.
+- Add the following line to the `.env` file: `OPENAI_API_KEY=your_openAI_API_key`.
 
-2. **Accessing the Site**
+### 2. **Accessing the Site**
 
-   - **Frontend:** `localhost:3000`
-   - **Backend:** `localhost:8000`
+- **Frontend:** `localhost:3000`
+- **Backend:** `localhost:8000`
 
-3. **Creating your data**
+### 3. **Creating your data**
 
-   - **Register:** Create an account via the link in the nav bar.
-   - **XMLs:** You can download sample data to use [here].
-   - **Upload:** Upload the XMLs on the Upload page via the nav bar.
-   - **Generation:** Select your preferred category, and any event that piques your interest. The app will shortly respond with a unique story specific to your selected event.
+- **Register:** Create an account via the link in the nav bar.
+- **XMLs:** You can download sample data to use [here].
+- **Upload:** Upload the XMLs on the Upload page via the nav bar.
+- **Generation:** Select your preferred category, and any event that piques your interest. The app will shortly respond with a unique story specific to your selected event.
