@@ -34,9 +34,12 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
      python manage.py migrate
      ```
 
-   - **AI:** If you would like to get a real generation, create a `.env` file in `dfchronicles/backend` and place within it `OPENAI_API_KEY=your_openAI_API_key`.
+   - **AI:** By default there will not be any communication with OpenAI API, and the server will return a preset response.
 
-     Else, a default response will be sent from the server.
+   If you would like a real generation from the OpenAI API, follow these steps.
+
+   1. Create a `.env` file in `dfchronicles/backend`
+   2. Place within it `OPENAI_API_KEY=your_openAI_API_key`.
 
 2. **Accessing the Site**
 

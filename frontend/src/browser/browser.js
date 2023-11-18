@@ -14,6 +14,8 @@ function Browser({ app, onAppSelect }) {
   const [legendsxml, setLegendsxml] = useState(null);
   const [legendsplusxml, setLegendsPlusxml] = useState(null);
   const [gens, setGens] = useState(null);
+  const [currentpage, setCurrentpage] = useState(1);
+  const [maxpage, setMaxpage] = useState(null);
 
   const handleSelectId = (id) => {
     setId(id);
@@ -21,11 +23,12 @@ function Browser({ app, onAppSelect }) {
 
   useEffect(() => {
     if (app === "Home") {
-      Generations().then((result) => {
-        setGens(result);
+      Generations("get", currentpage).then((result) => {
+        setGens(result.generations);
+        setMaxpage(result.maxpage);
       });
     }
-  }, [app]);
+  }, [app, currentpage]);
 
   if (app === "Home") {
     if (!gens) {

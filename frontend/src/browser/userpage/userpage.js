@@ -78,7 +78,7 @@ function UserPage({ onAppSelect, onAppSelectId }) {
                 />
               </div>
             </div>
-            <div className="Generations">
+            <div className="Generation">
               <Card
                 title="Generations"
                 number={userdata.generations.length}
@@ -99,18 +99,20 @@ function UserPage({ onAppSelect, onAppSelectId }) {
           <h2>{username}</h2>
         </div>
         <div className="Body">
-          {generations.generations.map((gen) => (
-            <ListItem
-              key={gen.id}
-              id={gen.id}
-              name={gen.title}
-              name2={gen.generation}
-              ratings={gen.ratings}
-              onClick={() => {
-                setGendata(gen);
-              }}
-            />
-          ))}
+          <div className="Generations">
+            {generations.generations.map((gen) => (
+              <ListItem
+                key={gen.id}
+                id={gen.id}
+                name={gen.title}
+                name2={gen.generation}
+                ratings={gen.ratings}
+                onClick={() => {
+                  setGendata(gen);
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );
