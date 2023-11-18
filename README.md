@@ -20,9 +20,8 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 1. **Build**
 
-- **Docker:** In the main directory, run the commands 'docker-compose build' and `docker-compose up` in your terminal.
-<!-- - **Windows:** If building on a Windows machine, you may need to ensure you have WSL2 installed with a Linux distribution, (https://learn.microsoft.com/en-us/windows/wsl/install , https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm) as well as a Postgres client -->
-- **Migrations:** Enter the backend docker image, and run the commands `python manage.py makemigrations` and `python manage.py migrate`
+   - **Docker:** In the main directory, run the commands 'docker-compose build' and `docker-compose up` in your terminal.
+   - **Migrations:** Enter the backend docker image, and run the commands `python manage.py makemigrations` and `python manage.py migrate`
 
 2. **Accessing the Site**
 
