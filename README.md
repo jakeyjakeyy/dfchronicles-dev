@@ -36,8 +36,8 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 2. **Accessing the Site**
 
-   - **Frontend:** **localhost:3000**
-   - **Backend:** **localhost:8000**
+   - **Frontend:** `localhost:3000`
+   - **Backend:** `localhost:8000`
 
 3. **Creating your data**
 
