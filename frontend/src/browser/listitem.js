@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 
 function ListItem({ name, name2, id, onClick, ratings }) {
   var rating = null;
-  if (ratings.length > 0) {
+  if (ratings && ratings.length > 0) {
     let totalrating = 0;
     for (var i = 0; i < ratings.length; i++) {
       totalrating += ratings[i].rating;
@@ -25,11 +25,11 @@ function ListItem({ name, name2, id, onClick, ratings }) {
             </small>
             <small>({ratings.length})</small>
           </div>
-        ) : (
+        ) : ratings ? (
           <div className="ListItemRating">
             <small>No ratings yet</small>
           </div>
-        )}
+        ) : null}
       </div>
       <div className="ListItemName2" id={id} onClick={onClick}>
         {name2}
