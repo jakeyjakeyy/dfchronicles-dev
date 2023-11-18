@@ -25,5 +25,12 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 2. **Accessing the Site**
 
-   - Frontend is at **localhost:3000**
-   - Backend is at **localhost:8000**
+   - **Frontend:** **localhost:3000**
+   - **Backend:** **localhost:8000**
+
+3. **Creating your data**
+
+   - **Register:** Create an account via the link in the nav bar.
+   - **XMLs:** You can download sample data to use [here].
+   - **Upload:** Upload the XMLs on the Upload page via the nav bar.
+   - **Generation:** Select your preferred category, and any event that piques your interest. The app will shortly respond with a unique story specific to your selected event.
