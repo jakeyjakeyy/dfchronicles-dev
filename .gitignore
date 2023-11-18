@@ -1,5 +1,4 @@
 dfchronicles/.env
 data/
 dfchronicles/chronicle_compiler/__pycache__/
-dfchronicles/chronicle_compiler/migrations/__pycache__/
-dfchronicles/chronicle_compiler/__pycache__/
+dfchronicles/chronicle_compiler/migrations/

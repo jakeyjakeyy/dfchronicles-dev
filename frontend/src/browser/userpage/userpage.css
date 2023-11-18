@@ -1,5 +1,14 @@
 @import "../../root.css";
 
+.UserPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 75%;
+  height: 50%;
+}
+
 .Header {
   margin: 1rem;
   color: var(--primary);

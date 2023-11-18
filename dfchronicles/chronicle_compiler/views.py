@@ -108,19 +108,21 @@ class User(APIView):
                 generations = []
                 for favorite in favorites:
                     favobject = FavoriteSerializer(models.Favorite.objects.get(id=favorite)).data
-                    # gen = GenerationSerializer(models.Generation.objects.get(id=favobject["generation"])).data
+                    gen = GenerationSerializer(models.Generation.objects.get(id=favobject["generation"])).data
                     if favobject["generation"] not in generations:
-                        generations.append(favobject["generation"])
-                return Response({"favorites": generations})
+                        generations.append(gen)
+                return Response({"generations": generations})
             elif request.data["fetch"] == "comments":
                 comments = request.data["comments"]
                 generations = []
+                used = []
                 for comment in comments:
                     comobject = CommentSerializer(models.Comment.objects.get(id=comment)).data
-                    # gen = GenerationSerializer(models.Generation.objects.get(id=comobject["generation"])).data
-                    if comobject["generation"] not in generations:
-                        generations.append(comobject["generation"])
-                return Response({"comments": generations})
+                    gen = GenerationSerializer(models.Generation.objects.get(id=comobject["generation"])).data
+                    if gen["id"] not in used:
+                        generations.append(gen)
+                        used.append(gen["id"])
+                return Response({"generations": generations})
         except KeyError:
             pass
             

@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import "./userpage.css";
 import GetUser from "../../utils/getuser";
 import Card from "./card";
+import ListItem from "../listitem";
 
 function UserPage() {
   const username = localStorage.getItem("username");
   const [userdata, setUserdata] = useState(null);
+  const [generations, setGenerations] = useState(null);
 
   useEffect(() => {
     GetUser().then((result) => {
@@ -19,11 +21,12 @@ function UserPage() {
       let favorites = userdata.user_favorites;
       let result = await GetUser("Favorites", favorites);
       console.log(result);
+      setGenerations(result);
     } else if (name === "Comments") {
       let comments = userdata.user_comments;
-      console.log(comments);
       let result = await GetUser("Comments", comments);
       console.log(result);
+      setGenerations(result);
     }
   }
 
@@ -38,7 +41,7 @@ function UserPage() {
         </div>
       </div>
     );
-  } else {
+  } else if (userdata && generations === null) {
     return (
       <div className="UserPage">
         <div className="Header">
@@ -68,6 +71,26 @@ function UserPage() {
               <Card title="Generations" number={userdata.generations.length} />
             </div>
           </div>
+        </div>
+      </div>
+    );
+  } else {
+    console.log(generations);
+    return (
+      <div className="UserPage">
+        <div className="Header">
+          <h2>{username}</h2>
+        </div>
+        <div className="Body">
+          {generations.generations.map((gen) => (
+            <ListItem
+              key={gen.id}
+              id={gen.id}
+              name={gen.title}
+              name2={gen.generation}
+              ratings={gen.ratings}
+            />
+          ))}
         </div>
       </div>
     );
