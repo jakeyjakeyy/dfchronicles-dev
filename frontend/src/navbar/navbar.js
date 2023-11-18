@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useState, useEffect } from "react";
 import Login from "./login";
 import NavbarItem from "./navbaritems";
-
+import RegisterForm from "./register";
 function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
   window.addEventListener("scroll", function () {
     var scrollHeight = document.documentElement.scrollHeight;
@@ -19,7 +19,8 @@ function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
     return (
       <div className="Nav">
         <h3>Not logged in</h3>
-        <Login />
+        <Login onLogin={onLogin} onLogout={onLogout} />
+        <Login register={true} onLogin={onLogin} onLogout={onLogout} />
       </div>
     );
   }

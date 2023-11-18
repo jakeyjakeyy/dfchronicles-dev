@@ -132,11 +132,6 @@ class User(APIView):
                 return Response({"generations": generations})
         except KeyError:
             pass
-            
-
-class Interaction(APIView):
-    authentication_classes = [JWTAuthentication]
-    
 
 class Generate(APIView):
     authentication_classes = [JWTAuthentication]
@@ -183,3 +178,15 @@ class Generate(APIView):
             gen.save()
             
             return Response({"generation": response, "title": extracted_text, "id": gen.id})
+
+class Register(APIView):
+    def post(self, request):
+        if request.data["request"] == "register":
+            try:
+                user = models.User.objects.create_user(username=request.data["username"], password=request.data["password"])
+                user.save()
+                return Response({"message": "User created"})
+            except:
+                return Response({"message": "User already exists"})
+        else:
+            return Response({"message": "Invalid request"})

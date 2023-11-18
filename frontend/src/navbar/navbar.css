@@ -11,6 +11,7 @@
   /* border-right: 1px solid var(--accent); */
   font-size: 1.3rem;
   overflow: hidden;
+  transition: all 0.2s ease-in-out;
 }
 .Nav-Border {
   position: absolute;
@@ -31,9 +32,11 @@
 .NavItem:hover,
 .Username:hover {
   color: var(--primary);
+  text-shadow: 0 0 8px var(--primary);
 }
 .Login:hover {
-  color: var(--accent);
+  color: rgb(190, 108, 108);
+  text-shadow: 0 0 8px rgb(219, 70, 70);
 }
 
 @media (max-width: 767px) {
