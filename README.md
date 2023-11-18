@@ -34,7 +34,7 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
   python manage.py migrate
   ```
 
-- **AI:** By default there will not be any communication with OpenAI API, and the server will return a preset response.
+- **AI:** By default, there will not be any communication with the OpenAI API, and the server will return a preset response.
 
   If you would like a real generation from the OpenAI API, follow these steps:
 
