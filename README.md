@@ -14,7 +14,7 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 - **Advanced Search Functionality:** The search and filter functionality goes beyond standard search features in e-commerce or social media apps. It allows users to search for specific stories or historical events, requiring a more complex search algorithm.
 
-- **User Feedback and Ratings:** Implementing a system for user feedback and ratings adds another layer of complexity. It requires creating a system for users to rate and review generated stories, and a way to handle and store this data.
+- **User Favorites and Ratings:** Implementing a system for rating and adding favorites introduces another layer of complexity. It requires creating a system for users to rate and review generated stories, and a way to handle and store this data.
 
 ## Running the web app
 
@@ -48,7 +48,11 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
 ### 3. **Creating your data**
 
-- **Register:** Create an account via the link in the nav bar.
+- **Register:** Create an account via the link in the navigation bar.
 - **XMLs:** You can download sample data to use [here].
-- **Upload:** Upload the XMLs on the Upload page via the nav bar.
-- **Generation:** Select your preferred category, and any event that piques your interest. The app will shortly respond with a unique story specific to your selected event.
+- **Upload:** Upload the XMLs on the Upload page via the navigation bar.
+- **Generation:** Select your preferred category and an intriguing event. The app will promptly respond with a unique story tailored to your selected event.
+
+### Note:
+
+- Ensure your `.env` file is properly configured with a valid OpenAI API key for generations to occur. Tiktoken is used to ensure only generations under a reasonable size will be sent to the OpenAI API.
