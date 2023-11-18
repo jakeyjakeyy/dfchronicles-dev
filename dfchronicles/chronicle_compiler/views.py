@@ -16,19 +16,23 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 logger = logging.getLogger(__name__)
 
+PAGINATION = 1
+
 class Generations(APIView):
     authentication_classes = [JWTAuthentication]
     
-    def get(self, request):
-        generations = models.Generation.objects.all().order_by('-id') 
-        cleangens = []
-        for gen in generations: # ignore early generations used in testing
-            if gen.id > 102:
-                cleangens.append(gen)
-        serializer = GenerationSerializer(cleangens, many=True)
-        return Response(serializer.data)
-    
     def post(self, request):
+        if request.data["request"] == "get":
+            id = int(request.data["page"])
+            start = (id - 1) * PAGINATION
+            end = id * PAGINATION
+            generations = models.Generation.objects.all().order_by('-id')[start:end]
+            cleangens = []
+            for gen in generations: # ignore early generations used in testing
+                if gen.id > 102:
+                    cleangens.append(gen)
+            serializer = GenerationSerializer(cleangens, many=True)
+            return Response({"generations": serializer.data, "maxpage": len(models.Generation.objects.all())/PAGINATION})
         user = request.user
         if not user.is_authenticated:
             return Response({"message": "Invalid token"})
