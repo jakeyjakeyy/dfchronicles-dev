@@ -6,7 +6,7 @@ import Card from "./card";
 import ListItem from "../listitem";
 import ViewGen from "../viewgen";
 
-function UserPage() {
+function UserPage({ onAppSelect, onAppSelectId }) {
   const username = localStorage.getItem("username");
   const [userdata, setUserdata] = useState(null);
   const [generations, setGenerations] = useState(null);
@@ -50,16 +50,18 @@ function UserPage() {
     );
   } else if (gendata !== null) {
     console.log(gendata);
-    return (
-      <div className="UserPage">
-        <div className="Header">
-          <h2>{username}</h2>
-        </div>
-        <div className="Body">
-          <ViewGen gen={gendata} />
-        </div>
-      </div>
-    );
+    onAppSelect("ViewGen");
+    onAppSelectId(gendata);
+    // return (
+    //   <div className="UserPage">
+    //     <div className="Header">
+    //       <h2>{username}</h2>
+    //     </div>
+    //     <div className="Body">
+    //       <ViewGen gen={gendata} />
+    //     </div>
+    //   </div>
+    // );
   } else if (userdata && generations === null) {
     return (
       <div className="UserPage">

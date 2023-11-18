@@ -98,7 +98,7 @@ function Browser({ app, onAppSelect }) {
   } else if (app === "User") {
     return (
       <div className="Browser">
-        <UserPage />
+        <UserPage onAppSelect={onAppSelect} onAppSelectId={setId} />
       </div>
     );
   }
