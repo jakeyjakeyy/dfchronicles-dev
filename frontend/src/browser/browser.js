@@ -41,7 +41,9 @@ function Browser({ app, onAppSelect }) {
     }
     return (
       <div className="Browser">
-        <h1>Home</h1>
+        <div className="Header">
+          <h1>Home</h1>
+        </div>
         <div className="ListItemContainer">
           {gens.map((gen) => (
             <ListItem
