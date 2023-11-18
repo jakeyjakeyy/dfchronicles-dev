@@ -22,17 +22,17 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
    - **Docker:** In the main directory, run the following commands in your terminal.
 
-   ```
+     ```
      docker-compose build
      docker-compose up
-   ```
+     ```
 
    - **Migrations:** Enter the backend docker image, and run the following commands in your terminal
 
-   ```
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
+     ```
+     python manage.py makemigrations
+     python manage.py migrate
+     ```
 
 2. **Accessing the Site**
 
