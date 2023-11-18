@@ -52,16 +52,6 @@ function UserPage({ onAppSelect, onAppSelectId }) {
     console.log(gendata);
     onAppSelect("ViewGen");
     onAppSelectId(gendata);
-    // return (
-    //   <div className="UserPage">
-    //     <div className="Header">
-    //       <h2>{username}</h2>
-    //     </div>
-    //     <div className="Body">
-    //       <ViewGen gen={gendata} />
-    //     </div>
-    //   </div>
-    // );
   } else if (userdata && generations === null) {
     return (
       <div className="UserPage">
