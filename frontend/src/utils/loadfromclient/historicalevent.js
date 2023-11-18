@@ -108,7 +108,10 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
     }
     const attackerTagNames = ["wounder_hfid", "slayer_hfid"];
     for (let tagName of attackerTagNames) {
-      if (data.getElementsByTagName(tagName).length > 0) {
+      if (
+        data.getElementsByTagName(tagName).length > 0 &&
+        data.getElementsByTagName(tagName)[0].value !== "-1"
+      ) {
         event.attackerFigure = getHistoricalFigureData(
           tagName,
           data,
@@ -146,7 +149,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
     }
     const stashSite = dataplus.getElementsByTagName("stash_site");
     if (stashSite.length > 0) {
-      if (stashSite.value !== "-1") {
+      if (stashSite[0].value !== "-1") {
         event.postStashSite = {
           name: legendsxml
             .getElementsByTagName("site")
@@ -175,6 +178,7 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
 }
 
 function getHistoricalFigureData(tagName, data, legendsxml, histfigs) {
+  console.log(data);
   let figureData = {};
   if (data.getElementsByTagName(tagName).length > 0) {
     const hfid = data.getElementsByTagName(tagName)[0].value;
