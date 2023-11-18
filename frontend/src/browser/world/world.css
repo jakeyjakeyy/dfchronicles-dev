@@ -49,6 +49,35 @@
   margin-top: 150px;
 }
 
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.PrevPage,
+.NextPage {
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.25rem;
+  background-color: var(--primary);
+  color: var(--background);
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.PrevPage:hover,
+.NextPage:hover {
+  background-color: var(--background);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.PageNumber {
+  margin: 0 0.5rem;
+  color: var(--primary);
+}
+
 @media (max-width: 767px) {
   .WorldHeader {
     padding-top: 1rem;

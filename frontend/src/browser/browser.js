@@ -58,6 +58,37 @@ function Browser({ app, onAppSelect }) {
               ratings={gen.ratings}
             />
           ))}
+          {maxpage > 1 && (
+            <div className="Pagination">
+              {currentpage > 1 && (
+                <div className="PrevPage">
+                  <div
+                    onClick={() => {
+                      if (currentpage > 1) {
+                        setCurrentpage(currentpage - 1);
+                      }
+                    }}
+                  >
+                    Previous
+                  </div>
+                </div>
+              )}
+              <div className="PageNumber">{currentpage}</div>
+              {maxpage > currentpage && (
+                <div className="NextPage">
+                  <div
+                    onClick={() => {
+                      if (currentpage < maxpage) {
+                        setCurrentpage(currentpage + 1);
+                      }
+                    }}
+                  >
+                    Next
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
