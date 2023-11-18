@@ -38,8 +38,8 @@ The Dwarf Fortress Chronicle Generator is a unique and complex project that stan
 
    If you would like a real generation from the OpenAI API, follow these steps.
 
-   1. Create a `.env` file in `dfchronicles/backend`
-   2. Place within it `OPENAI_API_KEY=your_openAI_API_key`.
+   - Create a `.env` file in `dfchronicles/backend`
+   - Place within it `OPENAI_API_KEY=your_openAI_API_key`.
 
 2. **Accessing the Site**
 
