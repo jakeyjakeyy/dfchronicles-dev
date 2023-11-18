@@ -27,6 +27,11 @@ function UserPage() {
       let result = await GetUser("Comments", comments);
       console.log(result);
       setGenerations(result);
+    } else if (name === "Generations") {
+      let generations = userdata.generations;
+      let result = await GetUser("Generations", generations);
+      console.log(result);
+      setGenerations(result);
     }
   }
 
@@ -68,7 +73,13 @@ function UserPage() {
               </div>
             </div>
             <div className="Generations">
-              <Card title="Generations" number={userdata.generations.length} />
+              <Card
+                title="Generations"
+                number={userdata.generations.length}
+                onClick={() => {
+                  HandleClick("Generations");
+                }}
+              />
             </div>
           </div>
         </div>

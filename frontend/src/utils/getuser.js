@@ -5,6 +5,8 @@ async function GetUser(id, request) {
     return ApiCall(id, { fetch: "favorites", favorites: request });
   } else if (id === "Comments") {
     return ApiCall(id, { fetch: "comments", comments: request });
+  } else if (id === "Generations") {
+    return ApiCall(id, { fetch: "generations", generations: request });
   }
 
   const token = localStorage.getItem("token");

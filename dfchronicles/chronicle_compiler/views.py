@@ -123,6 +123,13 @@ class User(APIView):
                         generations.append(gen)
                         used.append(gen["id"])
                 return Response({"generations": generations})
+            elif request.data["fetch"] == "generations":
+                generationIds = request.data["generations"]
+                generations = []
+                for generation in generationIds:
+                    gen = GenerationSerializer(models.Generation.objects.get(id=generation)).data
+                    generations.append(gen)
+                return Response({"generations": generations})
         except KeyError:
             pass
             
