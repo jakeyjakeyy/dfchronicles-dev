@@ -26,6 +26,7 @@ function LoginForm({ onClose, register }) {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           if (
             data.message === "User already exists" ||
             data.message === "Invalid username or password."
@@ -40,31 +41,32 @@ function LoginForm({ onClose, register }) {
             window.location.reload();
           }
         });
-    }
-    fetch("http://localhost:8000/api/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (
-          data.detail === "No active account found with the given credentials"
-        ) {
-          alert("Invalid username or password.");
-          return;
-        }
-        localStorage.setItem("token", data.access);
-        localStorage.setItem("refresh", data.refresh);
-        localStorage.setItem("username", username);
-        onClose();
-        window.location.reload();
+    } else {
+      fetch("http://localhost:8000/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (
+            data.detail === "No active account found with the given credentials"
+          ) {
+            alert("Invalid username or password.");
+            return;
+          }
+          localStorage.setItem("token", data.access);
+          localStorage.setItem("refresh", data.refresh);
+          localStorage.setItem("username", username);
+          onClose();
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
