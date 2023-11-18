@@ -56,6 +56,7 @@ function Browser({ app, onAppSelect }) {
                 handleSelectId(gen);
               }}
               ratings={gen.ratings}
+              favorites={gen.favorites}
               username={gen.user}
             />
           ))}

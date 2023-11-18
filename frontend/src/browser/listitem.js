@@ -1,8 +1,8 @@
 import React from "react";
 import "./listitem.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaCaretRight, FaHeart } from "react-icons/fa";
 
-function ListItem({ name, name2, id, onClick, ratings, username }) {
+function ListItem({ name, name2, id, onClick, ratings, username, favorites }) {
   var rating = null;
   if (ratings && ratings.length > 0) {
     let totalrating = 0;
@@ -31,7 +31,15 @@ function ListItem({ name, name2, id, onClick, ratings, username }) {
               <small>No ratings yet</small>
             </div>
           ) : null}
-          {username !== null ? (
+          {favorites !== undefined ? (
+            <div className="ListItemFavorites">
+              <small>
+                <FaHeart color="red" />
+              </small>
+              <small>{favorites.length}</small>
+            </div>
+          ) : null}
+          {username !== undefined ? (
             <div className="ListItemUsername">
               <small>by {username}</small>
             </div>
