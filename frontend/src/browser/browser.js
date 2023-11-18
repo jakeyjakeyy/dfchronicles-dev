@@ -60,33 +60,43 @@ function Browser({ app, onAppSelect }) {
           ))}
           {maxpage > 1 && (
             <div className="Pagination">
-              {currentpage > 1 && (
-                <div className="PrevPage">
-                  <div
-                    onClick={() => {
-                      if (currentpage > 1) {
-                        setCurrentpage(currentpage - 1);
-                      }
-                    }}
-                  >
-                    Previous
-                  </div>
+              <div
+                className="PrevPage"
+                style={
+                  currentpage === 1
+                    ? { pointerEvents: "none", opacity: 0.5 }
+                    : {}
+                }
+              >
+                <div
+                  onClick={() => {
+                    if (currentpage > 1) {
+                      setCurrentpage(currentpage - 1);
+                    }
+                  }}
+                >
+                  Previous
                 </div>
-              )}
+              </div>
               <div className="PageNumber">{currentpage}</div>
-              {maxpage > currentpage && (
-                <div className="NextPage">
-                  <div
-                    onClick={() => {
-                      if (currentpage < maxpage) {
-                        setCurrentpage(currentpage + 1);
-                      }
-                    }}
-                  >
-                    Next
-                  </div>
+              <div
+                className="NextPage"
+                style={
+                  currentpage > maxpage
+                    ? { pointerEvents: "none", opacity: 0.5 }
+                    : {}
+                }
+              >
+                <div
+                  onClick={() => {
+                    if (currentpage < maxpage) {
+                      setCurrentpage(currentpage + 1);
+                    }
+                  }}
+                >
+                  Next
                 </div>
-              )}
+              </div>
             </div>
           )}
         </div>

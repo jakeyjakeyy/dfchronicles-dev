@@ -23,6 +23,7 @@ function App() {
     localStorage.removeItem("username");
     setToken(null);
     setUsername(null);
+    window.location.reload();
   };
 
   const handleAppSelect = (app) => {
