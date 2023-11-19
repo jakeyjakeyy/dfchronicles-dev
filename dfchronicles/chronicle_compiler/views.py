@@ -55,6 +55,7 @@ class Generations(APIView):
                 return Response({"message": "Favorite added"})
             
         if request.data["request"] == "comment":
+            logger.error(request.data)
             try:
                 if request.data["delete"]:
                     comment = models.Comment.objects.get(id=request.data["comment"])

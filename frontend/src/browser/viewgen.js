@@ -1,6 +1,7 @@
 import React from "react";
 import "./viewgen.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import Generations from "../utils/generations";
 import Rating from "./rating";
@@ -57,7 +58,7 @@ function ViewGen({ gen }) {
       await Generations("comment", gen.id, comment).then((data) => {
         if (data.message === "Comment added") {
           setComment("");
-          Generations("commentQuery", gen.id).then((data) => {
+          Generations("Query", gen.id).then((data) => {
             if (data.comments) {
               setComments(data.comments);
             } else {
@@ -135,6 +136,31 @@ function ViewGen({ gen }) {
               <div className="ViewGenComment" key={comment.id}>
                 <div className="ViewGenCommentHeader">
                   <h5>{comment.user}</h5>
+                  {comment.user === localStorage.getItem("username") && (
+                    <div className="DeleteComment">
+                      <FaRegTrashCan
+                        size={16}
+                        onClick={() => {
+                          Generations("deleteComment", comment.id).then(
+                            (data) => {
+                              if (data.message === "Comment removed") {
+                                console.log(data);
+                                Generations("Query", gen.id).then((data) => {
+                                  if (data.comments) {
+                                    setComments(data.comments);
+                                  } else {
+                                    console.log(data);
+                                  }
+                                });
+                              } else {
+                                console.log(data);
+                              }
+                            }
+                          );
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="ViewGenCommentContent">
                   <p>{comment.comment}</p>

@@ -31,6 +31,12 @@ async function Generations(request, id, feedback) {
       generation: id,
       comment: feedback,
     });
+  } else if (request === "deleteComment") {
+    return apiCall(request, {
+      request: "comment",
+      delete: true,
+      comment: id,
+    });
   } else if (request === "rate") {
     return apiCall(request, {
       request: "rate",

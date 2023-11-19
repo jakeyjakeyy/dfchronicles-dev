@@ -13,16 +13,34 @@
 }
 
 .Favorite {
+  width: fit-content;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
+.Rating {
+  width: fit-content;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
 .ViewGenContent {
-  flex-grow: 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--primary);
+  background-color: var(--background);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0 1rem 1rem;
+  margin-top: 1rem;
+
+  p {
+    transform: translateY(-0.5rem);
+  }
 }
 
 .CommentsDiv {
@@ -84,6 +102,15 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.DeleteComment {
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.DeleteComment:hover {
+  color: rgb(165, 69, 69);
+}
+
 .ViewGenCommentContent {
   margin-top: 0.3rem;
 }
