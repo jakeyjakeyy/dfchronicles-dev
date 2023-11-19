@@ -29,7 +29,7 @@ This only includes declarations and descriptions for files that are not automati
 
 - ### **frontend**
 
-  - ### **src/browser**
+  - #### **src/browser**
 
     Parent folder for the Browser app, a div that displays most information on the web application.
 
@@ -77,7 +77,7 @@ This only includes declarations and descriptions for files that are not automati
 
       Displays user's worlds based on uploaded files.
 
-  - ### **src/navbar**
+  - #### **src/navbar**
 
     Parent folder for the navbar app.
 
@@ -93,7 +93,7 @@ This only includes declarations and descriptions for files that are not automati
 
       Main element and functionality of the navbar app. This changes what is displayed in the Browser app.
 
-  - ### **src/utils**
+  - #### **src/utils**
 
     Parent folder for utilities used in the processing of XMLs and making API requests.
 
