@@ -40,6 +40,7 @@ function App() {
           onLogout={handleLogout}
           onAppSelect={handleAppSelect}
           onLogin={handleLogin}
+          app={selectedApp}
         />
         <Browser app={selectedApp} onAppSelect={handleAppSelect} />
       </div>

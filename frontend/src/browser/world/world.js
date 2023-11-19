@@ -16,6 +16,8 @@ function World({ id, legendsxml, legendsplusxml, onAppSelect, onSetId }) {
     console.log(categoryname);
     if (category === "World") {
       onAppSelect("Worlds");
+    } else {
+      onAppSelect("Worlds");
     }
   };
 

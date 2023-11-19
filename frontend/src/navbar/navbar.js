@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Login from "./login";
 import NavbarItem from "./navbaritems";
 
-function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
+function Navbar({ token, username, onLogout, onAppSelect, onLogin, app }) {
   window.addEventListener("scroll", function () {
     var scrollHeight = document.documentElement.scrollHeight;
     var scrollTop = document.documentElement.scrollTop;
@@ -14,6 +14,11 @@ function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
     var navBorder = document.querySelector(".Nav-Border");
     navBorder.style.height = scrollPercent * 100 + "%";
   });
+
+  useEffect(() => {
+    var navBorder = document.querySelector(".Nav-Border");
+    navBorder.style.height = "0%";
+  }, [app]);
 
   if (!token) {
     return (

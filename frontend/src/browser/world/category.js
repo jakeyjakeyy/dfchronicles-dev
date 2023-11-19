@@ -27,16 +27,6 @@ function Category({
     categoryRaw = "written_content";
   }
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const loadeddata = await LoadWorld(id, category);
-  //     setCategoryData(loadeddata);
-  //   }
-  //   fetchData().then(() => {
-  //     setApp("Categories");
-  //   });
-  // }, [id]);
-
   const fetchObj = (e) => {
     legendsxml.getElementsByTagName(categoryRaw).forEach((data) => {
       data.getElementsByTagName("id").forEach((id) => {
