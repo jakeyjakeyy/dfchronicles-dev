@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useState, useEffect } from "react";
 import Login from "./login";
 import NavbarItem from "./navbaritems";
-import RegisterForm from "./register";
+
 function Navbar({ token, username, onLogout, onAppSelect, onLogin }) {
   window.addEventListener("scroll", function () {
     var scrollHeight = document.documentElement.scrollHeight;

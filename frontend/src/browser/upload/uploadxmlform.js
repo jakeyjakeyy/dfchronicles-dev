@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import XMLParser from "react-xml-parser";
+import "./upload.css";
 
 function UploadXMLForm({
   setLegendsxml,
@@ -37,11 +38,23 @@ function UploadXMLForm({
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input type="file" onChange={(e) => setLegends(e.target.files[0])} />
-      <input type="file" onChange={(e) => setLegendsPlus(e.target.files[0])} />
-      <button type="submit">Upload and Process</button>
-    </form>
+    <div className="UploadXMLForm">
+      <div className="Header">
+        <h2>Upload</h2>
+      </div>
+      <div className="UploadBody">
+        <form onSubmit={handleFormSubmit}>
+          <label>Legends</label>
+          <input type="file" onChange={(e) => setLegends(e.target.files[0])} />
+          <label>Legendsplus</label>
+          <input
+            type="file"
+            onChange={(e) => setLegendsPlus(e.target.files[0])}
+          />
+          <button type="submit">Upload and Process</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
