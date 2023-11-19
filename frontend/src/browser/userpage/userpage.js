@@ -107,6 +107,9 @@ function UserPage({ onAppSelect, onAppSelectId }) {
                 name={gen.title}
                 name2={gen.generation}
                 ratings={gen.ratings}
+                favorites={gen.favorites}
+                comments={gen.comments}
+                username={gen.user}
                 onClick={() => {
                   setGendata(gen);
                 }}

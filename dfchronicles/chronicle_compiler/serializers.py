@@ -10,9 +10,10 @@ class RatingSerializer(serializers.ModelSerializer):
 class GenerationSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     ratings = RatingSerializer(many=True, read_only=True)
+    comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     class Meta:
         model = Generation
-        fields = ['generation', 'id', 'user', 'title', 'ratings', 'favorites']
+        fields = ['generation', 'id', 'user', 'title', 'ratings', 'favorites', 'comments']
         
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')

@@ -58,6 +58,7 @@ function Browser({ app, onAppSelect }) {
               ratings={gen.ratings}
               favorites={gen.favorites}
               username={gen.user}
+              comments={gen.comments}
             />
           ))}
           {maxpage > 1 && (

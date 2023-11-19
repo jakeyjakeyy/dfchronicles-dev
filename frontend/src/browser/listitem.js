@@ -1,8 +1,23 @@
 import React from "react";
 import "./listitem.css";
-import { FaStar, FaCaretRight, FaHeart } from "react-icons/fa";
+import {
+  FaStar,
+  FaCaretRight,
+  FaHeart,
+  FaRegCommentDots,
+  FaCommentDots,
+} from "react-icons/fa";
 
-function ListItem({ name, name2, id, onClick, ratings, username, favorites }) {
+function ListItem({
+  name,
+  name2,
+  id,
+  onClick,
+  ratings,
+  username,
+  favorites,
+  comments,
+}) {
   var rating = null;
   if (ratings && ratings.length > 0) {
     let totalrating = 0;
@@ -20,14 +35,15 @@ function ListItem({ name, name2, id, onClick, ratings, username, favorites }) {
         <div className="ListItemInfo">
           {rating !== null ? (
             <div className="ListItemRating">
-              <small>{rating.toFixed(1)}</small>
               <small>
                 <FaStar color="gold" />
               </small>
+              <small>{rating.toFixed(1)}</small>
               <small>({ratings.length})</small>
             </div>
           ) : ratings ? (
             <div className="ListItemRating">
+              <FaStar color="gold" />
               <small>No ratings yet</small>
             </div>
           ) : null}
@@ -37,6 +53,14 @@ function ListItem({ name, name2, id, onClick, ratings, username, favorites }) {
                 <FaHeart color="red" />
               </small>
               <small>{favorites.length}</small>
+            </div>
+          ) : null}
+          {comments !== undefined ? (
+            <div className="ListItemComments">
+              <small>
+                <FaCommentDots />
+              </small>
+              <small>{comments.length}</small>
             </div>
           ) : null}
           {username !== undefined ? (
