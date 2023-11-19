@@ -23,19 +23,19 @@ This only includes declarations and descriptions for files that are not automati
   _.env is not included in the submission_
   _This is where the OpenAI API key is placed. This can be added by following the instructions in the Build section below_
 
-  - **Dockerfile**
-    _Provides instructions to docker for creating and installing dependencies for the backend_
+  -**Dockerfile**
+  Provides instructions to docker for creating and installing dependencies for the backend
 
 - ### **frontend**
 
   -**browser**
-  _Holds files for the Browser app, a div that displays most information on the web application_
+  Holds files for the Browser app, a div that displays most information on the web application
 
   -**browser/upload/upload.css**
 
   -**browser/upload/uploadxmlform.js**
 
-  _Describes the style and function of the upload form for users to upload their game files to the web application_
+  Describes the style and function of the upload form for users to upload their game files to the web application
 
 ## Running the web app
 
