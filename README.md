@@ -20,8 +20,8 @@ This only includes declarations and descriptions for files that are not automati
 
   - **.env**
 
-  _.env is not included in the submission_
-  _This is where the OpenAI API key is placed. This can be added by following the instructions in the Build section below_
+    _.env is not included in the submission_
+    _This is where the OpenAI API key is placed. This can be added by following the instructions in the Build section below_
 
   - **Dockerfile**
 
@@ -31,31 +31,34 @@ This only includes declarations and descriptions for files that are not automati
 
   - **browser**
 
-  Holds files for the Browser app, a div that displays most information on the web application.
+    Holds files for the Browser app, a div that displays most information on the web application.
 
   - **upload/upload.css and browser/upload/uploadxmlform.js**
 
-  Style and function of the upload form for users to upload their game files to the web application.
+    Style and function of the upload form for users to upload their game files to the web application.
 
   - **userpage/userpage.css & browser/userpage/userpage.js**
 
-  Style and function for displaying a user's page and relevant information.
+    Style and function for displaying a user's page and relevant information.
 
   - **userpage/card.css & browser/userpage/card.js**
 
-  Cards for the user page for selecting categories (favorites, comments, generations).
+    Cards for the user page for selecting categories (favorites, comments, generations).
 
   - **world/world.js & world/world.css**
 
-  Parent div element for displaying events from a world's event data that has been uploaded.
+    Parent div element for displaying events from a world's event data that has been uploaded.
 
   - **world/category.js**
+
     Displays relevant categories for selecting a generation.
 
   - **world/object.js**
+
     Displays information about the state of data collection and generation when an event object has been selected for generation.
 
   - **worlds/worlds.css & worlds/worlds.js**
+
     Displays user's worlds based on uploaded files.
 
 ## Running the web app
