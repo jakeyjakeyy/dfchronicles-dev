@@ -21,7 +21,7 @@ This only includes declarations and descriptions for files that are not automati
   - **.env**
 
     _.env is not included in the submission_
-    _This is where the OpenAI API key is placed. This can be added by following the instructions in the Build section below_
+    _This is where the OpenAI API key is placed. This can be added by following the instructions in the [Build](https://github.com/jakeyjakeyy/dfchronicles#1-build) section below_
 
   - **Dockerfile**
 
@@ -29,9 +29,7 @@ This only includes declarations and descriptions for files that are not automati
 
 - ### **frontend**
 
-  - ### **browser**
-
-    Parent folder for the Browser app, a div that displays most information on the web application.
+  - ### **src/browser**
 
     Parent folder for the Browser app, a div that displays most information on the web application.
 
@@ -51,15 +49,15 @@ This only includes declarations and descriptions for files that are not automati
 
       App to display a generation's information including comments, ratings, and more.
 
-    - **upload/upload.css and browser/upload/uploadxmlform.js**
+    - **upload/upload.css and upload/uploadxmlform.js**
 
       Style and function of the upload form for users to upload their game files to the web application.
 
-    - **userpage/userpage.css & browser/userpage/userpage.js**
+    - **userpage/userpage.css & userpage/userpage.js**
 
       Style and function for displaying a user's page and relevant information.
 
-    - **userpage/card.css & browser/userpage/card.js**
+    - **userpage/card.css & userpage/card.js**
 
       Cards for the user page for selecting categories (favorites, comments, generations).
 
@@ -79,22 +77,8 @@ This only includes declarations and descriptions for files that are not automati
 
       Displays user's worlds based on uploaded files.
 
-    - **navbar**
-      Parent folder for the navbar app.
+  - ### **src/navbar**
 
-      - **login.js & register.js**
-
-        Handle login and registration of users
-
-      - **loginform.css & loginform.js**
-
-        Creates a popup overlay for user login and registration.
-
-      - **navbar.css & navbar.js**
-
-        Main element and functionality of the navbar app. This changes what is displayed in the Browser app.
-
-  - **navbar**
     Parent folder for the navbar app.
 
     - **login.js & register.js**
@@ -108,6 +92,30 @@ This only includes declarations and descriptions for files that are not automati
     - **navbar.css & navbar.js**
 
       Main element and functionality of the navbar app. This changes what is displayed in the Browser app.
+
+  - ### **src/utils**
+
+    Parent folder for utilities used in the processing of XMLs and making API requests.
+
+    - **loadfromclient**
+
+      Parent folder for processing the XMLs. Converts XML data into succinct JSON data ready to send to OpenAI API.
+
+    - **generations.js**
+
+      The main file for handling backend API requests relating to viewing generations and any other related action such as favoriting and commenting on a generation.
+
+    - **getgen.js & getgen.test.js**
+
+      Handling API calls to the backend server to create a new generation from user data. Testing file to ensure getgen.js works properly with varying responses from the API.
+
+    - **getuser.js**
+
+      Handles API calls to return relevant user data for the UserPage app. Returns a user's favorites, comments, and generations.
+
+    - **refreshtoken.js & refreshtoken.test.js**
+
+      Handles API calls to return a valid token to the user. Testing file to ensure refreshtoken.js is working as intended.
 
 ## Running the web app
 

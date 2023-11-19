@@ -1,6 +1,5 @@
 import React from "react";
 import "./world.css";
-import LoadObj from "../../utils/loadobject";
 import { useState, useEffect } from "react";
 import Object from "./object";
 import ListItem from "../listitem";
