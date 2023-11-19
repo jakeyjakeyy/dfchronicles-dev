@@ -3,7 +3,7 @@
 .ViewGen {
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
+  margin: 0 2rem 0;
 }
 .ViewGenHeader {
   position: sticky;
@@ -36,7 +36,7 @@
   color: var(--text);
   border-radius: 10px;
   padding: 0 1rem 1rem;
-  margin-top: 1rem;
+  margin: 1rem;
 
   p {
     transform: translateY(-0.5rem);
@@ -45,6 +45,14 @@
 
 .CommentsDiv {
   margin: 1rem 0 3rem;
+}
+
+.CommentsHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--text);
 }
 
 .CommentForm {

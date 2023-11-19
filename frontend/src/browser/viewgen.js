@@ -109,7 +109,7 @@ function ViewGen({ gen }) {
         <p>{gen.generation}</p>
       </div>
       <div className="CommentsDiv">
-        <h4>Comments</h4>
+        <h4 className="CommentsHeader">Comments</h4>
         <div className="CommentForm">
           <textarea
             className="CommentInput"

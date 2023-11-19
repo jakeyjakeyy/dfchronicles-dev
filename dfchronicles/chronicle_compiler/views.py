@@ -139,6 +139,13 @@ class Generate(APIView):
     prompt = 'In a realm shaped by the intricate mechanics of "Dwarf Fortress", imagine yourself as a skilled archivist dedicated to preserving the rich tapestry of events and history in this unique world. Your mission is to craft an engaging and enthralling narrative using the information at your disposal. While remaining true to the established facts, infuse the story with vivid details that may not explicitly be provided to you, in order to captivate the reader.The beginning of your response should start with you creating a title for your story encased in triple quotes("""title""").'
 
     def post(self, request):
+        if not openai.api_key:
+            title = "Default Title"
+            generation = "\nDefault Generation. This response is a placeholder because the OpenAI API key is not set.\nPlease set your API key in the .env file if you want to use this feature."
+            gen = models.Generation.objects.create(user=request.user, object="Default Generation", prompt="Default Generation", response="Default Response", generation=generation, title=title)
+            gen.save()
+            gen = GenerationSerializer(gen).data
+            return Response({"generation": gen})
         user = request.user
         # model = "gpt-3.5-turbo"
         model = "gpt-4-1106-preview"
@@ -165,7 +172,7 @@ class Generate(APIView):
                     temperature=0.7,
                     top_p=0.8,
                 )
-            except openai.error.ServiceUnavailableErrorr:
+            except openai.error.ServiceUnavailableError:
                 return Response({"message": "Service Unavailable"})
             
             # Extract title from response

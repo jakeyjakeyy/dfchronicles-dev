@@ -3,6 +3,7 @@ import "./world.css";
 import { useState, useEffect } from "react";
 import GetGen from "../../utils/getgen";
 import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
+import ViewGen from "../viewgen";
 
 function Object({ object, legendsxml, legendsplusxml, setcategoryname }) {
   const [response, setResponse] = useState([]);
@@ -57,12 +58,14 @@ function Object({ object, legendsxml, legendsplusxml, setcategoryname }) {
       </div>
     );
   } else {
-    setcategoryname(response.title);
-    return (
-      <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
-        <p>{response.generation}</p>
-      </div>
-    );
+    console.log(response.generation);
+    return <ViewGen gen={response.generation} />;
+    // setcategoryname(response.title);
+    // return (
+    //   <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
+    //     <p>{response.generation}</p>
+    //   </div>
+    // );
   }
 }
 
