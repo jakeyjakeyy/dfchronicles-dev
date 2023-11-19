@@ -33,6 +33,22 @@ This only includes declarations and descriptions for files that are not automati
 
     Holds files for the Browser app, a div that displays most information on the web application.
 
+  - **browser.css & browser.js**
+
+    Style and function of the main browser div to display apps inside.
+
+  - **listitem.css & listitem.js**
+
+    Reusable app to display various information on a card.
+
+  - **rating.js**
+
+    Simple app to handle user rating of a generation.
+
+  - **viewgen.css & viewgen.js**
+
+    App to display a generation's information including comments, ratings, and more.
+
   - **upload/upload.css and browser/upload/uploadxmlform.js**
 
     Style and function of the upload form for users to upload their game files to the web application.
@@ -45,7 +61,7 @@ This only includes declarations and descriptions for files that are not automati
 
     Cards for the user page for selecting categories (favorites, comments, generations).
 
-  - **world/world.js & world/world.css**
+  - **world/world.css & world/world.js**
 
     Parent div element for displaying events from a world's event data that has been uploaded.
 
@@ -55,7 +71,7 @@ This only includes declarations and descriptions for files that are not automati
 
   - **world/object.js**
 
-    Displays information about the state of data collection and generation when an event object has been selected for generation.
+    Displays information about the state of data collection and generation when an event object has been selected.
 
   - **worlds/worlds.css & worlds/worlds.js**
 
