@@ -184,8 +184,9 @@ class Generate(APIView):
 
             gen = models.Generation.objects.create(user=user, object=request.data["prompt"], prompt=self.prompt, response=completion, generation=response, title=extracted_text)
             gen.save()
+            gen = GenerationSerializer(gen).data
             
-            return Response({"generation": response, "title": extracted_text, "id": gen.id})
+            return Response({"generation": gen})
 
 class Register(APIView):
     def post(self, request):

@@ -5,7 +5,14 @@ import GetGen from "../../utils/getgen";
 import loadObjectClient from "../../utils/loadfromclient/loadobjectclient";
 import ViewGen from "../viewgen";
 
-function Object({ object, legendsxml, legendsplusxml, setcategoryname }) {
+function Object({
+  object,
+  legendsxml,
+  legendsplusxml,
+  setcategoryname,
+  onAppSelect,
+  onSetId,
+}) {
   const [response, setResponse] = useState([]);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -59,13 +66,9 @@ function Object({ object, legendsxml, legendsplusxml, setcategoryname }) {
     );
   } else {
     console.log(response.generation);
-    return <ViewGen gen={response.generation} />;
-    // setcategoryname(response.title);
-    // return (
-    //   <div className="Object" style={{ whiteSpace: "pre-wrap" }}>
-    //     <p>{response.generation}</p>
-    //   </div>
-    // );
+    onSetId(response.generation);
+    onAppSelect("ViewGen");
+    // return <ViewGen gen={response.generation} />;
   }
 }
 

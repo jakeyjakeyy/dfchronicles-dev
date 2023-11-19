@@ -11,6 +11,8 @@ function Category({
   setcategoryname,
   legendsxml,
   legendsplusxml,
+  onAppSelect,
+  onSetId,
 }) {
   const [app, setApp] = useState("Categories");
   const [categoryName, setCategoryName] = useState("");
@@ -67,6 +69,8 @@ function Category({
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
           setcategoryname={setcategoryname}
+          onAppSelect={onAppSelect}
+          onSetId={onSetId}
         />
       </div>
     );

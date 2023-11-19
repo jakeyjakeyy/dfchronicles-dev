@@ -135,6 +135,7 @@ function Browser({ app, onAppSelect }) {
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
           onAppSelect={onAppSelect}
+          onSetId={handleSelectId}
         />
       </div>
     );

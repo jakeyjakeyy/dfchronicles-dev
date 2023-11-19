@@ -4,7 +4,7 @@ import Category from "./category";
 import { useState, useEffect } from "react";
 import ListItem from "../listitem";
 
-function World({ id, legendsxml, legendsplusxml, onAppSelect }) {
+function World({ id, legendsxml, legendsplusxml, onAppSelect, onSetId }) {
   const [world, setWorld] = useState([]);
   const [category, setCategory] = useState("Historical Event Collections");
   const [categoryname, setCategoryName] = useState(
@@ -49,6 +49,8 @@ function World({ id, legendsxml, legendsplusxml, onAppSelect }) {
           setcategoryname={setCategoryName}
           legendsxml={legendsxml}
           legendsplusxml={legendsplusxml}
+          onAppSelect={onAppSelect}
+          onSetId={onSetId}
         />
       )}
     </div>
