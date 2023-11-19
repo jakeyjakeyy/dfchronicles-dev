@@ -29,9 +29,9 @@ This only includes declarations and descriptions for files that are not automati
 
 - ### **frontend**
 
-  - **browser**
+  - ### **browser**
 
-    Holds files for the Browser app, a div that displays most information on the web application.
+    Parent folder for the Browser app, a div that displays most information on the web application.
 
     - **browser.css & browser.js**
 
@@ -76,6 +76,21 @@ This only includes declarations and descriptions for files that are not automati
     - **worlds/worlds.css & worlds/worlds.js**
 
       Displays user's worlds based on uploaded files.
+
+  - **navbar**
+    Parent folder for the navbar app.
+
+    - **login.js & register.js**
+
+      Handle login and registration of users
+
+    - **loginform.css & loginform.js**
+
+      Creates a popup overlay for user login and registration.
+
+    - **navbar.css & navbar.js**
+
+      Main element and functionality of the navbar app. This changes what is displayed in the Browser app.
 
 ## Running the web app
 
