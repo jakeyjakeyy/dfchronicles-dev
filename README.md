@@ -29,53 +29,70 @@ This only includes declarations and descriptions for files that are not automati
 
 - ### **frontend**
 
-  - **browser**
+  - #### Browser
 
-    Holds files for the Browser app, a div that displays most information on the web application.
+    - **browser**
 
-    - **browser.css & browser.js**
+      Parent folder for the Browser app, a div that displays most information on the web application.
 
-      Style and function of the main browser div to display apps inside.
+      - **browser.css & browser.js**
 
-    - **listitem.css & listitem.js**
+        Style and function of the main browser div to display apps inside.
 
-      Reusable app to display various information on a card.
+      - **listitem.css & listitem.js**
 
-    - **rating.js**
+        Reusable app to display various information on a card.
 
-      Simple app to handle user rating of a generation.
+      - **rating.js**
 
-    - **viewgen.css & viewgen.js**
+        Simple app to handle user rating of a generation.
 
-      App to display a generation's information including comments, ratings, and more.
+      - **viewgen.css & viewgen.js**
 
-    - **upload/upload.css and browser/upload/uploadxmlform.js**
+        App to display a generation's information including comments, ratings, and more.
 
-      Style and function of the upload form for users to upload their game files to the web application.
+      - **upload/upload.css and browser/upload/uploadxmlform.js**
 
-    - **userpage/userpage.css & browser/userpage/userpage.js**
+        Style and function of the upload form for users to upload their game files to the web application.
 
-      Style and function for displaying a user's page and relevant information.
+      - **userpage/userpage.css & browser/userpage/userpage.js**
 
-    - **userpage/card.css & browser/userpage/card.js**
+        Style and function for displaying a user's page and relevant information.
 
-      Cards for the user page for selecting categories (favorites, comments, generations).
+      - **userpage/card.css & browser/userpage/card.js**
 
-    - **world/world.css & world/world.js**
+        Cards for the user page for selecting categories (favorites, comments, generations).
 
-      Parent div element for displaying events from a world's event data that has been uploaded.
+      - **world/world.css & world/world.js**
 
-    - **world/category.js**
+        Parent div element for displaying events from a world's event data that has been uploaded.
 
-      Displays relevant categories for selecting a generation.
+      - **world/category.js**
 
-    - **world/object.js**
+        Displays relevant categories for selecting a generation.
 
-      Displays information about the state of data collection and generation when an event object has been selected.
+      - **world/object.js**
 
-    - **worlds/worlds.css & worlds/worlds.js**
+        Displays information about the state of data collection and generation when an event object has been selected.
 
-      Displays user's worlds based on uploaded files.
+      - **worlds/worlds.css & worlds/worlds.js**
+
+        Displays user's worlds based on uploaded files.
+
+    - **navbar**
+      Parent folder for the navbar app.
+
+      - **login.js & register.js**
+
+        Handle login and registration of users
+
+      - **loginform.css & loginform.js**
+
+        Creates a popup overlay for user login and registration.
+
+      - **navbar.css & navbar.js**
+
+        Main element and functionality of the navbar app. This changes what is displayed in the Browser app.
 
 ## Running the web app
 
