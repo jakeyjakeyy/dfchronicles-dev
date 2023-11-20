@@ -9,8 +9,8 @@ function UploadXMLForm({
   legendsxml,
   legendsplusxml,
 }) {
-  const [legends, setLegends] = useState(null);
-  const [legendsplus, setLegendsPlus] = useState(null);
+  const [legends, setLegends] = useState("Browse...");
+  const [legendsplus, setLegendsPlus] = useState("Browse...");
 
   useEffect(() => {
     if (legendsplusxml) {
@@ -45,12 +45,25 @@ function UploadXMLForm({
       <div className="UploadBody">
         <form onSubmit={handleFormSubmit}>
           <label>Legends</label>
-          <input type="file" onChange={(e) => setLegends(e.target.files[0])} />
+          <input
+            type="file"
+            id="filelegends"
+            style={{ display: "none" }}
+            onChange={(e) => setLegends(e.target.files[0])}
+          />
+          <label for="filelegends" className="UploadButton">
+            {legends.name ? legends.name : "Browse..."}
+          </label>
           <label>Legendsplus</label>
           <input
             type="file"
+            id="filelegendsplus"
+            style={{ display: "none" }}
             onChange={(e) => setLegendsPlus(e.target.files[0])}
           />
+          <label for="filelegendsplus" className="UploadButton">
+            {legendsplus.name ? legendsplus.name : "Browse..."}
+          </label>
           <button type="submit">Upload and Process</button>
         </form>
       </div>
