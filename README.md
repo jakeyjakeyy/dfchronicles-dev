@@ -14,12 +14,20 @@ Generate stories from Dwarf Fortress legends data with GPT-4.
 
 # File System Architecture
 
+- **docker-compose.yml**
+
+  - Instructions for docker to build the database, frontend, and backend images.
+
+- **README.md**
+
+  - This file!
+
 ## Chronicle Compiler
 
 - **.env**
 
   - _Not included in the submission._
-  - Contains the OpenAI API key. Follow the instructions in the [Build](https://github.com/jakeyjakeyy/dfchronicles#1-build) section for adding.
+  - Contains the OpenAI API key. Follow the instructions in the [Build](https://github.com/jakeyjakeyy/dfchronicles#1-build) section for adding, else a default generation will be returned from the backend.
 
 - **Dockerfile**
 
