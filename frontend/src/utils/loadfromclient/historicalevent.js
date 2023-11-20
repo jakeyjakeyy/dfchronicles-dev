@@ -178,9 +178,12 @@ function loadHistoricalEvent(id, legendsxml, legendsplusxml, histfigs) {
 }
 
 function getHistoricalFigureData(tagName, data, legendsxml, histfigs) {
-  console.log(data);
+  console.log(data, tagName);
   let figureData = {};
-  if (data.getElementsByTagName(tagName).length > 0) {
+  if (
+    data.getElementsByTagName(tagName).length > 0 &&
+    data.getElementsByTagName(tagName)[0].value !== "-1"
+  ) {
     const hfid = data.getElementsByTagName(tagName)[0].value;
     const figure = histfigs[hfid];
     if (figure.length === 0) {
