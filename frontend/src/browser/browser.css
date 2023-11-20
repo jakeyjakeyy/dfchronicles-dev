@@ -5,11 +5,45 @@
   width: 99vw;
 }
 
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  width: fit-content;
+}
+.PrevPage,
+.NextPage {
+  box-sizing: border-box;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  background-color: var(--primary);
+  color: var(--background);
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.PrevPage:hover,
+.NextPage:hover {
+  background-color: var(--background);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.PageNumber {
+  margin: 0 0.5rem;
+  color: var(--primary);
+}
 @media (max-width: 767px) {
   .Browser {
     margin-top: 21%;
     margin: 0 1rem 0;
     z-index: 0;
+  }
+
+  .Pagination {
+    margin: 0 1rem 0;
   }
 }
 

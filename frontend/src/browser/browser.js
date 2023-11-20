@@ -70,16 +70,13 @@ function Browser({ app, onAppSelect }) {
                     ? { pointerEvents: "none", visibility: "hidden" }
                     : {}
                 }
+                onClick={() => {
+                  if (currentpage > 1) {
+                    setCurrentpage(currentpage - 1);
+                  }
+                }}
               >
-                <div
-                  onClick={() => {
-                    if (currentpage > 1) {
-                      setCurrentpage(currentpage - 1);
-                    }
-                  }}
-                >
-                  Previous
-                </div>
+                <span>Previous</span>
               </div>
               <div className="PageNumber">{currentpage}</div>
               <div
@@ -89,16 +86,13 @@ function Browser({ app, onAppSelect }) {
                     ? { pointerEvents: "none", visibility: "hidden" }
                     : {}
                 }
+                onClick={() => {
+                  if (currentpage < maxpage) {
+                    setCurrentpage(currentpage + 1);
+                  }
+                }}
               >
-                <div
-                  onClick={() => {
-                    if (currentpage < maxpage) {
-                      setCurrentpage(currentpage + 1);
-                    }
-                  }}
-                >
-                  Next
-                </div>
+                <span>Next</span>
               </div>
             </div>
           )}
