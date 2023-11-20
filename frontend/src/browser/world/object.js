@@ -20,9 +20,9 @@ function Object({
 
   useEffect(() => {
     async function fetchData() {
-      // Delay loading the object so loading screen can generate first
+      // Delay loading the object so loading screen can generate first before a potential hangup
       setTimeout(async () => {
-        const data = await loadObjectClient(
+        const data = loadObjectClient(
           object,
           legendsxml,
           legendsplusxml,
@@ -30,7 +30,7 @@ function Object({
         );
         setData(data);
         setIsLoading(false);
-      }, 1000);
+      }, 500);
     }
     fetchData();
   }, [object]);
