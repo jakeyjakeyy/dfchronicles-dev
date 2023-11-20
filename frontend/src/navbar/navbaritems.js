@@ -13,7 +13,7 @@ function NavbarItem({ name, onSelect }) {
 
   return (
     <div className="NavItem" onClick={handleClick}>
-      <h4>{name}</h4>
+      {name}
     </div>
   );
 }

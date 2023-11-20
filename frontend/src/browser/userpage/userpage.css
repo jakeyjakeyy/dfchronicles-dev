@@ -62,3 +62,38 @@
   height: 100%;
   margin: 1rem;
 }
+
+@media (max-width: 767px) {
+  .UserPage {
+    width: 100%;
+    height: 100%;
+    margin-top: 21%;
+  }
+  .Body {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .Selections {
+    width: 100%;
+    height: 100%;
+  }
+  .TopRow {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .Favorites,
+  .Comments {
+    width: 100%;
+    height: 100%;
+    margin: 0.5rem 1rem 0.5rem;
+  }
+  .Generation {
+    width: 100%;
+    height: 75%;
+    margin-bottom: 1rem;
+  }
+}

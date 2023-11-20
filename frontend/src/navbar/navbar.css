@@ -43,15 +43,17 @@
 @media (max-width: 767px) {
   .Nav {
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     height: 10%;
     border-right: none;
     border-bottom: 1px solid var(--accent);
-    padding: 0;
+    padding: 0 0 0 0.5rem;
     z-index: 1;
     background-color: var(--background);
+    justify-content: space-between;
   }
-  .NavItem {
+  .NavItem,
+  .Login {
     margin-right: 1rem;
     margin-bottom: 0;
     color: var(--text);
