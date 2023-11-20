@@ -124,9 +124,9 @@ Generate stories from Dwarf Fortress legends data.
 - **refreshtoken.js & refreshtoken.test.js**
   - Handles API calls to return a valid token to the user. Testing file ensures intended functionality.
 
-## Running the web app
+# Running the web app
 
-### 1. **Build**
+## 1. **Build**
 
 - **Docker:** In the main directory, run the following commands in your terminal.
 
@@ -149,18 +149,18 @@ Generate stories from Dwarf Fortress legends data.
   - Create a `.env` file in `dfchronicles/backend` if it doesn't exist.
   - Add the following line to the `.env` file: `OPENAI_API_KEY=your_openAI_API_key`.
 
-### 2. **Accessing the Site**
+## 2. **Accessing the Site**
 
 - **Frontend:** `localhost:3000`
 - **Backend:** `localhost:8000`
 
-### 3. **Creating your data**
+## 3. **Creating your data**
 
 - **Register:** Create an account via the link in the navigation bar.
 - **XMLs:** You can download sample data to use [here].
 - **Upload:** Upload the XMLs on the Upload page via the navigation bar.
 - **Generation:** Select your preferred category and an intriguing event. The app will promptly respond with a unique story tailored to your selected event.
 
-### Note:
+## Note:
 
 - Ensure your `.env` file is configured with a valid OpenAI API key for generations to occur. Tiktoken is used to ensure only generations under a reasonable size will be sent to the API.
