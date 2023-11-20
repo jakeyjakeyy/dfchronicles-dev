@@ -1,11 +1,13 @@
 @import "../../root.css";
 
 form {
+  transform: translateX(-70px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 1rem;
+  width: 15%;
 }
 
 .UploadButton {
@@ -51,4 +53,10 @@ button[type="submit"]:hover {
   background-color: var(--background);
   color: var(--text);
   overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  form {
+    transform: translateX(0);
+  }
 }

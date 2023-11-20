@@ -37,13 +37,13 @@
 }
 @media (max-width: 767px) {
   .Browser {
-    margin-top: 21%;
     margin: 0 1rem 0;
+    margin-top: 100px;
     z-index: 0;
   }
 
-  .Pagination {
-    margin: 0 1rem 0;
+  .PaginationDiv {
+    align-items: center;
   }
 }
 

@@ -50,7 +50,16 @@
 }
 
 @media (max-width: 767px) {
+  .World {
+    width: 80vw;
+  }
+
   .WorldHeader {
-    padding-top: 1rem;
+    width: 100%;
+    transform: translateY(-1.5rem);
+  }
+  .Category {
+    margin-top: 170px;
+    margin-left: 1rem;
   }
 }

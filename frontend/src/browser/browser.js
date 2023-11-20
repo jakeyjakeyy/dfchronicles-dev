@@ -62,37 +62,39 @@ function Browser({ app, onAppSelect }) {
             />
           ))}
           {maxpage > 1 && (
-            <div className="Pagination">
-              <div
-                className="PrevPage"
-                style={
-                  currentpage === 1
-                    ? { pointerEvents: "none", visibility: "hidden" }
-                    : {}
-                }
-                onClick={() => {
-                  if (currentpage > 1) {
-                    setCurrentpage(currentpage - 1);
+            <div className="PaginationDiv">
+              <div className="Pagination">
+                <div
+                  className="PrevPage"
+                  style={
+                    currentpage === 1
+                      ? { pointerEvents: "none", visibility: "hidden" }
+                      : {}
                   }
-                }}
-              >
-                <span>Previous</span>
-              </div>
-              <div className="PageNumber">{currentpage}</div>
-              <div
-                className="NextPage"
-                style={
-                  currentpage > maxpage
-                    ? { pointerEvents: "none", visibility: "hidden" }
-                    : {}
-                }
-                onClick={() => {
-                  if (currentpage < maxpage) {
-                    setCurrentpage(currentpage + 1);
+                  onClick={() => {
+                    if (currentpage > 1) {
+                      setCurrentpage(currentpage - 1);
+                    }
+                  }}
+                >
+                  <span>Prev</span>
+                </div>
+                <div className="PageNumber">{currentpage}</div>
+                <div
+                  className="NextPage"
+                  style={
+                    currentpage > maxpage
+                      ? { pointerEvents: "none", visibility: "hidden" }
+                      : {}
                   }
-                }}
-              >
-                <span>Next</span>
+                  onClick={() => {
+                    if (currentpage < maxpage) {
+                      setCurrentpage(currentpage + 1);
+                    }
+                  }}
+                >
+                  <span>Next</span>
+                </div>
               </div>
             </div>
           )}
