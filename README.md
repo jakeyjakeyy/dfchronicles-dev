@@ -1,8 +1,8 @@
 # Dwarf Fortress Chronicles
 
-Generate stories from Dwarf Fortress legends data.
+Generate stories from Dwarf Fortress legends data with GPT-4.
 
-## Distinctiveness and Complexity
+# Distinctiveness and Complexity
 
 - **Unique Domain:** Unlike common domains in earlier projects such as e-commerce or social media, this project operates in the unique domain of game world history narration. It required a deep dive into the data of Dwarf Fortress, and its world history files. It posed many questions such as how to interpret this data into engaging narratives while staying within the constraints posed by dealing with large amounts of data.
 
