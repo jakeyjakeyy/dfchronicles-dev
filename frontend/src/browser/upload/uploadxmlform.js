@@ -43,7 +43,7 @@ function UploadXMLForm({
         <h2>Upload</h2>
       </div>
       <div className="UploadBody">
-        <form onSubmit={handleFormSubmit}>
+        <form className="UploadXML" onSubmit={handleFormSubmit}>
           <label>Legends</label>
           <input
             type="file"

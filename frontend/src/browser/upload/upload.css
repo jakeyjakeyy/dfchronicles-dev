@@ -1,6 +1,6 @@
 @import "../../root.css";
 
-form {
+.UploadXML {
   transform: translateX(-70px);
   display: flex;
   flex-direction: column;

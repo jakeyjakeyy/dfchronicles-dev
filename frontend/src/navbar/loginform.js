@@ -87,7 +87,7 @@ function LoginForm({ onClose, register }) {
         <button className="LoginForm-close" onClick={onClose}>
           X
         </button>
-        <form onSubmit={handleSubmit}>
+        <form className="LoginPopupForm" onSubmit={handleSubmit}>
           <label>
             Username:
             <input
