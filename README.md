@@ -165,7 +165,7 @@ Generate stories from Dwarf Fortress legends data with GPT-4.
 ## 3. **Creating your data**
 
 - **Register:** Create an account via the link in the navigation bar.
-- **XMLs:** You can download sample data to use [here].
+- **XMLs:** You can download sample data to use [here](https://drive.google.com/drive/folders/1bzT_DZWI8GDgA5xlQpjv_wxicT6q2BaD?usp=sharing).
 - **Upload:** Upload the XMLs on the Upload page via the navigation bar.
 - **Generation:** Select your preferred category and an intriguing event. The app will promptly respond with a unique story tailored to your selected event.
 
