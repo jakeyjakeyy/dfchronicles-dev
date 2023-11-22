@@ -172,8 +172,13 @@ class Generate(APIView):
                     temperature=0.7,
                     top_p=0.8,
                 )
-            except openai.error.ServiceUnavailableError:
-                return Response({"message": "Service Unavailable"})
+            except openai.error.ServiceUnavailableError:  
+                 return Response({"message": "OpenAI API is currently unavailable. Try again later."})
+            except openai.error.APIError as e:
+                if 'Internal server error' in str(e):
+                    return Response({"message": "Error from OpenAI API, their servers are probably having issues. Try again later."})
+                else:
+                    raise e
             
             # Extract title from response
             pattern = r'"""(.*?)"""'
