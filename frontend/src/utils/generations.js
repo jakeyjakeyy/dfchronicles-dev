@@ -1,6 +1,22 @@
 import RefreshToken from "./refreshtoken";
 
 async function Generations(request, id, feedback) {
+  if (request === "GET") {
+    return fetch(`http://localhost:8000/api/generations/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+  }
   if (request === "get") {
     return fetch("http://localhost:8000/api/generations", {
       method: "POST",

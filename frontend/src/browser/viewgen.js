@@ -14,23 +14,31 @@ function ViewGen({ gen }) {
   const [rating, setRating] = React.useState(0);
 
   useEffect(() => {
-    // API call to check if favorite
+    // API call to fetch generation data
     async function fetchData() {
-      const data = await Generations("Query", gen.id);
-      if (data.userfavorite) {
-        setFavorite(true);
+      if (!localStorage.getItem("username")) {
+        const data = await Generations("GET", gen.id);
+        if (data.comments) {
+          setComments(data.comments);
+          setIsLoading(false);
+        }
       } else {
-        setFavorite(false);
-      }
-      if (data.comments) {
-        setComments(data.comments);
-        setIsLoading(false);
-      } else {
-        setIsLoading(false);
-      }
-      if (data.userrating) {
-        console.log(data.userrating);
-        setRating(data.userrating);
+        const data = await Generations("Query", gen.id);
+        if (data.userfavorite) {
+          setFavorite(true);
+        } else {
+          setFavorite(false);
+        }
+        if (data.comments) {
+          setComments(data.comments);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+        }
+        if (data.userrating) {
+          console.log(data.userrating);
+          setRating(data.userrating);
+        }
       }
     }
     fetchData();
