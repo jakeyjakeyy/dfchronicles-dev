@@ -94,14 +94,14 @@ function ViewGen({ gen }) {
         <h3>{gen.title}</h3>
         <h4>{gen.user}</h4>
         <div className="Favorite">
-          {!favorite && (
+          {!favorite && localStorage.getItem("username") && (
             <FaRegHeart
               color={"red"}
               className="FavButton"
               onClick={handleFavoriteClick}
             />
           )}
-          {favorite && (
+          {favorite && localStorage.getItem("username") && (
             <FaHeart
               color={"red"}
               className="FavButton"
@@ -110,7 +110,9 @@ function ViewGen({ gen }) {
           )}
         </div>
         <div className="Rating">
-          <Rating rating={rating} onClick={handleSetRating} />
+          {localStorage.getItem("username") && (
+            <Rating rating={rating} onClick={handleSetRating} />
+          )}
         </div>
       </div>
       <div className="ViewGenContent" style={{ whiteSpace: "pre-wrap" }}>
@@ -118,22 +120,24 @@ function ViewGen({ gen }) {
       </div>
       <div className="CommentsDiv">
         <h4 className="CommentsHeader">Comments</h4>
-        <div className="CommentForm">
-          <textarea
-            className="CommentInput"
-            type="text"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Leave a comment..."
-          />
-          <button
-            className="CommentSubmit"
-            type="submit"
-            onClick={submitComment}
-          >
-            Submit
-          </button>
-        </div>
+        {localStorage.getItem("username") && (
+          <div className="CommentForm">
+            <textarea
+              className="CommentInput"
+              type="text"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Leave a comment..."
+            />
+            <button
+              className="CommentSubmit"
+              type="submit"
+              onClick={submitComment}
+            >
+              Submit
+            </button>
+          </div>
+        )}
         <div className="GenComments">
           {isLoading ? (
             <p>Loading comments...</p>
