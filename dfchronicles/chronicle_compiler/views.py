@@ -174,11 +174,8 @@ class Generate(APIView):
                 )
             except openai.error.ServiceUnavailableError:  
                  return Response({"message": "OpenAI API is currently unavailable. Try again later."})
-            except openai.error.APIError as e:
-                if 'Internal server error' in str(e):
-                    return Response({"message": "Error from OpenAI API, their servers are probably having issues. Try again later."})
-                else:
-                    raise e
+            except openai.error.APIError:
+                return Response({"message": "Error from OpenAI API, their servers are probably having issues. Try again later."})
             
             # Extract title from response
             pattern = r'"""(.*?)"""'
