@@ -2,6 +2,30 @@
 
 Generate stories from Dwarf Fortress legends data with GPT-4.
 
+- [Distinctiveness and Complexity](#distinctiveness-and-complexity)
+
+- [File System Architecture](#file-system-architecture)
+
+  - [Chronicle Compiler](#chronicle-compiler)
+
+  - [Frontend](#frontend)
+
+    -[Browser](#browser)
+
+    - [Navbar](#navbar)
+
+    - [Utils](#utils)
+
+- [Running the web app](#running-the-web-app)
+
+  -[Build](#1-build)
+
+  -[Accessing the site](#2-accessing-the-site)
+
+  -[Creating your data](#3-creating-your-data)
+
+  -[Note](#note)
+
 # Distinctiveness and Complexity
 
 - **Unique Domain:** Unlike common domains in earlier projects such as e-commerce or social media, this project operates in the unique domain of game world history narration. It required a deep dive into the data of Dwarf Fortress, and its world history files. It posed many questions such as how to interpret this data into engaging narratives while staying within the constraints posed by dealing with large amounts of data.
@@ -27,7 +51,7 @@ Generate stories from Dwarf Fortress legends data with GPT-4.
 - **.env**
 
   - _Not included in the submission._
-  - Contains the OpenAI API key. Follow the instructions in the [Build](https://github.com/jakeyjakeyy/dfchronicles#1-build) section for adding, else a default generation will be returned from the backend.
+  - Contains the OpenAI API key. Follow the instructions in the [Build](#1-build) section for adding, else a default generation will be returned from the backend.
 
 - **Dockerfile**
 
