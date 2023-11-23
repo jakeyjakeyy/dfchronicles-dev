@@ -178,7 +178,7 @@ Generate stories from Dwarf Fortress legends data with GPT-4.
 
   If you would like a real generation from the OpenAI API, follow these steps:
 
-  - Create a `.env` file in `dfchronicles/backend` if it doesn't exist.
+  - Create a `.env` file in `dfchronicles/` if it doesn't exist.
   - Add the following line to the `.env` file: `OPENAI_API_KEY=your_openAI_API_key`.
 
 ## 2. **Accessing the Site**
