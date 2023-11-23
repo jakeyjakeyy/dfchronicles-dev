@@ -23,15 +23,16 @@
   width: fit-content;
 }
 .BackButton {
-  border: 1px solid var(--accent);
+  border: 1px solid var(--primary);
   border-radius: 15px;
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: var(--background);
   transition: all 0.2s ease-in-out;
 }
 
 .BackButton:hover {
-  box-shadow: 0 0 5px var(--accent);
+  box-shadow: 0 0 5px var(--primary);
+  border: 1px solid var(--primary);
 }
 
 .Body {
