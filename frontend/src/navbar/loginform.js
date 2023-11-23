@@ -95,6 +95,7 @@ function LoginForm({ onClose, register }) {
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              autoFocus
             />
           </label>
           <label>

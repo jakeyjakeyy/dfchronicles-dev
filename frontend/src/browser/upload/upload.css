@@ -56,6 +56,10 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 767px) {
+  .UploadXML {
+    transform: translateX(0);
+    width: 100%;
+  }
   form {
     transform: translateX(0);
   }
