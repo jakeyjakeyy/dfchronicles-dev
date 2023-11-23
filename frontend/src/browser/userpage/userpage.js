@@ -97,6 +97,16 @@ function UserPage({ onAppSelect, onAppSelectId }) {
       <div className="UserPage">
         <div className="Header">
           <h2>{username}</h2>
+          <div className="BackButtonDiv">
+            <div
+              className="BackButton"
+              onClick={() => {
+                setGenerations(null);
+              }}
+            >
+              Back
+            </div>
+          </div>
         </div>
         <div className="Body">
           <div className="Generations">
