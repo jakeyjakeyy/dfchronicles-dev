@@ -1,8 +1,5 @@
 * {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,10 +9,10 @@ code {
     monospace;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Noto Sans Meetei Mayek:700|Noto Sans Meetei Mayek:400");
+@import url("https://fonts.googleapis.com/css?family=Noto Sans Bengali:700|Noto Sans Bengali:400");
 
 body {
-  font-family: "Noto Sans Meetei Mayek";
+  font-family: "Noto Sans Bengali", sans-serif;
   font-weight: 400;
 }
 
@@ -24,7 +21,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Noto Sans Meetei Mayek";
+  font-family: "Noto Sans Bengali", sans-serif;
   font-weight: 700;
 }
 
@@ -50,10 +47,6 @@ h4 {
 
 h5 {
   font-size: 1.066rem; /* 17.12px */
-}
-
-p {
-  font-size: 1rem; /* 16px */
 }
 
 small {

@@ -35,8 +35,9 @@
   font-weight: lighter;
   margin-bottom: 0.5rem;
   margin-left: 1rem;
-  max-height: 3rem;
+  max-height: 2.5rem;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ListItemInfo {
