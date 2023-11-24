@@ -14,7 +14,11 @@ function RefreshToken() {
         localStorage.removeItem("token");
         return { message: "Expired token" };
       }
-      localStorage.setItem("token", data.access);
+      if (data.access) {
+        localStorage.setItem("token", data.access);
+      } else {
+        return { message: "Please log in again" };
+      }
     })
     .catch((err) => {
       console.log(err);

@@ -23,7 +23,6 @@ function Navbar({ token, username, onLogout, onAppSelect, onLogin, app }) {
   if (!token) {
     return (
       <div className="Nav">
-        <h3>Not logged in</h3>
         <NavbarItem name="Home" onSelect={onAppSelect} />
         <Login onLogin={onLogin} onLogout={onLogout} />
         <Login register={true} onLogin={onLogin} onLogout={onLogout} />
