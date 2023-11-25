@@ -18,15 +18,6 @@ logger = logging.getLogger(__name__)
 
 PAGINATION = 5
 
-# class Generation(APIView):
-#     def get(self, request, pk):
-#         try:
-#             generation = models.Generation.objects.get(id=pk)
-#             comments = CommentSerializer(models.Comment.objects.filter(generation=generation), many=True).data
-#             return Response({"comments": comments})
-#         except models.Generation.DoesNotExist:
-#             return Response({"message": "Generation does not exist"})
-
 class Generations(APIView):
     authentication_classes = [JWTAuthentication]
     
@@ -211,7 +202,7 @@ class Register(APIView):
     def post(self, request):
         if request.data["request"] == "register":
             try:
-                user = models.User.objects.create_user(username=request.data["username"], password=request.data["password"])
+                user = models.User.objects.create_user(username=request.data["username"].lower, password=request.data["password"])
                 user.save()
                 return Response({"message": "User created"})
             except:
