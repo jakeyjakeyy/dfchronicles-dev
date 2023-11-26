@@ -195,4 +195,4 @@ Generate stories from Dwarf Fortress legends data with GPT-4.
 
 ## Note:
 
-- Ensure your `.env` file is configured with a valid OpenAI API key for generations to occur. Tiktoken is used to ensure only generations under a reasonable size will be sent to the API.
+- Ensure your `.env` file is configured with a valid OpenAI API key for generations to occur. Tiktoken is used to ensure only generations under a reasonable size will be sent to the API. This step is not necessary and a default response will be sent from the server if no API key can be found.
