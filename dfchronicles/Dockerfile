@@ -1,5 +1,7 @@
 FROM python:3.10
-COPY . /app/dfchronicles
-WORKDIR /app/dfchronicles
+COPY . /app/backend
+WORKDIR /app/backend
 RUN pip install -r requirements.txt
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+RUN python3 manage.py collectstatic --noinput
+RUN python3 manage.py migrate
+CMD ["gunicorn", "--config", "gunicorn_config.py", "backend.wsgi:application"]

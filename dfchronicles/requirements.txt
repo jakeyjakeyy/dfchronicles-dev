@@ -7,3 +7,4 @@ djangorestframework-simplejwt==4.8.0
 openai==0.28.1
 python-dotenv==0.19.2
 tiktoken==0.5.1
+gunicorn==21.2.0
